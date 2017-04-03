@@ -17,7 +17,8 @@ public class ClientWindow extends JFrame
 	public JTextField username = new JTextField();
 	public JTextField password = new JTextField();
 
-	public JLabel offlineResponse = new JLabel();
+	public JPanel panel = new JPanel();
+
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -27,8 +28,12 @@ public class ClientWindow extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
         setVisible(true);
+        add(panel);
         initConnection();
+        panel.setSize(p_width, p_height);
+        
         //initFields();
+        
     }
 
     private void initFields() throws IOException
@@ -49,18 +54,18 @@ public class ClientWindow extends JFrame
     	sendMessage.setSize(125, 40);
     	sendMessage.setLocation(125, 80);
     	sendMessage.setText("Send");
-    	add(sendMessage);
+    	panel.add(sendMessage);
     	sendMessage.setVisible(true);
 
     	sendText.setSize(200, 25);
     	sendText.setLocation(25, 350);
-    	add(sendText);
+    	panel.add(sendText);
     	sendText.setVisible(true);
 
     	chatText.setSize(200, 175);
     	chatText.setLocation(25, 130);
     	chatText.setEditable(false);
-    	add(chatText);
+    	panel.add(chatText);
     	chatText.setVisible(true);
     }
 
@@ -68,18 +73,18 @@ public class ClientWindow extends JFrame
     {
     	username.setSize(200, 25);
     	username.setLocation(38, 350);
-    	add(username);
+    	panel.add(username);
     	username.setVisible(true);
 
     	password.setSize(200, 25);
     	password.setLocation(38, 390);
-    	add(password);
+    	panel.add(password);
     	password.setVisible(true);
     }
 
     private void initOffline()
     {
-    	String sorry = "Sorry, We're Offline Right now\n we're working on Maintenance!";
+    	JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
     }
 
     private void initConnection() throws IOException
@@ -95,7 +100,7 @@ public class ClientWindow extends JFrame
 		}
 		catch(ConnectException e)
 		{
-
+			initOffline();
 		}		
     }
 }
