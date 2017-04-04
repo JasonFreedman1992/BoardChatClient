@@ -1,17 +1,13 @@
 import javax.swing.*;
-import java.net.Socket;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ConnectException;
+import java.net.Socket;
 
 public class ClientListWindow extends JFrame
 {
-	//public JButton connectChat = new JButton("Connect");
-	//public JButton sendMessage = new JButton("Send");
-
-	//public JTextField sendText = new JTextField();
-	//public JTextField chatText = new JTextField();
     ClientLogin login;
 	public int width;
 	public int height;
@@ -34,6 +30,12 @@ public class ClientListWindow extends JFrame
         //initFields();
         
     }
+
+    //public JButton connectChat = new JButton("Connect");
+    //public JButton sendMessage = new JButton("Send");
+
+    //public JTextField sendText = new JTextField();
+    //public JTextField chatText = new JTextField();
 
     // private void initFields(JPanel p_panel) throws IOException
     // {
@@ -82,10 +84,11 @@ public class ClientListWindow extends JFrame
     {
     	try
     	{
-    		String serverAddress = "54.70.172.148";
-    		Socket s = new Socket(serverAddress, 49152);
+    		Socket s = new Socket("54.70.172.148", 49152);
 			BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-			String answer = input.readLine();
+            PrintWriter output = new PrintWriter(s.getOutputStream(), true);
+            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+            String answer = input.readLine();
 			initSignIn();
 			//username.setText(answer);
 			//password.setText(answer);

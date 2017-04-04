@@ -13,6 +13,7 @@ public class ClientLogin
     public JTextField createUsername = new JTextField(15);
     public JTextField createPassword = new JTextField(15);
 	public ClientPanel panel = new ClientPanel();
+    
 	ClientLogin()
 	{
         panel.setBackground(Color.lightGray);
