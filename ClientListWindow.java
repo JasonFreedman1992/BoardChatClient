@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.io.*;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,12 +23,7 @@ public class ClientListWindow extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initConnection();
-        if(offline == false)
-        {
-            add(login.panel);
-            addKeyListener(control);
-        }
-        setVisible(true);
+        //setVisible(true);
         //initFields();
         
     }
@@ -80,14 +76,33 @@ public class ClientListWindow extends JFrame
     {
     	try
     	{
-    		Socket s = new Socket("54.70.172.148", 49152);
+    		Socket socket = new Socket("54.70.172.148", 49152);
+            DataInputStream console = null;
+            DataOutputStream streamOut = null;
+            DataInputStream streamIn = null;
             login = new ClientLogin();
-            BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            String answer = input.readLine();
-            
-			
-			login.username.setText(answer);
-            System.out.println(answer);
+            add(login.panel);
+            addKeyListener(control);
+            setVisible(true);
+            console = new DataInputStream(System.in);
+            streamOut = new DataOutputStream(socket.getOutputStream());
+            String line = "";
+            while(!line.equals(".bye"))
+            {  
+                try
+                {  
+                    line = console.readLine();
+                    streamOut.writeUTF(line);
+                    streamOut.flush();
+                    streamIn = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                    String input = streamIn.readUTF();
+                    System.out.println(input);
+                }
+                catch(IOException e)
+                {
+
+                }
+            }
 			//password.setText(answer);
 		}
 		catch(ConnectException e)
