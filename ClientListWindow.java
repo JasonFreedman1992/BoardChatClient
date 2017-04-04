@@ -15,6 +15,7 @@ public class ClientListWindow extends JFrame
     ClientLogin login;
 	public int width;
 	public int height;
+    public boolean offline;
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -25,7 +26,10 @@ public class ClientListWindow extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initConnection();
-        add(login.panel);
+        if(offline == false)
+        {
+            add(login.panel);
+        }
         setVisible(true);
         //initFields();
         
@@ -89,6 +93,7 @@ public class ClientListWindow extends JFrame
 		catch(ConnectException e)
 		{
 			initOffline();
+            offline = true;
 		}		
     }
 }
