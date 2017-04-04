@@ -10,7 +10,7 @@ import java.awt.Dimension;
 import java.awt.*;
 import net.miginfocom.swing.*;
 
-public class ClientWindow extends JFrame
+public class ClientLoginWindow extends JFrame
 {
 	public JButton connectChat = new JButton("Connect");
 	public JButton sendMessage = new JButton("Send");
@@ -27,8 +27,8 @@ public class ClientWindow extends JFrame
     public JLabel createUsernameLabel = new JLabel("Create Username");
     public JLabel createPasswordLabel = new JLabel("Create Password");
 
-    public JTextField createUsername = new JTextField();
-    public JTextField createPassword = new JTextField();
+    public JTextField createUsername = new JTextField(15);
+    public JTextField createPassword = new JTextField(15);
 
 	public ClientPanel panel = new ClientPanel();
 
@@ -98,8 +98,20 @@ public class ClientWindow extends JFrame
         panel.add(passwordLabel, "wrap, center");
         passwordLabel.setVisible(true);
     	password.setSize(225, 25);
-    	panel.add(password, "wrap");
+    	panel.add(password, "wrap 50px");
     	password.setVisible(true);
+
+        panel.add(createUsernameLabel, "wrap, center");
+        createUsernameLabel.setVisible(true);
+        createUsername.setSize(225, 25);
+        panel.add(createUsername, "wrap");
+        createUsername.setVisible(true);
+
+        panel.add(createPasswordLabel, "wrap, center");
+        createPasswordLabel.setVisible(true);
+        createPassword.setSize(225, 25);
+        panel.add(createPassword, "wrap");
+        createPassword.setVisible(true);
     }
 
     private void initCreateAccount()
