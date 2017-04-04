@@ -12,7 +12,7 @@ public class ClientListWindow extends JFrame
 	public int width;
 	public int height;
     public boolean offline;
-
+    ClientListWindowController control = new ClientListWindowController();
     public void init(int p_width, int p_height) throws IOException
     {
         setTitle("ChatBoard");
@@ -25,6 +25,7 @@ public class ClientListWindow extends JFrame
         if(offline == false)
         {
             add(login.panel);
+            addKeyListener(control);
         }
         setVisible(true);
         //initFields();
@@ -70,11 +71,6 @@ public class ClientListWindow extends JFrame
     // 	chatText.setVisible(true);
     // }
 
-    private void initSignIn()
-    {
-        login = new ClientLogin();
-    }
-
     private void initOffline()
     {
     	JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
@@ -85,12 +81,13 @@ public class ClientListWindow extends JFrame
     	try
     	{
     		Socket s = new Socket("54.70.172.148", 49152);
-			BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            PrintWriter output = new PrintWriter(s.getOutputStream(), true);
-            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+            login = new ClientLogin();
+            BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
             String answer = input.readLine();
-			initSignIn();
-			//username.setText(answer);
+            
+			
+			login.username.setText(answer);
+            System.out.println(answer);
 			//password.setText(answer);
 		}
 		catch(ConnectException e)
