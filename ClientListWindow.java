@@ -27,8 +27,6 @@ public class ClientListWindow extends JFrame
         initConnection();
         add(login.panel);
         setVisible(true);
-
-        
         //initFields();
         
     }
