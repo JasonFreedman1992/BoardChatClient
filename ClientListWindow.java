@@ -100,7 +100,7 @@ public class ClientListWindow extends JFrame
                 }
                 catch(IOException e)
                 {
-
+                    line = ".bye";
                 }
             }
 			//password.setText(answer);
