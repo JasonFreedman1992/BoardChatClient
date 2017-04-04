@@ -4,7 +4,7 @@ public class Client
 {
 	public static void main(String[] args) throws IOException
 	{
-		ClientLoginWindow win = new ClientLoginWindow();
+		ClientListWindow win = new ClientListWindow();
 		win.init(275,750);
 	}
 }

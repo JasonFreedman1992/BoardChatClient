@@ -1,37 +1,18 @@
 import javax.swing.*;
-import java.awt.event.*;
 import java.net.Socket;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.ConnectException;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.*;
-import net.miginfocom.swing.*;
 
-public class ClientLoginWindow extends JFrame
+public class ClientListWindow extends JFrame
 {
-	public JButton connectChat = new JButton("Connect");
-	public JButton sendMessage = new JButton("Send");
+	//public JButton connectChat = new JButton("Connect");
+	//public JButton sendMessage = new JButton("Send");
 
-	public JTextField sendText = new JTextField();
-	public JTextField chatText = new JTextField();
-
-    public JLabel usernameLabel = new JLabel("Username");
-    public JLabel passwordLabel = new JLabel("Password");
-
-	public JTextField username = new JTextField(15);
-	public JTextField password = new JTextField(15);
-
-    public JLabel createUsernameLabel = new JLabel("Create Username");
-    public JLabel createPasswordLabel = new JLabel("Create Password");
-
-    public JTextField createUsername = new JTextField(15);
-    public JTextField createPassword = new JTextField(15);
-
-	public ClientPanel panel = new ClientPanel();
-
+	//public JTextField sendText = new JTextField();
+	//public JTextField chatText = new JTextField();
+    ClientLogin login;
 	public int width;
 	public int height;
 
@@ -43,10 +24,8 @@ public class ClientLoginWindow extends JFrame
         height = p_height;
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        panel.setBackground(Color.lightGray);
-        add(panel);
-        panel.setLayout(new MigLayout("aligny center, alignx center"));
         initConnection();
+        add(login.panel);
         setVisible(true);
 
         
@@ -89,34 +68,7 @@ public class ClientLoginWindow extends JFrame
 
     private void initSignIn()
     {
-        panel.add(usernameLabel, "wrap, center");
-        usernameLabel.setVisible(true);
-    	username.setSize(225, 25);
-    	panel.add(username, "wrap");
-    	username.setVisible(true);
-
-        panel.add(passwordLabel, "wrap, center");
-        passwordLabel.setVisible(true);
-    	password.setSize(225, 25);
-    	panel.add(password, "wrap 50px");
-    	password.setVisible(true);
-
-        panel.add(createUsernameLabel, "wrap, center");
-        createUsernameLabel.setVisible(true);
-        createUsername.setSize(225, 25);
-        panel.add(createUsername, "wrap");
-        createUsername.setVisible(true);
-
-        panel.add(createPasswordLabel, "wrap, center");
-        createPasswordLabel.setVisible(true);
-        createPassword.setSize(225, 25);
-        panel.add(createPassword, "wrap");
-        createPassword.setVisible(true);
-    }
-
-    private void initCreateAccount()
-    {
-
+        login = new ClientLogin();
     }
 
     private void initOffline()
