@@ -51,6 +51,7 @@ public class ClientProcess
 	        		break;
 	        	}
 			}
+			System.out.println("output thread finished");
 		}
 	}
 
@@ -70,6 +71,7 @@ public class ClientProcess
 	            	break;
 	            }
 			}
+			System.out.println("input thread finished");
 		}
 	}
 }
