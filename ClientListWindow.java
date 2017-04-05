@@ -8,7 +8,7 @@ public class ClientListWindow extends JFrame
 
 	public int width;
 	public int height;
-    public boolean offline;
+    
     public void init(int p_width, int p_height) throws IOException
     {
         setTitle("ChatBoard");
