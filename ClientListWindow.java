@@ -9,7 +9,6 @@ public class ClientListWindow extends JFrame
 	public int width;
 	public int height;
     public boolean offline;
-    ClientLoginWindowController logincontrol = new ClientLoginWindowController();
     public void init(int p_width, int p_height) throws IOException
     {
         setTitle("ChatBoard");
@@ -21,7 +20,7 @@ public class ClientListWindow extends JFrame
 
         login = new ClientLogin();
         add(login.panel);
-        addKeyListener(logincontrol);
+        addKeyListener(login.logincontrol);
         setFocusable(true);
         setVisible(true);
         

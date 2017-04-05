@@ -1,18 +1,20 @@
 import javax.swing.*;
 import net.miginfocom.swing.*;
 import java.awt.Color;
+import java.awt.event.*;
 
 public class ClientLogin
 {
 	public JLabel usernameLabel = new JLabel("Username");
     public JLabel passwordLabel = new JLabel("Password");
-	public JTextField username = new JTextField(15);
-	public JTextField password = new JTextField(15);
+	public static JTextField username = new JTextField(15);
+	public static JTextField password = new JTextField(15);
     public JLabel createUsernameLabel = new JLabel("Create Username");
     public JLabel createPasswordLabel = new JLabel("Create Password");
-    public JTextField createUsername = new JTextField(15);
-    public JTextField createPassword = new JTextField(15);
+    public static JTextField createUsername = new JTextField(15);
+    public static JTextField createPassword = new JTextField(15);
 	public ClientPanel panel = new ClientPanel();
+    public ClientLoginWindowController logincontrol = new ClientLoginWindowController();
     
 	ClientLogin()
 	{
@@ -43,4 +45,30 @@ public class ClientLogin
         panel.add(createPassword, "wrap");
         createPassword.setVisible(true);
 	}
+
+    class ClientLoginWindowController implements KeyListener
+    {
+        public void keyPressed(KeyEvent e)
+        {
+            if(e.getKeyCode() == KeyEvent.VK_ENTER)
+            {
+                System.out.println("enter hit");
+            }
+
+            if(e.getKeyCode() == KeyEvent.VK_F)
+            {
+                System.out.println("f hit");
+            }
+        }
+
+        public void keyReleased(KeyEvent e)
+        {
+
+        }
+
+        public void keyTyped(KeyEvent e)
+        {
+            
+        }
+    }
 }
