@@ -10,7 +10,6 @@ public class ClientProcess
 	public Scanner console = new Scanner(System.in);
 	DataOutputStream streamOut = null;
 	DataInputStream streamIn = null;
-	boolean hold = true;
 	Thread outThread = new Thread();
 	Thread inThread = new Thread();
 
@@ -31,7 +30,8 @@ public class ClientProcess
 	    }
 	    catch(Exception e)
 	    {
-	    	
+	    	outThread.stop();
+	    	inThread.stop();
 	    }
 	}
 
@@ -48,7 +48,7 @@ public class ClientProcess
 	        	}
 	        	catch(IOException e)
 	        	{
-
+	        		break;
 	        	}
 			}
 		}
@@ -67,7 +67,7 @@ public class ClientProcess
 				}
 	            catch(IOException e)
 	            {
-
+	            	break;
 	            }
 			}
 		}

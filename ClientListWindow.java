@@ -23,6 +23,7 @@ public class ClientListWindow extends JFrame
         add(login.panel);
         addKeyListener(control);
         setVisible(true);
+        
         initConnection connect = new initConnection();
         if(connect.success)
         {
