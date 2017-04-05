@@ -22,6 +22,7 @@ public class ClientListWindow extends JFrame
         login = new ClientLogin();
         add(login.panel);
         addKeyListener(logincontrol);
+        setFocusable(true);
         setVisible(true);
         
         initConnection connect = new initConnection();
