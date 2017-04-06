@@ -18,21 +18,28 @@ public class ClientLoginProcess
 
 	//output output = new output();
 	input input = new input();
-	loginConnect loginConnect = new loginConnect();
 
 	public ClientLoginProcess(Socket p_socket) throws IOException
 	{
 		streamOut = new DataOutputStream(p_socket.getOutputStream());
 		streamIn = new DataInputStream(new BufferedInputStream(p_socket.getInputStream()));
-	    try
-	    {
-	    	inThread = new Thread(input);
-	    	inThread.start();
-	    }
-	    catch(Exception e)
-	    {
-	    	inThread.stop();
-	    }
+	}
+
+	public void attemptLogin()
+	{
+		try
+		{
+			if(!clientData.username.equals("") && !clientData.password.equals(""))
+			{
+				streamOut.writeUTF(clientData.username);
+				streamOut.writeUTF(clientData.password);
+				streamOut.flush();
+			}
+		}
+		catch(IOException e)
+		{
+
+		}
 	}
 
 	class input implements Runnable
@@ -52,38 +59,6 @@ public class ClientLoginProcess
 	            }
 			}
 			System.out.println("input thread finished");
-		}
-	}
-
-	public void attemptLogin()
-	{
-		try
-		{
-			outThread = new Thread(loginConnect);
-			outThread.start();
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	}
-
-	class loginConnect implements Runnable
-	{
-		public void run()
-		{
-			try
-			{
-				if(!clientData.username.equals("") && !clientData.password.equals(""))
-				{
-					streamOut.writeUTF(clientData.username);
-					streamOut.flush();
-				}
-			}
-			catch(IOException e)
-			{
-				System.out.println(e);	
-			}
 		}
 	}
 }

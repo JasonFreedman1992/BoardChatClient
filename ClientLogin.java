@@ -6,6 +6,9 @@ import java.awt.event.*;
 public class ClientLogin
 {
     public ClientLoginProcess process;
+    public ClientPanel panel = new ClientPanel();
+    public ClientLoginController logincontrol = new ClientLoginController();
+    public ClientCreateLoginController createlogincontrol = new ClientCreateLoginController();
     public ClientData clientData = new ClientData();
 	public JLabel usernameLabel = new JLabel("Username");
     public JLabel passwordLabel = new JLabel("Password");
@@ -18,10 +21,6 @@ public class ClientLogin
 
     public JButton login = new JButton("Login");
     public JButton createlogin = new JButton("Create Account");
-
-	public ClientPanel panel = new ClientPanel();
-    public ClientLoginController logincontrol = new ClientLoginController();
-    public ClientCreateLoginController createlogincontrol = new ClientCreateLoginController();
     
 	ClientLogin()
 	{
@@ -30,12 +29,14 @@ public class ClientLogin
 
 		panel.add(usernameLabel, "wrap, center");
         usernameLabel.setVisible(true);
+
     	username.setSize(225, 25);
     	panel.add(username, "wrap");
     	username.setVisible(true);
     	
         panel.add(passwordLabel, "wrap, center");
         passwordLabel.setVisible(true);
+
     	password.setSize(225, 25);
     	panel.add(password, "wrap, center");
     	password.setVisible(true);
@@ -54,12 +55,14 @@ public class ClientLogin
 
         panel.add(createUsernameLabel, "wrap, center");
         createUsernameLabel.setVisible(true);
+
         createUsername.setSize(225, 25);
         panel.add(createUsername, "wrap");
         createUsername.setVisible(true);
 
         panel.add(createPasswordLabel, "wrap, center");
         createPasswordLabel.setVisible(true);
+
         createPassword.setSize(225, 25);
         panel.add(createPassword, "wrap, center");
         createPassword.setVisible(true);
@@ -117,7 +120,7 @@ public class ClientLogin
         {
             if(e.getKeyCode() == KeyEvent.VK_ENTER)
             {
-
+                attemptCreateLogin();
             }
         }
 
