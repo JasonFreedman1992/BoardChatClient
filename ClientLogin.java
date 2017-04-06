@@ -85,7 +85,6 @@ public class ClientLogin
         clientData.username = username.getText();
         clientData.password = password.getText();
         process.attemptLogin();
-        System.out.println(clientData.username);
     }
 
     class ClientLoginController implements KeyListener
