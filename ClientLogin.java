@@ -5,6 +5,8 @@ import java.awt.event.*;
 
 public class ClientLogin
 {
+    public ClientLoginProcess process;
+    public ClientData clientData = new ClientData();
 	public JLabel usernameLabel = new JLabel("Username");
     public JLabel passwordLabel = new JLabel("Password");
 	public static JTextField username = new JTextField(15);
@@ -13,8 +15,13 @@ public class ClientLogin
     public JLabel createPasswordLabel = new JLabel("Create Password");
     public static JTextField createUsername = new JTextField(15);
     public static JTextField createPassword = new JTextField(15);
+
+    public JButton login = new JButton("Login");
+    public JButton createlogin = new JButton("Create Account");
+
 	public ClientPanel panel = new ClientPanel();
-    public ClientLoginWindowController logincontrol = new ClientLoginWindowController();
+    public ClientLoginController logincontrol = new ClientLoginController();
+    public ClientCreateLoginController createlogincontrol = new ClientCreateLoginController();
     
 	ClientLogin()
 	{
@@ -30,8 +37,20 @@ public class ClientLogin
         panel.add(passwordLabel, "wrap, center");
         passwordLabel.setVisible(true);
     	password.setSize(225, 25);
-    	panel.add(password, "wrap 50px");
+    	panel.add(password, "wrap, center");
     	password.setVisible(true);
+
+        login.setSize(225, 25);
+        panel.add(login, "wrap 50px, center");
+        login.setVisible(true);
+        login.addKeyListener(logincontrol);
+        login.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                attemptLogin();
+            }
+        });
 
         panel.add(createUsernameLabel, "wrap, center");
         createUsernameLabel.setVisible(true);
@@ -42,22 +61,37 @@ public class ClientLogin
         panel.add(createPasswordLabel, "wrap, center");
         createPasswordLabel.setVisible(true);
         createPassword.setSize(225, 25);
-        panel.add(createPassword, "wrap");
+        panel.add(createPassword, "wrap, center");
         createPassword.setVisible(true);
+
+        createlogin.setSize(225, 25);
+        panel.add(createlogin, "wrap, center");
+        createlogin.setVisible(true);
+        createlogin.addKeyListener(createlogincontrol);
+        createlogin.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                attemptCreateLogin();
+            }
+        });
 	}
 
-    class ClientLoginWindowController implements KeyListener
+    void attemptLogin()
+    {
+        clientData.username = username.getText();
+        clientData.password = password.getText();
+        process.attemptLogin();
+        System.out.println(clientData.username);
+    }
+
+    class ClientLoginController implements KeyListener
     {
         public void keyPressed(KeyEvent e)
         {
             if(e.getKeyCode() == KeyEvent.VK_ENTER)
             {
-                System.out.println("enter hit");
-            }
-
-            if(e.getKeyCode() == KeyEvent.VK_F)
-            {
-                System.out.println("f hit");
+                attemptLogin();
             }
         }
 
@@ -70,5 +104,41 @@ public class ClientLogin
         {
             
         }
+    }
+
+    void attemptCreateLogin()
+    {
+
+    }
+
+    class ClientCreateLoginController implements KeyListener
+    {
+        public void keyPressed(KeyEvent e)
+        {
+            if(e.getKeyCode() == KeyEvent.VK_ENTER)
+            {
+
+            }
+        }
+
+        public void keyReleased(KeyEvent e)
+        {
+
+        }
+
+        public void keyTyped(KeyEvent e)
+        {
+            
+        }
+    }
+
+    public void loginAttempt()
+    {
+
+    }
+
+    public void createloginAttempt()
+    {
+
     }
 }
