@@ -9,7 +9,6 @@ public class ClientLoginProcess
 {
 	public static ClientData clientData = new ClientData();
 
-	public Scanner console = new Scanner(System.in);
 	DataOutputStream streamOut = null;
 	DataInputStream streamIn = null;
 
