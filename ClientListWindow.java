@@ -28,7 +28,6 @@ public class ClientListWindow extends JFrame
             System.out.println("Unsuccessful Connection to server!");
             JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
         }
-        
     }
 }
 

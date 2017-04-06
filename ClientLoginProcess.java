@@ -9,6 +9,8 @@ public class ClientLoginProcess
 {
 	public static ClientData clientData = new ClientData();
 
+	Socket socket = null;
+
 	DataOutputStream streamOut = null;
 	DataInputStream streamIn = null;
 
@@ -20,8 +22,12 @@ public class ClientLoginProcess
 
 	public ClientLoginProcess(Socket p_socket) throws IOException
 	{
-		streamOut = new DataOutputStream(p_socket.getOutputStream());
-		streamIn = new DataInputStream(new BufferedInputStream(p_socket.getInputStream()));
+		socket = p_socket;
+		streamOut = new DataOutputStream(socket.getOutputStream());
+		streamIn = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+		inThread = new Thread(input);
+		inThread.start();
 	}
 
 	public void attemptLogin()
@@ -37,7 +43,7 @@ public class ClientLoginProcess
 		}
 		catch(IOException e)
 		{
-
+			System.out.println("no connection");
 		}
 	}
 
