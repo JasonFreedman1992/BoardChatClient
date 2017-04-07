@@ -41,8 +41,8 @@ public class ClientLoginProcess
 			try
 			{
 				while(val)
-				
-{					while((nBytes = nBytes = socket.read(buf)) > 0)
+				{
+				while((nBytes = nBytes = socket.read(buf)) > 0)
 					{
                         buf.flip();
                         Charset charset = Charset.forName("us-ascii");

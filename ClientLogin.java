@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class ClientLogin
 {
     public ClientLoginProcess process;
+    
     public ClientPanel panel = new ClientPanel();
     public ClientLoginController logincontrol = new ClientLoginController();
     public ClientCreateLoginController createlogincontrol = new ClientCreateLoginController();
