@@ -12,8 +12,9 @@ public class initConnection
 	{
     	try
     	{
-    		socket.open(serverAddress);
+    		socket = SocketChannel.open();
     		socket.connect(serverAddress);
+    		socket.configureBlocking(false);
     		success = true;
 		}
 		catch(ConnectException e)
