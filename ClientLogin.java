@@ -85,7 +85,14 @@ public class ClientLogin
     {
         clientData.username = username.getText();
         clientData.password = password.getText();
-        //process.attemptLogin();
+        if(!clientData.loginPressed)
+        {
+            clientData.loginPressed = true;
+        }
+        else if(clientData.loginPressed)
+        {
+            clientData.loginPressed = false;
+        }
     }
 
     class ClientLoginController implements KeyListener

@@ -53,24 +53,20 @@ public class ClientLoginProcess
 						if(key.isReadable())
 						{
 							handleRead(key);
-							//System.out.println("readable");
+							// key is readable
 						}
 						else
 						{
-							//System.out.println("not readable");
+							// key is not readable
 						}
 						if(key.isWritable())
 						{
-							// way to write
-							Thread.sleep(1000);
-							ByteBuffer msgBuffer = ByteBuffer.wrap("hello world".getBytes());
-							socket.write(msgBuffer);
-							msgBuffer.rewind();
-
+							// key is writable
+							handleWrite(key);
 						}
 						else
 						{
-							//System.out.println("not writable");
+							// key is not writeable
 							
 						}
 					}
@@ -79,7 +75,7 @@ public class ClientLoginProcess
 				{
 
 				}
-				catch(InterruptedException f)
+				catch(InterruptedException e)
 				{
 
 				}
@@ -115,64 +111,23 @@ public class ClientLoginProcess
 			System.out.println(msg);
 		}
 
-		void handleWrite(SelectionKey key) throws IOException 
+		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
+			Thread.sleep(1000);
+			System.out.println("handle " + clientData.loginPressed);
+			if(clientData.loginPressed)
+			{
+				ByteBuffer msgBuffer = ByteBuffer.wrap(clientData.username.getBytes());
+				socket.write(msgBuffer);
+				msgBuffer.rewind();
+			}
+			else
+			{
 
+			}
+			//ByteBuffer msgBuffer = ByteBuffer.wrap("hello world".getBytes());
+			//socket.write(msgBuffer);
+			//msgBuffer.rewind();
 		}
 	}
 }
-/*		void broadcast() throws IOException
-		{
-			ByteBuffer msgBuffer = ByteBuffer.wrap("hello world".getBytes());
-			for(SelectionKey key : selector.keys())
-			{
-				if(key.isValid() && key.channel() instanceof SocketChannel)
-				{
-					SocketChannel sch = (SocketChannel) key.channel();
-					sch.write(msgBuffer);
-					msgBuffer.rewind();
-				}
-			}
-		}*/
-			// int nBytes = 0;
-			// ByteBuffer buf = ByteBuffer.allocate(256);
-			// try
-			// {
-			// 	while(val)
-			// 	{
-			// 		while((nBytes = nBytes = socket.read(buf)) > 0)
-			// 		{
-   //                      buf.flip();
-   //                      Charset charset = Charset.forName("us-ascii");
-   //                      CharsetDecoder decoder = charset.newDecoder();
-   //                      CharBuffer charBuffer = decoder.decode(buf);
-   //                      System.out.println(charBuffer.toString());
-   //                      buf.flip();
-			// 		}
-			// 	}
-			// }
-			// catch(IOException e)
-			// {
-			// 	e.printStackTrace();
-			// }
-
-
-	// class output implements Runnable
-	// {
-	// 	public void run()
-	// 	{
-	// 		while(true)
-	// 		{
-	// 			try
-	// 			{
-	// 				streamOut.writeUTF(console.nextLine());
-	//         		streamOut.flush();
-	//         	}
-	//         	catch(IOException e)
-	//         	{
-	//         		break;
-	//         	}
-	// 		}
-	// 		System.out.println("output thread finished");
-	// 	}
-	// }
