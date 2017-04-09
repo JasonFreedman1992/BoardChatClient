@@ -106,28 +106,41 @@ public class ClientLoginProcess
 			else
 			{
 				msg = key.attachment() + ": " + sb.toString();
+				System.out.println(msg);
 			}
-
-			System.out.println(msg);
 		}
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
-			Thread.sleep(1000);
-			System.out.println("handle " + clientData.loginPressed);
+			//Thread.sleep(1000);
 			if(clientData.loginPressed)
 			{
-				ByteBuffer msgBuffer = ByteBuffer.wrap(clientData.username.getBytes());
-				socket.write(msgBuffer);
-				msgBuffer.rewind();
+				ByteBuffer usernameBuffer = ByteBuffer.wrap(clientData.username.getBytes());
+				ByteBuffer passwordBuffer = ByteBuffer.wrap(clientData.password.getBytes());
+				socket.write(usernameBuffer);
+				socket.write(passwordBuffer);
+				usernameBuffer.rewind();
+				passwordBuffer.rewind();
+				clientData.loginPressed = false;
 			}
 			else
 			{
 
 			}
-			//ByteBuffer msgBuffer = ByteBuffer.wrap("hello world".getBytes());
-			//socket.write(msgBuffer);
-			//msgBuffer.rewind();
+			if(clientData.createPressed)
+			{
+				ByteBuffer createUsernameBuffer = ByteBuffer.wrap(clientData.createUsername.getBytes());
+				ByteBuffer createPasswordBuffer = ByteBuffer.wrap(clientData.createPassword.getBytes());
+				socket.write(createUsernameBuffer);
+				socket.write(createPasswordBuffer);
+				createUsernameBuffer.rewind();
+				createPasswordBuffer.rewind();
+				clientData.createPressed = false;
+			}
+			else
+			{
+
+			}
 		}
 	}
 }

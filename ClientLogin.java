@@ -123,7 +123,16 @@ public class ClientLogin
 
     void attemptCreateLogin()
     {
-
+        clientData.createUsername = createUsername.getText();
+        clientData.createPassword = createPassword.getText();
+        if(!clientData.createPressed)
+        {
+            clientData.createPressed = true;
+        }
+        else if(clientData.createPressed)
+        {
+            clientData.createPressed = false;
+        }
     }
 
     class ClientCreateLoginController implements KeyListener
