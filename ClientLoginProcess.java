@@ -113,12 +113,16 @@ public class ClientLoginProcess
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
 			//Thread.sleep(1000);
+			ByteBuffer commandBuffer;
 			if(clientData.loginPressed)
 			{
 				ByteBuffer usernameBuffer = ByteBuffer.wrap(clientData.username.getBytes());
 				ByteBuffer passwordBuffer = ByteBuffer.wrap(clientData.password.getBytes());
+				commandBuffer = ByteBuffer.wrap(clientData.loginCommand.getBytes());
+				socket.write(commandBuffer);
 				socket.write(usernameBuffer);
 				socket.write(passwordBuffer);
+				commandBuffer.rewind();
 				usernameBuffer.rewind();
 				passwordBuffer.rewind();
 				clientData.loginPressed = false;
@@ -131,8 +135,11 @@ public class ClientLoginProcess
 			{
 				ByteBuffer createUsernameBuffer = ByteBuffer.wrap(clientData.createUsername.getBytes());
 				ByteBuffer createPasswordBuffer = ByteBuffer.wrap(clientData.createPassword.getBytes());
+				commandBuffer = ByteBuffer.wrap(clientData.createCommand.getBytes());
+				socket.write(commandBuffer);
 				socket.write(createUsernameBuffer);
 				socket.write(createPasswordBuffer);
+				commandBuffer.rewind();
 				createUsernameBuffer.rewind();
 				createPasswordBuffer.rewind();
 				clientData.createPressed = false;
