@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.BorderLayout;
+
 import java.io.*;
 import java.io.IOException;
 
@@ -8,6 +10,7 @@ public class ClientListWindow extends JFrame
     ClientFriendList friendlist;
     ClientData clientData = new ClientData();
     ClientNetworkProcess networkProcess;
+    BorderLayout border = new BorderLayout();
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -16,7 +19,7 @@ public class ClientListWindow extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initConnection connect = new initConnection();
-
+        setLayout(border);
         if(connect.success)
         {
             System.out.println("Successful Connection to server!");

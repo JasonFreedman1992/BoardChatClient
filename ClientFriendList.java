@@ -14,7 +14,8 @@ public class ClientFriendList
 	ClientFriendList()
 	{
 		panel.setBackground(Color.lightGray);
-		panel.setLayout(new MigLayout("aligny center, alignx center"));
+		panel.setLayout(new MigLayout(""));
+		//panel.setLayout(new MigLayout("aligny center, alignx center"));
 
 		panel.add(friendsLabel, "wrap, center");
 		friendsLabel.setVisible(true);
