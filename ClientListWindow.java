@@ -5,6 +5,9 @@ import java.io.IOException;
 public class ClientListWindow extends JFrame
 {
     ClientLogin login;
+    ClientFriendList friendlist;
+    ClientData clientData = new ClientData();
+    ClientNetworkProcess networkProcess;
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -20,7 +23,25 @@ public class ClientListWindow extends JFrame
             login = new ClientLogin();
             add(login.panel);
             setVisible(true);
-            login.process = new ClientLoginProcess(connect.socket);
+            networkProcess = new ClientNetworkProcess(connect.socket);
+            while(!clientData.loginSuccess)
+            {
+                try
+                {
+                    Thread.sleep(500);
+                    System.out.println("login unsuccessful!");
+                }
+                catch(InterruptedException e)
+                {
+
+                }
+            }
+            getContentPane().remove(login.panel);
+            friendlist = new ClientFriendList();
+            add(friendlist.panel);
+            getContentPane().validate();
+
+            System.out.println("login successfull!");
         }
         else
         {

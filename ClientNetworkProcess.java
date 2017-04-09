@@ -4,12 +4,12 @@ import java.nio.charset.*;
 import java.io.IOException;
 import java.util.*;
 
-public class ClientLoginProcess
+public class ClientNetworkProcess
 {
 	Thread loginThread = new Thread();
 	input input = null;
 
-	public ClientLoginProcess(SocketChannel p_socket) throws IOException
+	public ClientNetworkProcess(SocketChannel p_socket) throws IOException
 	{
 		loginThread = new Thread(new input(p_socket));
 		loginThread.start();
@@ -33,7 +33,6 @@ public class ClientLoginProcess
 		//
 		public void run()
 		{
-
 			while(true)
 			{
 				try
@@ -105,6 +104,13 @@ public class ClientLoginProcess
 			}
 			else
 			{
+				msg = sb.toString();
+				System.out.println(msg);
+				if(msg.equals("Password matches the Username."))
+				{
+					clientData.loginSuccess = true;
+				}
+				System.out.println(clientData.loginSuccess);
 				msg = key.attachment() + ": " + sb.toString();
 				System.out.println(msg);
 			}

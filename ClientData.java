@@ -9,6 +9,8 @@ public class ClientData
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
 
+	public static boolean loginSuccess = false;
+
 	public static String username = "";
 	public static String password = "";
 
