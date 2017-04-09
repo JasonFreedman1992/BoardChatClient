@@ -83,7 +83,7 @@ public class ClientLogin
 
     void attemptLogin()
     {
-        clientData.username = username.getText();
+        clientData.username = username.getText() + "=";
         clientData.password = password.getText();
         if(!clientData.loginPressed)
         {
@@ -116,14 +116,9 @@ public class ClientLogin
         }
     }
 
-
-
-
-
-
     void attemptCreateLogin()
     {
-        clientData.createUsername = createUsername.getText();
+        clientData.createUsername = createUsername.getText() + "=";
         clientData.createPassword = createPassword.getText();
         if(!clientData.createPressed)
         {
