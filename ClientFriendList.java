@@ -2,6 +2,7 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 import java.awt.Color;
 import java.awt.event.*;
+import java.awt.*;
 
 public class ClientFriendList
 {
@@ -17,9 +18,11 @@ public class ClientFriendList
 		panel.setLayout(new MigLayout(""));
 		//panel.setLayout(new MigLayout("aligny center, alignx center"));
 
+		friendsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(friendsLabel, "wrap, center");
 		friendsLabel.setVisible(true);
 
+		boardsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(boardsLabel, "wrap, center");
 		boardsLabel.setVisible(true);
 	}	

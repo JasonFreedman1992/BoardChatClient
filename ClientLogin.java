@@ -2,6 +2,7 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 import java.awt.Color;
 import java.awt.event.*;
+import java.awt.*;
 
 public class ClientLogin
 {
@@ -28,6 +29,7 @@ public class ClientLogin
         panel.setBackground(Color.lightGray);
         panel.setLayout(new MigLayout("aligny center, alignx center"));
 
+        usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		panel.add(usernameLabel, "wrap, center");
         usernameLabel.setVisible(true);
 
@@ -35,6 +37,7 @@ public class ClientLogin
     	panel.add(username, "wrap");
     	username.setVisible(true);
     	
+        passwordLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         panel.add(passwordLabel, "wrap, center");
         passwordLabel.setVisible(true);
 
@@ -54,6 +57,7 @@ public class ClientLogin
             }
         });
 
+        createUsernameLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         panel.add(createUsernameLabel, "wrap, center");
         createUsernameLabel.setVisible(true);
 
@@ -61,6 +65,7 @@ public class ClientLogin
         panel.add(createUsername, "wrap");
         createUsername.setVisible(true);
 
+        createPasswordLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         panel.add(createPasswordLabel, "wrap, center");
         createPasswordLabel.setVisible(true);
 

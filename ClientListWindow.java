@@ -31,7 +31,7 @@ public class ClientListWindow extends JFrame
             {
                 try
                 {
-                    Thread.sleep(500);
+                    Thread.sleep(2000);
                     System.out.println("login unsuccessful!");
                 }
                 catch(InterruptedException e)
@@ -43,6 +43,9 @@ public class ClientListWindow extends JFrame
             friendlist = new ClientFriendList();
             add(friendlist.panel);
             getContentPane().validate();
+            ClientBoardWindow BoardWindow = new ClientBoardWindow();
+            BoardWindow.init(1024, 768, this);
+            
 
             System.out.println("login successfull!");
         }
