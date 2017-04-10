@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import net.miginfocom.swing.*;
 import java.awt.Color;
 import java.awt.event.*;
@@ -12,15 +13,27 @@ public class ClientFriendList
 	public JLabel friendsLabel = new JLabel("Friends List");
 	public JLabel boardsLabel = new JLabel("Open Boards");
 
+	public JTree tree;
+	DefaultMutableTreeNode root = new DefaultMutableTreeNode("Root");
+	DefaultMutableTreeNode vegetableNode = new DefaultMutableTreeNode("Vegetables");
+    DefaultMutableTreeNode fruitNode = new DefaultMutableTreeNode("Fruits");
+
+
+
 	ClientFriendList()
 	{
-		panel.setBackground(Color.lightGray);
-		panel.setLayout(new MigLayout(""));
-		panel.setLayout(new MigLayout("alignx center"));
+		root.add(vegetableNode);
+		root.add(fruitNode);
 
-		panel.add(new addButton());
-		panel.add(new subButton());
-		panel.add(new setButton(), "wrap");
+		tree = new JTree(root);
+
+		panel.setBackground(Color.lightGray);
+		panel.setLayout(new MigLayout());
+
+		panel.add(new addButton(), "center");
+		panel.add(new subButton(), "center");
+		panel.add(new setButton(), "center, wrap");
+		panel.add(tree, "align right");
 		//panel.
 
 		//friendsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
