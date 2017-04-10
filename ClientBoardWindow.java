@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.io.*;
 import java.io.IOException;
 
@@ -8,17 +9,30 @@ public class ClientBoardWindow extends JFrame
 	ClientData clientData = new ClientData();
 	BorderLayout border = new BorderLayout();
 	public JTabbedPane tabbedpane = new JTabbedPane();
-	public ClientPanel panel = new ClientPanel();
-
+	ImageIcon icon;
 
 	public void init(int p_width, int p_height, JFrame p_listwindow)
-	{
+	{		
+		icon = new ImageIcon("icon.png");
+		ClientPanel panel1 = new ClientPanel();
+		tabbedpane.addTab("Tab 1", icon, panel1, "does nothing");
+		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
+
+		ClientPanel panel2 = new ClientPanel();
+		tabbedpane.addTab("Tab 2", icon, panel2, "does nothing 2");
+		tabbedpane.setMnemonicAt(0, KeyEvent.VK_2);
+
+		ClientPanel panel3 = new ClientPanel();
+		tabbedpane.addTab("Tab 3", icon, panel3, "does nothing 3");
+		tabbedpane.setMnemonicAt(0, KeyEvent.VK_3);
+
 		setTitle("ChatBoard");
 		setSize(p_width, p_height);
 		setLocationRelativeTo(null);
 		setLocation(p_listwindow.getX() - 1074, p_listwindow.getY());
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(border);
+		add(tabbedpane);
 		setVisible(true);
 	}
 }
