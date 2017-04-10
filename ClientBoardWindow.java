@@ -12,14 +12,9 @@ public class ClientBoardWindow extends JFrame
 	{
 		setTitle("ChatBoard");
 		setSize(p_width, p_height);
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
-		Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-		System.out.println(rect.getWidth() + " " + rect.getHeight());
-		//setLocation()
-		setLocationRelativeTo(p_listwindow);
+		setLocationRelativeTo(null);
 		setLocation(p_listwindow.getX() - 1074, p_listwindow.getY());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(border);
 		setVisible(true);
 	}

@@ -25,6 +25,7 @@ public class ClientListWindow extends JFrame
             System.out.println("Successful Connection to server!");
             login = new ClientLogin();
             add(login.panel);
+            setLocation(this.getX() + 600, this.getY());
             setVisible(true);
             networkProcess = new ClientNetworkProcess(connect.socket);
             while(!clientData.loginSuccess)
