@@ -2,7 +2,7 @@ import java.nio.*;
 import java.nio.channels.*;
 import java.nio.charset.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.Iterator;
 
 public class ClientNetworkProcess
 {
@@ -37,6 +37,7 @@ public class ClientNetworkProcess
 			{
 				try
 				{
+					Thread.sleep(1000);
 					SelectionKey key;
 					Iterator<SelectionKey> iter;
 					selector.select();
@@ -66,7 +67,6 @@ public class ClientNetworkProcess
 						else
 						{
 							// key is not writeable
-							
 						}
 					}
 				}
@@ -80,7 +80,7 @@ public class ClientNetworkProcess
 				}
 			}
 		}
-
+		
 		void handleRead(SelectionKey key) throws IOException
 		{
 			ByteBuffer buffer = ByteBuffer.allocate(256);

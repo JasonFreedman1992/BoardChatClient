@@ -6,7 +6,6 @@ import java.io.IOException;
 public class ClientListWindow extends JFrame
 {
     ClientLogin login;
-    ClientFriendList friendlist;
     ClientData clientData = new ClientData();
     ClientNetworkProcess networkProcess;
     BorderLayout border = new BorderLayout();
@@ -17,13 +16,15 @@ public class ClientListWindow extends JFrame
         setSize(p_width, p_height);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(280, 300));
+        setPreferredSize(new java.awt.Dimension(280, 750));
         initConnection connect = new initConnection();
         setLayout(border);
         if(connect.success)
         {
             System.out.println("Successful Connection to server!");
             login = new ClientLogin();
-            add(login.panel);
+            add(login.FramePanel);
             setLocation(this.getX() + 600, this.getY());
             setVisible(true);
             networkProcess = new ClientNetworkProcess(connect.socket);
@@ -39,10 +40,8 @@ public class ClientListWindow extends JFrame
 
                 }
             }
-            getContentPane().remove(login.panel);
-            friendlist = new ClientFriendList();
-            add(friendlist.panel);
-            getContentPane().validate();
+            getContentPane().remove(login.FramePanel);
+            //getContentPane().validate();
             ClientBoardWindow BoardWindow = new ClientBoardWindow();
             BoardWindow.init(1024, 768, this);
             
