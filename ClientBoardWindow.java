@@ -7,6 +7,9 @@ public class ClientBoardWindow extends JFrame
 {
 	ClientData clientData = new ClientData();
 	BorderLayout border = new BorderLayout();
+	public JTabbedPane tabbedpane = new JTabbedPane();
+	public ClientPanel panel = new ClientPanel();
+
 
 	public void init(int p_width, int p_height, JFrame p_listwindow)
 	{
