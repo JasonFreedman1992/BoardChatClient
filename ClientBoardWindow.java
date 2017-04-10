@@ -14,17 +14,20 @@ public class ClientBoardWindow extends JFrame
 	public void init(int p_width, int p_height, JFrame p_listwindow)
 	{		
 		icon = new ImageIcon("icon.png");
-		ClientPanel panel1 = new ClientPanel();
-		tabbedpane.addTab("Tab 1", icon, panel1, "does nothing");
+		ClientBoardPanel panel1 = new ClientBoardPanel();
+		tabbedpane.addTab("Tab 1", icon, panel1);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
 
-		ClientPanel panel2 = new ClientPanel();
-		tabbedpane.addTab("Tab 2", icon, panel2, "does nothing 2");
+		ClientBoardPanel panel2 = new ClientBoardPanel();
+		tabbedpane.addTab("Tab 2", icon, panel2);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_2);
 
-		ClientPanel panel3 = new ClientPanel();
-		tabbedpane.addTab("Tab 3", icon, panel3, "does nothing 3");
+		ClientBoardPanel panel3 = new ClientBoardPanel();
+		tabbedpane.addTab("Tab 3", icon, panel3);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_3);
+
+		// set to top left right or bottom
+		//tabbedpane.setTabPlacement(JTabbedPane.RIGHT);
 
 		setTitle("ChatBoard");
 		setSize(p_width, p_height);

@@ -29,7 +29,7 @@ public class ClientLogin
         panel.setBackground(Color.lightGray);
         panel.setLayout(new MigLayout("aligny center, alignx center"));
 
-        usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+        usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		panel.add(usernameLabel, "wrap, center");
         usernameLabel.setVisible(true);
 
@@ -37,7 +37,7 @@ public class ClientLogin
     	panel.add(username, "wrap");
     	username.setVisible(true);
     	
-        passwordLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+        passwordLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(passwordLabel, "wrap, center");
         passwordLabel.setVisible(true);
 
@@ -57,7 +57,7 @@ public class ClientLogin
             }
         });
 
-        createUsernameLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+        createUsernameLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(createUsernameLabel, "wrap, center");
         createUsernameLabel.setVisible(true);
 
@@ -65,7 +65,7 @@ public class ClientLogin
         panel.add(createUsername, "wrap");
         createUsername.setVisible(true);
 
-        createPasswordLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+        createPasswordLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(createPasswordLabel, "wrap, center");
         createPasswordLabel.setVisible(true);
 

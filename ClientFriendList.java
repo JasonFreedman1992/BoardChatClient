@@ -16,14 +16,45 @@ public class ClientFriendList
 	{
 		panel.setBackground(Color.lightGray);
 		panel.setLayout(new MigLayout(""));
-		//panel.setLayout(new MigLayout("aligny center, alignx center"));
+		panel.setLayout(new MigLayout("alignx center"));
 
-		friendsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		panel.add(friendsLabel, "wrap, center");
-		friendsLabel.setVisible(true);
+		panel.add(new addButton());
+		panel.add(new subButton());
+		panel.add(new setButton(), "wrap");
+		//panel.
 
-		boardsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		panel.add(boardsLabel, "wrap, center");
-		boardsLabel.setVisible(true);
+		//friendsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		//panel.add(friendsLabel, "wrap, center");
+		//friendsLabel.setVisible(true);
+
+		//boardsLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		//panel.add(boardsLabel, "wrap, center");
+		//boardsLabel.setVisible(true);
 	}	
+	class addButton extends JLabel
+	{
+		ImageIcon add = new ImageIcon("add.png");
+		addButton()
+		{
+			setIcon(add);
+		}
+	}
+
+	class subButton extends JLabel
+	{
+		ImageIcon sub = new ImageIcon("sub.png");
+		subButton()
+		{
+			setIcon(sub);
+		}
+	}
+
+	class setButton extends JLabel
+	{
+		ImageIcon set = new ImageIcon("set.png");
+		setButton()
+		{
+			setIcon(set);
+		}
+	}
 }
