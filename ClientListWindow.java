@@ -32,8 +32,9 @@ public class ClientListWindow extends JFrame
             {
                 try
                 {
-                    Thread.sleep(2000);
-                    System.out.println("login unsuccessful!");
+                    Thread.sleep(100);
+                    login.resultsLabel.setText(clientData.loginResult);
+                    //System.out.println("login unsuccessful!");
                 }
                 catch(InterruptedException e)
                 {

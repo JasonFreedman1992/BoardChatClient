@@ -10,7 +10,7 @@ public class ClientLogin
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JSeparator passwordSeparator;
-    private javax.swing.JLabel resultsLabel;
+    public javax.swing.JLabel resultsLabel;
     private javax.swing.JTextField username;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JSeparator usernameSeparator;
@@ -20,6 +20,7 @@ public class ClientLogin
         clientData = new ClientData();
         FramePanel = new javax.swing.JPanel();
         LoginPanel = new javax.swing.JPanel();
+        LoginPanel.setLayout(new java.awt.BorderLayout());
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         usernameSeparator = new javax.swing.JSeparator();
@@ -87,10 +88,13 @@ public class ClientLogin
         username.addFocusListener(new loginFocusListen());
         username.addKeyListener(new keyListen());
 
-        resultsLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18));
+        resultsLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 15));
         resultsLabel.setForeground(new java.awt.Color(255, 255, 255));
         resultsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        resultsLabel.setText("Results");
+        resultsLabel.setMinimumSize(new java.awt.Dimension(200, 10));
+        //resultsLabel.setPreferedSize(new java.awt.Dimension(200, 10));
+        resultsLabel.setMaximumSize(new java.awt.Dimension(200, 10));
+        resultsLabel.setText("");
 
         password.setBackground(new java.awt.Color(0, 102, 153));
         password.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,6 +124,7 @@ public class ClientLogin
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            clientData.loginPressed = true;
             System.out.println("login listen clicked!");
             attemptLogin();
         }
@@ -148,6 +153,7 @@ public class ClientLogin
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            clientData.createPressed = true;
             System.out.println("create listen clicked!");
             createLogin();
         }
@@ -203,20 +209,23 @@ public class ClientLogin
     }
 
     class keyListen implements java.awt.event.KeyListener
-    {
+    {     
         public void keyPressed(java.awt.event.KeyEvent e)
         {
-            if(clientData.createFocused == true)
+            if(e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
             {
-                System.out.println("create pressed");
-                clientData.createPressed = true;
-                createLogin();
-            }
-            else if(clientData.loginFocused == true)
-            {
-                System.out.println("login pressed");
-                clientData.loginPressed = true;
-                attemptLogin();
+                if(clientData.createFocused == true)
+                {
+                    System.out.println("create pressed");
+                    clientData.createPressed = true;
+                    createLogin();
+                }
+                else if(clientData.loginFocused == true)
+                {
+                    System.out.println("login pressed");
+                    clientData.loginPressed = true;
+                    attemptLogin();
+                }
             }
         }
 

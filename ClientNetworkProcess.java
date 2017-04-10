@@ -37,7 +37,7 @@ public class ClientNetworkProcess
 			{
 				try
 				{
-					Thread.sleep(1000);
+					Thread.sleep(100);
 					SelectionKey key;
 					Iterator<SelectionKey> iter;
 					selector.select();
@@ -110,7 +110,18 @@ public class ClientNetworkProcess
 				{
 					clientData.loginSuccess = true;
 				}
-				System.out.println(clientData.loginSuccess);
+				else if(msg.equals("Username not found."))
+				{
+					clientData.loginResult = "No User Found";
+				}
+				else if(msg.equals("Password doesnt match the Username."))
+				{
+					clientData.loginResult = "Wrong Password";
+				}
+				else
+				{
+
+				}
 				msg = key.attachment() + ": " + sb.toString();
 				System.out.println(msg);
 			}
