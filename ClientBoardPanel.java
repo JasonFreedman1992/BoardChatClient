@@ -15,6 +15,7 @@ public class ClientBoardPanel extends JPanel
 	JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	JScrollPane scrollpane = new JScrollPane(chatReceive);
+	ClientData clientData = new ClientData();
 	JPanel drawPanel = new JPanel();
 	//JTextField chatReceive = new JTextField(17);
 	JButton send = new JButton("Send");
@@ -43,12 +44,19 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
-					chatReceive.setText(chatSend.getText()); 
+					clientData.msgPressed = true; 
+					clientData.output = chatSend.getText();
+					chatReceive.setText(chatSend.getText());
+					System.out.println("clientData.output = " + clientData.output);
+
 				}
 				else
 				{
+					clientData.msgPressed = true;
+					clientData.output = chatSend.getText();
 					chatReceive.setText(chatReceive.getText() + "\n" + chatSend.getText());
 					chatSend.setText("");
+					System.out.println("clientData.output = " + clientData.output);
 				}
 			}
 		});
@@ -82,4 +90,31 @@ public class ClientBoardPanel extends JPanel
 
 	    }
 	}
+
+    class msgSend implements MouseListener
+    {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+
+        }
+        public void mouseEntered(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent me) 
+        {
+
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent me) 
+        {
+
+        }
+    }
 }

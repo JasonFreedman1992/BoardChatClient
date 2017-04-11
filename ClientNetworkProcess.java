@@ -132,6 +132,7 @@ public class ClientNetworkProcess
 		ByteBuffer passwordBuffer;
 		ByteBuffer createUsernameBuffer;
 		ByteBuffer createPasswordBuffer;
+		ByteBuffer msgBuffer;
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
@@ -164,6 +165,20 @@ public class ClientNetworkProcess
 				createUsernameBuffer.rewind();
 				createPasswordBuffer.rewind();
 				clientData.createPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.msgPressed)
+			{
+				commandBuffer = ByteBuffer.wrap(clientData.msgCommand.getBytes());
+				msgBuffer = ByteBuffer.wrap(clientData.output.getBytes());
+				socket.write(commandBuffer);
+				socket.write(msgBuffer);
+				commandBuffer.rewind();
+				msgBuffer.rewind();
+				clientData.msgPressed = false;
 			}
 			else
 			{
