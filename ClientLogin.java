@@ -34,8 +34,8 @@ public class ClientLogin
         password = new javax.swing.JPasswordField();
 
         FramePanel.setBackground(new java.awt.Color(0, 102, 153));
-        FramePanel.setMinimumSize(new java.awt.Dimension(250, 225));
-        FramePanel.setPreferredSize(new java.awt.Dimension(275, 750));
+        FramePanel.setMinimumSize(new java.awt.Dimension(280, 750));
+        FramePanel.setPreferredSize(new java.awt.Dimension(280, 750));
         FramePanel.setLayout(new java.awt.GridBagLayout());
 
         LoginPanel.setBackground(new java.awt.Color(0, 102, 153));

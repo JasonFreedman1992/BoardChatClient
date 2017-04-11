@@ -1,14 +1,17 @@
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.io.*;
 import java.io.IOException;
 
 public class ClientListWindow extends JFrame
 {
     ClientLogin login;
+    ClientFriendsList friendsList;
     ClientData clientData = new ClientData();
     ClientNetworkProcess networkProcess;
-    BorderLayout border = new BorderLayout();
+    //BorderLayout border = new BorderLayout();
+
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -16,10 +19,10 @@ public class ClientListWindow extends JFrame
         setSize(p_width, p_height);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(280, 300));
-        setPreferredSize(new java.awt.Dimension(280, 750));
+        setMinimumSize(new java.awt.Dimension(280, 750));
+        //setPreferredSize(new java.awt.Dimension(280, 750));
         initConnection connect = new initConnection();
-        setLayout(border);
+        //setLayout(border);
         if(connect.success)
         {
             System.out.println("Successful Connection to server!");
@@ -41,12 +44,21 @@ public class ClientListWindow extends JFrame
 
                 }
             }
+
+            GroupLayout layout = new GroupLayout(getContentPane());
+            friendsList = new ClientFriendsList(layout);
+            getContentPane().setLayout(layout);
+            //setLayout(null);
             getContentPane().remove(login.FramePanel);
-            //getContentPane().validate();
+            add(friendsList.borderPanel);
+            add(friendsList.infoPanel);
+            getContentPane().setBackground(new Color(0, 102, 153));
+            getContentPane().validate();
+
             ClientBoardWindow BoardWindow = new ClientBoardWindow();
             BoardWindow.init(1024, 768, this);
-            
 
+            
             System.out.println("login successfull!");
         }
         else
