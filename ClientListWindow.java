@@ -10,6 +10,7 @@ public class ClientListWindow extends JFrame
     ClientFriendsList friendsList;
     ClientData clientData = new ClientData();
     ClientNetworkProcess networkProcess;
+    Thread BoardThread = new Thread();
     //BorderLayout border = new BorderLayout();
 
 
@@ -55,8 +56,9 @@ public class ClientListWindow extends JFrame
             getContentPane().setBackground(new Color(0, 102, 153));
             getContentPane().validate();
 
-            ClientBoardWindow BoardWindow = new ClientBoardWindow();
-            BoardWindow.init(1024, 768, this);
+            BoardThread = new Thread(new BoardThread(this));
+            BoardThread.start();
+
 
             
             System.out.println("login successfull!");
@@ -66,6 +68,19 @@ public class ClientListWindow extends JFrame
             setVisible(true);
             System.out.println("Unsuccessful Connection to server!");
             JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
+        }
+    }
+    class BoardThread implements Runnable
+    {
+        JFrame frame;
+        public BoardThread(JFrame p_frame)
+        {
+            frame = p_frame;
+        }
+        public void run()
+        {
+            ClientBoardWindow BoardWindow = new ClientBoardWindow();
+            BoardWindow.init(1024, 768, frame);
         }
     }
 }

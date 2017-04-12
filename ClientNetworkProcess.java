@@ -122,8 +122,6 @@ public class ClientNetworkProcess
 				{
 
 				}
-				msg = key.attachment() + ": " + sb.toString();
-				System.out.println(msg);
 			}
 		}
 
