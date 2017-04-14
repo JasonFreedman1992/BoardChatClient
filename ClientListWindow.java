@@ -55,14 +55,14 @@ public class ClientListWindow extends JFrame
             add(friendsList.infoPanel);
             getContentPane().setBackground(new Color(0, 102, 153));
             getContentPane().validate();
-
+            System.out.println("58");
             //
             // start BoardWindow after login successfull? or wait til button pressed?
             //
 
             BoardThread = new Thread(new BoardThread(this));
             BoardThread.start();
-
+            System.out.println("wtf");
 
             
             System.out.println("login successfull!");
@@ -83,9 +83,11 @@ public class ClientListWindow extends JFrame
         }
         public void run()
         {
+            System.out.println("running");
             ClientBoardWindow BoardWindow = new ClientBoardWindow();
             BoardWindow.init(1024, 768, frame);
             BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
+            System.out.println("past");
         }
     }
 }

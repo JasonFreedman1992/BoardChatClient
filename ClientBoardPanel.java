@@ -12,12 +12,11 @@ import java.awt.Dimension;
 public class ClientBoardPanel extends JPanel
 {
 	JTextField chatSend = new JTextField(12);
-	JTextArea chatReceive = new JTextArea(10, 20);
+	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	JScrollPane scrollpane = new JScrollPane(chatReceive);
 	ClientData clientData = new ClientData();
 	JPanel drawPanel = new JPanel();
-	//JTextField chatReceive = new JTextField(17);
 	JButton send = new JButton("Send");
 	JButton clear = new JButton("Clear");
 	ClientBoardPanel()
@@ -26,7 +25,7 @@ public class ClientBoardPanel extends JPanel
 		drawPanel.setMinimumSize(new Dimension(200,200));
 		chatReceive.setBackground(Color.white);
 		chatReceive.setLineWrap(true);
-		//chatReceive.setEditable(false);
+		chatReceive.setEditable(false);
 		//chatReceive.setMultipleMode(true);
 		setBackground(Color.lightGray);
 		setLayout(new MigLayout(""));
@@ -76,18 +75,6 @@ public class ClientBoardPanel extends JPanel
 		});
 		MouseListen listen = new MouseListen();
 		addMouseMotionListener(listen);
-		while(true)
-		{
-			try
-			{
-				Thread.sleep(1000);
-				chatReceive.setText(chatReceive.getText() + "\n" + clientData.input);
-			}
-			catch(InterruptedException e)
-			{
-
-			}
-		}
 	}
 	class MouseListen implements MouseMotionListener
 	{

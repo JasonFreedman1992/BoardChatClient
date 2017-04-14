@@ -40,7 +40,6 @@ public class ClientBoardStartPanel extends JPanel
 
 		boardPassword.setSize(225, 25);
 		add(boardPassword, "wrap, center");
-
 		//
 		// join button, actionlistener and key listener
 		//
