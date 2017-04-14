@@ -132,13 +132,17 @@ public class ClientNetworkProcess
 		ByteBuffer createPasswordBuffer;
 		ByteBuffer msgBuffer;
 
+		ByteBuffer joinBoardBuffer;
+		ByteBuffer createBoardBuffer;
+
+
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
 			if(clientData.loginPressed)
 			{
+				commandBuffer = ByteBuffer.wrap(clientData.loginCommand.getBytes());
 				usernameBuffer = ByteBuffer.wrap(clientData.username.getBytes());
 				passwordBuffer = ByteBuffer.wrap(clientData.password.getBytes());
-				commandBuffer = ByteBuffer.wrap(clientData.loginCommand.getBytes());
 				socket.write(commandBuffer);
 				socket.write(usernameBuffer);
 				socket.write(passwordBuffer);
@@ -153,9 +157,9 @@ public class ClientNetworkProcess
 			}
 			if(clientData.createPressed)
 			{
+				commandBuffer = ByteBuffer.wrap(clientData.createCommand.getBytes());
 				createUsernameBuffer = ByteBuffer.wrap(clientData.createUsername.getBytes());
 				createPasswordBuffer = ByteBuffer.wrap(clientData.createPassword.getBytes());
-				commandBuffer = ByteBuffer.wrap(clientData.createCommand.getBytes());
 				socket.write(commandBuffer);
 				socket.write(createUsernameBuffer);
 				socket.write(createPasswordBuffer);
@@ -177,6 +181,34 @@ public class ClientNetworkProcess
 				commandBuffer.rewind();
 				msgBuffer.rewind();
 				clientData.msgPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.joinBoardPressed)
+			{
+				commandBuffer = ByteBuffer.wrap(clientData.jBrdCommand.getBytes());
+				joinBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
+				socket.write(commandBuffer);
+				socket.write(joinBoardBuffer);
+				commandBuffer.rewind();
+				joinBoardBuffer.rewind();
+				clientData.joinBoardPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.createBoardPressed)
+			{
+				commandBuffer = ByteBuffer.wrap(clientData.cBrdCommand.getBytes());
+				createBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
+				socket.write(commandBuffer);
+				socket.write(createBoardBuffer);
+				commandBuffer.rewind();
+				createBoardBuffer.rewind();
+				clientData.createBoardPressed = false;
 			}
 			else
 			{

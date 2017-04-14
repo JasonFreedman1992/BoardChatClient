@@ -15,7 +15,8 @@ public class ClientBoardWindow extends JFrame
 	{		
 		icon = new ImageIcon("icon.png");
 		ClientBoardPanel panel1 = new ClientBoardPanel();
-		tabbedpane.addTab("Tab 1", icon, panel1);
+		ClientBoardStartPanel panel2 = new ClientBoardStartPanel();
+		tabbedpane.addTab("Tab 1", icon, panel2);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
 
 		//ClientBoardPanel panel2 = new ClientBoardPanel();

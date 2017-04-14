@@ -124,7 +124,7 @@ public class ClientLogin
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             clientData.loginPressed = true;
-            System.out.println("login listen clicked!");
+            System.out.println("login clicked!");
             attemptLogin();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
@@ -153,7 +153,7 @@ public class ClientLogin
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             clientData.createPressed = true;
-            System.out.println("create listen clicked!");
+            System.out.println("create clicked!");
             createLogin();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
@@ -182,13 +182,11 @@ public class ClientLogin
         public void focusGained(java.awt.event.FocusEvent e) 
         {
             clientData.loginFocused = true;
-            System.out.println("login focus = " + clientData.loginFocused);
         }
 
         public void focusLost(java.awt.event.FocusEvent e) 
         {
             clientData.loginFocused = false;
-            System.out.println("login focus = " + clientData.loginFocused);
         }
     }
 
@@ -197,13 +195,11 @@ public class ClientLogin
         public void focusGained(java.awt.event.FocusEvent e) 
         {
             clientData.createFocused = true;
-            System.out.println("create focus = " + clientData.createFocused);
         }
 
         public void focusLost(java.awt.event.FocusEvent e) 
         {
             clientData.createFocused = false;
-            System.out.println("create focus = " + clientData.createFocused);
         }
     }
 

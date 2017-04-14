@@ -56,6 +56,10 @@ public class ClientListWindow extends JFrame
             getContentPane().setBackground(new Color(0, 102, 153));
             getContentPane().validate();
 
+            //
+            // start BoardWindow after login successfull? or wait til button pressed?
+            //
+
             BoardThread = new Thread(new BoardThread(this));
             BoardThread.start();
 
