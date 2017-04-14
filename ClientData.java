@@ -24,6 +24,8 @@ public class ClientData
 	public final String addtoBoardCommand = "/1z=addb";
 
 	public static boolean loginSuccess = false;
+	public static boolean joinBoardSuccess = false;
+	public static boolean createBoardSuccess = false;
 
 	public static String username = "";
 	public static String password = "";

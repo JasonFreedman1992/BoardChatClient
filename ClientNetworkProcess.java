@@ -118,6 +118,14 @@ public class ClientNetworkProcess
 				{
 					clientData.loginResult = "Wrong Password";
 				}
+				else if(msg.equals("Board Found"))
+				{
+					clientData.joinBoardSuccess = true;
+				}
+				else if(msg.equals("Board Not Found"))
+				{
+					clientData.joinBoardSuccess = true;
+				}
 				else
 				{
 
