@@ -19,6 +19,10 @@ public class ClientFriendsList
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTree jTree1;
     private javax.swing.JTree jTree2;
+
+    private javax.swing.JPopupMenu addPopup;
+    private javax.swing.JPopupMenu subPopup;
+    private javax.swing.JPopupMenu setPopup;
     // End of variables declaration//GEN-END:variables
 
 	ClientFriendsList(javax.swing.GroupLayout p_layout)
@@ -51,12 +55,15 @@ public class ClientFriendsList
         commandPanel.setLayout(new java.awt.GridBagLayout());
 
         addButtonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
+        addButtonLabel.addMouseListener(new addListen());
         commandPanel.add(addButtonLabel, new java.awt.GridBagConstraints());
 
         subButtonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sub.png"))); // NOI18N
+        subButtonLabel.addMouseListener(new subListen());
         commandPanel.add(subButtonLabel, new java.awt.GridBagConstraints());
 
         setButtonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/set.png"))); // NOI18N
+        setButtonLabel.addMouseListener(new setListen());
         commandPanel.add(setButtonLabel, new java.awt.GridBagConstraints());
 
         borderPanel.add(commandPanel, java.awt.BorderLayout.CENTER);
@@ -180,7 +187,7 @@ public class ClientFriendsList
                 .addContainerGap())
         );
 
-
+        //
         //
         //
         javax.swing.GroupLayout layout = p_layout;
@@ -202,4 +209,106 @@ public class ClientFriendsList
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 	}
+
+    class addListen implements java.awt.event.MouseListener
+    {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+            if(e.isMetaDown())
+            {
+                System.out.println("right click");
+            }
+            else
+            {
+                System.out.println("left click");
+            }
+        }
+        public void mouseEntered(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent e) 
+        {
+
+        }
+    }
+
+    class subListen implements java.awt.event.MouseListener
+    {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+            if(e.isMetaDown())
+            {
+                System.out.println("right click");
+            }
+            else
+            {
+                System.out.println("left click");
+            }
+        }
+        public void mouseEntered(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent e) 
+        {
+
+        }
+    }
+
+    class setListen implements java.awt.event.MouseListener
+    {
+        public void mouseClicked(java.awt.event.MouseEvent e) 
+        {
+            if(e.isMetaDown())
+            {
+                System.out.println("right click");
+            }
+            else
+            {
+                System.out.println("left click");
+            }
+        }
+        public void mouseEntered(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseExited(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mouseReleased(java.awt.event.MouseEvent e) 
+        {
+
+        }
+
+        public void mousePressed(java.awt.event.MouseEvent e) 
+        {
+
+        }
+    }
 }
