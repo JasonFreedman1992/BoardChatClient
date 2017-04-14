@@ -37,7 +37,14 @@ public class ClientBoardWindow extends JFrame
 		setVisible(true);
 		while(!clientData.joinBoardSuccess)
 		{
-
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException e)
+			{
+				
+			}
 		}
 		tabbedpane.remove(panel2);
 		tabbedpane.add(panel1);
