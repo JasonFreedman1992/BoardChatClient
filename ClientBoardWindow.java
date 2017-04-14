@@ -18,6 +18,12 @@ public class ClientBoardWindow extends JFrame
 		ClientBoardStartPanel panel2 = new ClientBoardStartPanel();
 		tabbedpane.addTab("Tab 1", icon, panel2);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
+		while(!clientData.joinBoardSuccess)
+		{
+
+		}
+		tabbedpane.remove(panel2);
+		tabbedpane.add(panel1);
 
 		//ClientBoardPanel panel2 = new ClientBoardPanel();
 		//tabbedpane.addTab("Tab 2", icon, panel2);

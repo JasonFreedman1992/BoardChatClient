@@ -124,7 +124,7 @@ public class ClientNetworkProcess
 				}
 				else if(msg.equals("Board Not Found"))
 				{
-					clientData.joinBoardSuccess = true;
+					//clientData.joinBoardSuccess = true;
 				}
 				else
 				{
