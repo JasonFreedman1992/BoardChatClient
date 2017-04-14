@@ -105,6 +105,7 @@ public class ClientNetworkProcess
 			else
 			{
 				msg = sb.toString();
+				clientData.input = msg;
 				System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
 				{
@@ -124,7 +125,7 @@ public class ClientNetworkProcess
 				}
 				else if(msg.equals("Board Not Found"))
 				{
-					//clientData.joinBoardSuccess = true;
+					javax.swing.JOptionPane.showMessageDialog(null, "Board not Found.");
 				}
 				else
 				{

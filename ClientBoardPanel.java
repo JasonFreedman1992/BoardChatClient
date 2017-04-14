@@ -76,6 +76,18 @@ public class ClientBoardPanel extends JPanel
 		});
 		MouseListen listen = new MouseListen();
 		addMouseMotionListener(listen);
+		while(true)
+		{
+			try
+			{
+				Thread.sleep(1000);
+				chatReceive.setText(chatReceive.getText() + "\n" + clientData.input);
+			}
+			catch(InterruptedException e)
+			{
+
+			}
+		}
 	}
 	class MouseListen implements MouseMotionListener
 	{

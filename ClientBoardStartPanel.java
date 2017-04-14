@@ -16,10 +16,6 @@ public class ClientBoardStartPanel extends JPanel
 	//
 	//        Join      Create
 	//
-	//
-	//
-	//
-	//
 	public ClientData clientData;
 	public JTextField boardName = new JTextField(15);
 	public JTextField boardPassword = new JTextField(15);
