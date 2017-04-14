@@ -106,7 +106,7 @@ public class ClientNetworkProcess
 			{
 				msg = sb.toString();
 				clientData.input = msg;
-				System.out.println(msg);
+				//System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
 				{
 					clientData.loginSuccess = true;
@@ -121,6 +121,7 @@ public class ClientNetworkProcess
 				}
 				else if(msg.equals("Board Found"))
 				{
+					clientData.input = "";
 					clientData.joinBoardSuccess = true;
 				}
 				else if(msg.equals("Board Not Found"))
@@ -140,7 +141,6 @@ public class ClientNetworkProcess
 		ByteBuffer createUsernameBuffer;
 		ByteBuffer createPasswordBuffer;
 		ByteBuffer msgBuffer;
-
 		ByteBuffer joinBoardBuffer;
 		ByteBuffer createBoardBuffer;
 

@@ -14,10 +14,14 @@ public class ClientBoardWindow extends JFrame
 	public void init(int p_width, int p_height, JFrame p_listwindow)
 	{		
 		icon = new ImageIcon("icon.png");
+		JLabel hello = new JLabel("Tab");
+		hello.setIcon(icon);
+		JPanel hello1 = new JPanel();
 		ClientBoardStartPanel panel2 = new ClientBoardStartPanel();
-		tabbedpane.addTab("Tab 1", icon, panel2);
+		tabbedpane.addTab("Tab 1", panel2);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
-		
+		tabbedpane.setTabComponentAt(0, hello);
+		//tabbedpane.getComponentAt(0) = hello;
 		//ClientBoardPanel panel2 = new ClientBoardPanel();
 		//tabbedpane.addTab("Tab 2", icon, panel2);
 		//tabbedpane.setMnemonicAt(0, KeyEvent.VK_2);
@@ -30,13 +34,14 @@ public class ClientBoardWindow extends JFrame
 		setSize(p_width, p_height);
 		setLocationRelativeTo(null);
 		setLocation(p_listwindow.getX() - 1074, p_listwindow.getY());
+		setMinimumSize(new Dimension(1024, 768));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(border);
 		add(tabbedpane);
 		setVisible(true);
 		while(!clientData.joinBoardSuccess)
 		{
-			System.out.println("inside while");
+			//System.out.println("inside while");
 			try
 			{
 				Thread.sleep(1000);
@@ -46,9 +51,11 @@ public class ClientBoardWindow extends JFrame
 				
 			}
 		}
+		clientData.joinBoardSuccess = false;
 		tabbedpane.remove(panel2);
 		ClientBoardPanel panel1 = new ClientBoardPanel();
 		tabbedpane.add(panel1);
+		tabbedpane.setTabComponentAt(0, hello);
 		while(true)
 		{
 			try

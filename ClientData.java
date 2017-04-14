@@ -14,6 +14,9 @@ public class ClientData
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
 
+	public static boolean mousePressed = false;
+	public static boolean mouseReleased = false;
+
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
 	public final String msgCommand = "/1z=msg";
