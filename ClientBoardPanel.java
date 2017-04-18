@@ -93,8 +93,8 @@ public class ClientBoardPanel extends JPanel
 				if(chatReceive.getText().equals(""))
 				{
 					System.out.println(clientData.receiveImg.remaining());
-					drawPanel.paintImage = drawPanel.createImageFromBytes(); 
-					drawPanel.repaint();
+					//drawPanel.paintImage = drawPanel.createImageFromBytes(); 
+					//drawPanel.repaint();
 				}
 				else
 				{
