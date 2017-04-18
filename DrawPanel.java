@@ -44,4 +44,19 @@ public class DrawPanel extends JPanel
         paintImage = ImageIO.read(new File("fart.jpg"));
         repaint();
     }
+
+	public BufferedImage createImageFromBytes() 
+	{
+		byte[] arr = new byte[clientData.receiveImg.remaining()];
+		clientData.receiveImg.get(arr);
+		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
+	    try 
+	    {
+	        return ImageIO.read(bais);
+	    }
+	    catch(IOException e) 
+	    {
+	        throw new RuntimeException(e);
+	    }
+	}
 }

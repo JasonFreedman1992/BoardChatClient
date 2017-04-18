@@ -141,7 +141,20 @@ public class ClientNetworkProcess
 				{
 					if(clientData.imgInc == true)
 					{
-						clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
+						System.out.println(clientData.receiveImg.remaining());
+						if(clientData.receiveImg.remaining() == 25600)
+						{
+							//clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
+							clientData.receiveImg.put(buffer);
+						}
+						else
+						{
+							System.out.println("else");
+							//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg);
+							//clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
+							clientData.receiveImg.put(buffer);
+							//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
+						}
 					}
 					else
 					{
