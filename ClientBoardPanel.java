@@ -13,7 +13,9 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
+import java.io.ByteArrayOutputStream;
+import javax.imageio.ImageIO;
+import java.util.List;
 
 public class ClientBoardPanel extends JPanel
 {
@@ -73,15 +75,19 @@ public class ClientBoardPanel extends JPanel
 					// clientData.output = chatSend.getText();
 					// //chatReceive.setText(chatSend.getText());
 					// System.out.println("clientData.output = " + clientData.output);
-					clientData.imgPressed = true;
-					try{
-						drawPanel.save();
+					try
+					{
+						ByteArrayOutputStream baos = new ByteArrayOutputStream();
+						ImageIO.write(drawPanel.paintImage, "jpg", baos);
+						clientData.imgSize = baos.size();
+						byte[] bytes = baos.toByteArray();
+						clientData.imgArray = bytes;
+						clientData.imgPressed = true;
 					}
 					catch(IOException f)
 					{
 
 					}
-					clientData.imgPressed = false;
 					//clientData.output = 
 				}
 				else

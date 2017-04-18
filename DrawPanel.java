@@ -5,16 +5,15 @@ import java.io.*;
 import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Graphics2D;
 
 public class DrawPanel extends JPanel
 {
 	ClientData clientData = new ClientData();
-    private BufferedImage paintImage = new BufferedImage(500, 400, BufferedImage.TYPE_3BYTE_BGR);
-    public Graphics g;
-    @Override
+    public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
     protected void paintComponent(Graphics g)
     {
-        super.paintComponent(g);
+        //super.paintComponent(g);
         g.drawImage(paintImage, 0, 0, null);
     }
 
@@ -22,22 +21,28 @@ public class DrawPanel extends JPanel
     public void updatePaint()
     {
         Graphics g = paintImage.createGraphics();
-
-        // draw on paintImage using Graphics
-
+        g.setColor(Color.yellow);
+     	g.fillOval(clientData.mouseX-10, clientData.mouseY-10, 20, 20);
         g.dispose();
-        // repaint panel with new modified paint
-        repaint();
+        try
+	    {
+	        save();
+	        load();
+	    }
+	    catch(IOException e)
+	    {
+
+	    }
     }
 
     public void save() throws IOException
     {
-        ImageIO.write(paintImage, "PNG", new File("fart.png"));
+        ImageIO.write(paintImage, "JPG", new File("fart.jpg"));
     }
 
     public void load() throws IOException 
     {
-        paintImage = ImageIO.read(new File("fart.png"));
+        paintImage = ImageIO.read(new File("fart.jpg"));
         repaint();
     }
 }

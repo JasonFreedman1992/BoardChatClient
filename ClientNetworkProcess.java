@@ -143,6 +143,7 @@ public class ClientNetworkProcess
 		ByteBuffer msgBuffer;
 		ByteBuffer joinBoardBuffer;
 		ByteBuffer createBoardBuffer;
+		ByteBuffer imgBuffer;
 
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
@@ -219,6 +220,26 @@ public class ClientNetworkProcess
 				commandBuffer.rewind();
 				joinBoardBuffer.rewind();
 				clientData.joinBoardPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.imgPressed)
+			{
+				//byte byter;
+				// for(int i = 0; i < clientData.imgSize; i++)
+				// {
+					commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
+					//byter = clientData.imgArray[i];
+					//byter = clientData.imgArray[i];
+					imgBuffer = ByteBuffer.wrap(clientData.imgArray);
+					commandBuffer.rewind();
+					imgBuffer.rewind();
+					//System.out.println(byter);
+				// }
+				System.out.println(clientData.imgSize);
+				clientData.imgPressed = false;
 			}
 			else
 			{

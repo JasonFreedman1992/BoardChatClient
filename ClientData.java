@@ -3,6 +3,9 @@ public class ClientData
 	public static int mouseX;
 	public static int mouseY;
 
+	public static byte[] imgArray = new byte[25600];
+	public static int imgSize;
+
 	public static String output = "";
 	public static String input = "";
 	public static String loginResult = "";
