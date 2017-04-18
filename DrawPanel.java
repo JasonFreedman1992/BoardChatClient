@@ -13,7 +13,6 @@ public class DrawPanel extends JPanel
     public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
     protected void paintComponent(Graphics g)
     {
-        //super.paintComponent(g);
         g.drawImage(paintImage, 0, 0, null);
     }
 

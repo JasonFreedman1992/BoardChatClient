@@ -24,16 +24,9 @@ public class ClientBoardPanel extends JPanel
 	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	ClientData clientData = new ClientData();
+
 	DrawPanel drawPanel = new DrawPanel();
-	// JPanel drawPanel = new JPanel()
-	// {
- //         protected void paintComponent(Graphics g)
- //         {
- //     		System.out.println("clicked");
- //     		g.setColor(Color.black);
- //     		g.fillOval(mouseX-10, mouseY-10, 20, 20);
- //         }
-	//  };
+
 	JButton send = new JButton("Send");
 	JButton clear = new JButton("Clear");;
 	ClientBoardPanel()
@@ -63,7 +56,6 @@ public class ClientBoardPanel extends JPanel
 		drawPanel.addMouseMotionListener(motion);
 		drawPanel.setSize(200, 200);
 		add(drawPanel, "cell 1 0 1 2, grow");
-
 		add(instanceInfo, "cell 2 0 1 2, grow");
 		send.addActionListener(new ActionListener()
 		{
@@ -71,10 +63,6 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
-					// clientData.msgPressed = true; 
-					// clientData.output = chatSend.getText();
-					// //chatReceive.setText(chatSend.getText());
-					// System.out.println("clientData.output = " + clientData.output);
 					try
 					{
 						ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -88,13 +76,11 @@ public class ClientBoardPanel extends JPanel
 					{
 
 					}
-					//clientData.output = 
 				}
 				else
 				{
 					clientData.msgPressed = true;
 					clientData.output = chatSend.getText();
-					//chatReceive.setText(chatReceive.getText() + "\n" + chatSend.getText());
 					chatSend.setText("");
 					System.out.println("clientData.output = " + clientData.output);
 				}

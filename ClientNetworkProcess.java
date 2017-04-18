@@ -21,6 +21,7 @@ public class ClientNetworkProcess
 		public ClientData clientData = new ClientData();
 		public Selector selector = null;
 		public SocketChannel socket = null;
+		public byte[] bytes;
 
 		public input(SocketChannel p_socket) throws IOException
 		{
@@ -91,7 +92,7 @@ public class ClientNetworkProcess
 			while((read = ch.read(buffer)) > 0)
 			{
 				buffer.flip();
-				byte[] bytes = new byte[buffer.limit()];
+				bytes = new byte[buffer.limit()];
 				buffer.get(bytes);
 				sb.append(new String(bytes));
 				buffer.clear();
@@ -234,11 +235,17 @@ public class ClientNetworkProcess
 					//byter = clientData.imgArray[i];
 					//byter = clientData.imgArray[i];
 					imgBuffer = ByteBuffer.wrap(clientData.imgArray);
+
+					socket.write(commandBuffer);
+					socket.write(imgBuffer);
+
 					commandBuffer.rewind();
-					imgBuffer.rewind();
+					//imgBuffer.rewind();
 					//System.out.println(byter);
 				// }
 				System.out.println(clientData.imgSize);
+				System.out.println(imgBuffer.position());
+				imgBuffer.rewind();
 				clientData.imgPressed = false;
 			}
 			else
