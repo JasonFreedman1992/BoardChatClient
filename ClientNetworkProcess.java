@@ -106,7 +106,7 @@ public class ClientNetworkProcess
 			else
 			{
 				msg = sb.toString();
-				clientData.input = msg;
+				//clientData.input = msg;
 				//System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
 				{
@@ -129,9 +129,24 @@ public class ClientNetworkProcess
 				{
 					javax.swing.JOptionPane.showMessageDialog(null, "Board not Found.");
 				}
+				else if(msg.equals("off"))
+				{
+					clientData.imgInc = false;
+				}
+				else if(msg.equals("img"))
+				{
+					clientData.imgInc = true;
+				}
 				else
 				{
+					if(clientData.imgInc = true)
+					{
+						clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
+					}
+					else
+					{
 
+					}
 				}
 			}
 		}

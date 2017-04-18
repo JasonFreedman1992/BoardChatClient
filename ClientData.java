@@ -1,7 +1,11 @@
+import java.nio.ByteBuffer;
+
 public class ClientData
 {
 	public static int mouseX;
 	public static int mouseY;
+
+	public static ByteBuffer receiveImg = ByteBuffer.allocate(25600);
 
 	public static byte[] imgArray = new byte[25600];
 	public static int imgSize;
@@ -14,7 +18,7 @@ public class ClientData
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;
 	public static boolean imgPressed = false;
-
+	public static boolean imgInc = false;
 	public static boolean loginFocused = false;
 	public static boolean createFocused = false;
 
