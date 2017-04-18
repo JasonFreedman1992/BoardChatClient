@@ -85,6 +85,16 @@ public class ClientBoardStartPanel extends JPanel
 				clientData.boardName = boardName.getText();
 				clientData.boardPassword = boardPassword.getText();
 				System.out.println("click!");
+
+				try
+				{
+					Thread.sleep(500);
+					clientData.joinBoardPressed = true;
+				}
+				catch(InterruptedException f)
+				{
+
+				}
 			}
 		});
 		createButton.addKeyListener(new java.awt.event.KeyListener()

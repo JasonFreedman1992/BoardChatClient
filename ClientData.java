@@ -1,5 +1,8 @@
 public class ClientData
 {
+	public static int mouseX;
+	public static int mouseY;
+
 	public static String output = "";
 	public static String input = "";
 	public static String loginResult = "";
@@ -7,6 +10,7 @@ public class ClientData
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;
+	public static boolean imgPressed = false;
 
 	public static boolean loginFocused = false;
 	public static boolean createFocused = false;
@@ -25,6 +29,7 @@ public class ClientData
 	public final String blockCommand = "/1z=block";
 	public final String addFriendCommand = "/1z=addf";
 	public final String addtoBoardCommand = "/1z=addb";
+	public final String imgCommand = "/1z=img";
 
 	public static boolean loginSuccess = false;
 	public static boolean joinBoardSuccess = false;

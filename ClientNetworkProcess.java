@@ -195,20 +195,6 @@ public class ClientNetworkProcess
 			{
 
 			}
-			if(clientData.joinBoardPressed)
-			{
-				commandBuffer = ByteBuffer.wrap(clientData.jBrdCommand.getBytes());
-				joinBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
-				socket.write(commandBuffer);
-				socket.write(joinBoardBuffer);
-				commandBuffer.rewind();
-				joinBoardBuffer.rewind();
-				clientData.joinBoardPressed = false;
-			}
-			else
-			{
-
-			}
 			if(clientData.createBoardPressed)
 			{
 				commandBuffer = ByteBuffer.wrap(clientData.cBrdCommand.getBytes());
@@ -218,6 +204,21 @@ public class ClientNetworkProcess
 				commandBuffer.rewind();
 				createBoardBuffer.rewind();
 				clientData.createBoardPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.joinBoardPressed)
+			{
+				System.out.println("join pressed");
+				commandBuffer = ByteBuffer.wrap(clientData.jBrdCommand.getBytes());
+				joinBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
+				socket.write(commandBuffer);
+				socket.write(joinBoardBuffer);
+				commandBuffer.rewind();
+				joinBoardBuffer.rewind();
+				clientData.joinBoardPressed = false;
 			}
 			else
 			{

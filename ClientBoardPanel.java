@@ -11,54 +11,37 @@ import javax.swing.Timer;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 
 public class ClientBoardPanel extends JPanel
 {
+	BufferedImage paintImage = new BufferedImage(200,200,BufferedImage.TYPE_3BYTE_BGR);
 	JTextField chatSend = new JTextField(12);
 	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	ClientData clientData = new ClientData();
-	JPanel drawPanel = new JPanel()
-	{
-         protected void paintComponent(Graphics g)
-         {
-     		System.out.println("clicked");
-     		g.setColor(Color.black);
-     		g.fillOval(mouseX-10, mouseY-10, 20, 20);
-            //Graphics2D g2 = (Graphics2D) g;
-            //g2.setBackground(Color.white);
- // 			//Graphics2D g2 = (Graphics2D) g;
- // 			//g2.setBackground(Color.white);
-
-         }
-	 };
+	DrawPanel drawPanel = new DrawPanel();
+	// JPanel drawPanel = new JPanel()
+	// {
+ //         protected void paintComponent(Graphics g)
+ //         {
+ //     		System.out.println("clicked");
+ //     		g.setColor(Color.black);
+ //     		g.fillOval(mouseX-10, mouseY-10, 20, 20);
+ //         }
+	//  };
 	JButton send = new JButton("Send");
-	JButton clear = new JButton("Clear");
-	int mouseX;
-	int mouseY;
-	public static boolean mouseClickedx;
-	Timer timer = new Timer(50, new ActionListener()
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			if(mouseClickedx)
-			{
-				drawPanel.repaint();
-				drawPanel.setSize(200, 200);
-			}
-		}
-	});
-
+	JButton clear = new JButton("Clear");;
 	ClientBoardPanel()
 	{
 
 		chatReceive.setBackground(Color.white);
 		chatReceive.setLineWrap(true);
-		//scrollane.setBounds(10, 101, 742, 276);
+
 		chatReceive.setEditable(false);
-		//instanceInfo.setEditable(false);
-		//chatReceive.setMultipleMode(true);
+
 		setBackground(Color.lightGray);
 		setLayout(new MigLayout(""));
 		chatReceive.setPreferredSize(new Dimension(40, 40));
@@ -70,30 +53,36 @@ public class ClientBoardPanel extends JPanel
 		add(chatSend, "center, wrap");
 		add(send, "center, wrap");
 		add(clear, "center");
-		//drawPanel.setOpaque(false);
+
 		drawPanel.setMinimumSize(new Dimension(200, 200));
-		//drawPanel.setPreferredSize(new Dimension(200, 200));
-		//drawPanel.setMinimumSize(new Dimension(200, 200));
-		
 	    MouseListen listen = new MouseListen();
 		drawPanel.addMouseListener(listen);
 		MouseMotion motion = new MouseMotion();
 		drawPanel.addMouseMotionListener(motion);
-		//drawPanel.setSize(200, 200);
+		drawPanel.setSize(200, 200);
 		add(drawPanel, "cell 1 0 1 2, grow");
+
 		add(instanceInfo, "cell 2 0 1 2, grow");
-		//timer.start();
 		send.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
 				if(chatReceive.getText().equals(""))
 				{
-					clientData.msgPressed = true; 
-					clientData.output = chatSend.getText();
-					//chatReceive.setText(chatSend.getText());
-					System.out.println("clientData.output = " + clientData.output);
+					// clientData.msgPressed = true; 
+					// clientData.output = chatSend.getText();
+					// //chatReceive.setText(chatSend.getText());
+					// System.out.println("clientData.output = " + clientData.output);
+					clientData.imgPressed = true;
+					try{
+						drawPanel.save();
+					}
+					catch(IOException f)
+					{
 
+					}
+					clientData.imgPressed = false;
+					//clientData.output = 
 				}
 				else
 				{
@@ -125,22 +114,20 @@ public class ClientBoardPanel extends JPanel
 		ClientData clientData = new ClientData();
 		public void mouseMoved(MouseEvent e)
 	    {
-	    	mouseX = e.getX();
-	    	mouseY = e.getY();
-	    	System.out.println("X: " + mouseX);
-	    	System.out.println("Y: " + mouseY);
+	    	clientData.mouseX = e.getX();
+	    	clientData.mouseY = e.getY();
+	    	System.out.println("X: " + clientData.mouseX);
+	    	System.out.println("Y: " + clientData.mouseY);
 	    }
 
 	    public void mouseDragged(MouseEvent e)
 	    {
-	    	mouseX = e.getX();
-        	mouseY = e.getY();
+	    	clientData.mouseX = e.getX();
+        	clientData.mouseY = e.getY();
         	System.out.println("clicked");
 	    	if(clientData.mousePressed)
 			{
-				
-				drawPanel.repaint();
-				//drawPanel.setSize(200, 200);
+				drawPanel.updatePaint();
 			}
 	    }
 	}
