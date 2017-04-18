@@ -139,7 +139,7 @@ public class ClientNetworkProcess
 				}
 				else
 				{
-					if(clientData.imgInc = true)
+					if(clientData.imgInc == true)
 					{
 						clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
 					}
