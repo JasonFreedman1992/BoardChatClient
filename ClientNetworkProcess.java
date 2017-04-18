@@ -84,7 +84,7 @@ public class ClientNetworkProcess
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
-			ByteBuffer buffer = ByteBuffer.allocate(256);
+			ByteBuffer buffer = ByteBuffer.allocate(25600);
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			buffer.clear();
@@ -106,7 +106,6 @@ public class ClientNetworkProcess
 			else
 			{
 				msg = sb.toString();
-				System.out.println(msg);
 				//clientData.input = msg;
 				//System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
@@ -143,19 +142,21 @@ public class ClientNetworkProcess
 					if(clientData.imgInc == true)
 					{
 						System.out.println(clientData.receiveImg.remaining());
-						if(clientData.receiveImg.remaining() == 25600)
-						{
-							//clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
-							clientData.receiveImg.put(buffer);
-						}
-						else
-						{
-							System.out.println("else");
-							//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg);
-							//clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
-							clientData.receiveImg.put(buffer);
-							//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
-						}
+						clientData.receiveImg = buffer;
+						clientData.imgInc = false;
+						// System.out.println(clientData.receiveImg.remaining());
+						// if(clientData.receiveImg.remaining() == 25600)
+						// {
+						// 	//clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
+						// 	clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
+						// }
+						// else
+						// {
+						// 	System.out.println("else");
+						// 	//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg);
+						// 	clientData.receiveImg = ByteBuffer.allocate(25600).put(buffer);
+						// 	//clientData.receiveImg = ByteBuffer.allocate(25600).put(clientData.receiveImg).put(buffer);
+						// }
 					}
 					else
 					{
@@ -257,25 +258,34 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
-				//byte byter;
-				// for(int i = 0; i < clientData.imgSize; i++)
-				// {
-					commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
-					//byter = clientData.imgArray[i];
-					//byter = clientData.imgArray[i];
-					imgBuffer = ByteBuffer.wrap(clientData.imgArray);
+				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
+				imgBuffer = ByteBuffer.wrap(clientData.imgArray);
+				System.out.println(imgBuffer.remaining());
+				socket.write(commandBuffer);
+				socket.write(imgBuffer);
 
-					socket.write(commandBuffer);
-					socket.write(imgBuffer);
-
-					commandBuffer.rewind();
-					//imgBuffer.rewind();
-					//System.out.println(byter);
-				// }
-				System.out.println(clientData.imgSize);
-				System.out.println(imgBuffer.position());
+				commandBuffer.rewind();
 				imgBuffer.rewind();
 				clientData.imgPressed = false;
+				// //byte byter;
+				// // for(int i = 0; i < clientData.imgSize; i++)
+				// // {
+				// 	commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
+				// 	//byter = clientData.imgArray[i];
+				// 	//byter = clientData.imgArray[i];
+				// 	imgBuffer = ByteBuffer.wrap(clientData.imgArray);
+
+				// 	socket.write(commandBuffer);
+				// 	socket.write(imgBuffer);
+
+				// 	commandBuffer.rewind();
+				// 	//imgBuffer.rewind();
+				// 	//System.out.println(byter);
+				// // }
+				// System.out.println(clientData.imgSize);
+				// System.out.println(imgBuffer.position());
+				// imgBuffer.rewind();
+				// clientData.imgPressed = false;
 			}
 			else
 			{

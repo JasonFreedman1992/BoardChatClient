@@ -27,6 +27,7 @@ public class DrawPanel extends JPanel
 	    {
 	        save();
 	        load();
+	        repaint();
 	    }
 	    catch(IOException e)
 	    {
@@ -42,22 +43,21 @@ public class DrawPanel extends JPanel
     public void load() throws IOException 
     {
         paintImage = ImageIO.read(new File("fart.jpg"));
-        repaint();
     }
 
-	public BufferedImage createImageFromBytes() 
-	{
-		byte[] arr = new byte[clientData.receiveImg.remaining()];
-		clientData.receiveImg.get(arr);
-		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
-		clientData.receiveImg.rewind();
-	    try 
-	    {
-	        return ImageIO.read(bais);
-	    }
-	    catch(IOException e) 
-	    {
-	        throw new RuntimeException(e);
-	    }
-	}
+	// public BufferedImage createImageFromBytes() 
+	// {
+	// 	byte[] arr = new byte[clientData.receiveImg.remaining()];
+	// 	clientData.receiveImg.get(arr);
+	// 	ByteArrayInputStream bais = new ByteArrayInputStream(arr);
+	// 	clientData.receiveImg.rewind();
+	//     try 
+	//     {
+	//         return ImageIO.read(bais);
+	//     }
+	//     catch(IOException e) 
+	//     {
+	//         throw new RuntimeException(e);
+	//     }
+	// }
 }
