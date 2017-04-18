@@ -106,6 +106,7 @@ public class ClientNetworkProcess
 			else
 			{
 				msg = sb.toString();
+				System.out.println(msg);
 				//clientData.input = msg;
 				//System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
