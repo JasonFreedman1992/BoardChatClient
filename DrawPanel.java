@@ -50,6 +50,7 @@ public class DrawPanel extends JPanel
 		byte[] arr = new byte[clientData.receiveImg.remaining()];
 		clientData.receiveImg.get(arr);
 		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
+		clientData.receiveImg.rewind();
 	    try 
 	    {
 	        return ImageIO.read(bais);
