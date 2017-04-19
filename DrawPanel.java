@@ -48,6 +48,8 @@ public class DrawPanel extends JPanel
 	public BufferedImage createImageFromBytes() 
 	{
 		byte[] arr = clientData.receiveImg.array();
+		System.out.println(arr.toString());
+		System.out.println(arr.length);
 		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
 		//clientData.receiveImg.rewind();
 	    try 

@@ -104,7 +104,7 @@ public class ClientNetworkProcess
 			}
 			else
 			{
-				System.out.println(sb.toString() + " sb = ??");
+				//System.out.println(sb.toString() + " sb = ??");
 				msg = sb.toString();
 				//clientData.input = msg;
 				System.out.println(msg);
@@ -146,7 +146,7 @@ public class ClientNetworkProcess
 						System.out.println("in imgInc true");
 						System.out.println(clientData.receiveImg.remaining());
 						clientData.receiveImg = buffer;
-						clientData.imgInc = false;
+						//clientData.imgInc = false;
 					}
 					else
 					{
