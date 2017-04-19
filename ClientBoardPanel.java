@@ -71,7 +71,7 @@ public class ClientBoardPanel extends JPanel
 						//System.out.println(clientData.imgSize);
 						byte[] bytes = baos.toByteArray();
 						System.out.println(bytes.length);
-						System.out.println(clientData.receiveImg.remaining());
+						//System.out.println(clientData.receiveImg.remaining());
 						clientData.imgArray = bytes;
 					}
 					catch(IOException f)
