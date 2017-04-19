@@ -44,8 +44,6 @@ public class ClientNetworkProcess
 					selector.select();
 					iter = selector.selectedKeys().iterator();
 
-					ByteBuffer buf = ByteBuffer.allocate(256);
-
 					while(iter.hasNext())
 					{
 						key = iter.next();
@@ -87,15 +85,14 @@ public class ClientNetworkProcess
 			ByteBuffer buffer = ByteBuffer.allocate(25600);
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
-			buffer.clear();
 			int read = 0;
 			while((read = ch.read(buffer)) > 0)
 			{
 				buffer.flip();
 				bytes = new byte[buffer.limit()];
 				buffer.get(bytes);
+				buffer.flip();
 				sb.append(new String(bytes));
-				buffer.clear();
 			}
 			String msg;
 			if(read < 0)
@@ -107,7 +104,7 @@ public class ClientNetworkProcess
 			{
 				msg = sb.toString();
 				//clientData.input = msg;
-				//System.out.println(msg);
+				System.out.println(msg);
 				if(msg.equals("Password matches the Username."))
 				{
 					clientData.loginSuccess = true;
@@ -136,11 +133,14 @@ public class ClientNetworkProcess
 				else if(msg.equals("img"))
 				{
 					clientData.imgInc = true;
+					System.out.println(clientData.imgInc);
 				}
 				else
 				{
+					System.out.println("else");
 					if(clientData.imgInc == true)
 					{
+						System.out.println("in imgInc true");
 						System.out.println(clientData.receiveImg.remaining());
 						clientData.receiveImg = buffer;
 						clientData.imgInc = false;
@@ -261,6 +261,7 @@ public class ClientNetworkProcess
 				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
 				imgBuffer = ByteBuffer.wrap(clientData.imgArray);
 				System.out.println(imgBuffer.remaining());
+
 				socket.write(commandBuffer);
 				socket.write(imgBuffer);
 
