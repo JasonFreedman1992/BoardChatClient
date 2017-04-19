@@ -79,19 +79,6 @@ public class ClientBoardPanel extends JPanel
 
 					}
 					clientData.imgPressed = true;
-					// try
-					// {
-					// 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					// 	ImageIO.write(drawPanel.paintImage, "jpg", baos);
-					// 	clientData.imgSize = baos.size();
-					// 	byte[] bytes = baos.toByteArray();
-					// 	clientData.imgArray = bytes;
-					// 	clientData.imgPressed = true;
-					// }
-					// catch(IOException f)
-					// {
-
-					// }
 				}
 				else
 				{
@@ -110,7 +97,7 @@ public class ClientBoardPanel extends JPanel
 				{
 
 					System.out.println(clientData.receiveImg.remaining());
-					//clientData.receiveImg.flip();
+					clientData.receiveImg.flip();
 					//System.out.println(clientData.receiveImg.position());
 					drawPanel.paintImage = drawPanel.createImageFromBytes();
 					drawPanel.repaint();
