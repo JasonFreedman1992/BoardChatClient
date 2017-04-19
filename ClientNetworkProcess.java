@@ -254,7 +254,7 @@ public class ClientNetworkProcess
 				socket.write(commandBuffer);
 				System.out.println("commandBuffer sent");
 
-				try{Thread.sleep(500);}catch(InterruptedException f){}
+				try{Thread.sleep(200);}catch(InterruptedException f){}
 
 				socket.write(imgBuffer);
 				System.out.println("imgBuffer sent");
