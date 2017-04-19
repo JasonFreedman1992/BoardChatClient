@@ -78,6 +78,7 @@ public class ClientNetworkProcess
 				{
 
 				}
+				System.out.println(clientData.receiveImg.remaining());
 			}
 		}
 		
