@@ -8,6 +8,7 @@ public class ClientNetworkProcess
 {
 	Thread loginThread = new Thread();
 	input input = null;
+	ByteBuffer buffer = ByteBuffer.allocate(25600);
 
 	public ClientNetworkProcess(SocketChannel p_socket) throws IOException
 	{
@@ -82,7 +83,8 @@ public class ClientNetworkProcess
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
-			ByteBuffer buffer = ByteBuffer.allocate(25600);
+			//ByteBuffer buffer = ByteBuffer.allocate(25600);
+			buffer.clear();
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			int read = 0;
@@ -102,6 +104,7 @@ public class ClientNetworkProcess
 			}
 			else
 			{
+				System.out.println(sb.toString() + " sb = ??");
 				msg = sb.toString();
 				//clientData.input = msg;
 				System.out.println(msg);
@@ -247,10 +250,14 @@ public class ClientNetworkProcess
 			{
 				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
 				imgBuffer = ByteBuffer.wrap(clientData.imgArray);
-				//System.out.println(imgBuffer.remaining());
 
 				socket.write(commandBuffer);
+				System.out.println("commandBuffer sent");
+
+				try{Thread.sleep(500);}catch(InterruptedException f){}
+
 				socket.write(imgBuffer);
+				System.out.println("imgBuffer sent");
 
 				commandBuffer.rewind();
 				imgBuffer.rewind();
