@@ -19,6 +19,7 @@ public class DrawPanel extends JPanel
     // draw painting
     public void updatePaint()
     {
+    	paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
         Graphics g = paintImage.createGraphics();
         g.setColor(Color.yellow);
      	g.fillOval(clientData.mouseX-10, clientData.mouseY-10, 20, 20);
