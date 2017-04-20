@@ -40,7 +40,8 @@ public class DrawPanel extends JPanel
 
 	public BufferedImage createImageFromBytes() 
 	{
-		byte[] arr = clientData.receiveImg.array();
+		byte[] arr = new byte[25600 - clientData.receiveImg.remaining()];
+		clientData.receiveImg.get(arr);
 		System.out.println(arr.toString());
 		System.out.println(arr.length);
 		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
