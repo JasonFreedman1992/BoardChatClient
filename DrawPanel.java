@@ -11,6 +11,13 @@ public class DrawPanel extends JPanel
 {
 	ClientData clientData = new ClientData();
     public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
+
+    DrawPanel() throws IOException
+    {
+    	save();
+    	load();
+    }
+
     protected void paintComponent(Graphics g)
     {
         g.drawImage(paintImage, 0, 0, null);
