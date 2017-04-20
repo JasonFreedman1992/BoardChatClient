@@ -97,10 +97,17 @@ public class ClientBoardPanel extends JPanel
 					System.out.println(clientData.receiveImg.remaining());
 					//System.out.println(clientData.receiveImg.position());
 					drawPanel.paintImage = drawPanel.createImageFromBytes();
-					drawPanel.repaint();
-					drawPanel.paintImage = drawPanel.paintImage;
-					clientData.receiveImg.clear();
+					try
+					{
+						drawPanel.save();
+						drawPanel.load();
+						drawPanel.repaint();
+						clientData.receiveImg.clear();
+					}
+					catch(IOException f)
+					{
 
+					}
 				}
 				else
 				{
