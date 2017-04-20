@@ -19,11 +19,11 @@ public class DrawPanel extends JPanel
     // draw painting
     public void updatePaint() throws IOException
     {
-    	save();
         Graphics g = paintImage.createGraphics();
         g.setColor(Color.yellow);
      	g.fillOval(clientData.mouseX-10, clientData.mouseY-10, 20, 20);
         g.dispose();
+        save();
         load();
         repaint();
     }

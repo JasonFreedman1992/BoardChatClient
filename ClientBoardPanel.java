@@ -34,9 +34,7 @@ public class ClientBoardPanel extends JPanel
 
 		chatReceive.setBackground(Color.white);
 		chatReceive.setLineWrap(true);
-
 		chatReceive.setEditable(false);
-
 		setBackground(Color.lightGray);
 		setLayout(new MigLayout(""));
 		chatReceive.setPreferredSize(new Dimension(40, 40));
@@ -100,6 +98,8 @@ public class ClientBoardPanel extends JPanel
 					//System.out.println(clientData.receiveImg.position());
 					drawPanel.paintImage = drawPanel.createImageFromBytes();
 					drawPanel.repaint();
+					drawPanel.paintImage = drawPanel.paintImage;
+					clientData.receiveImg.clear();
 
 				}
 				else
@@ -127,7 +127,14 @@ public class ClientBoardPanel extends JPanel
         	System.out.println("clicked");
 	    	if(clientData.mousePressed)
 			{
-				drawPanel.updatePaint();
+				try
+				{
+					drawPanel.updatePaint();
+				}
+				catch(IOException f)
+				{
+
+				}
 			}
 	    }
 	}

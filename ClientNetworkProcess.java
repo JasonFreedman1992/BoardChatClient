@@ -130,10 +130,6 @@ public class ClientNetworkProcess
 				{
 					javax.swing.JOptionPane.showMessageDialog(null, "Board not Found.");
 				}
-				else if(msg.equals("off"))
-				{
-					clientData.imgInc = false;
-				}
 				else if(msg.equals("img"))
 				{
 					clientData.imgInc = true;
