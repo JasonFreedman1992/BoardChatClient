@@ -104,6 +104,7 @@ public class ClientBoardPanel extends JPanel
 						drawPanel.load();
 						drawPanel.repaint();
 						clientData.receiveImg.clear();
+						drawPanel.paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
 					}
 					catch(IOException f)
 					{
