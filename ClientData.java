@@ -6,6 +6,7 @@ public class ClientData
 	public static int mouseY;
 
 	public static ByteBuffer receiveImg = ByteBuffer.allocate(25600);
+	public static ByteBuffer sendImg = ByteBuffer.allocate(25600);
 
 	public static byte[] imgArray = new byte[25600];
 	public static int imgSize;

@@ -141,8 +141,6 @@ public class ClientNetworkProcess
 					if(clientData.imgInc == true)
 					{
 						clientData.receiveImg.clear();
-						System.out.println("in imgInc true");
-						System.out.println(clientData.receiveImg.remaining());
 						clientData.receiveImg.put(buffer);
 						//clientData.imgInc = false;
 					}
@@ -247,19 +245,10 @@ public class ClientNetworkProcess
 			if(clientData.imgPressed)
 			{
 				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
-				imgBuffer = ByteBuffer.wrap(clientData.imgArray);
-
 				socket.write(commandBuffer);
-				System.out.println("commandBuffer sent");
-
-				try{Thread.sleep(200);}catch(InterruptedException f){}
-
-				socket.write(imgBuffer);
-				System.out.println("imgBuffer sent");
-
+				socket.write(clientData.sendImg);
+				clientData.sendImg.rewind();
 				commandBuffer.rewind();
-				imgBuffer.rewind();
-				clientData.imgPressed = false;
 			}
 			else
 			{

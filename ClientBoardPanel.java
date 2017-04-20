@@ -61,16 +61,11 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
+					ByteArrayOutputStream out = new ByteArrayOutputStream();
 					try
 					{
-						ByteArrayOutputStream baos = new ByteArrayOutputStream();
-						ImageIO.write(drawPanel.paintImage, "jpg", baos);
-						clientData.imgSize = baos.size();
-						//System.out.println(clientData.imgSize);
-						byte[] bytes = baos.toByteArray();
-						System.out.println(bytes.length);
-						//System.out.println(clientData.receiveImg.remaining());
-						clientData.imgArray = bytes;
+						ImageIO.write(drawPanel.paintImage, "jpg", out);
+						clientData.sendImg.wrap(out.toByteArray());
 					}
 					catch(IOException f)
 					{
@@ -80,10 +75,10 @@ public class ClientBoardPanel extends JPanel
 				}
 				else
 				{
-					clientData.msgPressed = true;
-					clientData.output = chatSend.getText();
-					chatSend.setText("");
-					System.out.println("clientData.output = " + clientData.output);
+					//clientData.msgPressed = true;
+					//clientData.output = chatSend.getText();
+					//chatSend.setText("");
+					//System.out.println("clientData.output = " + clientData.output);
 				}
 			}
 		});
@@ -94,23 +89,6 @@ public class ClientBoardPanel extends JPanel
 				if(chatReceive.getText().equals(""))
 				{
 
-					System.out.println(clientData.receiveImg.remaining());
-					//System.out.println(clientData.receiveImg.position());
-					drawPanel.paintImage = drawPanel.createImageFromBytes();
-					//try{drawPanel.createImageFromBytes();}catch(IOException f){}
-					try
-					{
-						System.out.println(drawPanel.paintImage.toString());
-						drawPanel.save();
-						drawPanel.load();
-						drawPanel.repaint();
-						clientData.receiveImg.clear();
-						drawPanel.paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
-					}
-					catch(IOException f)
-					{
-
-					}
 				}
 				else
 				{

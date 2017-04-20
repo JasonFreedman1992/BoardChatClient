@@ -59,9 +59,6 @@ public class DrawPanel extends JPanel
 		clientData.receiveImg.flip();
 		clientData.receiveImg.get(arr);
 		//clientData.receiveImg.flip();
-		System.out.println("arr " + arr[0] + " " + arr[1] + " " + arr[50] + " " + arr[100]);
-		System.out.println(arr.toString());
-		System.out.println(arr.length);
 		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
 		//clientData.receiveImg.rewind();
 	    try 
