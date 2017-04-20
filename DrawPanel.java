@@ -52,7 +52,29 @@ public class DrawPanel extends JPanel
         paintImage = ImageIO.read(new File("fart.jpg"));
     }
 
-	public BufferedImage createImageFromBytes() 
+	// public BufferedImage createImageFromBytes() 
+	// {
+	// 	System.out.println("position: " + clientData.receiveImg.position());
+	// 	byte[] arr = new byte[clientData.receiveImg.position()];
+	// 	clientData.receiveImg.flip();
+	// 	clientData.receiveImg.get(arr);
+	// 	clientData.receiveImg.flip();
+	// 	System.out.println("arr " + arr[0] + " " + arr[1] + " " + arr[50] + " " + arr[100]);
+	// 	System.out.println(arr.toString());
+	// 	System.out.println(arr.length);
+	// 	ByteArrayInputStream bais = new ByteArrayInputStream(arr);
+	// 	//clientData.receiveImg.rewind();
+	//     try 
+	//     {
+	//         return ImageIO.read(bais);
+	//     }
+	//     catch(IOException e) 
+	//     {
+	//         throw new RuntimeException(e);
+	//     }
+	// }
+
+	public void createImageFromBytes() throws IOException
 	{
 		System.out.println("position: " + clientData.receiveImg.position());
 		byte[] arr = new byte[clientData.receiveImg.position()];
@@ -64,13 +86,15 @@ public class DrawPanel extends JPanel
 		System.out.println(arr.length);
 		ByteArrayInputStream bais = new ByteArrayInputStream(arr);
 		//clientData.receiveImg.rewind();
-	    try 
-	    {
-	        return ImageIO.read(bais);
-	    }
-	    catch(IOException e) 
-	    {
-	        throw new RuntimeException(e);
-	    }
+	    // try 
+	    // {
+	    //     return ImageIO.read(bais);
+	    // }
+	    // catch(IOException e) 
+	    // {
+	    //     throw new RuntimeException(e);
+	    // }
+	    paintImage = ImageIO.read(bais);
+	    
 	}
 }
