@@ -66,6 +66,8 @@ public class ClientBoardPanel extends JPanel
 					{
 						ImageIO.write(drawPanel.paintImage, "jpg", out);
 						clientData.sendImg.wrap(out.toByteArray());
+						System.out.println("position " + clientData.sendImg.position());
+						System.out.println("remain " + clientData.sendImg.remaining());
 					}
 					catch(IOException f)
 					{

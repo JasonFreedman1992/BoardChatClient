@@ -140,7 +140,6 @@ public class ClientNetworkProcess
 					System.out.println("else");
 					if(clientData.imgInc == true)
 					{
-						clientData.receiveImg.clear();
 						clientData.receiveImg.put(buffer);
 						//clientData.imgInc = false;
 					}
