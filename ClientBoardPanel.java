@@ -99,6 +99,7 @@ public class ClientBoardPanel extends JPanel
 					drawPanel.paintImage = drawPanel.createImageFromBytes();
 					try
 					{
+						System.out.println(drawPanel.paintImage.toString());
 						drawPanel.save();
 						drawPanel.load();
 						drawPanel.repaint();
