@@ -58,7 +58,7 @@ public class DrawPanel extends JPanel
 		byte[] arr = new byte[clientData.receiveImg.position()];
 		clientData.receiveImg.flip();
 		clientData.receiveImg.get(arr);
-		clientData.receiveImg.flip();
+		//clientData.receiveImg.flip();
 		System.out.println("arr " + arr[0] + " " + arr[1] + " " + arr[50] + " " + arr[100]);
 		System.out.println(arr.toString());
 		System.out.println(arr.length);
@@ -95,6 +95,6 @@ public class DrawPanel extends JPanel
 	//     //     throw new RuntimeException(e);
 	//     // }
 	//     paintImage = ImageIO.read(bais);
-	    
+
 	// }
 }
