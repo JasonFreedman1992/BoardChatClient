@@ -249,6 +249,7 @@ public class ClientNetworkProcess
 				socket.write(clientData.sendImg);
 				clientData.sendImg.rewind();
 				commandBuffer.rewind();
+				clientData.imgPressed = false;
 			}
 			else
 			{
