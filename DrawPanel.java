@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 public class DrawPanel extends JPanel
 {
 	ClientData clientData = new ClientData();
-    public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_3BYTE_BGR);
+    public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
 
     DrawPanel()
     {
@@ -37,8 +37,8 @@ public class DrawPanel extends JPanel
         g.setColor(Color.yellow);
      	g.fillOval(clientData.mouseX-10, clientData.mouseY-10, 20, 20);
         g.dispose();
-        save();
-        load();
+        //save();
+        //load();
         repaint();
     }
 

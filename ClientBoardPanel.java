@@ -18,6 +18,7 @@ import java.io.ByteArrayInputStream;
 import javax.imageio.ImageIO;
 import java.util.List;
 import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 
 public class ClientBoardPanel extends JPanel
 {
@@ -66,20 +67,45 @@ public class ClientBoardPanel extends JPanel
 					//
 					// testing image sending at the moment
 					//
+					// /1z=img
+					byte b = 47; // /
+					clientData.sendImg.put(b);
+					b = 49; // 1
+					clientData.sendImg.put(b);
+					b = 122; // z
+					clientData.sendImg.put(b);
+					b = 61; // =
+					clientData.sendImg.put(b);
+					b = 105; // i
+					clientData.sendImg.put(b);
+					b = 109; // m
+					clientData.sendImg.put(b);
+					b = 103; // g
+					clientData.sendImg.put(b);
+					//  Board 0 then =/
+					b = 48; // 0
+					clientData.sendImg.put(b);
+					b = 61; // =
+					clientData.sendImg.put(b);
+					b = 47; // /
+					clientData.sendImg.put(b);
+					// =/ ---> past this point is img data
+					// <----- beyond this point is byte img data
 					try
 					{
-						ByteArrayOutputStream baos = new ByteArrayOutputStream();
-						ImageIO.write(drawPanel.paintImage, "jpg", baos);
-						baos.flush();
-						clientData.imgArray = new byte[baos.size()];
-						baos.close();
-						clientData.sendImg = ByteBuffer.wrap(clientData.imgArray);
+						ByteArrayOutputStream stream = new ByteArrayOutputStream();
+						ImageIO.write( drawPanel.paintImage, "jpg", stream);
+						stream.flush();
+						clientData.imgArray = stream.toByteArray();
+						stream.close();
+						clientData.sendImg.put(ByteBuffer.wrap(clientData.imgArray));
+						System.out.println(Charset.defaultCharset());
 						clientData.imgPressed = true;
 					}
 					catch(IOException f)
 					{
 
-					}
+					}				
 				}
 				else
 				{
@@ -100,20 +126,7 @@ public class ClientBoardPanel extends JPanel
 				// chatReceive.setText("");
 				if(chatReceive.getText().equals(""))
 				{
-					try
-					{
-						byte[] b = new byte[clientData.receiveImg.limit()];
-						clientData.receiveImg.get(b);
-						ByteArrayInputStream input = new ByteArrayInputStream(b);
-						drawPanel.paintImage = ImageIO.read(input);
-						drawPanel.save();
-						drawPanel.load();
-						drawPanel.repaint();
-					}
-					catch(IOException f)
-					{
-
-					}
+					
 				}
 				else
 				{	

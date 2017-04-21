@@ -83,7 +83,6 @@ public class ClientNetworkProcess
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
-			buffer.clear();
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			int read = 0;
@@ -93,7 +92,7 @@ public class ClientNetworkProcess
 				buffer.flip();
 				bytes = new byte[buffer.limit()];
 				buffer.get(bytes);
-				buffer.flip();
+				buffer.rewind();
 				sb.append(new String(bytes));
 			}
 			String msg;
@@ -122,8 +121,17 @@ public class ClientNetworkProcess
 					}
 					else if(type.startsWith("img"))
 					{
-						sb.substring(7);
-						clientData.receiveImg = ByteBuffer.wrap(sb.toString().getBytes());
+						String msgDestination = type.substring(3);
+						String [] split = new String[2];
+						split[0] = "";
+						split[1] = "";
+						split = msgDestination.split("=/", -1);
+						String boardDestination = split[0];
+						System.out.println(buffer.position());
+						System.out.println(buffer.remaining());
+						System.out.println(buffer.limit());
+						System.out.println(buffer.capacity());
+						//clientData.imgReceive.put(clientData.)
 					}
 					else if(type.startsWith("resp"))
 					{
@@ -253,13 +261,8 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
-				StringBuilder s = new StringBuilder();
-				s.append(clientData.imgCommand);
-				s.append(clientData.sendImg);
-				String s0 = s.toString();
-				imgBuffer = ByteBuffer.wrap(s0.getBytes());
-				socket.write(imgBuffer);
-				imgBuffer.rewind();
+				socket.write(clientData.sendImg);
+				clientData.sendImg.clear();
 				clientData.imgPressed = false;
 			}
 			else
