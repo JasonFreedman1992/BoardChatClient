@@ -108,9 +108,7 @@ public class ClientNetworkProcess
 				if(sb.toString().startsWith(commandtag))
 				{
 					type = sb.toString().substring(4);
-				}
-				else if(!sb.toString().startsWith(commandtag))
-				{
+					System.out.println(type);
 					if(type.startsWith("msg"))
 					{
 						String msgDestination = type.substring(3);
@@ -158,6 +156,10 @@ public class ClientNetworkProcess
 							clientData.createBoardSuccess = false;
 						}
 					}
+				}
+				else
+				{
+					
 				}
 			}
 		}
