@@ -61,6 +61,9 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
+					//
+					// testing image sending at the moment
+					//
 					clientData.imgPressed = true;
 				}
 				else
@@ -73,15 +76,16 @@ public class ClientBoardPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				StringBuilder s = new StringBuilder();
+				// later will append based on Board ID
+				s.append("0=/");
+				s.append(chatSend.getText());
+				clientData.output = s.toString();
+				clientData.msgPressed = true;
+				chatReceive.setText("");
 				if(chatReceive.getText().equals(""))
 				{
-					StringBuilder s = new StringBuilder();
-					// later will append based on Board ID
-					s.append("0=/");
-					s.append(chatSend.getText());
-					clientData.output = s.toString();
-					clientData.msgPressed = true;
-					chatReceive.setText("");
+
 				}
 				else
 				{	

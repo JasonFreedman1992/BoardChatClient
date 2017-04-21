@@ -56,6 +56,7 @@ public class ClientBoardWindow extends JFrame
 		ClientBoardPanel panel1 = new ClientBoardPanel();
 		tabbedpane.add(panel1);
 		tabbedpane.setTabComponentAt(0, hello);
+		// appends the chatReceive box on Panel if input comes in
 		while(true)
 		{
 			try
