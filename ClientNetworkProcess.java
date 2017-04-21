@@ -9,7 +9,7 @@ public class ClientNetworkProcess
 	Thread loginThread = new Thread();
 	input input = null;
 	ByteBuffer buffer = ByteBuffer.allocate(25600);
-
+	final String commandtag = "/1z=";
 	public ClientNetworkProcess(SocketChannel p_socket) throws IOException
 	{
 		loginThread = new Thread(new input(p_socket));
@@ -78,17 +78,16 @@ public class ClientNetworkProcess
 				{
 
 				}
-				System.out.println(clientData.receiveImg.remaining());
 			}
 		}
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
-			//ByteBuffer buffer = ByteBuffer.allocate(25600);
 			buffer.clear();
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			int read = 0;
+			String type = "";
 			while((read = ch.read(buffer)) > 0)
 			{
 				buffer.flip();
@@ -105,48 +104,58 @@ public class ClientNetworkProcess
 			}
 			else
 			{
-				//System.out.println(sb.toString() + " sb = ??");
-				msg = sb.toString();
-				//clientData.input = msg;
-				System.out.println(msg);
-				if(msg.equals("Password matches the Username."))
+				System.out.println("parsing " + sb.toString());
+				if(sb.toString().startsWith(commandtag))
 				{
-					clientData.loginSuccess = true;
+					type = sb.toString().substring(4);
 				}
-				else if(msg.equals("Username not found."))
+				else if(!sb.toString().startsWith(commandtag))
 				{
-					clientData.loginResult = "No User Found";
-				}
-				else if(msg.equals("Password doesnt match the Username."))
-				{
-					clientData.loginResult = "Wrong Password";
-				}
-				else if(msg.equals("Board Found"))
-				{
-					clientData.input = "";
-					clientData.joinBoardSuccess = true;
-				}
-				else if(msg.equals("Board Not Found"))
-				{
-					javax.swing.JOptionPane.showMessageDialog(null, "Board not Found.");
-				}
-				else if(msg.equals("img"))
-				{
-					clientData.imgInc = true;
-					System.out.println(clientData.imgInc);
-				}
-				else
-				{
-					System.out.println("else");
-					if(clientData.imgInc == true)
+					if(type.startsWith("msg"))
 					{
-						//clientData.receiveImg.clear();
-						clientData.receiveImg.put(buffer);
-						clientData.imgInc = false;
+						String msgDestination = type.substring(3);
+						String[] split = new String[2];
+						split[0] = "";
+						split[1] = "";
+						split = msgDestination.split("=/", -1);
+						String boardDestination = split[0];
+						String boardData = split[1];
+						clientData.input = boardData;
 					}
-					else
+					else if(type.startsWith("img"))
 					{
 
+					}
+					else if(type.equals("resp"))
+					{
+						msg = type.substring(4);
+						if(msg.equals("Password matches the Username."))
+						{
+							clientData.loginSuccess = true;
+						}
+						else if(msg.equals("Username not found."))
+						{
+							clientData.loginResult = "No User Found";
+							clientData.loginSuccess = false;
+						}
+						else if(msg.equals("Password doesnt match the Username."))
+						{
+							clientData.loginResult = "Wrong Password";
+							clientData.loginSuccess = false;
+						}
+						else if(msg.equals("Board Found"))
+						{
+							clientData.input = "";
+							clientData.joinBoardSuccess = true;
+						}
+						else if(msg.equals("Board Not Found"))
+						{
+							javax.swing.JOptionPane.showMessageDialog(null, "Board not Found.");
+						}
+						else if(msg.equals("Username already exists."))
+						{
+							clientData.createBoardSuccess = false;
+						}
 					}
 				}
 			}
@@ -245,11 +254,6 @@ public class ClientNetworkProcess
 			if(clientData.imgPressed)
 			{
 				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
-				socket.write(commandBuffer);
-				socket.write(clientData.sendImg);
-				clientData.sendImg.rewind();
-				commandBuffer.rewind();
-				clientData.imgPressed = false;
 			}
 			else
 			{

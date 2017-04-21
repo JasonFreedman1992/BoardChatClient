@@ -62,8 +62,6 @@ public class ClientListWindow extends JFrame
 
             BoardThread = new Thread(new BoardThread(this));
             BoardThread.start();
-            System.out.println("wtf");
-
             
             System.out.println("login successfull!");
         }
