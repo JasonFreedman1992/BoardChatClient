@@ -75,17 +75,17 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
-
-				}
-				else
-				{
-					chatReceive.setText("");	
 					StringBuilder s = new StringBuilder();
 					// later will append based on Board ID
 					s.append("0=/");
 					s.append(chatSend.getText());
 					clientData.output = s.toString();
 					clientData.msgPressed = true;
+					chatReceive.setText("");
+				}
+				else
+				{	
+
 				}
 			}
 		});
