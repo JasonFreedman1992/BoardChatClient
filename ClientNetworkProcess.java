@@ -99,7 +99,7 @@ public class ClientNetworkProcess
 			String msg;
 			if(read < 0)
 			{
-				msg = key.attachment() + " left the chat. \n";
+				//msg = key.attachment() + " left the chat. \n";
 				ch.close();
 			}
 			else
@@ -164,11 +164,8 @@ public class ClientNetworkProcess
 			}
 		}
 
-		ByteBuffer commandBuffer;
-		ByteBuffer usernameBuffer;
-		ByteBuffer passwordBuffer;
-		ByteBuffer createUsernameBuffer;
-		ByteBuffer createPasswordBuffer;
+		ByteBuffer loginBuffer;
+		ByteBuffer createBuffer;
 		ByteBuffer msgBuffer;
 		ByteBuffer joinBoardBuffer;
 		ByteBuffer createBoardBuffer;
@@ -179,15 +176,14 @@ public class ClientNetworkProcess
 		{
 			if(clientData.loginPressed)
 			{
-				commandBuffer = ByteBuffer.wrap(clientData.loginCommand.getBytes());
-				usernameBuffer = ByteBuffer.wrap(clientData.username.getBytes());
-				passwordBuffer = ByteBuffer.wrap(clientData.password.getBytes());
-				socket.write(commandBuffer);
-				socket.write(usernameBuffer);
-				socket.write(passwordBuffer);
-				commandBuffer.rewind();
-				usernameBuffer.rewind();
-				passwordBuffer.rewind();
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.loginCommand);
+				s.append(clientData.username);
+				s.append(clientData.password);
+				String s0 = s.toString();
+				loginBuffer = ByteBuffer.wrap(s0.getBytes());
+				socket.write(loginBuffer);
+				loginBuffer.rewind();
 				clientData.loginPressed = false;
 			}
 			else
@@ -196,15 +192,13 @@ public class ClientNetworkProcess
 			}
 			if(clientData.createPressed)
 			{
-				commandBuffer = ByteBuffer.wrap(clientData.createCommand.getBytes());
-				createUsernameBuffer = ByteBuffer.wrap(clientData.createUsername.getBytes());
-				createPasswordBuffer = ByteBuffer.wrap(clientData.createPassword.getBytes());
-				socket.write(commandBuffer);
-				socket.write(createUsernameBuffer);
-				socket.write(createPasswordBuffer);
-				commandBuffer.rewind();
-				createUsernameBuffer.rewind();
-				createPasswordBuffer.rewind();
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.createCommand);
+				s.append(clientData.createUsername);
+				s.append(clientData.createPassword);
+				String s0 = s.toString();
+				socket.write(createBuffer);
+				createBuffer.rewind();
 				clientData.createPressed = false;
 			}
 			else
@@ -213,11 +207,12 @@ public class ClientNetworkProcess
 			}
 			if(clientData.msgPressed)
 			{
-				commandBuffer = ByteBuffer.wrap(clientData.msgCommand.getBytes());
-				msgBuffer = ByteBuffer.wrap(clientData.output.getBytes());
-				socket.write(commandBuffer);
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.msgCommand);
+				s.append(clientData.output);
+				String s0 = s.toString();
+				msgBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(msgBuffer);
-				commandBuffer.rewind();
 				msgBuffer.rewind();
 				clientData.msgPressed = false;
 			}
@@ -227,11 +222,12 @@ public class ClientNetworkProcess
 			}
 			if(clientData.createBoardPressed)
 			{
-				commandBuffer = ByteBuffer.wrap(clientData.cBrdCommand.getBytes());
-				createBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
-				socket.write(commandBuffer);
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.cBrdCommand);
+				s.append(clientData.boardName);
+				String s0 = s.toString();
+				createBoardBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(createBoardBuffer);
-				commandBuffer.rewind();
 				createBoardBuffer.rewind();
 				clientData.createBoardPressed = false;
 			}
@@ -241,12 +237,12 @@ public class ClientNetworkProcess
 			}
 			if(clientData.joinBoardPressed)
 			{
-				System.out.println("join pressed");
-				commandBuffer = ByteBuffer.wrap(clientData.jBrdCommand.getBytes());
-				joinBoardBuffer = ByteBuffer.wrap(clientData.boardName.getBytes());
-				socket.write(commandBuffer);
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.jBrdCommand);
+				s.append(clientData.boardName);
+				String s0 = s.toString();
+				joinBoardBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(joinBoardBuffer);
-				commandBuffer.rewind();
 				joinBoardBuffer.rewind();
 				clientData.joinBoardPressed = false;
 			}
@@ -256,7 +252,7 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
-				commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
+				//commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
 			}
 			else
 			{
