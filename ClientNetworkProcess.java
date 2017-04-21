@@ -126,9 +126,10 @@ public class ClientNetworkProcess
 					{
 
 					}
-					else if(type.equals("resp"))
+					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
+						System.out.println(msg);
 						if(msg.equals("Password matches the Username."))
 						{
 							clientData.loginSuccess = true;
