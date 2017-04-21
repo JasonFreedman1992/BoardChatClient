@@ -30,14 +30,10 @@ public class ClientBoardStartPanel extends JPanel
 		clientData = new ClientData();
 		setBackground(Color.lightGray);
 		setLayout(new MigLayout("aligny center, alignx center"));
-
 		add(boardNameLabel, "wrap, center");
-
 		boardName.setSize(225, 25);
 		add(boardName, "wrap");
-
 		add(boardPassLabel, "wrap, center");
-
 		boardPassword.setSize(225, 25);
 		add(boardPassword, "wrap, center");
 		//

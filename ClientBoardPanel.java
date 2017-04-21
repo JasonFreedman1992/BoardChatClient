@@ -14,8 +14,10 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 import javax.imageio.ImageIO;
 import java.util.List;
+import java.nio.ByteBuffer;
 
 public class ClientBoardPanel extends JPanel
 {
@@ -64,7 +66,20 @@ public class ClientBoardPanel extends JPanel
 					//
 					// testing image sending at the moment
 					//
-					clientData.imgPressed = true;
+					try
+					{
+						ByteArrayOutputStream baos = new ByteArrayOutputStream();
+						ImageIO.write(drawPanel.paintImage, "jpg", baos);
+						baos.flush();
+						clientData.imgArray = new byte[baos.size()];
+						baos.close();
+						clientData.sendImg = ByteBuffer.wrap(clientData.imgArray);
+						clientData.imgPressed = true;
+					}
+					catch(IOException f)
+					{
+
+					}
 				}
 				else
 				{
@@ -76,16 +91,29 @@ public class ClientBoardPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				StringBuilder s = new StringBuilder();
-				// later will append based on Board ID
-				s.append("0=/");
-				s.append(chatSend.getText());
-				clientData.output = s.toString();
-				clientData.msgPressed = true;
-				chatReceive.setText("");
+				// StringBuilder s = new StringBuilder();
+				// // later will append based on Board ID
+				// s.append("0=/");
+				// s.append(chatSend.getText());
+				// clientData.output = s.toString();
+				// clientData.msgPressed = true;
+				// chatReceive.setText("");
 				if(chatReceive.getText().equals(""))
 				{
+					try
+					{
+						byte[] b = new byte[clientData.receiveImg.limit()];
+						clientData.receiveImg.get(b);
+						ByteArrayInputStream input = new ByteArrayInputStream(b);
+						drawPanel.paintImage = ImageIO.read(input);
+						drawPanel.save();
+						drawPanel.load();
+						drawPanel.repaint();
+					}
+					catch(IOException f)
+					{
 
+					}
 				}
 				else
 				{	

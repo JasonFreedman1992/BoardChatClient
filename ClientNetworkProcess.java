@@ -8,7 +8,7 @@ public class ClientNetworkProcess
 {
 	Thread loginThread = new Thread();
 	input input = null;
-	ByteBuffer buffer = ByteBuffer.allocate(25600);
+	ByteBuffer buffer = ByteBuffer.allocate(51200);
 	final String commandtag = "/1z=";
 	public ClientNetworkProcess(SocketChannel p_socket) throws IOException
 	{
@@ -122,7 +122,8 @@ public class ClientNetworkProcess
 					}
 					else if(type.startsWith("img"))
 					{
-
+						sb.substring(7);
+						clientData.receiveImg = ByteBuffer.wrap(sb.toString().getBytes());
 					}
 					else if(type.startsWith("resp"))
 					{
@@ -252,7 +253,14 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
-				//commandBuffer = ByteBuffer.wrap(clientData.imgCommand.getBytes());
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.imgCommand);
+				s.append(clientData.sendImg);
+				String s0 = s.toString();
+				imgBuffer = ByteBuffer.wrap(s0.getBytes());
+				socket.write(imgBuffer);
+				imgBuffer.rewind();
+				clientData.imgPressed = false;
 			}
 			else
 			{
