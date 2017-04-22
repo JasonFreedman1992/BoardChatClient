@@ -83,7 +83,7 @@ public class ClientListWindow extends JFrame
         {
             System.out.println("running");
             ClientBoardWindow BoardWindow = new ClientBoardWindow();
-            BoardWindow.init(1024, 768, frame);
+            BoardWindow.init(1000, 748, frame);
             BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
             System.out.println("past");
         }

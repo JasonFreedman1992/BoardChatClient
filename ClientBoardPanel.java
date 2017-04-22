@@ -64,14 +64,6 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
-
-
-
-
-
-
-
-
 					// //
 					// // testing image sending at the moment
 					// //
@@ -167,13 +159,12 @@ public class ClientBoardPanel extends JPanel
         	System.out.println("clicked");
 	    	if(clientData.mousePressed)
 			{
-				clientData.imgPressed = true;
-				System.out.println(clientData.imgPressed);
+				//drawPanel.repaint();
 			}
 			else
 			{
-				clientData.imgPressed = false;
-				System.out.println(clientData.imgPressed);
+				
+				
 			}
 	    }
 	}
@@ -199,12 +190,14 @@ public class ClientBoardPanel extends JPanel
         {
         	System.out.println("false");
         	clientData.mousePressed = false;
+        	clientData.imgPressed = false;
         }
 
         public void mousePressed(java.awt.event.MouseEvent me) 
         {
         	System.out.println("true");
         	clientData.mousePressed = true;
+        	clientData.imgPressed = true;
         }
     }
 }

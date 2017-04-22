@@ -262,8 +262,20 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.imgCommand);
+				s.append("0=/");
+				String s0 = String.valueOf(clientData.mouseX);
+				s.append(s0);
+				s.append("=");
+				s0 = String.valueOf(clientData.mouseY);
+				s.append(s0);
+				String s1 = s.toString();
 				Thread.sleep(100);
-				imgBuffer.put(clientData.imgCommand.getBytes());
+				imgBuffer = ByteBuffer.wrap(s1.getBytes());
+				socket.write(imgBuffer);
+				imgBuffer.rewind();
+
 				// imgBuffer.put(clientData.mouseX.getBytes());
 				// imgBuffer.put(clientData.mouseY.getBytes());
 				// clientData.sendImg.flip();
