@@ -14,20 +14,22 @@ public class DrawPanel extends JPanel
 
     DrawPanel()
     {
-    	try
-    	{
-    		save();
-    		load();
-    	}
-    	catch(IOException e)
-    	{
+    	// try
+    	// {
+    	// 	//save();
+    	// 	//load();
+    	// }
+    	// catch(IOException e)
+    	// {
 
-    	}
+    	// }
+        setBackground(Color.white);
     }
 
     protected void paintComponent(Graphics g)
     {
         g.drawImage(paintImage, 0, 0, null);
+
     }
 
     // draw painting

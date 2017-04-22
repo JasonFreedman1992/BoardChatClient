@@ -271,6 +271,7 @@ public class ClientNetworkProcess
 				s0 = String.valueOf(clientData.mouseY);
 				s.append(s0);
 				String s1 = s.toString();
+				System.out.println("sending " + s1);
 				Thread.sleep(100);
 				imgBuffer = ByteBuffer.wrap(s1.getBytes());
 				socket.write(imgBuffer);
