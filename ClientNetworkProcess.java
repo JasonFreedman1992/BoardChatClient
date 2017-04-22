@@ -91,6 +91,7 @@ public class ClientNetworkProcess
 			{
 				buffer.flip();
 				bytes = new byte[buffer.limit()];
+				//System.out.println(bytes[0]);
 				buffer.get(bytes);
 				buffer.rewind();
 				sb.append(new String(bytes));
@@ -261,9 +262,15 @@ public class ClientNetworkProcess
 			}
 			if(clientData.imgPressed)
 			{
-				socket.write(clientData.sendImg);
-				clientData.sendImg.clear();
-				clientData.imgPressed = false;
+				Thread.sleep(100);
+				imgBuffer.put(clientData.imgCommand.getBytes());
+				// imgBuffer.put(clientData.mouseX.getBytes());
+				// imgBuffer.put(clientData.mouseY.getBytes());
+				// clientData.sendImg.flip();
+				// socket.write(clientData.sendImg);
+				// clientData.sendImg.rewind();
+				// clientData.sendImg.clear();
+				//clientData.imgPressed = false;
 			}
 			else
 			{

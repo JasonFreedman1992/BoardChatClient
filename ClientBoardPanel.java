@@ -64,48 +64,62 @@ public class ClientBoardPanel extends JPanel
 			{
 				if(chatReceive.getText().equals(""))
 				{
-					//
-					// testing image sending at the moment
-					//
-					// /1z=img
-					byte b = 47; // /
-					clientData.sendImg.put(b);
-					b = 49; // 1
-					clientData.sendImg.put(b);
-					b = 122; // z
-					clientData.sendImg.put(b);
-					b = 61; // =
-					clientData.sendImg.put(b);
-					b = 105; // i
-					clientData.sendImg.put(b);
-					b = 109; // m
-					clientData.sendImg.put(b);
-					b = 103; // g
-					clientData.sendImg.put(b);
-					//  Board 0 then =/
-					b = 48; // 0
-					clientData.sendImg.put(b);
-					b = 61; // =
-					clientData.sendImg.put(b);
-					b = 47; // /
-					clientData.sendImg.put(b);
-					// =/ ---> past this point is img data
-					// <----- beyond this point is byte img data
-					try
-					{
-						ByteArrayOutputStream stream = new ByteArrayOutputStream();
-						ImageIO.write( drawPanel.paintImage, "jpg", stream);
-						stream.flush();
-						clientData.imgArray = stream.toByteArray();
-						stream.close();
-						clientData.sendImg.put(ByteBuffer.wrap(clientData.imgArray));
-						System.out.println(Charset.defaultCharset());
-						clientData.imgPressed = true;
-					}
-					catch(IOException f)
-					{
 
-					}				
+
+
+
+
+
+
+
+					// //
+					// // testing image sending at the moment
+					// //
+					// // /1z=img
+					// byte b = 47; // /
+					// clientData.sendImg.put(b);
+					// b = 49; // 1
+					// clientData.sendImg.put(b);
+					// b = 122; // z
+					// clientData.sendImg.put(b);
+					// b = 61; // =
+					// clientData.sendImg.put(b);
+					// b = 105; // i
+					// clientData.sendImg.put(b);
+					// b = 109; // m
+					// clientData.sendImg.put(b);
+					// b = 103; // g
+					// clientData.sendImg.put(b);
+					// //  Board 0 then =/
+					// b = 48; // 0
+					// clientData.sendImg.put(b);
+					// b = 61; // =
+					// clientData.sendImg.put(b);
+					// b = 47; // /
+					// clientData.sendImg.put(b);
+					// // =/ ---> past this point is img data
+					// // <----- beyond this point is byte img data
+					// try
+					// {
+					// 	ByteArrayOutputStream stream = new ByteArrayOutputStream();
+					// 	ImageIO.write( drawPanel.paintImage, "jpg", stream);
+					// 	stream.flush();
+					// 	clientData.imgArray = stream.toByteArray();
+					// 	stream.close();
+					// 	System.out.println(clientData.imgArray.length);
+					// 	clientData.sendImg.put(clientData.imgArray);
+					// 	System.out.println("posi : " + clientData.sendImg.position());
+					// 	System.out.println("rema : " + clientData.sendImg.remaining());
+					// 	System.out.println("limi : " + clientData.sendImg.limit());
+					// 	System.out.println("capa : " + clientData.sendImg.capacity());
+
+					// 	System.out.println(Charset.defaultCharset());
+					// 	clientData.imgPressed = true;
+					// }
+					// catch(IOException f)
+					// {
+
+					// }				
 				}
 				else
 				{
@@ -117,13 +131,13 @@ public class ClientBoardPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				// StringBuilder s = new StringBuilder();
-				// // later will append based on Board ID
-				// s.append("0=/");
-				// s.append(chatSend.getText());
-				// clientData.output = s.toString();
-				// clientData.msgPressed = true;
-				// chatReceive.setText("");
+				StringBuilder s = new StringBuilder();
+				// later will append based on Board ID
+				s.append("0=/");
+				s.append(chatSend.getText());
+				clientData.output = s.toString();
+				clientData.msgPressed = true;
+				chatReceive.setText("");
 				if(chatReceive.getText().equals(""))
 				{
 					
@@ -153,14 +167,13 @@ public class ClientBoardPanel extends JPanel
         	System.out.println("clicked");
 	    	if(clientData.mousePressed)
 			{
-				try
-				{
-					drawPanel.updatePaint();
-				}
-				catch(IOException f)
-				{
-
-				}
+				clientData.imgPressed = true;
+				System.out.println(clientData.imgPressed);
+			}
+			else
+			{
+				clientData.imgPressed = false;
+				System.out.println(clientData.imgPressed);
 			}
 	    }
 	}
