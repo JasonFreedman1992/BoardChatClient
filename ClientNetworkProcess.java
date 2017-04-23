@@ -135,6 +135,7 @@ public class ClientNetworkProcess
 						split1 = mouseInf.split("=", -1);
 						clientData.preMouseX = clientData.incMouseX;
 						clientData.preMouseY = clientData.incMouseY;
+						
 						//
 						// if packets come in separated this clales number format exception
 						//

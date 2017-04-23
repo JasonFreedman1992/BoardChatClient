@@ -65,7 +65,7 @@ public class ClientBoardWindow extends JFrame
 				if(clientData.newMouse || clientData.newClick)
 				{	
 					panel1.drawPanel.repaint();
-					clientData.newMouse = false;
+					//clientData.newMouse = false;
 					// if(clientData.newMouse)
 					// {
 					// 	clientData.newMouse = false;
