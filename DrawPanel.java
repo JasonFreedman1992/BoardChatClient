@@ -14,25 +14,23 @@ public class DrawPanel extends JPanel
 
     DrawPanel()
     {
-    	// try
-    	// {
-    	// 	//save();
-    	// 	//load();
-    	// }
-    	// catch(IOException e)
-    	// {
-
-    	// }
         setBackground(Color.white);
     }
 
     protected void paintComponent(Graphics g)
     {
-        g.setColor(Color.black);
-        g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
-        g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
-        clientData.preClientMouseX = clientData.mouseX;
-        clientData.preClientMouseY = clientData.mouseY;
+        if(clientData.newMouse)
+        {
+            g.setColor(Color.black);
+            g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
+        }
+        if(clientData.newClick)
+        {
+            g.setColor(Color.black);
+            g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
+            clientData.preClientMouseX = clientData.mouseX;
+            clientData.preClientMouseY = clientData.mouseY;
+        }
         //g.drawImage(paintImage, 0, 0, null);
 
     }

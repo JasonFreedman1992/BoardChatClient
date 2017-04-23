@@ -32,7 +32,9 @@ public class ClientData
 	public static String input = "";
 	public static String loginResult = "";
 
+	public static boolean newClick = false;
 	public static boolean newMouse = false;
+
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;

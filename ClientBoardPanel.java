@@ -190,6 +190,7 @@ public class ClientBoardPanel extends JPanel
         	System.out.println("false");
         	clientData.mousePressed = false;
         	clientData.imgPressed = false;
+        	clientData.newClick = false;
         }
 
         public void mousePressed(java.awt.event.MouseEvent me) 
@@ -197,6 +198,7 @@ public class ClientBoardPanel extends JPanel
         	System.out.println("true");
         	clientData.mousePressed = true;
         	clientData.imgPressed = true;
+        	clientData.newClick = true;
         }
     }
 }
