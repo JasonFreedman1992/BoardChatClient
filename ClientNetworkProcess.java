@@ -135,9 +135,19 @@ public class ClientNetworkProcess
 						split1 = mouseInf.split("=", -1);
 						clientData.preMouseX = clientData.incMouseX;
 						clientData.preMouseY = clientData.incMouseY;
-						clientData.incMouseX = Integer.parseInt(split1[0]);
-						clientData.incMouseY = Integer.parseInt(split1[1]);
-						clientData.newMouse = true;
+						//
+						// if packets come in separated this clales number format exception
+						//
+						try
+						{
+							clientData.incMouseX = Integer.parseInt(split1[0]);
+							clientData.incMouseY = Integer.parseInt(split1[1]);
+							clientData.newMouse = true;
+						}
+						catch(NumberFormatException f)
+						{
+							
+						}
 						// System.out.println(buffer.position());
 						// System.out.println(buffer.remaining());
 						// System.out.println(buffer.limit());

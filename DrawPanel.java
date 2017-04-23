@@ -23,6 +23,7 @@ public class DrawPanel extends JPanel
         {
             g.setColor(Color.black);
             g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
+            //clientData.newMouse = false;
         }
         if(clientData.newClick)
         {
@@ -30,6 +31,7 @@ public class DrawPanel extends JPanel
             g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
+            //clientData.newClick = false;
         }
         //g.drawImage(paintImage, 0, 0, null);
 
