@@ -142,12 +142,14 @@ public class ClientNetworkProcess
 						{
 							clientData.incMouseX = Integer.parseInt(split1[0]);
 							clientData.incMouseY = Integer.parseInt(split1[1]);
-							clientData.newMouse = true;
+							
+
 						}
 						catch(NumberFormatException f)
 						{
-							
+
 						}
+						clientData.newMouse = true;
 						// System.out.println(buffer.position());
 						// System.out.println(buffer.remaining());
 						// System.out.println(buffer.limit());
