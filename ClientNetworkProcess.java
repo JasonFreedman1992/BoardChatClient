@@ -128,10 +128,20 @@ public class ClientNetworkProcess
 						split[1] = "";
 						split = msgDestination.split("=/", -1);
 						String boardDestination = split[0];
-						System.out.println(buffer.position());
-						System.out.println(buffer.remaining());
-						System.out.println(buffer.limit());
-						System.out.println(buffer.capacity());
+						String mouseInf = split[1];
+						String [] split1 = new String[2];
+						split1[0] = "";
+						split1[1] = "";
+						split1 = mouseInf.split("=", -1);
+						clientData.preMouseX = clientData.incMouseX;
+						clientData.preMouseY = clientData.incMouseY;
+						clientData.incMouseX = Integer.parseInt(split1[0]);
+						clientData.incMouseY = Integer.parseInt(split1[1]);
+						clientData.newMouse = true;
+						// System.out.println(buffer.position());
+						// System.out.println(buffer.remaining());
+						// System.out.println(buffer.limit());
+						// System.out.println(buffer.capacity());
 						//clientData.imgReceive.put(clientData.)
 					}
 					else if(type.startsWith("resp"))

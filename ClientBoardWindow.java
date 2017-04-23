@@ -61,9 +61,15 @@ public class ClientBoardWindow extends JFrame
 		{
 			try
 			{
-				Thread.sleep(1000);
+				Thread.sleep(100);
+				if(clientData.newMouse)
+				{	
+					panel1.drawPanel.repaint();
+					clientData.newMouse = false;
+				}
 				if(!clientData.input.equals(""))
 				{
+					System.out.println("this is repeating");
 					panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);
 					clientData.input = "";
 				}
