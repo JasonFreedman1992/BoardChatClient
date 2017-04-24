@@ -61,7 +61,7 @@ public class ClientBoardWindow extends JFrame
 		{
 			try
 			{
-				Thread.sleep(100);
+				Thread.sleep(10);
 				if(clientData.newMouse || clientData.newClick)
 				{	
 					panel1.drawPanel.repaint();

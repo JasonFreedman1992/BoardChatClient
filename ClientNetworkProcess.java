@@ -39,7 +39,7 @@ public class ClientNetworkProcess
 			{
 				try
 				{
-					Thread.sleep(100);
+					Thread.sleep(10);
 					SelectionKey key;
 					Iterator<SelectionKey> iter;
 					selector.select();
