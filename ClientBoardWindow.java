@@ -81,15 +81,42 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(!clientData.incUser.equals(""))
 				{
-					if(panel1.instanceInfo.getText().equals(""))
+					System.out.println(clientData.incUser.indexOf("=/"));
+					clientData.incUser = clientData.incUser.substring(clientData.incUser.indexOf("=/") + 2);
+					System.out.println(clientData.incUser);
+					if(clientData.incUser.contains("=/"))
 					{
-						panel1.instanceInfo.setText(clientData.incUser);
+						String user = clientData.incUser.substring(0, clientData.incUser.indexOf("=/"));
+						System.out.println("user: " + user);
+						if(panel1.instanceInfo.getText().equals(""))
+						{
+							panel1.instanceInfo.setText(user);
+							//panel1.instanceInfo.setText(clientData.incUser);
+						}
+						else
+						{
+							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
+							//panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
+						}
+						int x = clientData.incUser.indexOf("=/");
+						clientData.incUser = clientData.incUser.substring(x);
 					}
-					else
+					else if(!clientData.incUser.contains("=/"))
 					{
-						panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
+						String user = clientData.incUser;
+						if(panel1.instanceInfo.getText().equals(""))
+						{
+							panel1.instanceInfo.setText(user);
+							//panel1.instanceInfo.setText(clientData.incUser);
+						}
+						else
+						{
+							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
+							//panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
+						}
+						clientData.incUser = "";
 					}
-					clientData.incUser = "";
+					System.out.println("end of loop: " + clientData.incUser);
 				}
 			}
 			catch(InterruptedException e)
