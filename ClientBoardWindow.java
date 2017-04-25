@@ -41,7 +41,6 @@ public class ClientBoardWindow extends JFrame
 		setVisible(true);
 		while(!clientData.joinBoardSuccess)
 		{
-			//System.out.println("inside while");
 			try
 			{
 				Thread.sleep(1000);
@@ -65,19 +64,9 @@ public class ClientBoardWindow extends JFrame
 				if(clientData.newMouse || clientData.newClick)
 				{	
 					panel1.drawPanel.repaint();
-					//clientData.newMouse = false;
-					// if(clientData.newMouse)
-					// {
-					// 	clientData.newMouse = false;
-					// }
-					// if(clientData.newClick)
-					// {
-					// 	clientData.newClick = false;
-					// }
 				}
 				if(!clientData.input.equals(""))
 				{
-					System.out.println("this is repeating");
 					panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);
 					clientData.input = "";
 				}

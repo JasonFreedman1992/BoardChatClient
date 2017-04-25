@@ -140,22 +140,27 @@ public class ClientBoardPanel extends JPanel
 			}
 		});
 	}
+	boolean first = true;
 	class MouseMotion implements MouseMotionListener
 	{
 		ClientData clientData = new ClientData();
 		public void mouseMoved(MouseEvent e)
 	    {
+	    	//first = true;
 	    	clientData.mouseX = e.getX();
 	    	clientData.mouseY = e.getY();
+	    	clientData.preMouseX = clientData.mouseX;
+	    	clientData.preMouseY = clientData.mouseY;
 	    	//System.out.println("X: " + clientData.mouseX);
 	    	//System.out.println("Y: " + clientData.mouseY);
 	    }
 
 	    public void mouseDragged(MouseEvent e)
 	    {
+	    	System.out.println("mouse dragging");
 	    	clientData.mouseX = e.getX();
         	clientData.mouseY = e.getY();
-        	System.out.println("clicked");
+        	//System.out.println("clicked");
 	    	if(clientData.mousePressed)
 			{
 				//drawPanel.repaint();
@@ -187,6 +192,7 @@ public class ClientBoardPanel extends JPanel
 
         public void mouseReleased(java.awt.event.MouseEvent me) 
         {
+        	first = true;
         	System.out.println("false");
         	clientData.mousePressed = false;
         	clientData.imgPressed = false;
@@ -195,6 +201,16 @@ public class ClientBoardPanel extends JPanel
 
         public void mousePressed(java.awt.event.MouseEvent me) 
         {
+	    	if(first)
+	    	{
+	    		clientData.mouseX = clientData.mouseX;
+	    		clientData.mouseY = clientData.mouseY;
+	    		System.out.println("client mouseX: " + clientData.mouseX);
+	    		System.out.println("client mouseY: " + clientData.mouseY);
+	    		clientData.preClientMouseX = clientData.mouseX;
+	    		clientData.preClientMouseY = clientData.mouseY;
+	    		first = false;
+	    	}
         	System.out.println("true");
         	clientData.mousePressed = true;
         	clientData.imgPressed = true;

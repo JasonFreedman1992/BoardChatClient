@@ -137,7 +137,7 @@ public class ClientNetworkProcess
 						clientData.preMouseY = clientData.incMouseY;
 						
 						//
-						// if packets come in separated this clales number format exception
+						// if packets come in separated this causes number format exception
 						//
 						try
 						{
@@ -151,11 +151,6 @@ public class ClientNetworkProcess
 
 						}
 						clientData.newMouse = true;
-						// System.out.println(buffer.position());
-						// System.out.println(buffer.remaining());
-						// System.out.println(buffer.limit());
-						// System.out.println(buffer.capacity());
-						//clientData.imgReceive.put(clientData.)
 					}
 					else if(type.startsWith("resp"))
 					{
