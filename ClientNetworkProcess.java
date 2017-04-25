@@ -294,7 +294,7 @@ public class ClientNetworkProcess
 				s.append(s0);
 				String s1 = s.toString();
 				System.out.println("sending " + s1);
-				Thread.sleep(100);
+				Thread.sleep(10);
 				imgBuffer = ByteBuffer.wrap(s1.getBytes());
 				socket.write(imgBuffer);
 				imgBuffer.rewind();

@@ -41,16 +41,6 @@ public class DrawPanel extends JPanel
         }
     }
 
-    // draw painting
-    public void updatePaint() throws IOException
-    {
-        Graphics g = paintImage.createGraphics();
-        g.setColor(Color.yellow);
-     	g.fillOval(clientData.mouseX-10, clientData.mouseY-10, 20, 20);
-        g.dispose();
-        repaint();
-    }
-
     public void save() throws IOException
     {
         ImageIO.write(paintImage, "JPG", new File("fart.jpg"));

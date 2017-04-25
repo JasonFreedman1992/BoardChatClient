@@ -68,14 +68,6 @@ public class ClientBoardPanel extends JPanel
 				clientData.output = s.toString();
 				clientData.msgPressed = true;
 				chatSend.setText("");
-				if(chatReceive.getText().equals(""))
-				{
-					
-				}
-				else
-				{
-
-				}
 			}
 		});
 		clear.addActionListener(new ActionListener()
