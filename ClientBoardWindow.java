@@ -54,6 +54,7 @@ public class ClientBoardWindow extends JFrame
 		ClientBoardPanel panel1 = new ClientBoardPanel();
 		tabbedpane.add(panel1);
 		tabbedpane.setTabComponentAt(0, hello);
+		boolean first = true;
 		// appends the chatReceive box on Panel if input comes in
 		while(true)
 		{
@@ -81,6 +82,11 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(!clientData.incUser.equals(""))
 				{
+					if(first)
+					{
+						panel1.instanceInfo.setText("");
+						first = false;
+					}
 					System.out.println(clientData.incUser.indexOf("=/"));
 					clientData.incUser = clientData.incUser.substring(clientData.incUser.indexOf("=/") + 2);
 					System.out.println(clientData.incUser);
@@ -115,6 +121,7 @@ public class ClientBoardWindow extends JFrame
 							//panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
 						}
 						clientData.incUser = "";
+						first = true;
 					}
 					System.out.println("end of loop: " + clientData.incUser);
 				}
