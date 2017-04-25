@@ -62,7 +62,7 @@ public class ClientBoardWindow extends JFrame
 				Thread.sleep(10);
 				if(clientData.newMouse || clientData.newClick)
 				{	
-					if(clientData.firstInc)
+					if(clientData.firstInc && clientData.newMouse)
 					{
 						clientData.preMouseX = clientData.incMouseX;
 						clientData.preMouseY = clientData.incMouseY;

@@ -148,8 +148,8 @@ public class ClientBoardPanel extends JPanel
 	    {
 	    	clientData.mouseX = e.getX();
 	    	clientData.mouseY = e.getY();
-	    	clientData.preMouseX = clientData.mouseX;
-	    	clientData.preMouseY = clientData.mouseY;
+	    	//clientData.preMouseX = clientData.mouseX;
+	    	//clientData.preMouseY = clientData.mouseY;
 	    }
 
 	    public void mouseDragged(MouseEvent e)
@@ -190,12 +190,12 @@ public class ClientBoardPanel extends JPanel
         public void mouseReleased(java.awt.event.MouseEvent me) 
         {
         	System.out.println("false");
-        	clientData.output = "0=/$closing$";
-        	clientData.msgPressed = true;
 
         	clientData.mousePressed = false;
         	clientData.imgPressed = false;
         	clientData.newClick = false;
+        	clientData.output = "0=/$closing$";
+        	clientData.msgPressed = true;
         }
 
         public void mousePressed(java.awt.event.MouseEvent me) 

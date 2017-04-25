@@ -120,8 +120,8 @@ public class ClientNetworkProcess
 						String boardData = split[1];
 						if(boardData.equals("$closing$"))
 						{
-							clientData.firstInc = true;
 							clientData.newMouse = false;
+							clientData.firstInc = true;
 							clientData.input = "";
 						}
 						else
@@ -142,9 +142,6 @@ public class ClientNetworkProcess
 						split1[0] = "";
 						split1[1] = "";
 						split1 = mouseInf.split("=", -1);
-						clientData.preMouseX = clientData.incMouseX;
-						clientData.preMouseY = clientData.incMouseY;
-						
 						//
 						// if packets come in separated this causes number format exception
 						//
