@@ -33,6 +33,12 @@ public class DrawPanel extends JPanel
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
         }
+        if(clientData.clearDraw)
+        {
+            g.setColor(Color.white);
+            g.fillRect(0,0, 200, 200);
+            clientData.clearDraw = false;
+        }
     }
 
     // draw painting

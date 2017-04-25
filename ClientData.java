@@ -45,7 +45,7 @@ public class ClientData
 	public static boolean imgInc = false;
 	public static boolean loginFocused = false;
 	public static boolean createFocused = false;
-
+	public static boolean clearDraw = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
 

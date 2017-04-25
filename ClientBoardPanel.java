@@ -34,7 +34,6 @@ public class ClientBoardPanel extends JPanel
 	JButton clear = new JButton("Clear");;
 	ClientBoardPanel()
 	{
-
 		chatReceive.setBackground(Color.white);
 		chatReceive.setLineWrap(true);
 		chatReceive.setEditable(false);
@@ -83,12 +82,9 @@ public class ClientBoardPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if(chatReceive.getText().equals(""))
+				clientData.clearDraw = true;
+				if(clientData.clearDraw)
 				{
-					
-				}
-				else
-				{	
 					chatReceive.setText("");
 				}
 			}
