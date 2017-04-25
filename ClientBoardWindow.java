@@ -60,7 +60,7 @@ public class ClientBoardWindow extends JFrame
 			try
 			{
 				Thread.sleep(10);
-				if(clientData.newMouse || clientData.newClick)
+				if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
 				{	
 					if(clientData.firstInc && clientData.newMouse)
 					{
