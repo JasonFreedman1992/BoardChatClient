@@ -44,7 +44,6 @@ public class ClientNetworkProcess
 					Iterator<SelectionKey> iter;
 					selector.select();
 					iter = selector.selectedKeys().iterator();
-
 					while(iter.hasNext())
 					{
 						key = iter.next();
