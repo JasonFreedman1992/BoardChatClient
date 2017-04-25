@@ -188,7 +188,9 @@ public class ClientNetworkProcess
 						}
 						else if(msg.startsWith("$f"))
 						{
-							clientData.incUser = msg.substring(2);
+							msg = msg.substring(2);
+							System.out.println(msg.indexOf("=/"));
+							//clientData.incUser = msg.substring(2);
 						}
 					}
 				}
