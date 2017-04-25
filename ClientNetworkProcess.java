@@ -39,7 +39,7 @@ public class ClientNetworkProcess
 			{
 				try
 				{
-					Thread.sleep(10);
+					Thread.sleep(2);
 					SelectionKey key;
 					Iterator<SelectionKey> iter;
 					selector.select();
@@ -143,8 +143,6 @@ public class ClientNetworkProcess
 						{
 							clientData.incMouseX = Integer.parseInt(split1[0]);
 							clientData.incMouseY = Integer.parseInt(split1[1]);
-							
-
 						}
 						catch(NumberFormatException f)
 						{
@@ -183,6 +181,10 @@ public class ClientNetworkProcess
 						{
 							clientData.createBoardSuccess = false;
 						}
+						// else if(msg.equals("off"))
+						// {
+
+						// }
 					}
 				}
 				else
@@ -294,14 +296,6 @@ public class ClientNetworkProcess
 				imgBuffer = ByteBuffer.wrap(s1.getBytes());
 				socket.write(imgBuffer);
 				imgBuffer.rewind();
-
-				// imgBuffer.put(clientData.mouseX.getBytes());
-				// imgBuffer.put(clientData.mouseY.getBytes());
-				// clientData.sendImg.flip();
-				// socket.write(clientData.sendImg);
-				// clientData.sendImg.rewind();
-				// clientData.sendImg.clear();
-				//clientData.imgPressed = false;
 			}
 			else
 			{

@@ -22,13 +22,18 @@ public class DrawPanel extends JPanel
         if(clientData.newMouse)
         {
             g.setColor(Color.black);
+            //g.fillOval(clientData.incMouseX - 10, clientData.incMouseY - 10, 20, 20);
             g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
             //clientData.newMouse = false;
         }
         if(clientData.newClick)
         {
             g.setColor(Color.black);
+            //g.fillOval(clientData.mouseX - 10, clientData.mouseY - 10, 20, 20);
+
             g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
+
+
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
             //clientData.newClick = false;

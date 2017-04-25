@@ -146,13 +146,10 @@ public class ClientBoardPanel extends JPanel
 		ClientData clientData = new ClientData();
 		public void mouseMoved(MouseEvent e)
 	    {
-	    	//first = true;
 	    	clientData.mouseX = e.getX();
 	    	clientData.mouseY = e.getY();
 	    	clientData.preMouseX = clientData.mouseX;
 	    	clientData.preMouseY = clientData.mouseY;
-	    	//System.out.println("X: " + clientData.mouseX);
-	    	//System.out.println("Y: " + clientData.mouseY);
 	    }
 
 	    public void mouseDragged(MouseEvent e)

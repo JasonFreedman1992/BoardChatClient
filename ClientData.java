@@ -12,11 +12,12 @@ public class ClientData
 	public final String msgCommand = "/1z=msg";
 	public final String imgCommand = "/1z=img";
 
+	// pre and inc for receiving mouse info
 	public static int preMouseY;
 	public static int preMouseX;
 	public static int incMouseX;
 	public static int incMouseY;
-
+	// pre and current for local mouse info
 	public static int preClientMouseX;
 	public static int preClientMouseY;
 	public static int mouseX;
@@ -34,6 +35,8 @@ public class ClientData
 
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
+	public static boolean firstInc = true;
+	public static boolean firstRec = true;
 
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;
