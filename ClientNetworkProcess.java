@@ -186,6 +186,10 @@ public class ClientNetworkProcess
 						{
 							clientData.createBoardSuccess = false;
 						}
+						else if(msg.startsWith("$f"))
+						{
+							clientData.incUser = msg.substring(2);
+						}
 					}
 				}
 				else

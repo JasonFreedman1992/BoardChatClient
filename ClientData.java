@@ -65,4 +65,6 @@ public class ClientData
 	public static String boardName = "";
 	public static String boardPassword = "";
 
+	public static String incUser = "";
+
 }
