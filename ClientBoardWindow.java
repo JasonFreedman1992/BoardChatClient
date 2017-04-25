@@ -10,7 +10,6 @@ public class ClientBoardWindow extends JFrame
 	BorderLayout border = new BorderLayout();
 	public JTabbedPane tabbedpane = new JTabbedPane();
 	ImageIcon icon;
-
 	public void init(int p_width, int p_height, JFrame p_listwindow)
 	{		
 		icon = new ImageIcon("icon.png");
@@ -63,7 +62,19 @@ public class ClientBoardWindow extends JFrame
 				Thread.sleep(10);
 				if(clientData.newMouse || clientData.newClick)
 				{	
+					if(clientData.newMouse)
+					{
+						
+					}
 					panel1.drawPanel.repaint();
+				}
+				else if(!clientData.newMouse)
+				{
+
+				}
+				else if(!clientData.newClick)
+				{
+
 				}
 				if(!clientData.input.equals(""))
 				{

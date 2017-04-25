@@ -27,7 +27,7 @@ public class ClientBoardPanel extends JPanel
 	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	ClientData clientData = new ClientData();
-
+	boolean first = true;
 	DrawPanel drawPanel = new DrawPanel();
 
 	JButton send = new JButton("Send");
@@ -140,7 +140,7 @@ public class ClientBoardPanel extends JPanel
 			}
 		});
 	}
-	boolean first = true;
+	
 	class MouseMotion implements MouseMotionListener
 	{
 		ClientData clientData = new ClientData();
@@ -192,7 +192,6 @@ public class ClientBoardPanel extends JPanel
 
         public void mouseReleased(java.awt.event.MouseEvent me) 
         {
-        	first = true;
         	System.out.println("false");
         	clientData.mousePressed = false;
         	clientData.imgPressed = false;
@@ -201,7 +200,8 @@ public class ClientBoardPanel extends JPanel
 
         public void mousePressed(java.awt.event.MouseEvent me) 
         {
-	    	if(first)
+        	first = true;
+			if(first)
 	    	{
 	    		clientData.mouseX = clientData.mouseX;
 	    		clientData.mouseY = clientData.mouseY;
