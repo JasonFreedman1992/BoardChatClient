@@ -118,7 +118,16 @@ public class ClientNetworkProcess
 						split = msgDestination.split("=/", -1);
 						String boardDestination = split[0];
 						String boardData = split[1];
-						clientData.input = boardData;
+						if(boardData.equals("$closing5"))
+						{
+							clientData.firstInc = true;
+							clientData.newMouse = false;
+							clientData.input = "";
+						}
+						else
+						{
+							clientData.input = boardData;
+						}
 					}
 					else if(type.startsWith("img"))
 					{
@@ -181,10 +190,6 @@ public class ClientNetworkProcess
 						{
 							clientData.createBoardSuccess = false;
 						}
-						// else if(msg.equals("off"))
-						// {
-
-						// }
 					}
 				}
 				else
