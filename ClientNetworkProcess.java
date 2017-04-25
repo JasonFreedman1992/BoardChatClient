@@ -229,6 +229,7 @@ public class ClientNetworkProcess
 				s.append(clientData.createUsername);
 				s.append(clientData.createPassword);
 				String s0 = s.toString();
+				createBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(createBuffer);
 				createBuffer.rewind();
 				clientData.createPressed = false;

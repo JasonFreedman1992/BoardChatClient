@@ -154,19 +154,8 @@ public class ClientBoardPanel extends JPanel
 
 	    public void mouseDragged(MouseEvent e)
 	    {
-	    	System.out.println("mouse dragging");
 	    	clientData.mouseX = e.getX();
         	clientData.mouseY = e.getY();
-        	//System.out.println("clicked");
-	    	if(clientData.mousePressed)
-			{
-				//drawPanel.repaint();
-			}
-			else
-			{
-				
-				
-			}
 	    }
 	}
 
