@@ -190,7 +190,7 @@ public class ClientBoardPanel extends JPanel
         public void mouseReleased(java.awt.event.MouseEvent me) 
         {
         	System.out.println("false");
-        	clientData.output = "$closing5";
+        	clientData.output = "0$closing$";
         	clientData.msgPressed = true;
 
         	clientData.mousePressed = false;

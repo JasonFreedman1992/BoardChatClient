@@ -118,7 +118,7 @@ public class ClientNetworkProcess
 						split = msgDestination.split("=/", -1);
 						String boardDestination = split[0];
 						String boardData = split[1];
-						if(boardData.equals("$closing5"))
+						if(boardData.equals("0$closing$"))
 						{
 							clientData.firstInc = true;
 							clientData.newMouse = false;
