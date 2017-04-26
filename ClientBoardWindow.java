@@ -10,7 +10,7 @@ public class ClientBoardWindow extends JFrame
 	BorderLayout border = new BorderLayout();
 	public JTabbedPane tabbedpane = new JTabbedPane();
 	ImageIcon icon;
-	public void init(int p_width, int p_height, JFrame p_listwindow)
+	public void init(int p_width, int p_height)
 	{		
 		icon = new ImageIcon("icon.png");
 		JLabel hello = new JLabel("Tab");
@@ -32,7 +32,7 @@ public class ClientBoardWindow extends JFrame
 		setTitle("ChatBoard");
 		setSize(p_width, p_height);
 		setLocationRelativeTo(null);
-		setLocation(p_listwindow.getX() - 1074, p_listwindow.getY());
+		setLocation(clientData.listWindowX - 1074, clientData.listWindowY);
 		setMinimumSize(new Dimension(1024, 768));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(border);
@@ -97,12 +97,10 @@ public class ClientBoardWindow extends JFrame
 						if(panel1.instanceInfo.getText().equals(""))
 						{
 							panel1.instanceInfo.setText(user);
-							//panel1.instanceInfo.setText(clientData.incUser);
 						}
 						else
 						{
 							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
-							//panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
 						}
 						int x = clientData.incUser.indexOf("=/");
 						clientData.incUser = clientData.incUser.substring(x);
@@ -113,12 +111,10 @@ public class ClientBoardWindow extends JFrame
 						if(panel1.instanceInfo.getText().equals(""))
 						{
 							panel1.instanceInfo.setText(user);
-							//panel1.instanceInfo.setText(clientData.incUser);
 						}
 						else
 						{
 							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
-							//panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.incUser);
 						}
 						clientData.incUser = "";
 						first = true;

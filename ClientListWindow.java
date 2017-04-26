@@ -60,8 +60,10 @@ public class ClientListWindow extends JFrame
             // start BoardWindow after login successfull? or wait til button pressed?
             //
 
-            BoardThread = new Thread(new BoardThread(this));
-            BoardThread.start();
+            clientData.listWindowX = this.getX();
+            clientData.listWindowY = this.getY();
+            //BoardThread = new Thread(new BoardThread(this));
+            //BoardThread.start();
             
             System.out.println("login successfull!");
         }
@@ -72,21 +74,21 @@ public class ClientListWindow extends JFrame
             JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
         }
     }
-    class BoardThread implements Runnable
-    {
-        JFrame frame;
-        public BoardThread(JFrame p_frame)
-        {
-            frame = p_frame;
-        }
-        public void run()
-        {
-            System.out.println("running");
-            ClientBoardWindow BoardWindow = new ClientBoardWindow();
-            BoardWindow.init(1000, 748, frame);
-            BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
-            System.out.println("past");
-        }
-    }
+    // class BoardThread implements Runnable
+    // {
+    //     JFrame frame;
+    //     public BoardThread(JFrame p_frame)
+    //     {
+    //         frame = p_frame;
+    //     }
+    //     public void run()
+    //     {
+    //         System.out.println("running");
+    //         ClientBoardWindow BoardWindow = new ClientBoardWindow();
+    //         BoardWindow.init(1000, 748, frame);
+    //         BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
+    //         System.out.println("past");
+    //     }
+    // }
 }
 

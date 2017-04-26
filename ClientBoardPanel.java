@@ -22,14 +22,15 @@ import java.nio.charset.Charset;
 
 public class ClientBoardPanel extends JPanel
 {
-	BufferedImage paintImage = new BufferedImage(200,200,BufferedImage.TYPE_3BYTE_BGR);
+	String boardName = "";
+	String boardNumS = "";
+	int boardNumI = 0;
 	JTextField chatSend = new JTextField(12);
 	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);
 	ClientData clientData = new ClientData();
 	boolean first = true;
 	DrawPanel drawPanel = new DrawPanel();
-
 	JButton send = new JButton("Send");
 	JButton clear = new JButton("Clear");;
 	ClientBoardPanel()
@@ -63,6 +64,7 @@ public class ClientBoardPanel extends JPanel
 			{
 				StringBuilder s = new StringBuilder();
 				// later will append based on Board ID
+				//s.append(boardNumI);
 				s.append("0=/");
 				s.append(chatSend.getText());
 				clientData.output = s.toString();

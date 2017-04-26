@@ -190,8 +190,15 @@ public class ClientNetworkProcess
 						{
 							msg = msg.substring(2);
 							clientData.incUser = msg;
-							//System.out.println(msg.indexOf("=/"));
-							//clientData.incUser = msg.substring(2);
+						}
+						else if(msg.startsWith("$i"))
+						{
+							msg = msg.substring(2);
+							String[] split = new String[2]; 
+							split = msg.split("=/");
+							clientData.joinBoardNameID = split[1];
+							clientData.joinBoardName = split[0];
+							//clientData.boardName = 
 						}
 					}
 				}

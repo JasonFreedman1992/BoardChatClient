@@ -23,6 +23,8 @@ public class ClientFriendsList
     private javax.swing.JPopupMenu addPopup;
     private javax.swing.JPopupMenu subPopup;
     private javax.swing.JPopupMenu setPopup;
+
+    Thread BoardThread;
     // End of variables declaration//GEN-END:variables
 
 	ClientFriendsList(javax.swing.GroupLayout p_layout)
@@ -214,6 +216,11 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            //
+            // this thread is not looping
+            //
+            BoardThread = new Thread(new BoardThread());
+            BoardThread.start();
             if(e.isMetaDown())
             {
                 System.out.println("right click");
