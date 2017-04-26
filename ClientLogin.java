@@ -21,16 +21,23 @@ public class ClientLogin
         FramePanel = new javax.swing.JPanel();
         LoginPanel = new javax.swing.JPanel();
         LoginPanel.setLayout(new java.awt.BorderLayout());
+        //usernameLabel --> boardnameLabel
         usernameLabel = new javax.swing.JLabel();
+        //passwordLabel --> boardpasswordLabel
         passwordLabel = new javax.swing.JLabel();
         usernameSeparator = new javax.swing.JSeparator();
         passwordSeparator = new javax.swing.JSeparator();
         CreateButtonPanel = new javax.swing.JPanel();
+        //createLabel --> same
         createLabel = new javax.swing.JLabel();
         LoginButtonPanel = new javax.swing.JPanel();
+        //loginLabel --> joinLabel
         loginLabel = new javax.swing.JLabel();
+        // boardname
         username = new javax.swing.JTextField();
+        //resultsLabel --> same
         resultsLabel = new javax.swing.JLabel();
+        // boardpassword
         password = new javax.swing.JPasswordField();
 
         FramePanel.setBackground(new java.awt.Color(0, 102, 153));
@@ -41,13 +48,17 @@ public class ClientLogin
         LoginPanel.setBackground(new java.awt.Color(0, 102, 153));
         LoginPanel.setPreferredSize(new java.awt.Dimension(225, 225));
 
+        //
+        //
         usernameLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18));
         usernameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        usernameLabel.setText("Username");
-
+        usernameLabel.setText("Username"); //-->Board Name
+        
+        //
+        //
         passwordLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18));
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLabel.setText("Password");
+        passwordLabel.setText("Password"); //-->Board Password
 
         usernameSeparator.setForeground(new java.awt.Color(255, 255, 255));
         usernameSeparator.setMinimumSize(new java.awt.Dimension(200, 10));
@@ -58,11 +69,14 @@ public class ClientLogin
         CreateButtonPanel.setBackground(new java.awt.Color(0, 153, 153));
         CreateButtonPanel.setPreferredSize(new java.awt.Dimension(100, 40));
 
+        //
+        //
+        //
         createLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14));
         createLabel.addMouseListener(new createListen());
         createLabel.setForeground(new java.awt.Color(255, 255, 255));
         createLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        createLabel.setText("Create");
+        createLabel.setText("Create"); //--> Same
         createLabel.setFocusable(true);
         createLabel.addFocusListener(new createFocusListen());
         createLabel.addKeyListener(new keyListen());
@@ -70,21 +84,29 @@ public class ClientLogin
         LoginButtonPanel.setBackground(new java.awt.Color(0, 153, 153));
         LoginButtonPanel.setPreferredSize(new java.awt.Dimension(100, 40));
 
+        //
+        //
+        //
         loginLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14));
         loginLabel.addMouseListener(new loginListen());
         loginLabel.setForeground(new java.awt.Color(255, 255, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginLabel.setText("Login");
+        loginLabel.setText("Login"); //--> Join
         loginLabel.setFocusable(true);
+        // join focus listen
         loginLabel.addFocusListener(new loginFocusListen());
         loginLabel.addKeyListener(new keyListen());
 
+        //
+        //
+        //
         username.setBackground(new java.awt.Color(0, 102, 153));
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.setCaretColor(new java.awt.Color(255, 255, 255));
         username.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        // join focus listen
         username.addFocusListener(new loginFocusListen());
         username.addKeyListener(new keyListen());
 
@@ -117,6 +139,7 @@ public class ClientLogin
         FramePanel.add(LoginPanel, new java.awt.GridBagConstraints());
     }
 
+    // join listen
     class loginListen implements java.awt.event.MouseListener
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
@@ -175,6 +198,7 @@ public class ClientLogin
         }
     }
 
+    // join focus listen
     class loginFocusListen implements java.awt.event.FocusListener
     {
         public void focusGained(java.awt.event.FocusEvent e) 
@@ -233,6 +257,7 @@ public class ClientLogin
         }
     }
 
+    // join
     void attemptLogin()
     {
         clientData.username = username.getText() + "=";

@@ -119,8 +119,6 @@ public class ClientBoardPanel extends JPanel
 
         public void mouseReleased(java.awt.event.MouseEvent me) 
         {
-        	System.out.println("false");
-
         	clientData.mousePressed = false;
         	clientData.imgPressed = false;
         	clientData.newClick = false;
