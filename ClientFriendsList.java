@@ -2,7 +2,6 @@ public class ClientFriendsList
 {
 	public ClientData clientData;
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addButtonLabel;
     private javax.swing.JLabel boardsInfoLabel;
     private javax.swing.JLabel friendsInfoLabel;
@@ -215,9 +214,6 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            //
-            // this thread is not looping
-            //
             if(!clientData.boardWindowOpen)
             {
                 clientData.boardWindowOpen = true;
@@ -228,16 +224,6 @@ public class ClientFriendsList
             {
                 
             }
-
-            // left and right click
-            // if(e.isMetaDown())
-            // {
-            //     System.out.println("right click");
-            // }
-            // else
-            // {
-            //     System.out.println("left click");
-            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -264,15 +250,7 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            // left and right click
-            // if(e.isMetaDown())
-            // {
-            //     System.out.println("right click");
-            // }
-            // else
-            // {
-            //     System.out.println("left click");
-            // }
+
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -299,15 +277,7 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            // left and right click
-            // if(e.isMetaDown())
-            // {
-            //     System.out.println("right click");
-            // }
-            // else
-            // {
-            //     System.out.println("left click");
-            // }
+            
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {

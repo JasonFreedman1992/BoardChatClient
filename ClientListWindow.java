@@ -52,6 +52,12 @@ public class ClientListWindow extends JFrame
             clientData.listWindowX = this.getX();
             clientData.listWindowY = this.getY();
             
+            Thread BoardThread;
+            clientData.boardWindowOpen = true;
+            BoardThread = new Thread(new BoardThread());
+            BoardThread.start();
+
+
             System.out.println("login successfull!");
         }
         else

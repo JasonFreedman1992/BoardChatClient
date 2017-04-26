@@ -8,7 +8,6 @@ import java.awt.event.WindowListener;
 public class ClientBoardWindow extends JFrame
 {
 	ClientData clientData = new ClientData();
-	BorderLayout border = new BorderLayout();
 	Icon addIcon = new ImageIcon("add.png");
 	JLabel addButton = new JLabel();
 	ClientBoardStartPanel panel2;
@@ -39,7 +38,6 @@ public class ClientBoardWindow extends JFrame
 		setLocation(clientData.listWindowX - 1074, clientData.listWindowY);
 		setMinimumSize(new Dimension(1024, 768));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setLayout(border);
 		panel2 = new ClientBoardStartPanel();
 		add(panel2.FramePanel);
 		setVisible(true);

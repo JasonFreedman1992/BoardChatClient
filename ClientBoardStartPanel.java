@@ -53,7 +53,7 @@ public class ClientBoardStartPanel
         boardnameSeparator.setForeground(new java.awt.Color(255, 255, 255));
         boardnameSeparator.setMinimumSize(new java.awt.Dimension(200, 10));
         boardnameSeparator.setPreferredSize(new java.awt.Dimension(200, 10));
-
+        
         boardpasswordSeparator.setForeground(new java.awt.Color(255, 255, 255));
 
         CreateButtonPanel.setBackground(new java.awt.Color(0, 153, 153));

@@ -107,7 +107,7 @@ public class ClientNetworkProcess
 				if(sb.toString().startsWith(commandtag))
 				{
 					type = sb.toString().substring(4);
-					System.out.println(type);
+					//System.out.println(type);
 					if(type.startsWith("msg"))
 					{
 						String msgDestination = type.substring(3);
@@ -158,7 +158,7 @@ public class ClientNetworkProcess
 					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
-						System.out.println(msg);
+						//System.out.println(msg);
 						if(msg.equals("Password matches the Username."))
 						{
 							clientData.loginSuccess = true;

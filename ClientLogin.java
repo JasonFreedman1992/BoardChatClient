@@ -14,30 +14,25 @@ public class ClientLogin
     private javax.swing.JTextField username;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JSeparator usernameSeparator;
-    
+    private boolean loginFocused = false;
+    private boolean createFocused = false;
+
 	ClientLogin()
 	{
         clientData = new ClientData();
         FramePanel = new javax.swing.JPanel();
         LoginPanel = new javax.swing.JPanel();
         LoginPanel.setLayout(new java.awt.BorderLayout());
-        //usernameLabel --> boardnameLabel
         usernameLabel = new javax.swing.JLabel();
-        //passwordLabel --> boardpasswordLabel
         passwordLabel = new javax.swing.JLabel();
         usernameSeparator = new javax.swing.JSeparator();
         passwordSeparator = new javax.swing.JSeparator();
         CreateButtonPanel = new javax.swing.JPanel();
-        //createLabel --> same
         createLabel = new javax.swing.JLabel();
         LoginButtonPanel = new javax.swing.JPanel();
-        //loginLabel --> joinLabel
         loginLabel = new javax.swing.JLabel();
-        // boardname
         username = new javax.swing.JTextField();
-        //resultsLabel --> same
         resultsLabel = new javax.swing.JLabel();
-        // boardpassword
         password = new javax.swing.JPasswordField();
 
         FramePanel.setBackground(new java.awt.Color(0, 102, 153));
@@ -48,17 +43,13 @@ public class ClientLogin
         LoginPanel.setBackground(new java.awt.Color(0, 102, 153));
         LoginPanel.setPreferredSize(new java.awt.Dimension(225, 225));
 
-        //
-        //
         usernameLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18));
         usernameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        usernameLabel.setText("Username"); //-->Board Name
+        usernameLabel.setText("Username");
         
-        //
-        //
         passwordLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18));
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLabel.setText("Password"); //-->Board Password
+        passwordLabel.setText("Password");
 
         usernameSeparator.setForeground(new java.awt.Color(255, 255, 255));
         usernameSeparator.setMinimumSize(new java.awt.Dimension(200, 10));
@@ -69,14 +60,11 @@ public class ClientLogin
         CreateButtonPanel.setBackground(new java.awt.Color(0, 153, 153));
         CreateButtonPanel.setPreferredSize(new java.awt.Dimension(100, 40));
 
-        //
-        //
-        //
         createLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14));
         createLabel.addMouseListener(new createListen());
         createLabel.setForeground(new java.awt.Color(255, 255, 255));
         createLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        createLabel.setText("Create"); //--> Same
+        createLabel.setText("Create");
         createLabel.setFocusable(true);
         createLabel.addFocusListener(new createFocusListen());
         createLabel.addKeyListener(new keyListen());
@@ -84,29 +72,22 @@ public class ClientLogin
         LoginButtonPanel.setBackground(new java.awt.Color(0, 153, 153));
         LoginButtonPanel.setPreferredSize(new java.awt.Dimension(100, 40));
 
-        //
-        //
-        //
         loginLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 14));
         loginLabel.addMouseListener(new loginListen());
         loginLabel.setForeground(new java.awt.Color(255, 255, 255));
         loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginLabel.setText("Login"); //--> Join
+        loginLabel.setText("Login");
         loginLabel.setFocusable(true);
-        // join focus listen
+        
         loginLabel.addFocusListener(new loginFocusListen());
         loginLabel.addKeyListener(new keyListen());
 
-        //
-        //
-        //
         username.setBackground(new java.awt.Color(0, 102, 153));
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setBorder(null);
         username.setCaretColor(new java.awt.Color(255, 255, 255));
         username.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        // join focus listen
         username.addFocusListener(new loginFocusListen());
         username.addKeyListener(new keyListen());
 
@@ -139,13 +120,10 @@ public class ClientLogin
         FramePanel.add(LoginPanel, new java.awt.GridBagConstraints());
     }
 
-    // join listen
     class loginListen implements java.awt.event.MouseListener
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            clientData.loginPressed = true;
-            System.out.println("login clicked!");
             attemptLogin();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
@@ -173,8 +151,6 @@ public class ClientLogin
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            clientData.createPressed = true;
-            System.out.println("create clicked!");
             createLogin();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
@@ -198,17 +174,16 @@ public class ClientLogin
         }
     }
 
-    // join focus listen
     class loginFocusListen implements java.awt.event.FocusListener
     {
         public void focusGained(java.awt.event.FocusEvent e) 
         {
-            clientData.loginFocused = true;
+            loginFocused = true;
         }
 
         public void focusLost(java.awt.event.FocusEvent e) 
         {
-            clientData.loginFocused = false;
+            loginFocused = false;
         }
     }
 
@@ -216,12 +191,12 @@ public class ClientLogin
     {
         public void focusGained(java.awt.event.FocusEvent e) 
         {
-            clientData.createFocused = true;
+            createFocused = true;
         }
 
         public void focusLost(java.awt.event.FocusEvent e) 
         {
-            clientData.createFocused = false;
+            createFocused = false;
         }
     }
 
@@ -231,17 +206,14 @@ public class ClientLogin
         {
             if(e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
             {
-                if(clientData.createFocused == true)
+                if(createFocused == true)
                 {
-                    System.out.println("create pressed");
-                    clientData.createPressed = true;
                     createLogin();
                 }
-                else if(clientData.loginFocused == true)
+                else if(loginFocused == true)
                 {
-                    System.out.println("login pressed");
-                    clientData.loginPressed = true;
                     attemptLogin();
+
                 }
             }
         }
@@ -257,16 +229,17 @@ public class ClientLogin
         }
     }
 
-    // join
     void attemptLogin()
     {
         clientData.username = username.getText() + "=";
         clientData.password = password.getText();
+        clientData.loginPressed = true;
     }
 
     void createLogin()
     {
         clientData.createUsername = username.getText() + "=";
         clientData.createPassword = password.getText();
+        clientData.createPressed = true;
     }
 }
