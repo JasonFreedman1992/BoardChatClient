@@ -3,23 +3,47 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.io.IOException;
+import java.awt.event.WindowListener;
 
 public class ClientBoardWindow extends JFrame
 {
 	ClientData clientData = new ClientData();
 	BorderLayout border = new BorderLayout();
 	public JTabbedPane tabbedpane = new JTabbedPane();
-	ImageIcon icon;
-	public void init(int p_width, int p_height)
-	{		
-		icon = new ImageIcon("icon.png");
-		JLabel hello = new JLabel("Tab");
-		hello.setIcon(icon);
-		JPanel hello1 = new JPanel();
-		ClientBoardStartPanel panel2 = new ClientBoardStartPanel();
+	Icon addIcon = new ImageIcon("add.png");
+	JLabel addButton = new JLabel();
+	ClientBoardStartPanel panel2;
+	ClientBoardPanel panel1;
+
+	public void addAddTab()
+	{
+		addButton.setIcon(addIcon);
+		panel2 = new ClientBoardStartPanel();
 		tabbedpane.addTab("Tab 1", panel2);
 		tabbedpane.setMnemonicAt(0, KeyEvent.VK_1);
-		tabbedpane.setTabComponentAt(0, hello);
+		tabbedpane.setTabComponentAt(0, addButton);
+	}
+
+	class ExitListener extends WindowAdapter
+	{
+		JFrame frame;
+		ExitListener(JFrame p_frame)
+		{
+			frame = p_frame;
+		}
+
+		public void windowClosing(WindowEvent e)
+		{
+			clientData.boardWindowOpen = false;
+			clientData.boardWindowClose = true;
+			frame.dispose();
+			System.out.println("closing closing");
+		}
+	}
+
+	public void init(int p_width, int p_height)
+	{		
+
 		//tabbedpane.getComponentAt(0) = hello;
 		//ClientBoardPanel panel2 = new ClientBoardPanel();
 		//tabbedpane.addTab("Tab 2", icon, panel2);
@@ -34,32 +58,46 @@ public class ClientBoardWindow extends JFrame
 		setLocationRelativeTo(null);
 		setLocation(clientData.listWindowX - 1074, clientData.listWindowY);
 		setMinimumSize(new Dimension(1024, 768));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setLayout(border);
 		add(tabbedpane);
 		setVisible(true);
-		while(!clientData.joinBoardSuccess)
-		{
-			try
-			{
-				Thread.sleep(1000);
-			}
-			catch(InterruptedException e)
-			{
+		addAddTab();
+		addWindowListener(new ExitListener(this));
+		// while(!clientData.joinBoardSuccess)
+		// {
+		// 	try
+		// 	{
+		// 		Thread.sleep(1000);
+		// 	}
+		// 	catch(InterruptedException e)
+		// 	{
 				
-			}
-		}
-		clientData.joinBoardSuccess = false;
-		tabbedpane.remove(panel2);
-		ClientBoardPanel panel1 = new ClientBoardPanel();
-		tabbedpane.add(panel1);
-		tabbedpane.setTabComponentAt(0, hello);
+		// 	}
+		// }
+		// clientData.joinBoardSuccess = false;
+
+
+		//tabbedpane.remove(panel2);
+		// ClientBoardPanel panel1 = new ClientBoardPanel();
+		// tabbedpane.add(panel1);
+		// tabbedpane.setTabComponentAt(0, addButton);
 		boolean first = true;
-		// appends the chatReceive box on Panel if input comes in
+		//
+		// loops over for panel info distribution.
+		//
 		while(true)
 		{
 			try
 			{
+				if(clientData.joinBoardSuccess)
+				{
+					panel1 = new ClientBoardPanel();
+					tabbedpane.addTab("Tab 2", panel1);
+					tabbedpane.setMnemonicAt(1, KeyEvent.VK_2);
+					tabbedpane.setTabComponentAt(0, addButton);
+					clientData.joinBoardSuccess = false;
+				}
 				Thread.sleep(10);
 				if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
 				{	
@@ -119,7 +157,6 @@ public class ClientBoardWindow extends JFrame
 						clientData.incUser = "";
 						first = true;
 					}
-					System.out.println("end of loop: " + clientData.incUser);
 				}
 			}
 			catch(InterruptedException e)

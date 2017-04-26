@@ -11,8 +11,6 @@ public class ClientListWindow extends JFrame
     ClientData clientData = new ClientData();
     ClientNetworkProcess networkProcess;
     Thread BoardThread = new Thread();
-    //BorderLayout border = new BorderLayout();
-
 
     public void init(int p_width, int p_height) throws IOException
     {
@@ -21,9 +19,7 @@ public class ClientListWindow extends JFrame
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(280, 750));
-        //setPreferredSize(new java.awt.Dimension(280, 750));
         initConnection connect = new initConnection();
-        //setLayout(border);
         if(connect.success)
         {
             System.out.println("Successful Connection to server!");
@@ -38,7 +34,6 @@ public class ClientListWindow extends JFrame
                 {
                     Thread.sleep(100);
                     login.resultsLabel.setText(clientData.loginResult);
-                    //System.out.println("login unsuccessful!");
                 }
                 catch(InterruptedException e)
                 {
@@ -49,21 +44,13 @@ public class ClientListWindow extends JFrame
             GroupLayout layout = new GroupLayout(getContentPane());
             friendsList = new ClientFriendsList(layout);
             getContentPane().setLayout(layout);
-            //setLayout(null);
             getContentPane().remove(login.FramePanel);
             add(friendsList.borderPanel);
             add(friendsList.infoPanel);
             getContentPane().setBackground(new Color(0, 102, 153));
             getContentPane().validate();
-            System.out.println("58");
-            //
-            // start BoardWindow after login successfull? or wait til button pressed?
-            //
-
             clientData.listWindowX = this.getX();
             clientData.listWindowY = this.getY();
-            //BoardThread = new Thread(new BoardThread(this));
-            //BoardThread.start();
             
             System.out.println("login successfull!");
         }
@@ -74,21 +61,5 @@ public class ClientListWindow extends JFrame
             JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
         }
     }
-    // class BoardThread implements Runnable
-    // {
-    //     JFrame frame;
-    //     public BoardThread(JFrame p_frame)
-    //     {
-    //         frame = p_frame;
-    //     }
-    //     public void run()
-    //     {
-    //         System.out.println("running");
-    //         ClientBoardWindow BoardWindow = new ClientBoardWindow();
-    //         BoardWindow.init(1000, 748, frame);
-    //         BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
-    //         System.out.println("past");
-    //     }
-    // }
 }
 

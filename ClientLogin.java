@@ -91,8 +91,6 @@ public class ClientLogin
         resultsLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 15));
         resultsLabel.setForeground(new java.awt.Color(255, 255, 255));
         resultsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        // resultsLabel.setMinimumSize(new java.awt.Dimension(200, 10));
-        // resultsLabel.setMaximumSize(new java.awt.Dimension(200, 10));
         resultsLabel.setText("");
 
         password.setBackground(new java.awt.Color(0, 102, 153));

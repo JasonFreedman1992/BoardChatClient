@@ -72,4 +72,7 @@ public class ClientData
 
 	public static int listWindowX = 0;
 	public static int listWindowY = 0;
+
+	public static boolean boardWindowOpen = false;
+	public static boolean boardWindowClose = false;
 }

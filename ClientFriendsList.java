@@ -193,7 +193,6 @@ public class ClientFriendsList
         //
         //
         javax.swing.GroupLayout layout = p_layout;
-        //getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(borderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,16 +218,26 @@ public class ClientFriendsList
             //
             // this thread is not looping
             //
-            BoardThread = new Thread(new BoardThread());
-            BoardThread.start();
-            if(e.isMetaDown())
+            if(!clientData.boardWindowOpen)
             {
-                System.out.println("right click");
+                clientData.boardWindowOpen = true;
+                BoardThread = new Thread(new BoardThread());
+                BoardThread.start();
             }
             else
             {
-                System.out.println("left click");
+                
             }
+
+            // left and right click
+            // if(e.isMetaDown())
+            // {
+            //     System.out.println("right click");
+            // }
+            // else
+            // {
+            //     System.out.println("left click");
+            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -255,14 +264,15 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            if(e.isMetaDown())
-            {
-                System.out.println("right click");
-            }
-            else
-            {
-                System.out.println("left click");
-            }
+            // left and right click
+            // if(e.isMetaDown())
+            // {
+            //     System.out.println("right click");
+            // }
+            // else
+            // {
+            //     System.out.println("left click");
+            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -289,14 +299,15 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            if(e.isMetaDown())
-            {
-                System.out.println("right click");
-            }
-            else
-            {
-                System.out.println("left click");
-            }
+            // left and right click
+            // if(e.isMetaDown())
+            // {
+            //     System.out.println("right click");
+            // }
+            // else
+            // {
+            //     System.out.println("left click");
+            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {

@@ -64,7 +64,6 @@ public class ClientBoardPanel extends JPanel
 			{
 				StringBuilder s = new StringBuilder();
 				// later will append based on Board ID
-				//s.append(boardNumI);
 				s.append("0=/");
 				s.append(chatSend.getText());
 				clientData.output = s.toString();

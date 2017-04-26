@@ -198,7 +198,6 @@ public class ClientNetworkProcess
 							split = msg.split("=/");
 							clientData.joinBoardNameID = split[1];
 							clientData.joinBoardName = split[0];
-							//clientData.boardName = 
 						}
 					}
 				}
