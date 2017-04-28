@@ -145,6 +145,7 @@ public class ClientBoardWindow extends JFrame
 					else if(!clientData.incUser.contains("=/"))
 					{
 						String user = clientData.incUser;
+						System.out.println(user);
 						if(panel1.instanceInfo.getText().equals(""))
 						{
 							panel1.instanceInfo.setText(user);
