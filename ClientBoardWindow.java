@@ -15,7 +15,7 @@ public class ClientBoardWindow extends JFrame
 	String boardName = "";
 	String boardNumS = "";
 	int boardNumI = 0;
-
+	boolean first = true;
 	class ExitListener extends WindowAdapter
 	{
 		JFrame frame;
@@ -52,6 +52,7 @@ public class ClientBoardWindow extends JFrame
 			//
 			if(close)
 			{
+				first = true;
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				frame.dispose();
@@ -75,7 +76,6 @@ public class ClientBoardWindow extends JFrame
 		add(panel2.FramePanel);
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
-		boolean first = true;
 		//
 		// loops over for panel info distribution.
 		//
@@ -138,6 +138,8 @@ public class ClientBoardWindow extends JFrame
 							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
 						}
 						int x = clientData.incUser.indexOf("=/");
+						System.out.println(x);
+						System.out.println(clientData.incUser);
 						clientData.incUser = clientData.incUser.substring(x);
 					}
 					else if(!clientData.incUser.contains("=/"))
