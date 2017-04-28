@@ -119,6 +119,7 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(!clientData.incUser.equals(""))
 				{
+					panel1.instanceInfo.setText("");
 					// if(first)
 					// {
 					// 	panel1.instanceInfo.setText("");
