@@ -82,7 +82,7 @@ public class ClientBoardWindow extends JFrame
 		{
 			try
 			{
-				Thread.sleep(5000);
+				//Thread.sleep(5000);
 				if(!clientData.joinBoardName.equals(""))
 				{
 					setTitle(clientData.joinBoardName);
