@@ -52,7 +52,6 @@ public class ClientBoardWindow extends JFrame
 			//
 			if(close)
 			{
-				first = true;
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				frame.dispose();
@@ -83,6 +82,7 @@ public class ClientBoardWindow extends JFrame
 		{
 			try
 			{
+				Thread.sleep(5000);
 				if(!clientData.joinBoardName.equals(""))
 				{
 					setTitle(clientData.joinBoardName);
