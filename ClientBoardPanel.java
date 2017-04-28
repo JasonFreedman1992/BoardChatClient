@@ -22,9 +22,6 @@ import java.nio.charset.Charset;
 
 public class ClientBoardPanel extends JPanel
 {
-	String boardName = "";
-	String boardNumS = "";
-	int boardNumI = 0;
 	JTextField chatSend = new JTextField(12);
 	public JTextArea chatReceive = new JTextArea(10, 20);
 	JTextArea instanceInfo = new JTextArea(10, 20);

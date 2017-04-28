@@ -231,6 +231,7 @@ public class ClientLogin
 
     void attemptLogin()
     {
+        clientData.currentUser = username.getText();
         clientData.username = username.getText() + "=";
         clientData.password = password.getText();
         clientData.loginPressed = true;

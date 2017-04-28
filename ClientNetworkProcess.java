@@ -316,6 +316,10 @@ public class ClientNetworkProcess
 			{
 
 			}
+			if(clientData.boardClosePressed)
+			{
+				
+			}
 		}
 	}
 }

@@ -12,6 +12,7 @@ public class ClientData
 	public final String msgCommand = "/1z=msg";
 	public final String imgCommand = "/1z=img";
 
+	// currentuser for naming the tops of frames
 	public static String currentUser = "";
 	// pre and inc for receiving mouse info
 	public static int preMouseY;
@@ -37,6 +38,7 @@ public class ClientData
 	public static boolean newMouse = false;
 	public static boolean firstInc = true;
 
+	public static boolean boardClosePressed = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
 	public static boolean loginPressed = false;
@@ -69,7 +71,4 @@ public class ClientData
 
 	public static int listWindowX = 0;
 	public static int listWindowY = 0;
-
-	public static boolean boardWindowOpen = false;
-	public static boolean boardWindowClose = false;
 }

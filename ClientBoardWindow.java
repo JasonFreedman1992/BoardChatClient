@@ -12,6 +12,9 @@ public class ClientBoardWindow extends JFrame
 	JLabel addButton = new JLabel();
 	ClientBoardStartPanel panel2;
 	ClientBoardPanel panel1;
+	String boardName = "";
+	String boardNumS = "";
+	int boardNumI = 0;
 
 	class ExitListener extends WindowAdapter
 	{
@@ -23,10 +26,39 @@ public class ClientBoardWindow extends JFrame
 
 		public void windowClosing(WindowEvent e)
 		{
-			clientData.boardWindowOpen = false;
-			clientData.boardWindowClose = true;
-			frame.dispose();
-			System.out.println("closing closing");
+			Object[] options = {"Yes","No"};
+			boolean close = false;
+			int n = JOptionPane.showOptionDialog(frame,//parent container of JOptionPane
+    		"Are you sure you would like to Exit? Exiting will destroy your Board and disconnect you from the room.", 
+   		    "ChatBoard",
+    		JOptionPane.YES_NO_CANCEL_OPTION,
+    		JOptionPane.QUESTION_MESSAGE,
+    		null,//do not use a custom Icon
+    		options,//the titles of buttons
+    		options[1]);//default button title
+
+			switch(n)
+			{
+				case 0:
+					close = true;
+					break;
+				case 1:
+					close = false;
+					break;
+			}
+
+			//
+			// send information to server that you are leaving board
+			//
+			if(close)
+			{
+				clientData.boardClosePressed = true;
+				frame.dispose();
+			}
+			else
+			{
+
+			}
 		}
 	}
 
@@ -50,6 +82,11 @@ public class ClientBoardWindow extends JFrame
 		{
 			try
 			{
+				if(!clientData.joinBoardName.equals(""))
+				{
+					setTitle(clientData.joinBoardName);
+					clientData.joinBoardName = "";
+				}
 				if(clientData.joinBoardSuccess)
 				{
 					panel1 = new ClientBoardPanel();
@@ -117,6 +154,7 @@ public class ClientBoardWindow extends JFrame
 						first = true;
 					}
 				}
+
 			}
 			catch(InterruptedException e)
 			{
