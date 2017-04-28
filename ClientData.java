@@ -11,6 +11,7 @@ public class ClientData
 	public final String addtoBoardCommand = "/1z=addb";
 	public final String msgCommand = "/1z=msg";
 	public final String imgCommand = "/1z=img";
+	public final String quitCommand = "/1z=quit";
 
 	// currentuser for naming the tops of frames
 	public static String currentUser = "";
@@ -71,4 +72,6 @@ public class ClientData
 
 	public static int listWindowX = 0;
 	public static int listWindowY = 0;
+
+	public static boolean boardWindowOpen = false;
 }

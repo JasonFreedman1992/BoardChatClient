@@ -52,6 +52,7 @@ public class ClientBoardWindow extends JFrame
 			//
 			if(close)
 			{
+				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				frame.dispose();
 			}

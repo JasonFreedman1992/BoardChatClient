@@ -214,6 +214,7 @@ public class ClientNetworkProcess
 		ByteBuffer joinBoardBuffer;
 		ByteBuffer createBoardBuffer;
 		ByteBuffer imgBuffer;
+		ByteBuffer quitBuffer;
 
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
@@ -318,7 +319,14 @@ public class ClientNetworkProcess
 			}
 			if(clientData.boardClosePressed)
 			{
-				
+				StringBuilder s = new StringBuilder();
+				s.append(clientData.quitCommand);
+				s.append(clientData.joinBoardNameID);
+				String s0 = s.toString();
+				quitBuffer = ByteBuffer.wrap(s0.getBytes());
+				socket.write(quitBuffer);
+				quitBuffer.rewind();
+				clientData.boardClosePressed = false;
 			}
 		}
 	}
