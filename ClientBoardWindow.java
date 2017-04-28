@@ -15,7 +15,7 @@ public class ClientBoardWindow extends JFrame
 	String boardName = "";
 	String boardNumS = "";
 	int boardNumI = 0;
-	boolean first = true;
+	//boolean first = true;
 	class ExitListener extends WindowAdapter
 	{
 		JFrame frame;
@@ -55,7 +55,7 @@ public class ClientBoardWindow extends JFrame
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				frame.dispose();
-				first = true;
+				//first = true;
 			}
 			else
 			{
@@ -119,11 +119,11 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(!clientData.incUser.equals(""))
 				{
-					if(first)
-					{
-						panel1.instanceInfo.setText("");
-						first = false;
-					}
+					// if(first)
+					// {
+					// 	panel1.instanceInfo.setText("");
+					// 	first = false;
+					// }
 					clientData.incUser = clientData.incUser.substring(clientData.incUser.indexOf("=/") + 2);
 					System.out.println(clientData.incUser);
 					if(clientData.incUser.contains("=/"))
@@ -156,7 +156,7 @@ public class ClientBoardWindow extends JFrame
 							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
 						}
 						clientData.incUser = "";
-						first = true;
+						//first = true;
 					}
 				}
 
