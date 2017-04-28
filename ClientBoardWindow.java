@@ -137,7 +137,7 @@ public class ClientBoardWindow extends JFrame
 						{
 							panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
 						}
-						int x = clientData.incUser.indexOf("=/");
+						int x = clientData.incUser.indexOf("=/") + 2;
 						System.out.println(x);
 						System.out.println(clientData.incUser);
 						clientData.incUser = clientData.incUser.substring(x);
