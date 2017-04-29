@@ -15,7 +15,6 @@ public class ClientBoardWindow extends JFrame
 	String boardName = "";
 	String boardNumS = "";
 	int boardNumI = 0;
-	boolean first = true;
 	class ExitListener extends WindowAdapter
 	{
 		JFrame frame;
@@ -54,7 +53,6 @@ public class ClientBoardWindow extends JFrame
 			{
 				panel1.instanceInfo.setText("");
 				frame.dispose();
-				first = true;
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 			}
@@ -147,14 +145,14 @@ public class ClientBoardWindow extends JFrame
 								if(panel1.instanceInfo.getText().equals(""))
 								{
 									panel1.instanceInfo.setText(user);
-									user = "";
 									clientData.incUser = "";
+									user = "";
 								}
 								else
 								{
 									panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
-									user = "";
 									clientData.incUser = "";
+									user = "";
 								}
 							}
 						}

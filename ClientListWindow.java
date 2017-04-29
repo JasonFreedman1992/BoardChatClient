@@ -3,6 +3,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.*;
 import java.io.IOException;
+import java.awt.event.*;
+import java.awt.event.WindowListener;
 
 public class ClientListWindow extends JFrame
 {
@@ -12,13 +14,62 @@ public class ClientListWindow extends JFrame
     ClientNetworkProcess networkProcess;
     Thread BoardThread = new Thread();
 
+    class ExitListener extends WindowAdapter
+    {
+        JFrame frame;
+        ExitListener(JFrame p_frame)
+        {
+            frame = p_frame;
+        }
+
+        public void windowClosing(WindowEvent e)
+        {
+            Object[] options = {"Yes","No"};
+            boolean close = false;
+            int n = JOptionPane.showOptionDialog(frame,//parent container of JOptionPane
+            "Are you sure you would like to Exit? Exiting will destroy your Board and disconnect you from the Server.", 
+            "ChatBoard",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,//do not use a custom Icon
+            options,//the titles of buttons
+            options[1]);//default button title
+
+            switch(n)
+            {
+                case 0:
+                    close = true;
+                    break;
+                case 1:
+                    close = false;
+                    break;
+            }
+
+            //
+            // send information to server that you are leaving board
+            //
+            if(close)
+            {
+                
+                clientData.boardWindowOpen = false;
+                clientData.boardClosePressed = true;
+                System.exit(0);
+            }
+            else
+            {
+
+            }
+        }
+    }
+
     public void init(int p_width, int p_height) throws IOException
     {
         setTitle("ChatBoard");
         setSize(p_width, p_height);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(280, 750));
+        addWindowListener(new ExitListener(this));
         initConnection connect = new initConnection();
         if(connect.success)
         {
