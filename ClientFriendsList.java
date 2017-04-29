@@ -216,9 +216,9 @@ public class ClientFriendsList
         {
             if(!clientData.boardWindowOpen)
             {
-                clientData.boardWindowOpen = true;
                 BoardThread = new Thread(new BoardThread());
                 BoardThread.start();
+                clientData.boardWindowOpen = true;
             }
             else
             {
