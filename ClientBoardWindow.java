@@ -140,6 +140,7 @@ public class ClientBoardWindow extends JFrame
 							}
 						}
 						clientData.incUser = false;
+						clientData.usersInBoard.clear();
 					}
 				}
 			}
