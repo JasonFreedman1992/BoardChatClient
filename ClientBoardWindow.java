@@ -122,6 +122,48 @@ public class ClientBoardWindow extends JFrame
 				{
 					panel1.instanceInfo.setText("");
 					String user = clientData.incUser;
+					while(!user.equals(""))
+					{
+						System.out.println(user);
+						if(user.startsWith("=/"))
+						{
+							user = user.substring(2);
+							if(user.contains("=/")) // if data contains another user
+							{
+								String user1 = user.substring(0, user.indexOf("=/"));
+								user = user.substring(user.indexOf("=/"));
+								System.out.println("user1: " + user1);
+								if(panel1.instanceInfo.getText().equals(""))
+								{
+									panel1.instanceInfo.setText(user1);
+								}
+								else
+								{
+									panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user1);
+								}
+							}
+							else // if user doesnt have =/, last user
+							{
+								if(panel1.instanceInfo.getText().equals(""))
+								{
+									panel1.instanceInfo.setText(user);
+									user = "";
+									clientData.incUser = "";
+								}
+								else
+								{
+									panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
+									user = "";
+									clientData.incUser = "";
+								}
+							}
+						}
+						else
+						{
+
+						}					
+					}
+					
 					
 					// System.out.println(clientData.incUser);
 					// String user = clientData.incUser.substring(2);
