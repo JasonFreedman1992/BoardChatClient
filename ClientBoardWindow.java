@@ -51,10 +51,12 @@ public class ClientBoardWindow extends JFrame
 			//
 			if(close)
 			{
+				clientData.usersInBoard.clear();
 				panel1.instanceInfo.setText("");
 				frame.dispose();
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
+				clientData.boardCurrentlyOpen = false;
 			}
 			else
 			{
@@ -95,9 +97,14 @@ public class ClientBoardWindow extends JFrame
 					getContentPane().remove(panel2.FramePanel);
 					add(panel1);
 					getContentPane().validate();
+					clientData.boardCurrentlyOpen = true;
 				}
 				Thread.sleep(10);
-				if(clientData.boardWindowOpen)
+
+				//
+				//
+				//
+				if(clientData.boardCurrentlyOpen)
 				{
 					if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
 					{	
@@ -118,68 +125,21 @@ public class ClientBoardWindow extends JFrame
 					{
 
 					}
-					if(!clientData.incUser.equals(""))
+					if(clientData.incUser)
 					{
-						panel1.instanceInfo.setText("");
-						String user = clientData.incUser;
-						while(!user.equals(""))
+						for(int i = 0; i < clientData.usersInBoard.size(); i++)
 						{
-							if(user.startsWith("=/"))
+							if(panel1.instanceInfo.getText().equals(""))
 							{
-								System.out.println("127user: " + user);
-								user = user.substring(2);
-								if(user.contains("=/")) // if data contains another user
-								{
-									System.out.println("131user: " + user);
-									String user1 = user.substring(0, user.indexOf("=/"));
-									user = user.substring(user.indexOf("=/"));
-									if(panel1.instanceInfo.getText().equals(""))
-									{
-										System.out.println("137user1: " + user1);
-										System.out.println("138user: " + user);
-										panel1.instanceInfo.setText(user1);
-										user1 = "";
-										System.out.println("put as only");
-									}
-									else
-									{
-										System.out.println("143user1: " + user1);
-										System.out.println("144user: " + user);
-										panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user1);
-										user1 = "";
-										System.out.println("new line");
-									}
-								}
-								else // if user doesnt have =/, last user
-								{
-									if(panel1.instanceInfo.getText().equals(""))
-									{
-										System.out.println("153user: " + user);
-										panel1.instanceInfo.setText(user);
-										user = "";
-									}
-									else
-									{
-										System.out.println("160user: " + user);
-										panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user);
-										user = "";
-									}
-								}
+								panel1.instanceInfo.setText(clientData.usersInBoard.get(i));	
 							}
 							else
 							{
-
-							}					
+								panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.usersInBoard.get(i));
+							}
 						}
-						clientData.incUser = "";
-						System.out.println("========");
-						System.out.println("========");
-						System.out.println("========");
-						System.out.println("========");
-						System.out.println("========");
-						System.out.println("========");
-						System.out.println("========");
-					}	
+						clientData.incUser = false;
+					}
 				}
 			}
 			catch(InterruptedException e)

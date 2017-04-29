@@ -1,4 +1,5 @@
 import java.nio.ByteBuffer;
+import java.util.LinkedList;
 
 public class ClientData
 {
@@ -65,7 +66,8 @@ public class ClientData
 	public static String boardName = "";
 	public static String boardPassword = "";
 
-	public static String incUser = "";
+	public static boolean incUser = false;
+	public static LinkedList<String> usersInBoard = new LinkedList<String>();
 
 	public static String joinBoardNameID = "";
 	public static String joinBoardName = "";
@@ -74,4 +76,5 @@ public class ClientData
 	public static int listWindowY = 0;
 
 	public static boolean boardWindowOpen = false;
+	public static boolean boardCurrentlyOpen = false;
 }

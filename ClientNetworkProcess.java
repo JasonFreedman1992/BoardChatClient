@@ -189,7 +189,25 @@ public class ClientNetworkProcess
 						else if(msg.startsWith("$f"))
 						{
 							msg = msg.substring(2);
-							clientData.incUser = msg;
+							while(!msg.equals(""))
+							{
+								if(msg.startsWith("=/"))
+								{
+									msg = msg.substring(2);
+									if(msg.contains("=/"))
+									{
+										String user = msg.substring(0, msg.indexOf("=/"));
+										clientData.usersInBoard.add(user);
+										msg = msg.substring(msg.indexOf("=/"));
+									}
+									else
+									{
+										clientData.usersInBoard.add(msg);
+										msg = "";
+									}
+								}
+							}
+							clientData.incUser = true;
 						}
 						else if(msg.startsWith("$i"))
 						{
