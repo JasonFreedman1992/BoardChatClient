@@ -127,6 +127,7 @@ public class ClientBoardWindow extends JFrame
 					}
 					if(clientData.incUser)
 					{
+						panel1.instanceInfo.setText("");
 						for(int i = 0; i < clientData.usersInBoard.size(); i++)
 						{
 							if(panel1.instanceInfo.getText().equals(""))
