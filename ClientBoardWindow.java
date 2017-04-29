@@ -120,6 +120,7 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(!clientData.incUser.equals(""))
 				{
+					panel1.instanceInfo.setText("");
 					String user = clientData.incUser;
 					while(!user.equals(""))
 					{
