@@ -134,10 +134,12 @@ public class ClientBoardWindow extends JFrame
 								if(panel1.instanceInfo.getText().equals(""))
 								{
 									panel1.instanceInfo.setText(user1);
+									System.out.println("put as only");
 								}
 								else
 								{
 									panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + user1);
+									System.out.println("new line");
 								}
 							}
 							else // if user doesnt have =/, last user
