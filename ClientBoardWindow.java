@@ -170,8 +170,14 @@ public class ClientBoardWindow extends JFrame
 						}					
 					}
 					clientData.incUser = "";
+					System.out.println("========");
+					System.out.println("========");
+					System.out.println("========");
+					System.out.println("========");
+					System.out.println("========");
+					System.out.println("========");
+					System.out.println("========");
 				}
-
 			}
 			catch(InterruptedException e)
 			{
