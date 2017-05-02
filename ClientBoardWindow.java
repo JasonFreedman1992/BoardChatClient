@@ -10,8 +10,8 @@ public class ClientBoardWindow extends JFrame
 	ClientData clientData = new ClientData();
 	Icon addIcon = new ImageIcon("add.png");
 	JLabel addButton = new JLabel();
-	ClientBoardStartPanel panel2;
-	ClientBoardPanel panel1;
+	ClientBoardStartPanel startPanel;
+	ClientBoardPanel boardPanel;
 	String boardName = "";
 	String boardNumS = "";
 	int boardNumI = 0;
@@ -52,11 +52,11 @@ public class ClientBoardWindow extends JFrame
 			if(close)
 			{
 				clientData.usersInBoard.clear();
-				panel1.instanceInfo.setText("");
-				frame.dispose();
+				//panel1.instanceInfo.setText("");
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				clientData.boardCurrentlyOpen = false;
+				frame.dispose();
 			}
 			else
 			{
@@ -73,8 +73,8 @@ public class ClientBoardWindow extends JFrame
 		setLocation(clientData.listWindowX - 1074, clientData.listWindowY);
 		setMinimumSize(new Dimension(1024, 768));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		panel2 = new ClientBoardStartPanel();
-		add(panel2.FramePanel);
+		startPanel = new ClientBoardStartPanel();
+		add(startPanel.FramePanel);
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
 		//
@@ -92,57 +92,70 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(clientData.joinBoardSuccess)
 				{
-					panel1 = new ClientBoardPanel();
 					clientData.joinBoardSuccess = false;
-					getContentPane().remove(panel2.FramePanel);
-					add(panel1);
+					getContentPane().remove(startPanel.FramePanel);
+					boardPanel = new ClientBoardPanel();
+					add(boardPanel);
 					getContentPane().validate();
 					clientData.boardCurrentlyOpen = true;
+					pack();
 				}
 				Thread.sleep(10);
 
 				//
 				//
 				//
-				if(clientData.boardCurrentlyOpen)
-				{
-					if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
-					{	
-						if(clientData.firstInc && clientData.newMouse)
-						{
-							clientData.preMouseX = clientData.incMouseX;
-							clientData.preMouseY = clientData.incMouseY;
-							clientData.firstInc = false;
-						}
-						panel1.drawPanel.repaint();
-					}
-					if(!clientData.input.equals(""))
-					{
-						panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);
-						clientData.input = "";
-					}
-					else
-					{
+				// if(clientData.boardCurrentlyOpen)
+				// {
+				// 	if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
+				// 	{	
+				// 		if(clientData.firstInc && clientData.newMouse)
+				// 		{
+				// 			clientData.preMouseX = clientData.incMouseX;
+				// 			clientData.preMouseY = clientData.incMouseY;
+				// 			clientData.firstInc = false;
+				// 		}
+				// 		panel1.drawPanel.repaint();
+				// 	}
+				// 	if(!clientData.input.equals(""))
+				// 	{
+				// 		panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);
+				// 		clientData.input = "";
+				// 	}
+				// 	else
+				// 	{
 
-					}
-					if(clientData.incUser)
-					{
-						panel1.instanceInfo.setText("");
-						for(int i = 0; i < clientData.usersInBoard.size(); i++)
-						{
-							if(panel1.instanceInfo.getText().equals(""))
-							{
-								panel1.instanceInfo.setText(clientData.usersInBoard.get(i));	
-							}
-							else
-							{
-								panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.usersInBoard.get(i));
-							}
-						}
-						clientData.incUser = false;
-						clientData.usersInBoard.clear();
-					}
-				}
+				// 	}
+				// 	if(clientData.incUser)
+				// 	{
+				// 		System.out.println("usersinboard size" + clientData.usersInBoard.size());
+				// 		panel1.instanceInfo.setText("");
+				// 		if(!clientData.usersInBoard.isEmpty())
+				// 		{
+				// 			for(int i = 0; i < clientData.usersInBoard.size(); i++)
+				// 			{
+				// 				if(panel1.instanceInfo.getText().equals(""))
+				// 				{
+				// 					System.out.println("putting " + clientData.usersInBoard.get(i) + "to instanceInfo");
+				// 					panel1.instanceInfo.setText(clientData.usersInBoard.get(i));	
+				// 					panel1.revalidate();
+				// 				}
+				// 				else
+				// 				{
+				// 					System.out.println("putting " + clientData.usersInBoard.get(i) + "to instanceInfo");
+				// 					panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.usersInBoard.get(i));
+				// 					panel1.revalidate();
+				// 				}
+				// 			}
+				// 			clientData.usersInBoard.clear();
+				// 			clientData.incUser = false;
+				// 		}
+				// 		else
+				// 		{
+
+				// 		}
+				// 	}
+				// }
 			}
 			catch(InterruptedException e)
 			{

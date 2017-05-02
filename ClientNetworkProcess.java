@@ -189,16 +189,19 @@ public class ClientNetworkProcess
 						else if(msg.startsWith("$f"))
 						{
 							msg = msg.substring(2);
+							System.out.println("1: " + msg);
 							while(!msg.equals(""))
 							{
 								if(msg.startsWith("=/"))
 								{
 									msg = msg.substring(2);
+									System.out.println("2: " + msg);
 									if(msg.contains("=/"))
 									{
 										String user = msg.substring(0, msg.indexOf("=/"));
 										clientData.usersInBoard.add(user);
 										msg = msg.substring(msg.indexOf("=/"));
+										System.out.println("3: " + msg);
 									}
 									else
 									{
