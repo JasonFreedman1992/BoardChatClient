@@ -130,7 +130,7 @@ public class ClientBoardWindow extends JFrame
 				//
 				if(clientData.boardCurrentlyOpen)
 				{
-					if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
+					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || clientData.resize)
 					{	
 						if(clientData.firstInc && clientData.newMouse)
 						{
