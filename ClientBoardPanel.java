@@ -172,11 +172,63 @@ public class ClientBoardPanel extends JPanel
 
         javax.swing.GroupLayout yellowLayout = new javax.swing.GroupLayout(yellow);
         yellow.setLayout(yellowLayout);
+        yellow.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
         yellowLayout.setHorizontalGroup(
         yellowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         yellowLayout.setVerticalGroup(yellowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
         green.setBackground(new java.awt.Color(153, 255, 102));
+        green.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout greenLayout = new javax.swing.GroupLayout(green);
         green.setLayout(greenLayout);
@@ -186,6 +238,32 @@ public class ClientBoardPanel extends JPanel
 
         lightBlue.setBackground(new java.awt.Color(0, 204, 255));
         lightBlue.setPreferredSize(new java.awt.Dimension(53, 25));
+        lightBlue.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout lightBlueLayout = new javax.swing.GroupLayout(lightBlue);
         lightBlue.setLayout(lightBlueLayout);
@@ -194,6 +272,32 @@ public class ClientBoardPanel extends JPanel
         lightBlueLayout.setVerticalGroup(lightBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
 
         darkBlue.setBackground(new java.awt.Color(102, 0, 153));
+        darkBlue.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout darkBlueLayout = new javax.swing.GroupLayout(darkBlue);
         darkBlue.setLayout(darkBlueLayout);
@@ -202,6 +306,32 @@ public class ClientBoardPanel extends JPanel
 
         pink.setBackground(new java.awt.Color(255, 102, 204));
         pink.setPreferredSize(new java.awt.Dimension(53, 25));
+        pink.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout pinkLayout = new javax.swing.GroupLayout(pink);
         pink.setLayout(pinkLayout);
@@ -210,6 +340,32 @@ public class ClientBoardPanel extends JPanel
 
         white.setBackground(new java.awt.Color(255, 255, 255));
         white.setPreferredSize(new java.awt.Dimension(53, 25));
+        white.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout whiteLayout = new javax.swing.GroupLayout(white);
         white.setLayout(whiteLayout);
@@ -218,6 +374,32 @@ public class ClientBoardPanel extends JPanel
 
         black.setBackground(new java.awt.Color(0, 0, 0));
         black.setPreferredSize(new java.awt.Dimension(53, 25));
+        black.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout blackLayout = new javax.swing.GroupLayout(black);
         black.setLayout(blackLayout);
