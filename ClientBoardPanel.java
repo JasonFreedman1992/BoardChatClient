@@ -413,6 +413,32 @@ public class ClientBoardPanel extends JPanel
         clearLabel.setForeground(new java.awt.Color(255, 255, 255));
         clearLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         clearLabel.setText("Clear");
+        clearLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout clearPanelLayout = new javax.swing.GroupLayout(clearPanel);
         clearPanel.setLayout(clearPanelLayout);
@@ -426,6 +452,32 @@ public class ClientBoardPanel extends JPanel
         sendLabel.setForeground(new java.awt.Color(255, 255, 255));
         sendLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sendLabel.setText("Send");
+        sendLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout sendPanelLayout = new javax.swing.GroupLayout(sendPanel);
         sendPanel.setLayout(sendPanelLayout);
@@ -439,6 +491,32 @@ public class ClientBoardPanel extends JPanel
         infoLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
         infoLabel.setForeground(new java.awt.Color(255, 255, 255));
         infoLabel.setText("Board Information");
+        infoLabel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);

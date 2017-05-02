@@ -1,8 +1,7 @@
-public class ClientBoardStartPanel
+public class ClientBoardStartPanel extends javax.swing.JPanel
 {
     public ClientData clientData;
     private javax.swing.JPanel CreateButtonPanel;
-    public javax.swing.JPanel FramePanel;
     private javax.swing.JPanel LoginButtonPanel;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JLabel createLabel;
@@ -20,7 +19,6 @@ public class ClientBoardStartPanel
 	ClientBoardStartPanel()
 	{
         clientData = new ClientData();
-        FramePanel = new javax.swing.JPanel();
         LoginPanel = new javax.swing.JPanel();
         LoginPanel.setLayout(new java.awt.BorderLayout());
         boardnameLabel = new javax.swing.JLabel();
@@ -35,10 +33,10 @@ public class ClientBoardStartPanel
         resultsLabel = new javax.swing.JLabel();
         boardpassword = new javax.swing.JPasswordField();
 
-        FramePanel.setBackground(new java.awt.Color(0, 102, 153));
-        FramePanel.setMinimumSize(new java.awt.Dimension(280, 750));
-        FramePanel.setPreferredSize(new java.awt.Dimension(280, 750));
-        FramePanel.setLayout(new java.awt.GridBagLayout());
+        setBackground(new java.awt.Color(0, 102, 153));
+        setMinimumSize(new java.awt.Dimension(280, 750));
+        setPreferredSize(new java.awt.Dimension(280, 750));
+        setLayout(new java.awt.GridBagLayout());
 
         LoginPanel.setBackground(new java.awt.Color(0, 102, 153));
         LoginPanel.setPreferredSize(new java.awt.Dimension(225, 225));
@@ -115,7 +113,7 @@ public class ClientBoardStartPanel
         LoginPanel.setLayout(LoginPanelLayout);
         LoginPanelLayout.setHorizontalGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginPanelLayout.createSequentialGroup().addComponent(LoginButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE).addComponent(CreateButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addGroup(LoginPanelLayout.createSequentialGroup().addGap(32, 32, 32).addComponent(resultsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addGroup(LoginPanelLayout.createSequentialGroup().addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false).addComponent(boardpasswordSeparator).addComponent(boardnameSeparator, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE).addComponent(boardname).addComponent(boardpassword)).addComponent(boardpasswordLabel).addComponent(boardnameLabel)).addGap(0, 0, Short.MAX_VALUE)));
         LoginPanelLayout.setVerticalGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(LoginPanelLayout.createSequentialGroup().addContainerGap().addComponent(boardnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardnameSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardpasswordLabel).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardpasswordSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addComponent(LoginButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(CreateButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(resultsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(7, 7, 7)));
-        FramePanel.add(LoginPanel, new java.awt.GridBagConstraints());
+        add(LoginPanel, new java.awt.GridBagConstraints());
     }
 
     // JOIN LISTEN

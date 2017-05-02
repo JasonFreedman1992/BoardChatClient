@@ -74,7 +74,7 @@ public class ClientBoardWindow extends JFrame
 		setMinimumSize(new Dimension(1024, 768));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		startPanel = new ClientBoardStartPanel();
-		add(startPanel.FramePanel);
+		add(startPanel);
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
 		//
@@ -93,7 +93,7 @@ public class ClientBoardWindow extends JFrame
 				if(clientData.joinBoardSuccess)
 				{
 					clientData.joinBoardSuccess = false;
-					getContentPane().remove(startPanel.FramePanel);
+					getContentPane().remove(startPanel);
 					boardPanel = new ClientBoardPanel();
 					add(boardPanel);
 					getContentPane().validate();
