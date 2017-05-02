@@ -10,7 +10,8 @@ public class ClientBoardPanel extends JPanel
 
     private void initComponents() 
     {
-        java.awt.GridBagConstraints gridBagConstraints;
+        setVisible(true);
+        //java.awt.GridBagConstraints gridBagConstraints;
         drawPanel = new javax.swing.JPanel();
         chatSend = new javax.swing.JTextField();
         red = new javax.swing.JPanel();

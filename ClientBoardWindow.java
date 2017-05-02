@@ -8,10 +8,8 @@ import java.awt.event.WindowListener;
 public class ClientBoardWindow extends JFrame
 {
 	ClientData clientData = new ClientData();
-	Icon addIcon = new ImageIcon("add.png");
-	JLabel addButton = new JLabel();
-	ClientBoardStartPanel startPanel;
 	ClientBoardPanel boardPanel;
+	ClientBoardStartPanel startPanel;
 	String boardName = "";
 	String boardNumS = "";
 	int boardNumI = 0;
@@ -55,6 +53,7 @@ public class ClientBoardWindow extends JFrame
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				clientData.boardCurrentlyOpen = false;
+				frame = (JFrame) e.getSource();
 				frame.dispose();
 			}
 			else
@@ -74,16 +73,18 @@ public class ClientBoardWindow extends JFrame
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		startPanel = new ClientBoardStartPanel();
 		add(startPanel);
+		revalidate();
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
+		clientData.boardWindowOpen = true;
 		//
 		// loops over for panel info distribution.
 		//
-		while(true)
+		while(clientData.boardWindowOpen)
 		{
 			try
 			{
-				//Thread.sleep(5000);
+				Thread.sleep(10);
 				if(!clientData.joinBoardName.equals(""))
 				{
 					setTitle(clientData.joinBoardName);
@@ -92,16 +93,16 @@ public class ClientBoardWindow extends JFrame
 				if(clientData.joinBoardSuccess)
 				{
 					System.out.println("clientdata.joinBoardSuccess!!!!");
+
 					clientData.joinBoardSuccess = false;
-					getContentPane().remove(startPanel);
+					remove(startPanel);
+					invalidate();
 					boardPanel = new ClientBoardPanel();
 					add(boardPanel);
-					getContentPane().validate();
+					validate();
+					repaint();
 					clientData.boardCurrentlyOpen = true;
-					//pack();
-					revalidate();
 				}
-				Thread.sleep(10);
 
 				//
 				//

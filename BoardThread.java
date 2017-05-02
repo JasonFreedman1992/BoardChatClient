@@ -1,5 +1,3 @@
-
-
 public class BoardThread implements Runnable
 {
     public BoardThread()
@@ -9,7 +7,7 @@ public class BoardThread implements Runnable
     public void run()
     {
         ClientBoardWindow BoardWindow = new ClientBoardWindow();
-        BoardWindow.init(1000, 748);
-        BoardWindow.setMinimumSize(new java.awt.Dimension(1024,768));
+        BoardWindow.init(1000, 768);
+        BoardWindow.setMinimumSize(new java.awt.Dimension(1000,768));
     }
 }
