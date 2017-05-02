@@ -177,6 +177,7 @@ public class ClientNetworkProcess
 						{
 							clientData.input = "";
 							clientData.joinBoardSuccess = true;
+							System.out.println("join board success true");
 						}
 						else if(msg.equals("Board Not Found"))
 						{

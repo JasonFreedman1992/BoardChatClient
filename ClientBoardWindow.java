@@ -52,7 +52,6 @@ public class ClientBoardWindow extends JFrame
 			if(close)
 			{
 				clientData.usersInBoard.clear();
-				//panel1.instanceInfo.setText("");
 				clientData.boardWindowOpen = false;
 				clientData.boardClosePressed = true;
 				clientData.boardCurrentlyOpen = false;
@@ -92,13 +91,15 @@ public class ClientBoardWindow extends JFrame
 				}
 				if(clientData.joinBoardSuccess)
 				{
+					System.out.println("clientdata.joinBoardSuccess!!!!");
 					clientData.joinBoardSuccess = false;
 					getContentPane().remove(startPanel);
 					boardPanel = new ClientBoardPanel();
 					add(boardPanel);
 					getContentPane().validate();
 					clientData.boardCurrentlyOpen = true;
-					pack();
+					//pack();
+					revalidate();
 				}
 				Thread.sleep(10);
 
