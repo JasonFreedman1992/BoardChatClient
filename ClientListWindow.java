@@ -53,7 +53,10 @@ public class ClientListWindow extends JFrame
                 if(clientData.boardWindowOpen)
                 {
                     clientData.boardWindowOpen = false;
-                    clientData.boardClosePressed = true;
+                    if(clientData.boardCurrentlyOpen)
+                    {
+                        clientData.boardClosePressed = true;
+                    }
                 }
                 System.exit(0);
             }

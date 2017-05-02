@@ -51,7 +51,10 @@ public class ClientBoardWindow extends JFrame
 			{
 				clientData.usersInBoard.clear();
 				clientData.boardWindowOpen = false;
-				clientData.boardClosePressed = true;
+				if(clientData.boardCurrentlyOpen)
+				{
+					clientData.boardClosePressed = true;
+				}
 				clientData.boardCurrentlyOpen = false;
 				frame = (JFrame) e.getSource();
 				frame.dispose();
@@ -62,11 +65,14 @@ public class ClientBoardWindow extends JFrame
 			}
 		}
 	}
-	public void paint(Graphics g)
-	{	
-		System.out.println("frame paint");
-		super.paint(g);
-	}
+	//
+	// called when java frame resizes
+	//
+	// public void paint(Graphics g)
+	// {	
+	// 	System.out.println("frame paint");
+	// 	super.paint(g);
+	// }
 	public void init(int p_width, int p_height)
 	{		
 		setTitle("ChatBoard");
@@ -79,6 +85,17 @@ public class ClientBoardWindow extends JFrame
 		add(startPanel);
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
+		addComponentListener(new ComponentAdapter()
+		{
+			public void componentResized(ComponentEvent e)
+			{
+				System.out.println("resizing");
+				if(clientData.boardCurrentlyOpen)
+				{
+					clientData.resize = true;
+				}
+			}
+		});
 		clientData.boardWindowOpen = true;
 		//
 		// loops over for panel info distribution.

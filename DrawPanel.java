@@ -50,6 +50,17 @@ public class DrawPanel extends JPanel
             g.fillRect(0,0,width,height);
             firstDraw = false;
         }
+        if(clientData.resize)
+        {
+            try
+            {
+                load();
+            }
+            catch(IOException e)
+            {
+                
+            }
+        }
     }
     public void save() throws IOException
     {

@@ -35,7 +35,7 @@ public class ClientData
 	public static String output = "";
 	public static String input = "";
 	public static String loginResult = "";
-
+	public static boolean resize = false;
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean firstInc = true;
