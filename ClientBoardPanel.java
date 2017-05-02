@@ -10,9 +10,9 @@ public class ClientBoardPanel extends JPanel
 
     private void initComponents() 
     {
+        ClientData clientData = new ClientData();
         setVisible(true);
         //java.awt.GridBagConstraints gridBagConstraints;
-        drawPanel = new javax.swing.JPanel();
         chatSend = new javax.swing.JTextField();
         red = new javax.swing.JPanel();
         blue = new javax.swing.JPanel();
@@ -32,8 +32,67 @@ public class ClientBoardPanel extends JPanel
         infoLabel = new javax.swing.JLabel();
         sizeSlider = new javax.swing.JSlider();
         setBackground(new java.awt.Color(0, 102, 153));
+
+
+        drawPanel = new DrawPanel();
         drawPanel.setBackground(new java.awt.Color(255, 255, 255));
         drawPanel.setPreferredSize(new java.awt.Dimension(920, 625));
+        drawPanel.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                boolean first = true;
+                if(first)
+                {
+                    clientData.mouseX = clientData.mouseX;
+                    clientData.mouseY = clientData.mouseY;
+                    clientData.preClientMouseX = clientData.mouseX;
+                    clientData.preClientMouseY = clientData.mouseY;
+                    first = false;
+                }
+                clientData.mousePressed = true;
+                clientData.imgPressed = true;
+                clientData.newClick = true;
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                clientData.mousePressed = false;
+                clientData.imgPressed = false;
+                clientData.newClick = false;
+                clientData.output = "0=/$closing$";
+                clientData.msgPressed = true;
+            }
+        });
+        drawPanel.addMouseMotionListener(new java.awt.event.MouseAdapter()
+        {
+            //ClientData clientData = new ClientData();
+            public void mouseMoved(java.awt.event.MouseEvent e)
+            {
+                clientData.mouseX = e.getX();
+                clientData.mouseY = e.getY();
+            }
+
+            public void mouseDragged(java.awt.event.MouseEvent e)
+            {
+                clientData.mouseX = e.getX();
+                clientData.mouseY = e.getY();
+            }
+        });
 
         javax.swing.GroupLayout drawPanelLayout = new javax.swing.GroupLayout(drawPanel);
         drawPanel.setLayout(drawPanelLayout);
@@ -432,12 +491,12 @@ public class ClientBoardPanel extends JPanel
             }
             public void mousePressed(java.awt.event.MouseEvent e)
             {
-                //System.out.println("pressed red");
+                System.out.println("pressed clear");
             }
 
             public void mouseReleased(java.awt.event.MouseEvent e)
             {
-                //System.out.println("released red");
+                System.out.println("released clear");
             }
         });
 
@@ -458,7 +517,16 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                System.out.println("full send click");
+                StringBuilder s = new StringBuilder();
+                //
+                // later will append based on Board ID
+                //
+                s.append("0=/");
+                s.append(chatSend.getText());
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
+                chatSend.setText("");
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -471,12 +539,12 @@ public class ClientBoardPanel extends JPanel
             }
             public void mousePressed(java.awt.event.MouseEvent e)
             {
-                //System.out.println("pressed red");
+               // System.out.println("pressed send");
             }
 
             public void mouseReleased(java.awt.event.MouseEvent e)
             {
-                //System.out.println("released red");
+               // System.out.println("released send");
             }
         });
 
@@ -510,12 +578,12 @@ public class ClientBoardPanel extends JPanel
             }
             public void mousePressed(java.awt.event.MouseEvent e)
             {
-                //System.out.println("pressed red");
+                System.out.println("pressed info");
             }
 
             public void mouseReleased(java.awt.event.MouseEvent e)
             {
-                //System.out.println("released red");
+                System.out.println("released info");
             }
         });
 
@@ -544,7 +612,7 @@ public class ClientBoardPanel extends JPanel
     public javax.swing.JLabel clearLabel;
     private javax.swing.JPanel clearPanel;
     public javax.swing.JPanel darkBlue;
-    public javax.swing.JPanel drawPanel;
+    public DrawPanel drawPanel;
     public javax.swing.JPanel green;
     public javax.swing.JLabel infoLabel;
     private javax.swing.JPanel infoPanel;

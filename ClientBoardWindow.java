@@ -62,18 +62,21 @@ public class ClientBoardWindow extends JFrame
 			}
 		}
 	}
-
+	public void paint(Graphics g)
+	{	
+		System.out.println("frame paint");
+		super.paint(g);
+	}
 	public void init(int p_width, int p_height)
 	{		
 		setTitle("ChatBoard");
 		setSize(p_width, p_height);
 		setLocationRelativeTo(null);
 		setLocation(clientData.listWindowX - 1074, clientData.listWindowY);
-		setMinimumSize(new Dimension(1024, 768));
+		setMinimumSize(new Dimension(1000, 768));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		startPanel = new ClientBoardStartPanel();
 		add(startPanel);
-		revalidate();
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
 		clientData.boardWindowOpen = true;
@@ -96,29 +99,31 @@ public class ClientBoardWindow extends JFrame
 
 					clientData.joinBoardSuccess = false;
 					remove(startPanel);
-					invalidate();
 					boardPanel = new ClientBoardPanel();
 					add(boardPanel);
 					validate();
 					repaint();
+					//pack();
 					clientData.boardCurrentlyOpen = true;
+					boardPanel.drawPanel.firstDraw = true;
 				}
 
 				//
 				//
 				//
-				// if(clientData.boardCurrentlyOpen)
-				// {
-				// 	if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
-				// 	{	
-				// 		if(clientData.firstInc && clientData.newMouse)
-				// 		{
-				// 			clientData.preMouseX = clientData.incMouseX;
-				// 			clientData.preMouseY = clientData.incMouseY;
-				// 			clientData.firstInc = false;
-				// 		}
-				// 		panel1.drawPanel.repaint();
-				// 	}
+				if(clientData.boardCurrentlyOpen)
+				{
+					if(clientData.newMouse || clientData.newClick || clientData.clearDraw)
+					{	
+						if(clientData.firstInc && clientData.newMouse)
+						{
+							clientData.preMouseX = clientData.incMouseX;
+							clientData.preMouseY = clientData.incMouseY;
+							clientData.firstInc = false;
+						}
+						boardPanel.drawPanel.repaint();
+					}
+				}
 				// 	if(!clientData.input.equals(""))
 				// 	{
 				// 		panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);

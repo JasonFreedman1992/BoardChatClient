@@ -9,16 +9,20 @@ import java.awt.Graphics2D;
 
 public class DrawPanel extends JPanel
 {
-	ClientData clientData = new ClientData();
     public BufferedImage paintImage = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
-
-    DrawPanel()
-    {
-        setBackground(Color.white);
-    }
+	ClientData clientData = new ClientData();
+    public boolean firstDraw = false;
+    int width = 942;
+    int height = 605;
 
     protected void paintComponent(Graphics g)
     {
+        //draw();
+        // setBackground(Color.white);
+        //             g.setColor(Color.white);
+        //     g.fillRect(0,0, width, height);
+        // System.out.println("painting");
+        // System.out.println(this.getSize());
         if(clientData.newMouse)
         {
             g.setColor(Color.black);
@@ -36,18 +40,24 @@ public class DrawPanel extends JPanel
         if(clientData.clearDraw)
         {
             g.setColor(Color.white);
-            g.fillRect(0,0, 200, 200);
+            g.fillRect(0,0, width, height);
             clientData.clearDraw = false;
         }
+        if(firstDraw)
+        {
+            System.out.println("firstdraw");
+            g.setColor(Color.white);
+            g.fillRect(0,0,width,height);
+            firstDraw = false;
+        }
     }
-
     public void save() throws IOException
     {
-        ImageIO.write(paintImage, "JPG", new File("fart.jpg"));
+        //ImageIO.write()
     }
 
-    public void load() throws IOException 
+    public void load() throws IOException
     {
-        paintImage = ImageIO.read(new File("fart.jpg"));
+
     }
 }

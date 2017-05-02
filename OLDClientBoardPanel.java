@@ -47,12 +47,16 @@ public class ClientBoardPanel extends JPanel
 		add(chatSend, "center, wrap");
 		add(send, "center, wrap");
 		add(clear, "center");
+
 		drawPanel.setMinimumSize(new Dimension(200, 200));
 	    MouseListen listen = new MouseListen();
 		drawPanel.addMouseListener(listen);
 		MouseMotion motion = new MouseMotion();
 		drawPanel.addMouseMotionListener(motion);
 		drawPanel.setSize(200, 200);
+
+
+		
 		add(drawPanel, "cell 1 0 1 2, grow");
 		add(instanceInfo, "cell 2 0 1 2, grow");
 		send.addActionListener(new ActionListener()

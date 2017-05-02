@@ -39,7 +39,6 @@ public class ClientData
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean firstInc = true;
-
 	public static boolean boardClosePressed = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
@@ -49,17 +48,14 @@ public class ClientData
 	public static boolean imgPressed = false;
 	public static boolean imgInc = false;
 	public static boolean clearDraw = false;
-
 	public static boolean mousePressed = false;
 	public static boolean mouseReleased = false;
-
 	public static boolean loginSuccess = false;
 	public static boolean joinBoardSuccess = false;
 	public static boolean createBoardSuccess = false;
-
+	
 	public static String username = "";
 	public static String password = "";
-
 	public static String createUsername = "";
 	public static String createPassword = "";
 
