@@ -138,7 +138,8 @@ public class ClientBoardWindow extends JFrame
 							clientData.preMouseY = clientData.incMouseY;
 							clientData.firstInc = false;
 						}
-						boardPanel.drawPanel.repaint();
+						boardPanel.drawPanel.updatePaint();
+						//boardPanel.drawPanel.repaint();
 					}
 				}
 				// 	if(!clientData.input.equals(""))
