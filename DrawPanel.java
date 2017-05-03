@@ -73,10 +73,28 @@ public class DrawPanel extends JPanel
         g.setColor(Color.white);
         if(clientData.newMouse)
         {
-            g.setColor(Color.black);
-            g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
-            clientData.preMouseX = clientData.incMouseX;
-            clientData.preMouseY = clientData.incMouseY;
+            for(int i = 0; i < clientData.usersInBoard.size(); i++)
+            {
+                String user = clientData.usersInBoard.get(i);
+                if(!user.equals(clientData.currentUser))
+                {
+                    if(clientData.usernameTonewMouse.containsKey(user))
+                    {
+                        if(clientData.usernameTonewMouse.get(user))
+                        {
+                            g.setColor(Color.black);
+                            g.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
+                            clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
+                            clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+                        }
+                    }
+                }
+            }
+
+            // g.setColor(Color.black);
+            // g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
+            // clientData.preMouseX = clientData.incMouseX;
+            // clientData.preMouseY = clientData.incMouseY;
         }
         if(clientData.newClick)
         {
