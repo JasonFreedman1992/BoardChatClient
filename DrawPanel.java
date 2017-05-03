@@ -73,15 +73,20 @@ public class DrawPanel extends JPanel
         g.setColor(Color.white);
         if(clientData.newMouse)
         {
+            System.out.println("1");
             for(int i = 0; i < clientData.usersInBoard.size(); i++)
             {
+                System.out.println("2");
                 String user = clientData.usersInBoard.get(i);
                 if(!user.equals(clientData.currentUser))
                 {
+                    System.out.println("3");
                     if(clientData.usernameTonewMouse.containsKey(user))
                     {
+                        System.out.println("4");
                         if(clientData.usernameTonewMouse.get(user))
                         {
+                            System.out.println("5");
                             if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
                             {
                                 g.setColor(Color.black);
@@ -102,6 +107,7 @@ public class DrawPanel extends JPanel
         }
         if(clientData.newClick)
         {
+            //System.out.println("new cick");
             g.setColor(Color.black);
             g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
