@@ -6,6 +6,8 @@ import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Graphics2D;
+import java.awt.BasicStroke;
+import java.util.Random;
 
 public class DrawPanel extends JPanel
 {
@@ -73,26 +75,23 @@ public class DrawPanel extends JPanel
         g.setColor(Color.white);
         if(clientData.newMouse)
         {
-            System.out.println("1");
             for(int i = 0; i < clientData.usersInBoard.size(); i++)
             {
-                System.out.println("2");
                 String user = clientData.usersInBoard.get(i);
                 if(!user.equals(clientData.currentUser))
                 {
-                    System.out.println("3");
                     if(clientData.usernameTonewMouse.containsKey(user))
                     {
-                        System.out.println("4");
                         if(clientData.usernameTonewMouse.get(user))
                         {
-                            System.out.println("5");
-                            System.out.println(user);
                             if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
                             {
-                                g.setColor(Color.black);
-                                System.out.println("inside drawing");
-                                g.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
+                                Random r = new Random();
+                                g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
+                                //g.setColor(Color.black);
+                                Graphics2D g2 = (Graphics2D) g;
+                                g2.setStroke(new BasicStroke(4));
+                                g2.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
                                 clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
                                 clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
                             }
@@ -109,7 +108,9 @@ public class DrawPanel extends JPanel
         if(clientData.newClick)
         {
             //System.out.println("new cick");
-            g.setColor(Color.black);
+            //g.setColor(Color.black);
+            Random r = new Random();
+            g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
             g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
@@ -122,7 +123,6 @@ public class DrawPanel extends JPanel
         }
         if(firstDraw)
         {
-            System.out.println("firstdraw");
             g.setColor(Color.white);
             g.fillRect(0,0,width,height);
             firstDraw = false;
