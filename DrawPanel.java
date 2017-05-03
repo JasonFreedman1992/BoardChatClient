@@ -87,6 +87,7 @@ public class DrawPanel extends JPanel
                         if(clientData.usernameTonewMouse.get(user))
                         {
                             System.out.println("5");
+                            System.out.println(user);
                             if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
                             {
                                 g.setColor(Color.black);
