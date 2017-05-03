@@ -217,7 +217,9 @@ public class ClientNetworkProcess
 										String user = msg.substring(0, msg.indexOf("=/"));
 										clientData.usersInBoard.add(user);
 										clientData.usernameToXY.put(user, new int[2]);clientData.usernameToXY.get(user)[0] = 0;clientData.usernameToXY.get(user)[1] = 0;
+										System.out.println(user + " added to xy");
 										clientData.usernameToPreXY.put(user, new int[2]);clientData.usernameToPreXY.get(user)[0] = 0;clientData.usernameToPreXY.get(user)[1] = 0;
+										System.out.println(user + " added to prexy");
 										clientData.usernameTofirstInc.put(user, true);
 										clientData.usernameTonewMouse.put(user, false);
 										msg = msg.substring(msg.indexOf("=/"));
