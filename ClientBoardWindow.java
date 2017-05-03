@@ -205,9 +205,13 @@ public class ClientBoardWindow extends JFrame
 		boolean newMouse = false;
 		for(int i = 0; i < clientData.usersInBoard.size(); i++)
 		{
-			if(clientData.usernameTonewMouse.get(clientData.usersInBoard.get(i)))
+			String user = clientData.usersInBoard.get(i);
+			if(!user.equals(clientData.currentUser))
 			{
-				newMouse = true;
+				if(clientData.usernameTonewMouse.get(user))
+				{
+					newMouse = true;
+				}
 			}
 		}
 		return newMouse;
