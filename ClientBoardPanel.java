@@ -523,12 +523,6 @@ public class ClientBoardPanel extends JPanel
                 // **OLD**later will append based on Board ID
                 // also update if chatsend is empty send nothing.
                 //
-                System.out.println("current user : " + clientData.currentUser);
-                for(int i = 0; i < clientData.usersInBoard.size(); i++)
-                {
-                    System.out.println("i: " + i);
-                    System.out.println(clientData.usersInBoard.get(i));
-                }
                 s.append(clientData.joinBoardNameID);
                 s.append("=/");
                 s.append(chatSend.getText());
@@ -573,7 +567,12 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                System.out.println("current user : " + clientData.currentUser);
+                for(int i = 0; i < clientData.usersInBoard.size(); i++)
+                {
+                    System.out.println("i: " + i);
+                    System.out.println(clientData.usersInBoard.get(i));
+                }
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
