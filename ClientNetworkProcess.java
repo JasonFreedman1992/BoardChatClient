@@ -39,7 +39,7 @@ public class ClientNetworkProcess
 			{
 				try
 				{
-					Thread.sleep(2);
+					Thread.sleep(15);
 					SelectionKey key;
 					Iterator<SelectionKey> iter;
 					selector.select();
@@ -132,6 +132,7 @@ public class ClientNetworkProcess
 							clientData.incMouseX = Integer.parseInt(split1[0]);
 							clientData.incMouseY = Integer.parseInt(split1[1]);
 							clientData.usernameToXY.put(boardFrom, new int[]{clientData.incMouseX, clientData.incMouseY});
+							clientData.usernameTonewMouse.put(boardFrom, true);
 							for(int i = 0; i < 2; i++)
 							{
 								System.out.println("usernameToXY #" + i + " " + clientData.usernameToXY.get(boardFrom)[i]);
@@ -154,8 +155,10 @@ public class ClientNetworkProcess
 						String boardData = split[1];
 						if(boardData.equals("$closing$"))
 						{
-							clientData.newMouse = false;
-							clientData.firstInc = true;
+							clientData.usernameTofirstInc.put(boardFrom, true);
+							clientData.usernameTonewMouse.put(boardFrom, false);
+							//clientData.newMouse = false;
+							//clientData.firstInc = true;
 							clientData.input = "";
 						}
 						else

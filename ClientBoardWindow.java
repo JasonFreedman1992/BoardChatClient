@@ -119,24 +119,37 @@ public class ClientBoardWindow extends JFrame
 				//
 				if(clientData.boardCurrentlyOpen)
 				{
-					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || clientData.resize || boardPanel.drawPanel.firstDraw)
+					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || boardPanel.drawPanel.firstDraw)
 					{	
-						if(clientData.firstInc && clientData.newMouse)
+						for(int i = 0; i < clientData.usersInBoard.size(); i++)
 						{
-							//
-							//
-							//
-							
-							clientData.preMouseX = clientData.incMouseX;
-							clientData.preMouseY = clientData.incMouseY;
-							//
-							//
-							//
-							clientData.firstInc = false;
+							String user = clientData.usersInBoard.get(i);
+							if(clientData.usernameTofirstInc.get(user) && clientData.usernameTonewMouse.get(user))
+							{
+								clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
+								clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+
+								clientData.usernameTofirstInc.put(user, false);
+							}
+							boardPanel.drawPanel.updatePaint();
 						}
-						boardPanel.drawPanel.updatePaint();
+						// if(clientData.firstInc && clientData.newMouse)
+						// {
+						// 	//
+						// 	//
+						// 	//
+							
+						// 	clientData.preMouseX = clientData.incMouseX;
+						// 	clientData.preMouseY = clientData.incMouseY;
+						// 	//
+						// 	//
+						// 	//
+						// 	clientData.firstInc = false;
+						// }
+						// boardPanel.drawPanel.updatePaint();
 						//boardPanel.drawPanel.repaint();
 					}
+					clientData.newMouse = checkClientNewMouse();
 				}
 				// 	if(!clientData.input.equals(""))
 				// 	{
@@ -183,5 +196,17 @@ public class ClientBoardWindow extends JFrame
 
 			}
 		}
+	}
+	private boolean checkClientNewMouse()
+	{
+		boolean newMouse = false;
+		for(int i = 0; i < clientData.usersInBoard.size(); i++)
+		{
+			if(clientData.usernameTonewMouse.get(clientData.usersInBoard.get(i)))
+			{
+				newMouse = true;
+			}
+		}
+		return newMouse;
 	}
 }

@@ -6,7 +6,8 @@ public class ClientData
 {
 	public static HashMap<String, int[]> usernameToXY = new HashMap<String, int[]>();
 	public static HashMap<String, int[]> usernameToPreXY = new HashMap<String, int[]>();
-
+	public static HashMap<String, Boolean> usernameTofirstInc = new HashMap<String, Boolean>();
+	public static HashMap<String, Boolean> usernameTonewMouse = new HashMap<String, Boolean>();
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
 	public final String cBrdCommand = "/1z=cbrd";
@@ -41,7 +42,6 @@ public class ClientData
 	public static String inputFrom = "";
 	public static String imgFrom = "";
 	public static String loginResult = "";
-	public static boolean resize = false;
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean firstInc = true;
