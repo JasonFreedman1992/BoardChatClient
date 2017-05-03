@@ -34,6 +34,7 @@ public class ClientData
 
 	public static String output = "";
 	public static String input = "";
+	public static String inputFrom = "";
 	public static String loginResult = "";
 	public static boolean resize = false;
 	public static boolean newClick = false;

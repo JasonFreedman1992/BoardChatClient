@@ -115,7 +115,7 @@ public class ClientNetworkProcess
 						split[0] = "";
 						split[1] = "";
 						split = msgDestination.split("=/", -1);
-						String boardDestination = split[0];
+						String boardFrom = split[0];
 						String mouseInf = split[1];
 						String [] split1 = new String[2];
 						split1[0] = "";
@@ -142,7 +142,7 @@ public class ClientNetworkProcess
 						split[0] = "";
 						split[1] = "";
 						split = msgDestination.split("=/", -1);
-						String boardDestination = split[0];
+						String boardFrom = split[0];
 						String boardData = split[1];
 						if(boardData.equals("$closing$"))
 						{
@@ -153,6 +153,8 @@ public class ClientNetworkProcess
 						else
 						{
 							clientData.input = boardData;
+							clientData.inputFrom = boardFrom;
+							System.out.println("input from: " + clientData.inputFrom);
 						}
 					}
 					else if(type.startsWith("resp"))
