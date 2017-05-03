@@ -126,14 +126,17 @@ public class ClientBoardWindow extends JFrame
 							String user = clientData.usersInBoard.get(i);
 							if(!user.equals(clientData.currentUser))
 							{
-								if(clientData.usernameTofirstInc.get(user) && clientData.usernameTonewMouse.get(user))
+								if(clientData.usernameTofirstInc.containsKey(user))
 								{
-									clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
-									clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+									if(clientData.usernameTofirstInc.get(user) && clientData.usernameTonewMouse.get(user))
+									{
+										clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
+										clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
 
-									clientData.usernameTofirstInc.put(user, false);
+										clientData.usernameTofirstInc.put(user, false);
+									}
+									boardPanel.drawPanel.updatePaint();
 								}
-								boardPanel.drawPanel.updatePaint();
 							}
 						}
 						// if(clientData.firstInc && clientData.newMouse)
