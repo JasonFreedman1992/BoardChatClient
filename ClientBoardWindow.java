@@ -123,8 +123,15 @@ public class ClientBoardWindow extends JFrame
 					{	
 						if(clientData.firstInc && clientData.newMouse)
 						{
+							//
+							//
+							//
+							
 							clientData.preMouseX = clientData.incMouseX;
 							clientData.preMouseY = clientData.incMouseY;
+							//
+							//
+							//
 							clientData.firstInc = false;
 						}
 						boardPanel.drawPanel.updatePaint();

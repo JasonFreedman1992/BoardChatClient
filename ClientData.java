@@ -1,8 +1,12 @@
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
+import java.util.HashMap;
 
 public class ClientData
 {
+	public static HashMap<String, int[]> usernameToXY = new HashMap<String, int[]>();
+	public static HashMap<String, int[]> usernameToPreXY = new HashMap<String, int[]>();
+
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
 	public final String cBrdCommand = "/1z=cbrd";
@@ -35,6 +39,7 @@ public class ClientData
 	public static String output = "";
 	public static String input = "";
 	public static String inputFrom = "";
+	public static String imgFrom = "";
 	public static String loginResult = "";
 	public static boolean resize = false;
 	public static boolean newClick = false;

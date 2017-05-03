@@ -74,7 +74,11 @@ public class ClientBoardPanel extends JPanel
                 clientData.mousePressed = false;
                 clientData.imgPressed = false;
                 clientData.newClick = false;
-                clientData.output = "0=/$closing$";
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$closing$");
+                clientData.output = s.toString();
+                //clientData.output = "0=/$closing$";
                 clientData.msgPressed = true;
             }
         });

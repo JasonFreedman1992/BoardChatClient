@@ -115,6 +115,9 @@ public class ClientNetworkProcess
 						split[0] = "";
 						split[1] = "";
 						split = msgDestination.split("=/", -1);
+						//
+						// use boardFrom
+						//
 						String boardFrom = split[0];
 						String mouseInf = split[1];
 						String [] split1 = new String[2];
@@ -128,6 +131,11 @@ public class ClientNetworkProcess
 						{
 							clientData.incMouseX = Integer.parseInt(split1[0]);
 							clientData.incMouseY = Integer.parseInt(split1[1]);
+							clientData.usernameToXY.put(boardFrom, new int[]{clientData.incMouseX, clientData.incMouseY});
+							for(int i = 0; i < 2; i++)
+							{
+								System.out.println("usernameToXY #" + i + " " + clientData.usernameToXY.get(boardFrom)[i]);
+							}
 						}
 						catch(NumberFormatException f)
 						{
@@ -205,6 +213,8 @@ public class ClientNetworkProcess
 									{
 										String user = msg.substring(0, msg.indexOf("=/"));
 										clientData.usersInBoard.add(user);
+										clientData.usernameToXY.put(user, new int[2]);
+										clientData.usernameToPreXY.put(user, new int[2]);
 										msg = msg.substring(msg.indexOf("=/"));
 										System.out.println("3: " + msg);
 									}
@@ -326,7 +336,11 @@ public class ClientNetworkProcess
 			{
 				StringBuilder s = new StringBuilder();
 				s.append(clientData.imgCommand);
-				s.append("0=/");
+				//
+				// append 0-10 or w/e board id
+				//
+				s.append(clientData.joinBoardNameID);
+				s.append("=/");
 				String s0 = String.valueOf(clientData.mouseX);
 				s.append(s0);
 				s.append("=");
