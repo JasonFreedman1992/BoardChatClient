@@ -12,7 +12,7 @@ public class DrawPanel extends JPanel
     int width = 942;
     int height = 605;
     public BufferedImage paintImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-    ByteArrayOutputStream out;
+    ByteArrayOutputStream out = new ByteArrayOutputStream();
 	ClientData clientData = new ClientData();
     public boolean firstDraw = false;
 
@@ -124,15 +124,15 @@ public class DrawPanel extends JPanel
 
     public void save() throws IOException
     {
-        // Graphics g = paintImage.createGraphics();
-        // this.paint(g);
-        // g.dispose();
         ImageIO.write(paintImage, "PNG", new File("hello.png"));
+        // ImageIO.write(paintImage, "PNG", out);
         //ImageIO.write()
     }
 
     public void load() throws IOException
     {
         paintImage = ImageIO.read(new File("hello.png"));
+        // InputStream in = new ByteArrayInputStream(out.toByteArray());
+        // paintImage = ImageIO.read(in);
     }
 }
