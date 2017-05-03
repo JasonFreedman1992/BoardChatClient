@@ -212,9 +212,12 @@ public class ClientBoardWindow extends JFrame
 			if(!user.equals(clientData.currentUser))
 			{
 				System.out.println("user : " + user);
-				if(clientData.usernameTonewMouse.get(user))
+				if(clientData.usernameTonewMouse.containsKey(user))
 				{
-					newMouse = true;
+					if(clientData.usernameTonewMouse.get(user))
+					{
+						newMouse = true;
+					}
 				}
 			}
 		}
