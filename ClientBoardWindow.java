@@ -130,12 +130,14 @@ public class ClientBoardWindow extends JFrame
 								{
 									if(clientData.usernameTofirstInc.get(user) && clientData.usernameTonewMouse.get(user))
 									{
-										clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
-										clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+										if(clientData.usernameToPreXY.containsKey(user))
+										{
+											clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
+											clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
 
-										clientData.usernameTofirstInc.put(user, false);
+											clientData.usernameTofirstInc.put(user, false);
+										}
 									}
-									boardPanel.drawPanel.updatePaint();
 								}
 							}
 						}
@@ -155,6 +157,7 @@ public class ClientBoardWindow extends JFrame
 						// boardPanel.drawPanel.updatePaint();
 						//boardPanel.drawPanel.repaint();
 					}
+					boardPanel.drawPanel.updatePaint();
 					clientData.newMouse = checkClientNewMouse();
 				}
 				// 	if(!clientData.input.equals(""))
