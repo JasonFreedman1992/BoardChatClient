@@ -127,16 +127,16 @@ public class DrawPanel extends JPanel
 
         //     }
         // }
-        try
-        {
-            save();
-            load();
+        // try
+        // {
+            // save();
+            // load();
             repaint();
-        }
-        catch(IOException e)
-        {
+        // }
+        // catch(IOException e)
+        // {
 
-        }
+        // }
     }
 
 
