@@ -111,7 +111,9 @@ public class DrawPanel extends JPanel
             //g.setColor(Color.black);
             Random r = new Random();
             g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
-            g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setStroke(new BasicStroke(4));
+            g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
         }
