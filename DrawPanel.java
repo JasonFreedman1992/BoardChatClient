@@ -82,14 +82,13 @@ public class DrawPanel extends JPanel
                     {
                         if(clientData.usernameTonewMouse.get(user))
                         {
-                            g.setColor(Color.black);
-                            System.out.println("prex : " + clientData.usernameToPreXY.get(user)[0]);
-                            System.out.println("prey : " + clientData.usernameToPreXY.get(user)[1]);
-                            System.out.println("x : " + clientData.usernameToXY.get(user)[0]);
-                            System.out.println("y : " + clientData.usernameToXY.get(user)[1]);
-                            g.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
-                            clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
-                            clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+                            if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
+                            {
+                                g.setColor(Color.black);
+                                g.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
+                                clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
+                                clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
+                            }
                         }
                     }
                 }
