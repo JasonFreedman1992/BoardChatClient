@@ -520,9 +520,17 @@ public class ClientBoardPanel extends JPanel
                 System.out.println("full send click");
                 StringBuilder s = new StringBuilder();
                 //
-                // later will append based on Board ID
+                // **OLD**later will append based on Board ID
+                // also update if chatsend is empty send nothing.
                 //
-                s.append("0=/");
+                System.out.println("current user : " + clientData.currentUser);
+                for(int i = 0; i < clientData.usersInBoard.size(); i++)
+                {
+                    System.out.println("i: " + i);
+                    System.out.println(clientData.usersInBoard.get(i));
+                }
+                s.append(clientData.joinBoardNameID);
+                s.append("=/");
                 s.append(chatSend.getText());
                 clientData.output = s.toString();
                 clientData.msgPressed = true;

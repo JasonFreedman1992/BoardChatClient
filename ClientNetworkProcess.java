@@ -108,27 +108,7 @@ public class ClientNetworkProcess
 				{
 					type = sb.toString().substring(4);
 					//System.out.println(type);
-					if(type.startsWith("msg"))
-					{
-						String msgDestination = type.substring(3);
-						String[] split = new String[2];
-						split[0] = "";
-						split[1] = "";
-						split = msgDestination.split("=/", -1);
-						String boardDestination = split[0];
-						String boardData = split[1];
-						if(boardData.equals("$closing$"))
-						{
-							clientData.newMouse = false;
-							clientData.firstInc = true;
-							clientData.input = "";
-						}
-						else
-						{
-							clientData.input = boardData;
-						}
-					}
-					else if(type.startsWith("img"))
+					if(type.startsWith("img"))
 					{
 						String msgDestination = type.substring(3);
 						String [] split = new String[2];
@@ -154,6 +134,26 @@ public class ClientNetworkProcess
 
 						}
 						clientData.newMouse = true;
+					}
+					else if(type.startsWith("msg"))
+					{
+						String msgDestination = type.substring(3);
+						String[] split = new String[2];
+						split[0] = "";
+						split[1] = "";
+						split = msgDestination.split("=/", -1);
+						String boardDestination = split[0];
+						String boardData = split[1];
+						if(boardData.equals("$closing$"))
+						{
+							clientData.newMouse = false;
+							clientData.firstInc = true;
+							clientData.input = "";
+						}
+						else
+						{
+							clientData.input = boardData;
+						}
 					}
 					else if(type.startsWith("resp"))
 					{
@@ -190,6 +190,7 @@ public class ClientNetworkProcess
 						}
 						else if(msg.startsWith("$f"))
 						{
+							clientData.usersInBoard.clear();
 							msg = msg.substring(2);
 							System.out.println("1: " + msg);
 							while(!msg.equals(""))

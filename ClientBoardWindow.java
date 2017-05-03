@@ -85,17 +85,6 @@ public class ClientBoardWindow extends JFrame
 		add(startPanel);
 		setVisible(true);
 		addWindowListener(new ExitListener(this));
-		addComponentListener(new ComponentAdapter()
-		{
-			public void componentResized(ComponentEvent e)
-			{
-				System.out.println("resizing");
-				if(clientData.boardCurrentlyOpen)
-				{
-					clientData.resize = true;
-				}
-			}
-		});
 		clientData.boardWindowOpen = true;
 		//
 		// loops over for panel info distribution.
