@@ -211,6 +211,7 @@ public class ClientBoardWindow extends JFrame
 			String user = clientData.usersInBoard.get(i);
 			if(!user.equals(clientData.currentUser))
 			{
+				System.out.println("user : " + user);
 				if(clientData.usernameTonewMouse.get(user))
 				{
 					newMouse = true;
