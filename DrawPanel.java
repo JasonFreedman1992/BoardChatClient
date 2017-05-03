@@ -85,6 +85,7 @@ public class DrawPanel extends JPanel
                             if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
                             {
                                 g.setColor(Color.black);
+                                System.out.println("inside drawing");
                                 g.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
                                 clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
                                 clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
