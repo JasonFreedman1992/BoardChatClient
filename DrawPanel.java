@@ -86,8 +86,13 @@ public class DrawPanel extends JPanel
                         {
                             if(clientData.usernameToPreXY.containsKey(user) && clientData.usernameToXY.containsKey(user))
                             {
+                                //
+                                // random colorizing
+                                //
                                 Random r = new Random();
                                 g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
+                                
+
                                 //g.setColor(Color.black);
                                 Graphics2D g2 = (Graphics2D) g;
                                 g2.setStroke(new BasicStroke(4));
@@ -107,10 +112,13 @@ public class DrawPanel extends JPanel
         }
         if(clientData.newClick)
         {
-            //System.out.println("new cick");
-            //g.setColor(Color.black);
+            //
+            // random colorizing
+            //
             Random r = new Random();
             g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
+
+            //g.setColor(Color.black);
             Graphics2D g2 = (Graphics2D) g;
             g2.setStroke(new BasicStroke(4));
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);

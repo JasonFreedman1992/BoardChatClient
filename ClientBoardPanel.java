@@ -20,7 +20,7 @@ public class ClientBoardPanel extends JPanel
         yellow = new javax.swing.JPanel();
         green = new javax.swing.JPanel();
         lightBlue = new javax.swing.JPanel();
-        darkBlue = new javax.swing.JPanel();
+        purple = new javax.swing.JPanel();
         pink = new javax.swing.JPanel();
         white = new javax.swing.JPanel();
         black = new javax.swing.JPanel();
@@ -110,7 +110,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -137,48 +137,13 @@ public class ClientBoardPanel extends JPanel
         redLayout.setHorizontalGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         redLayout.setVerticalGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
 
-        blue.setBackground(new java.awt.Color(0, 51, 255));
-        blue.setPreferredSize(new java.awt.Dimension(25, 30));
-        blue.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-
-            public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-                
-            }
-            public void mouseEntered(java.awt.event.MouseEvent e) 
-            {
-
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent e) 
-            {
-
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
-        });
-
-        javax.swing.GroupLayout blueLayout = new javax.swing.GroupLayout(blue);
-        blue.setLayout(blueLayout);
-        blueLayout.setHorizontalGroup(
-        blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
-        blueLayout.setVerticalGroup(blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
-
         orange.setBackground(new java.awt.Color(255, 153, 0));
         orange.addMouseListener(new java.awt.event.MouseAdapter()
         {
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -212,7 +177,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -241,7 +206,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -272,7 +237,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -307,7 +272,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -335,13 +300,14 @@ public class ClientBoardPanel extends JPanel
         lightBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         lightBlueLayout.setVerticalGroup(lightBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
 
-        darkBlue.setBackground(new java.awt.Color(102, 0, 153));
-        darkBlue.addMouseListener(new java.awt.event.MouseAdapter()
+        blue.setBackground(new java.awt.Color(0, 51, 255));
+        blue.setPreferredSize(new java.awt.Dimension(25, 30));
+        blue.addMouseListener(new java.awt.event.MouseAdapter()
         {
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -363,10 +329,44 @@ public class ClientBoardPanel extends JPanel
             }
         });
 
-        javax.swing.GroupLayout darkBlueLayout = new javax.swing.GroupLayout(darkBlue);
-        darkBlue.setLayout(darkBlueLayout);
-        darkBlueLayout.setHorizontalGroup(darkBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
-        darkBlueLayout.setVerticalGroup(darkBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
+        javax.swing.GroupLayout blueLayout = new javax.swing.GroupLayout(blue);
+        blue.setLayout(blueLayout);
+        blueLayout.setHorizontalGroup(
+        blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
+        blueLayout.setVerticalGroup(blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
+
+        purple.setBackground(new java.awt.Color(102, 0, 153));
+        purple.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                clientData.colorPressed = true;
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
+
+        javax.swing.GroupLayout purpleLayout = new javax.swing.GroupLayout(purple);
+        purple.setLayout(purpleLayout);
+        purpleLayout.setHorizontalGroup(purpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
+        purpleLayout.setVerticalGroup(purpleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
 
         pink.setBackground(new java.awt.Color(255, 102, 204));
         pink.setPreferredSize(new java.awt.Dimension(53, 25));
@@ -375,7 +375,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -402,40 +402,6 @@ public class ClientBoardPanel extends JPanel
         pinkLayout.setHorizontalGroup(pinkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         pinkLayout.setVerticalGroup(pinkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
 
-        white.setBackground(new java.awt.Color(255, 255, 255));
-        white.setPreferredSize(new java.awt.Dimension(53, 25));
-        white.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-
-            public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-                
-            }
-            public void mouseEntered(java.awt.event.MouseEvent e) 
-            {
-
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent e) 
-            {
-
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
-        });
-
-        javax.swing.GroupLayout whiteLayout = new javax.swing.GroupLayout(white);
-        white.setLayout(whiteLayout);
-        whiteLayout.setHorizontalGroup(whiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
-        whiteLayout.setVerticalGroup(whiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
-
         black.setBackground(new java.awt.Color(0, 0, 0));
         black.setPreferredSize(new java.awt.Dimension(53, 25));
         black.addMouseListener(new java.awt.event.MouseAdapter()
@@ -443,7 +409,7 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                clientData.colorPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -469,6 +435,40 @@ public class ClientBoardPanel extends JPanel
         black.setLayout(blackLayout);
         blackLayout.setHorizontalGroup(blackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         blackLayout.setVerticalGroup(blackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
+
+        white.setBackground(new java.awt.Color(255, 255, 255));
+        white.setPreferredSize(new java.awt.Dimension(53, 25));
+        white.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                clientData.colorPressed = true;
+            }
+            public void mouseEntered(java.awt.event.MouseEvent e) 
+            {
+
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent e) 
+            {
+
+            }
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("pressed red");
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e)
+            {
+                //System.out.println("released red");
+            }
+        });
+
+        javax.swing.GroupLayout whiteLayout = new javax.swing.GroupLayout(white);
+        white.setLayout(whiteLayout);
+        whiteLayout.setHorizontalGroup(whiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
+        whiteLayout.setVerticalGroup(whiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 25, Short.MAX_VALUE));
 
         clearPanel.setBackground(new java.awt.Color(0, 153, 153));
         clearPanel.setPreferredSize(new java.awt.Dimension(90, 25));
@@ -613,8 +613,8 @@ public class ClientBoardPanel extends JPanel
 
         javax.swing.GroupLayout framePanelLayout = new javax.swing.GroupLayout(this);
         this.setLayout(framePanelLayout);
-        framePanelLayout.setHorizontalGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addContainerGap(19, Short.MAX_VALUE).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(chatSend, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE).addGroup(framePanelLayout.createSequentialGroup().addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(orange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(yellow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(green, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lightBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(darkBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(pink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(black, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(white, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(sizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addGroup(framePanelLayout.createSequentialGroup().addComponent(sendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(clearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)).addGroup(framePanelLayout.createSequentialGroup().addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(2, 2, 2)))).addComponent(drawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 942, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(20, Short.MAX_VALUE)));
-        framePanelLayout.setVerticalGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addContainerGap(29, Short.MAX_VALUE).addComponent(drawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(11, 11, 11).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(red, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(blue, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE).addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(yellow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(green, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(lightBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(darkBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(pink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(white, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(sizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE).addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addComponent(black, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(11, 11, 11).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(chatSend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(clearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(sendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(29, Short.MAX_VALUE)));
+        framePanelLayout.setHorizontalGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addContainerGap(19, Short.MAX_VALUE).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(chatSend, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE).addGroup(framePanelLayout.createSequentialGroup().addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(orange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(yellow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(green, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(lightBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(purple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(pink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(black, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(white, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(sizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addGroup(framePanelLayout.createSequentialGroup().addComponent(sendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(clearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)).addGroup(framePanelLayout.createSequentialGroup().addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGap(2, 2, 2)))).addComponent(drawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 942, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(20, Short.MAX_VALUE)));
+        framePanelLayout.setVerticalGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createSequentialGroup().addContainerGap(29, Short.MAX_VALUE).addComponent(drawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(11, 11, 11).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addComponent(red, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(blue, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE).addComponent(orange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(yellow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(green, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(lightBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(purple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(pink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(white, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(sizeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE).addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addComponent(black, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addGap(11, 11, 11).addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(chatSend, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(clearPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(sendPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(29, Short.MAX_VALUE)));
     }
 
     public javax.swing.JPanel black;
@@ -622,7 +622,7 @@ public class ClientBoardPanel extends JPanel
     public javax.swing.JTextField chatSend;
     public javax.swing.JLabel clearLabel;
     private javax.swing.JPanel clearPanel;
-    public javax.swing.JPanel darkBlue;
+    public javax.swing.JPanel purple;
     public DrawPanel drawPanel;
     public javax.swing.JPanel green;
     public javax.swing.JLabel infoLabel;
