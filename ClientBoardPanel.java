@@ -115,6 +115,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$0");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(255, 51, 51);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -152,6 +153,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$1");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(255, 153, 0);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -190,6 +192,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$2");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(255, 255, 51);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -228,6 +231,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$3");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(153, 255, 102);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -267,6 +271,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$4");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(0, 204, 255);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -306,6 +311,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$5");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(0, 51, 255);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -344,6 +350,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$6");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(102, 0, 153);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -382,6 +389,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$7");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(255, 102, 204);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -420,6 +428,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$8");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(0, 0, 0);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -458,6 +467,7 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$color$9");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
+                clientData.currentColor = new java.awt.Color(255, 255, 255);
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {

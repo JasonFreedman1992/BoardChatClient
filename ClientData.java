@@ -26,6 +26,8 @@ public class ClientData
 
 	// currentuser for naming the tops of frames
 	public static String currentUser = "";
+	public static BasicStroke currentStroke = new BasicStroke(1);
+	public static Color currentColor = Color.black;
 	// pre and inc for receiving mouse info
 	public static int preMouseY;
 	public static int preMouseX;

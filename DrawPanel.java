@@ -89,13 +89,14 @@ public class DrawPanel extends JPanel
                                 //
                                 // random colorizing
                                 //
-                                Random r = new Random();
-                                g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
+                                //Random r = new Random();
+                                //g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
                                 
 
                                 //g.setColor(Color.black);
+                                g.setColor(clientData.usernameToColor.get(user));
                                 Graphics2D g2 = (Graphics2D) g;
-                                g2.setStroke(new BasicStroke(4));
+                                g2.setStroke(clientData.usernameToStroke.get(user));
                                 g2.drawLine(clientData.usernameToPreXY.get(user)[0], clientData.usernameToPreXY.get(user)[1], clientData.usernameToXY.get(user)[0], clientData.usernameToXY.get(user)[1]);
                                 clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
                                 clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
@@ -115,12 +116,13 @@ public class DrawPanel extends JPanel
             //
             // random colorizing
             //
-            Random r = new Random();
-            g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
+            //Random r = new Random();
+            //g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
 
             //g.setColor(Color.black);
+            g.setColor(clientData.currentColor);
             Graphics2D g2 = (Graphics2D) g;
-            g2.setStroke(new BasicStroke(4));
+            g2.setStroke(clientData.currentStroke);
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
