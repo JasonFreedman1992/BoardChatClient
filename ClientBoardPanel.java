@@ -110,7 +110,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$0");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -143,7 +147,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$1");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -177,7 +185,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$2");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -201,32 +213,6 @@ public class ClientBoardPanel extends JPanel
 
         javax.swing.GroupLayout yellowLayout = new javax.swing.GroupLayout(yellow);
         yellow.setLayout(yellowLayout);
-        yellow.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-
-            public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-                clientData.colorPressed = true;
-            }
-            public void mouseEntered(java.awt.event.MouseEvent e) 
-            {
-
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent e) 
-            {
-
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
-        });
         yellowLayout.setHorizontalGroup(
         yellowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 53, Short.MAX_VALUE));
         yellowLayout.setVerticalGroup(yellowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
@@ -237,7 +223,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$3");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -272,7 +262,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$4");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -307,7 +301,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$5");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -341,7 +339,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$6");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -375,7 +377,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$7");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -409,7 +415,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$8");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -443,7 +453,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                clientData.colorPressed = true;
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$color$9");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {

@@ -161,6 +161,62 @@ public class ClientNetworkProcess
 							//clientData.firstInc = true;
 							clientData.input = "";
 						}
+						else if(boardData.startsWith("$color$"))
+						{
+							boardData = boardData.substring(7);
+							switch(boardData)
+							{
+								case "0": // red
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(255, 51, 51));
+									break;
+								case "1": // orange
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(255, 153, 0));
+									break;
+								case "2": // yellow
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(255, 255, 51));
+									break;
+								case "3": // green
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(153, 255, 102));
+									break;
+								case "4": // light blue
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(0, 204, 255));
+									break;
+								case "5": // dark blue
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(0, 51, 255));
+									break;
+								case "6": // purple
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(102, 0, 153));
+									break;
+								case "7": // pink
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(255, 102, 204));
+									break;
+								case "8": // black
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(0, 0, 0));
+									break;
+								case "9": // white
+									clientData.usernameToColor.put(boardFrom, new java.awt.Color(255, 255, 255));
+									break;
+							}
+						}
+						else if(boardData.startsWith("$brush$"))
+						{
+							boardData = boardData.substring(7);
+							switch(boardData)
+							{
+								case "0": // 1 pixel brush size
+									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(1));
+									break;
+								case "1": // 1 pixel brush size
+									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(4));
+									break;
+								case "2": // 1 pixel brush size
+									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(8));
+									break;
+								case "3": // 1 pixel brush size
+									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(16));
+									break;
+							}
+						}
 						else
 						{
 							clientData.input = boardData;
@@ -364,7 +420,7 @@ public class ClientNetworkProcess
 			}
 			else
 			{
-
+				
 			}
 			if(clientData.boardClosePressed)
 			{
@@ -376,6 +432,81 @@ public class ClientNetworkProcess
 				socket.write(quitBuffer);
 				quitBuffer.rewind();
 				clientData.boardClosePressed = false;
+			}
+			if(clientData.colorPressed)
+			{
+				if(clientData.redPressed)
+				{
+					StringBuilder s = new StringBuilder();
+					//
+					//
+					//
+					clientData.redPressed = false;
+				}
+				else if(clientData.orangePressed)
+				{
+					//
+					//
+					//
+					clientData.orangePressed = false;
+				}
+				else if(clientData.yellowPressed)
+				{
+					//
+					//
+					//
+					clientData.yellowPressed = false;
+				}
+				else if(clientData.greenPressed)
+				{
+					//
+					//
+					//
+					clientData.greenPressed = false;
+				}
+				else if(clientData.lightBluePressed)
+				{
+					//
+					//
+					//
+					clientData.lightBluePressed = false;
+				}
+				else if(clientData.darkBluePressed)
+				{
+					//
+					//
+					//
+					clientData.darkBluePressed = false;
+				}
+				else if(clientData.purplePressed)
+				{
+					//
+					//
+					//
+					clientData.purplePressed = false;
+				}
+				else if(clientData.pinkPressed)
+				{
+					//
+					//
+					//
+					clientData.pinkPressed = false;
+				}
+				else if(clientData.blackPressed)
+				{
+					//
+					//
+					//
+					clientData.blackPressed = false;
+				}
+				else if(clientData.whitePressed)
+				{
+					//
+					//
+					//
+					clientData.whitePressed = false;
+				}
+				clientData.colorPressed = false;
 			}
 		}
 	}
