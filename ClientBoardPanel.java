@@ -634,6 +634,39 @@ public class ClientBoardPanel extends JPanel
         sizeSlider.setPaintTicks(true);
         sizeSlider.setSnapToTicks(true);
         sizeSlider.setToolTipText("0");
+        sizeSlider.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent e)
+            {
+                javax.swing.JSlider slider = (javax.swing.JSlider)e.getSource();
+                if(!slider.getValueIsAdjusting())
+                {
+                    int n = slider.getValue();
+                    System.out.println("slider value : " + n);
+                    clientData.currentStroke = new java.awt.BasicStroke(slider.getValue());
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.joinBoardNameID);
+                    s.append("=/$brush$");
+                    switch(n)
+                    {
+                        case 4:
+                            s.append("0");
+                            break;
+                        case 8:
+                            s.append("1");
+                            break;
+                        case 12:
+                            s.append("2");
+                            break;
+                        case 16:
+                            s.append("3");
+                            break;
+                    }
+                    clientData.output = s.toString();
+                    clientData.msgPressed = true;
+                }
+            }
+        });
 
         javax.swing.GroupLayout framePanelLayout = new javax.swing.GroupLayout(this);
         this.setLayout(framePanelLayout);

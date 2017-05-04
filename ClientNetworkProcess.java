@@ -204,13 +204,13 @@ public class ClientNetworkProcess
 							switch(boardData)
 							{
 								case "0": // 1 pixel brush size
-									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(1));
-									break;
-								case "1": // 1 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(4));
 									break;
-								case "2": // 1 pixel brush size
+								case "1": // 1 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(8));
+									break;
+								case "2": // 1 pixel brush size
+									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(12));
 									break;
 								case "3": // 1 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(16));
