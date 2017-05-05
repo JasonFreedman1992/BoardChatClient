@@ -104,14 +104,10 @@ public class ClientBoardWindow extends JFrame
 					add(boardPanel);
 					validate();
 					repaint();
-					//pack();
 					clientData.boardCurrentlyOpen = true;
 					boardPanel.drawPanel.firstDraw = true;
 				}
 
-				//
-				//
-				//
 				if(clientData.boardCurrentlyOpen)
 				{
 					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || boardPanel.drawPanel.firstDraw || clientData.newInput)
@@ -140,13 +136,6 @@ public class ClientBoardWindow extends JFrame
 					boardPanel.drawPanel.updatePaint();
 					clientData.newMouse = checkClientNewMouse();
 				}
-				// 	if(!clientData.input.equals(""))
-				// 	{
-				// 		panel1.chatReceive.setText(panel1.chatReceive.getText() + "\n" + clientData.input);
-				// 		clientData.input = "";
-				// 	}
-				// 	else
-				// 	{
 			}
 			catch(InterruptedException e)
 			{
@@ -162,7 +151,6 @@ public class ClientBoardWindow extends JFrame
 			String user = clientData.usersInBoard.get(i);
 			if(!user.equals(clientData.currentUser))
 			{
-				//System.out.println("user : " + user);
 				if(clientData.usernameTonewMouse.containsKey(user))
 				{
 					if(clientData.usernameTonewMouse.get(user))

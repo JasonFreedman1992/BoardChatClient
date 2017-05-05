@@ -297,7 +297,7 @@ public class ClientNetworkProcess
 										clientData.usersInBoard.add(user);
 										clientData.usernameTonewMouse.put(user, false);
 										clientData.usernameToColor.put(user, java.awt.Color.black);
-										clientData.usernameToStroke.put(user, new java.awt.BasicStroke(1));
+										clientData.usernameToStroke.put(user, new java.awt.BasicStroke(4));
 										clientData.usernameToXY.put(user, new int[2]);clientData.usernameToXY.get(user)[0] = 0;clientData.usernameToXY.get(user)[1] = 0;
 										clientData.usernameToPreXY.put(user, new int[2]);clientData.usernameToPreXY.get(user)[0] = 0;clientData.usernameToPreXY.get(user)[1] = 0;										
 										clientData.usernameTofirstInc.put(user, true);
@@ -309,7 +309,7 @@ public class ClientNetworkProcess
 										clientData.usersInBoard.add(msg);
 										clientData.usernameTonewMouse.put(msg, false);
 										clientData.usernameToColor.put(msg, java.awt.Color.black);
-										clientData.usernameToStroke.put(msg, new java.awt.BasicStroke(1));
+										clientData.usernameToStroke.put(msg, new java.awt.BasicStroke(4));
 										clientData.usernameToXY.put(msg, new int[2]);clientData.usernameToXY.get(msg)[0] = 0;clientData.usernameToXY.get(msg)[1] = 0;
 										clientData.usernameToPreXY.put(msg, new int[2]);clientData.usernameToPreXY.get(msg)[0] = 0;clientData.usernameToPreXY.get(msg)[1] = 0;										
 										clientData.usernameTofirstInc.put(msg, true);

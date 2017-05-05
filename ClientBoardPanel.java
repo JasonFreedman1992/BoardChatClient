@@ -47,13 +47,16 @@ public class ClientBoardPanel extends JPanel
             {
                 if(e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
                 {
-                    StringBuilder s = new StringBuilder();
-                    s.append(clientData.joinBoardNameID);
-                    s.append("=/");
-                    s.append(chatSend.getText());
-                    clientData.output = s.toString();
-                    clientData.msgPressed = true;
-                    chatSend.setText("");
+                    if(!chatSend.getText().equals(""))
+                    {
+                        StringBuilder s = new StringBuilder();
+                        s.append(clientData.joinBoardNameID);
+                        s.append("=/");
+                        s.append(chatSend.getText());
+                        clientData.output = s.toString();
+                        clientData.msgPressed = true;
+                        chatSend.setText("");
+                    }
                 }
             }
 
@@ -583,18 +586,16 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                System.out.println("full send click");
-                StringBuilder s = new StringBuilder();
-                //
-                // **OLD**later will append based on Board ID
-                // also update if chatsend is empty send nothing.
-                //
-                s.append(clientData.joinBoardNameID);
-                s.append("=/");
-                s.append(chatSend.getText());
-                clientData.output = s.toString();
-                clientData.msgPressed = true;
-                chatSend.setText("");
+                if(!chatSend.getText().equals(""))
+                {
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.joinBoardNameID);
+                    s.append("=/");
+                    s.append(chatSend.getText());
+                    clientData.output = s.toString();
+                    clientData.msgPressed = true;
+                    chatSend.setText("");
+                }
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -645,14 +646,6 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                // count++;
-                // System.out.println(count);
-                // System.out.println("current user : " + clientData.currentUser);
-                // for(int i = 0; i < clientData.usersInBoard.size(); i++)
-                // {
-                //     System.out.println("i: " + i);
-                //     System.out.println(clientData.usersInBoard.get(i));
-                // }
                 if(popupOn == false)
                 {
                     

@@ -124,6 +124,9 @@ public class ClientFriendsList
 
         boardsInfoPanel.setBackground(new java.awt.Color(0, 153, 153));
 
+        //
+        // rename tree clusters
+        //
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Public");
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
@@ -135,10 +138,11 @@ public class ClientFriendsList
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yellow");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Private");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("room1");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
+
+        //treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Private");
+        //treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("room1");
+        //treeNode2.add(treeNode3);
+        //treeNode1.add(treeNode2);
         jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTree2.setRootVisible(false);
         jScrollPane2.setViewportView(jTree2);
