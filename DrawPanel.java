@@ -45,6 +45,9 @@ public class DrawPanel extends JPanel
             g.setColor(Color.white);
             g.fillRect(0,0, width, height);
             paintImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            Graphics g2 = paintImage.createGraphics();
+            g.setColor(Color.white);
+            g.fillRect(0,0,width,height);
             clientData.chatLog.clear();
             clientData.clearDraw = false;
         }
