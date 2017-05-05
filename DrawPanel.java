@@ -40,6 +40,12 @@ public class DrawPanel extends JPanel
                 }
             }
         }
+        if(clientData.clearDraw)
+        {
+            g.setColor(Color.white);
+            g.fillRect(0,0, width, height);
+            clientData.clearDraw = false;
+        }
 
     }
 
@@ -87,12 +93,6 @@ public class DrawPanel extends JPanel
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
-        }
-        if(clientData.clearDraw)
-        {
-            g.setColor(Color.white);
-            g.fillRect(0,0, width, height);
-            clientData.clearDraw = false;
         }
         if(firstDraw)
         {
