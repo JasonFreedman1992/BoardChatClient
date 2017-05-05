@@ -124,6 +124,16 @@ public class DrawPanel extends JPanel
             Graphics2D g2 = (Graphics2D) g;
             g2.setStroke(clientData.currentStroke);
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
+            g2.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
+            for(int i = 1; i < 41; i++)
+            {
+                if(i == 1)
+                {
+                    g2.drawString("caspianpuddle: Hello?", 0, 14);
+                }
+
+                else{g2.drawString("caspianpuddle: Hello?", 0,i*15);}
+            }
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
         }

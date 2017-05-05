@@ -257,6 +257,11 @@ public class ClientNetworkProcess
 						{
 							clientData.createBoardSuccess = false;
 						}
+						else if(msg.equals("User Online"))
+						{
+							clientData.loginResult = "User Online";
+							clientData.loginSuccess = false;
+						}
 						else if(msg.startsWith("$f"))
 						{
 							clientData.usersInBoard.clear();

@@ -7,7 +7,8 @@ public class ClientBoardPanel extends JPanel
         initComponents();
     }
 
-
+    public int count;
+    public boolean on = false;
     private void initComponents() 
     {
         ClientData clientData = new ClientData();
@@ -31,7 +32,15 @@ public class ClientBoardPanel extends JPanel
         infoPanel = new javax.swing.JPanel();
         infoLabel = new javax.swing.JLabel();
         sizeSlider = new javax.swing.JSlider();
+        popup = new javax.swing.JPanel();
+        popupDraw = new javax.swing.JPanel();
         setBackground(new java.awt.Color(0, 102, 153));
+
+
+
+
+
+
 
 
         drawPanel = new DrawPanel();
@@ -583,10 +592,23 @@ public class ClientBoardPanel extends JPanel
         sendPanelLayout.setHorizontalGroup(sendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(sendLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE));
         sendPanelLayout.setVerticalGroup(sendPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(sendLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE));
 
+        //
+        // information for Board popup
+        //
+        popup.setLayout(new java.awt.GridBagLayout());
+        popup.setBackground(new java.awt.Color(0, 102, 153));
+        popup.setSize(200,300);
+        popup.setLocation(drawPanel.width-220,drawPanel.height-320);
+        popupDraw.setPreferredSize(new java.awt.Dimension(180, 280));
+        popupDraw.setLocation(10, 10);           
+        popup.add(popupDraw);
+        drawPanel.add(popup);
+        popup.setVisible(false);
+
         infoPanel.setBackground(new java.awt.Color(0, 153, 153));
         infoPanel.setPreferredSize(new java.awt.Dimension(80, 23));
         infoPanel.setMaximumSize(new java.awt.Dimension(80, 23));
-
+        count = 0;
         infoLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
         infoLabel.setForeground(new java.awt.Color(255, 255, 255));
         infoLabel.setText("Board Information");
@@ -595,12 +617,27 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
+                count++;
+                System.out.println(count);
                 System.out.println("current user : " + clientData.currentUser);
                 for(int i = 0; i < clientData.usersInBoard.size(); i++)
                 {
                     System.out.println("i: " + i);
                     System.out.println(clientData.usersInBoard.get(i));
                 }
+                if(on == false)
+                {
+                    popup.setVisible(true);
+                    popupDraw.setVisible(true);
+                    on = true;
+                }
+                else
+                {
+                    popup.setVisible(false);
+                    popupDraw.setVisible(false);
+                    on = false;
+                }
+                
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {
@@ -693,4 +730,7 @@ public class ClientBoardPanel extends JPanel
     public javax.swing.JSlider sizeSlider;
     public javax.swing.JPanel white;
     public javax.swing.JPanel yellow;
+
+    public javax.swing.JPanel popup;
+    public javax.swing.JPanel popupDraw;
 }
