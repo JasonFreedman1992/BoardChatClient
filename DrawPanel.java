@@ -153,41 +153,17 @@ public class DrawPanel extends JPanel
             g.fillRect(0,0,width,height);
             firstDraw = false;
         }
-        // if(clientData.resize)
-        // {
-        //     try
-        //     {
-        //         load();
-        //     }
-        //     catch(IOException e)
-        //     {
-
-        //     }
-        // }
-        // try
-        // {
-            // save();
-            // load();
-            repaint();
-        // }
-        // catch(IOException e)
-        // {
-
-        // }
+        repaint();
     }
 
 
     public void save() throws IOException
     {
         ImageIO.write(paintImage, "PNG", new File("hello.png"));
-        // ImageIO.write(paintImage, "PNG", out);
-        //ImageIO.write()
     }
 
     public void load() throws IOException
     {
         paintImage = ImageIO.read(new File("hello.png"));
-        // InputStream in = new ByteArrayInputStream(out.toByteArray());
-        // paintImage = ImageIO.read(in);
     }
 }
