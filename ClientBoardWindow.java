@@ -136,21 +136,6 @@ public class ClientBoardWindow extends JFrame
 								}
 							}
 						}
-						// if(clientData.firstInc && clientData.newMouse)
-						// {
-						// 	//
-						// 	//
-						// 	//
-							
-						// 	clientData.preMouseX = clientData.incMouseX;
-						// 	clientData.preMouseY = clientData.incMouseY;
-						// 	//
-						// 	//
-						// 	//
-						// 	clientData.firstInc = false;
-						// }
-						// boardPanel.drawPanel.updatePaint();
-						//boardPanel.drawPanel.repaint();
 					}
 					boardPanel.drawPanel.updatePaint();
 					clientData.newMouse = checkClientNewMouse();
@@ -162,38 +147,6 @@ public class ClientBoardWindow extends JFrame
 				// 	}
 				// 	else
 				// 	{
-
-				// 	}
-				// 	if(clientData.incUser)
-				// 	{
-				// 		System.out.println("usersinboard size" + clientData.usersInBoard.size());
-				// 		panel1.instanceInfo.setText("");
-				// 		if(!clientData.usersInBoard.isEmpty())
-				// 		{
-				// 			for(int i = 0; i < clientData.usersInBoard.size(); i++)
-				// 			{
-				// 				if(panel1.instanceInfo.getText().equals(""))
-				// 				{
-				// 					System.out.println("putting " + clientData.usersInBoard.get(i) + "to instanceInfo");
-				// 					panel1.instanceInfo.setText(clientData.usersInBoard.get(i));	
-				// 					panel1.revalidate();
-				// 				}
-				// 				else
-				// 				{
-				// 					System.out.println("putting " + clientData.usersInBoard.get(i) + "to instanceInfo");
-				// 					panel1.instanceInfo.setText(panel1.instanceInfo.getText() + "\n" + clientData.usersInBoard.get(i));
-				// 					panel1.revalidate();
-				// 				}
-				// 			}
-				// 			clientData.usersInBoard.clear();
-				// 			clientData.incUser = false;
-				// 		}
-				// 		else
-				// 		{
-
-				// 		}
-				// 	}
-				// }
 			}
 			catch(InterruptedException e)
 			{
