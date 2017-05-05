@@ -639,7 +639,7 @@ public class ClientBoardPanel extends JPanel
                     g.fillRect(0,0, 180, 280);
                     g.setColor(java.awt.Color.black);
                     g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 12));
-                    g.drawString(clientData.joinBoardName, 0, 14);
+                    g.drawString("Board: " + clientData.joinBoardName, 0, 14);
                     for(int j = 0; j < clientData.usersInBoard.size(); j++)
                     {
                         g.drawString(clientData.usersInBoard.get(j), 0, 14+((j+1)*14));
@@ -682,6 +682,7 @@ public class ClientBoardPanel extends JPanel
         sizeSlider.setMaximum(16);
         sizeSlider.setMinimum(4);
         sizeSlider.setMinorTickSpacing(4);
+        sizeSlider.setValue(4);
         sizeSlider.setPaintLabels(true);
         sizeSlider.setPaintTicks(true);
         sizeSlider.setSnapToTicks(true);

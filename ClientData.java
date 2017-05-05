@@ -1,5 +1,6 @@
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -12,6 +13,8 @@ public class ClientData
 	public static HashMap<String, Boolean> usernameTonewMouse = new HashMap<String, Boolean>();
 	public static HashMap<String, BasicStroke> usernameToStroke = new HashMap<String, BasicStroke>();
 	public static HashMap<String, Color> usernameToColor = new HashMap<String, Color>();
+
+	public static ArrayList<String> chatLog = new ArrayList<String>();
 
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
