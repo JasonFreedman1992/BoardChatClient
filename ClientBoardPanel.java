@@ -7,13 +7,13 @@ public class ClientBoardPanel extends JPanel
         initComponents();
     }
 
-    public int count;
-    public boolean on = false;
+    public java.awt.image.BufferedImage popupImage = new java.awt.image.BufferedImage(180, 280, java.awt.image.BufferedImage.TYPE_INT_RGB);
+    public boolean popupOn = false;
+
     private void initComponents() 
     {
         ClientData clientData = new ClientData();
         setVisible(true);
-        //java.awt.GridBagConstraints gridBagConstraints;
         chatSend = new javax.swing.JTextField();
         red = new javax.swing.JPanel();
         blue = new javax.swing.JPanel();
@@ -33,7 +33,12 @@ public class ClientBoardPanel extends JPanel
         infoLabel = new javax.swing.JLabel();
         sizeSlider = new javax.swing.JSlider();
         popup = new javax.swing.JPanel();
-        popupDraw = new javax.swing.JPanel();
+        popupDraw = new javax.swing.JPanel()
+        {
+            public void paintComponent(java.awt.Graphics g) {
+                g.drawImage(popupImage, 0, 0, null);
+            }
+        };
         setBackground(new java.awt.Color(0, 102, 153));
 
 
@@ -608,7 +613,6 @@ public class ClientBoardPanel extends JPanel
         infoPanel.setBackground(new java.awt.Color(0, 153, 153));
         infoPanel.setPreferredSize(new java.awt.Dimension(80, 23));
         infoPanel.setMaximumSize(new java.awt.Dimension(80, 23));
-        count = 0;
         infoLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
         infoLabel.setForeground(new java.awt.Color(255, 255, 255));
         infoLabel.setText("Board Information");
@@ -617,25 +621,32 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                count++;
-                System.out.println(count);
-                System.out.println("current user : " + clientData.currentUser);
-                for(int i = 0; i < clientData.usersInBoard.size(); i++)
+                // count++;
+                // System.out.println(count);
+                // System.out.println("current user : " + clientData.currentUser);
+                // for(int i = 0; i < clientData.usersInBoard.size(); i++)
+                // {
+                //     System.out.println("i: " + i);
+                //     System.out.println(clientData.usersInBoard.get(i));
+                // }
+                if(popupOn == false)
                 {
-                    System.out.println("i: " + i);
-                    System.out.println(clientData.usersInBoard.get(i));
-                }
-                if(on == false)
-                {
+                    
+                    java.awt.Graphics g = popupImage.getGraphics();
                     popup.setVisible(true);
                     popupDraw.setVisible(true);
-                    on = true;
+                    for(int i = 0; i < 6; i++)
+                    {
+                        g.fillOval(i+5, i+5, i+5, i+5);
+                    }
+                    popupDraw.paint(g);
+                    popupOn = true;
                 }
                 else
                 {
                     popup.setVisible(false);
                     popupDraw.setVisible(false);
-                    on = false;
+                    popupOn = false;
                 }
                 
             }
