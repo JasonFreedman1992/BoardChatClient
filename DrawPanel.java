@@ -122,13 +122,11 @@ public class DrawPanel extends JPanel
             {
                 if(i == 0)
                 {
-                    g.drawString(clientData.chatLog.get(i)[0] + ": ", 0, 14);
-                    g.drawString(clientData.chatLog.get(i)[1], 0, 14);
+                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, 14);
                 }
                 else
                 {
-                    g.drawString(clientData.chatLog.get(i)[0] + ": ", 0, (i+2)*15);
-                    g.drawString(clientData.chatLog.get(i)[1], 0, (i+2)*15);
+                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, (i+2)*15);
                 }
             }
             clientData.newInput = false;
