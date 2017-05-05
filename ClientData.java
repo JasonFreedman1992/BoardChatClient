@@ -96,6 +96,7 @@ public class ClientData
 
 	public static String joinBoardNameID = "";
 	public static String joinBoardName = "";
+	public static String joinBoardPassword = "";//unused
 
 	public static int listWindowX = 0;
 	public static int listWindowY = 0;

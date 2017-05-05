@@ -635,11 +635,17 @@ public class ClientBoardPanel extends JPanel
                     java.awt.Graphics g = popupImage.getGraphics();
                     popup.setVisible(true);
                     popupDraw.setVisible(true);
-                    for(int i = 0; i < 6; i++)
+
+                    g.setColor(java.awt.Color.white);
+                    g.fillRect(0,0, 180, 280);
+                    g.setColor(java.awt.Color.black);
+                    g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 12));
+                    g.drawString(clientData.joinBoardName, 0, 14);
+                    for(int i = 0; i < clientData.usersInBoard.size(); i++)
                     {
-                        g.fillOval(i+5, i+5, i+5, i+5);
+                        g.drawString(clientData.usersInBoard.get(i), 0, 14+(i*14));
                     }
-                    popupDraw.paint(g);
+                    //g.drawString("fuck it", 0, 14);
                     popupOn = true;
                 }
                 else
