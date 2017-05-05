@@ -231,6 +231,7 @@ public class ClientNetworkProcess
 							{
 								clientData.chatLog.remove(0);
 							}
+							System.out.println("chatlog size in network process " + clientData.chatLog.size());
 							clientData.chatLog.add(inputArray);
 							clientData.newInput = true;
 							System.out.println("input from: " + clientData.inputFrom);

@@ -14,13 +14,18 @@ public class DrawPanel extends JPanel
     int width = 942;
     int height = 605;
     public BufferedImage paintImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-    ByteArrayOutputStream out = new ByteArrayOutputStream();
+    public BufferedImage textImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	ClientData clientData = new ClientData();
     public boolean firstDraw = false;
 
     protected void paintComponent(Graphics g)
     {
         g.drawImage(paintImage, 0, 0, null);
+        if(clientData.newInput)
+        {
+            g.drawImage(textImage, 0, 0, null);
+            clientData.newInput = false;
+        }
         //draw();
         // setBackground(Color.white);
         //             g.setColor(Color.white);
@@ -116,10 +121,15 @@ public class DrawPanel extends JPanel
         }
         if(clientData.newInput)
         {
+            g = textImage.createGraphics();
             g.setColor(Color.black);
             g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
             for(int i = 0; i < clientData.chatLog.size(); i++)
             {
+                if(i == 39)
+                {
+                    g.clearRect(0, 0, width, height);
+                }
                 if(i == 0)
                 {
                     g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, 14);
@@ -129,7 +139,7 @@ public class DrawPanel extends JPanel
                     g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, (i+1)*15);
                 }
             }
-            clientData.newInput = false;
+           // clientData.newInput = false;
         }
         if(clientData.clearDraw)
         {
