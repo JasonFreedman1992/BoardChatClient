@@ -41,12 +41,32 @@ public class ClientBoardPanel extends JPanel
         };
         setBackground(new java.awt.Color(0, 102, 153));
 
+        chatSend.addKeyListener(new java.awt.event.KeyListener()
+        {
+            public void keyPressed(java.awt.event.KeyEvent e)
+            {
+                if(e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+                {
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.joinBoardNameID);
+                    s.append("=/");
+                    s.append(chatSend.getText());
+                    clientData.output = s.toString();
+                    clientData.msgPressed = true;
+                    chatSend.setText("");
+                }
+            }
 
+            public void keyReleased(java.awt.event.KeyEvent e)
+            {
 
+            }
 
+            public void keyTyped(java.awt.event.KeyEvent e)
+            {
 
-
-
+            }
+        });
 
         drawPanel = new DrawPanel();
         drawPanel.setBackground(new java.awt.Color(255, 255, 255));

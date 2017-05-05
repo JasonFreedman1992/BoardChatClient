@@ -97,7 +97,7 @@ public class ClientBoardWindow extends JFrame
 				if(clientData.joinBoardSuccess)
 				{
 					System.out.println("clientdata.joinBoardSuccess!!!!");
-					setTitle(clientData.joinBoardName);
+					setTitle(clientData.boardName);
 					clientData.joinBoardSuccess = false;
 					remove(startPanel);
 					boardPanel = new ClientBoardPanel();
