@@ -21,57 +21,26 @@ public class DrawPanel extends JPanel
     protected void paintComponent(Graphics g)
     {
         g.drawImage(paintImage, 0, 0, null);
+        //
+        // draw the text layer over the image
+        //
         if(clientData.newInput)
         {
-            g.drawImage(textImage, 0, 0, null);
-            clientData.newInput = false;
+            g.setColor(Color.black);
+            g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
+            for(int i = 0; i < clientData.chatLog.size(); i++)
+            {
+                if(i == 0)
+                {
+                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, 14);
+                }
+                else
+                {
+                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, (i+1)*15);
+                }
+            }
         }
-        //draw();
-        // setBackground(Color.white);
-        //             g.setColor(Color.white);
-        //     g.fillRect(0,0, width, height);
-        // System.out.println("painting");
-        // System.out.println(this.getSize());
 
-
-        // if(clientData.newMouse)
-        // {
-        //     g.setColor(Color.black);
-        //     g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
-        //     clientData.preMouseX = clientData.incMouseX;
-        //     clientData.preMouseY = clientData.incMouseY;
-        // }
-        // if(clientData.newClick)
-        // {
-        //     g.setColor(Color.black);
-        //     g.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
-        //     clientData.preClientMouseX = clientData.mouseX;
-        //     clientData.preClientMouseY = clientData.mouseY;
-        // }
-        // if(clientData.clearDraw)
-        // {
-        //     g.setColor(Color.white);
-        //     g.fillRect(0,0, width, height);
-        //     clientData.clearDraw = false;
-        // }
-        // if(firstDraw)
-        // {
-        //     System.out.println("firstdraw");
-        //     g.setColor(Color.white);
-        //     g.fillRect(0,0,width,height);
-        //     firstDraw = false;
-        // }
-        // if(clientData.resize)
-        // {
-        //     try
-        //     {
-        //         load();
-        //     }
-        //     catch(IOException e)
-        //     {
-
-        //     }
-        // }
     }
 
     public void updatePaint()
@@ -118,28 +87,6 @@ public class DrawPanel extends JPanel
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
-        }
-        if(clientData.newInput)
-        {
-            g = textImage.createGraphics();
-            g.setColor(Color.black);
-            g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
-            for(int i = 0; i < clientData.chatLog.size(); i++)
-            {
-                if(i == 39)
-                {
-                    g.clearRect(0, 0, width, height);
-                }
-                if(i == 0)
-                {
-                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, 14);
-                }
-                else
-                {
-                    g.drawString(clientData.chatLog.get(i)[0] + ": " + clientData.chatLog.get(i)[1], 0, (i+1)*15);
-                }
-            }
-           // clientData.newInput = false;
         }
         if(clientData.clearDraw)
         {
