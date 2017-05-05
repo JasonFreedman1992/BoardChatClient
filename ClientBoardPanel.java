@@ -520,7 +520,11 @@ public class ClientBoardPanel extends JPanel
 
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
-                
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.joinBoardNameID);
+                s.append("=/$clear$");
+                clientData.output = s.toString();
+                clientData.msgPressed = true;
             }
             public void mouseEntered(java.awt.event.MouseEvent e) 
             {

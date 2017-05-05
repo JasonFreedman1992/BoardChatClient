@@ -217,6 +217,11 @@ public class ClientNetworkProcess
 									break;
 							}
 						}
+						else if(boardData.startsWith("$clear$"))
+						{
+							//boardDats = boardData.substring(7);
+							clientData.clearDraw = true;
+						}
 						else
 						{
 							//
