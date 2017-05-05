@@ -42,12 +42,10 @@ public class DrawPanel extends JPanel
         }
         if(clientData.clearDraw)
         {
-            g.setColor(Color.white);
-            g.fillRect(0,0, width, height);
             paintImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
             Graphics g2 = paintImage.createGraphics();
-            g.setColor(Color.white);
-            g.fillRect(0,0,width,height);
+            g2.setColor(Color.white);
+            g2.fillRect(0,0,width,height);
             clientData.chatLog.clear();
             clientData.clearDraw = false;
         }
