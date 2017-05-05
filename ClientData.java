@@ -14,7 +14,7 @@ public class ClientData
 	public static HashMap<String, BasicStroke> usernameToStroke = new HashMap<String, BasicStroke>();
 	public static HashMap<String, Color> usernameToColor = new HashMap<String, Color>();
 
-	public static ArrayList<String> chatLog = new ArrayList<String>();
+	public static ArrayList<String[]> chatLog = new ArrayList<String[]>();
 
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
@@ -54,25 +54,11 @@ public class ClientData
 	public static String loginResult = "";
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
+	public static boolean newInput = false;
 	public static boolean firstInc = true;
 	public static boolean boardClosePressed = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
-
-	//
-	// color pressings
-	//
-	public static boolean colorPressed = false;
-	public static boolean redPressed = false;
-	public static boolean orangePressed = false;
-	public static boolean yellowPressed = false;
-	public static boolean greenPressed = false;
-	public static boolean lightBluePressed = false;
-	public static boolean darkBluePressed = false;
-	public static boolean purplePressed = false;
-	public static boolean pinkPressed = false;
-	public static boolean blackPressed = false;
-	public static boolean whitePressed = false;
 
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;

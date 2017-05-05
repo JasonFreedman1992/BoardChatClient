@@ -114,7 +114,7 @@ public class ClientBoardWindow extends JFrame
 				//
 				if(clientData.boardCurrentlyOpen)
 				{
-					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || boardPanel.drawPanel.firstDraw)
+					if(clientData.newMouse || clientData.newClick || clientData.clearDraw || boardPanel.drawPanel.firstDraw || clientData.newInput)
 					{	
 						for(int i = 0; i < clientData.usersInBoard.size(); i++)
 						{

@@ -219,8 +219,20 @@ public class ClientNetworkProcess
 						}
 						else
 						{
+							//
+							// possible get rid of .input?
+							//
 							clientData.input = boardData;
 							clientData.inputFrom = boardFrom;
+							String[] inputArray = new String[2];
+							inputArray[0] = boardFrom;
+							inputArray[1] = boardData;
+							if(clientData.chatLog.size() > 39)
+							{
+								clientData.chatLog.remove(0);
+							}
+							clientData.chatLog.add(inputArray);
+							clientData.newInput = true;
 							System.out.println("input from: " + clientData.inputFrom);
 						}
 					}
@@ -441,81 +453,6 @@ public class ClientNetworkProcess
 				socket.write(quitBuffer);
 				quitBuffer.rewind();
 				clientData.boardClosePressed = false;
-			}
-			if(clientData.colorPressed)
-			{
-				if(clientData.redPressed)
-				{
-					StringBuilder s = new StringBuilder();
-					//
-					//
-					//
-					clientData.redPressed = false;
-				}
-				else if(clientData.orangePressed)
-				{
-					//
-					//
-					//
-					clientData.orangePressed = false;
-				}
-				else if(clientData.yellowPressed)
-				{
-					//
-					//
-					//
-					clientData.yellowPressed = false;
-				}
-				else if(clientData.greenPressed)
-				{
-					//
-					//
-					//
-					clientData.greenPressed = false;
-				}
-				else if(clientData.lightBluePressed)
-				{
-					//
-					//
-					//
-					clientData.lightBluePressed = false;
-				}
-				else if(clientData.darkBluePressed)
-				{
-					//
-					//
-					//
-					clientData.darkBluePressed = false;
-				}
-				else if(clientData.purplePressed)
-				{
-					//
-					//
-					//
-					clientData.purplePressed = false;
-				}
-				else if(clientData.pinkPressed)
-				{
-					//
-					//
-					//
-					clientData.pinkPressed = false;
-				}
-				else if(clientData.blackPressed)
-				{
-					//
-					//
-					//
-					clientData.blackPressed = false;
-				}
-				else if(clientData.whitePressed)
-				{
-					//
-					//
-					//
-					clientData.whitePressed = false;
-				}
-				clientData.colorPressed = false;
 			}
 		}
 	}

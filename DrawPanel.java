@@ -92,8 +92,6 @@ public class DrawPanel extends JPanel
                                 //Random r = new Random();
                                 //g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
                                 
-
-                                //g.setColor(Color.black);
                                 g.setColor(clientData.usernameToColor.get(user));
                                 Graphics2D g2 = (Graphics2D) g;
                                 g2.setStroke(clientData.usernameToStroke.get(user));
@@ -106,36 +104,34 @@ public class DrawPanel extends JPanel
                 }
             }
 
-            // g.setColor(Color.black);
-            // g.drawLine(clientData.preMouseX, clientData.preMouseY, clientData.incMouseX, clientData.incMouseY);
-            // clientData.preMouseX = clientData.incMouseX;
-            // clientData.preMouseY = clientData.incMouseY;
         }
         if(clientData.newClick)
         {
-            //
-            // random colorizing
-            //
-            //Random r = new Random();
-            //g.setColor(new Color(r.nextFloat(), r.nextFloat(), r.nextFloat()));
-
-            //g.setColor(Color.black);
             g.setColor(clientData.currentColor);
             Graphics2D g2 = (Graphics2D) g;
             g2.setStroke(clientData.currentStroke);
             g2.drawLine(clientData.preClientMouseX, clientData.preClientMouseY, clientData.mouseX, clientData.mouseY);
-            g2.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
-            for(int i = 1; i < 41; i++)
-            {
-                if(i == 1)
-                {
-                    g2.drawString("caspianpuddle: Hello?", 0, 14);
-                }
-
-                else{g2.drawString("caspianpuddle: Hello?", 0,i*15);}
-            }
             clientData.preClientMouseX = clientData.mouseX;
             clientData.preClientMouseY = clientData.mouseY;
+        }
+        if(clientData.newInput)
+        {
+            g.setColor(Color.black);
+            g.setFont(new java.awt.Font("SansSerif", java.awt.Font.PLAIN, 14));
+            for(int i = 0; i < clientData.chatLog.size(); i++)
+            {
+                if(i == 0)
+                {
+                    g.drawString(clientData.chatLog.get(i)[0] + ": ", 0, 14);
+                    g.drawString(clientData.chatLog.get(i)[1], 0, 14);
+                }
+                else
+                {
+                    g.drawString(clientData.chatLog.get(i)[0] + ": ", 0, (i+2)*15);
+                    g.drawString(clientData.chatLog.get(i)[1], 0, (i+2)*15);
+                }
+            }
+            clientData.newInput = false;
         }
         if(clientData.clearDraw)
         {
