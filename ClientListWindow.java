@@ -165,6 +165,7 @@ public class ClientListWindow extends JFrame
                         javax.swing.tree.DefaultMutableTreeNode Public = new javax.swing.tree.DefaultMutableTreeNode("Public");
                         javax.swing.tree.DefaultTreeModel model1 = (javax.swing.tree.DefaultTreeModel) friendsList.jTree2.getModel();
                         javax.swing.tree.DefaultMutableTreeNode root1 = (javax.swing.tree.DefaultMutableTreeNode) model1.getRoot();
+                        root1.removeAllChildren();
                         root1.add(Public);
                         if(!clientData.onlineBoards.isEmpty())
                         {
