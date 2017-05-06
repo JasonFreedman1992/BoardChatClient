@@ -232,16 +232,17 @@ public class ClientBoardStartPanel extends javax.swing.JPanel
     // JOIN
     void attemptJoin()
     {
-        clientData.joinBoardPressed = true;
+        System.out.println("inside attempt join");
         clientData.boardName = boardname.getText();
         clientData.boardPassword = boardpassword.getText();
+        clientData.joinBoardPressed = true;
     }
     // CREATE
     void createBoard()
     {
-        clientData.createBoardPressed = true;
         clientData.boardName = boardname.getText();
         clientData.boardPassword = boardpassword.getText();
+        clientData.createBoardPressed = true;
         try
         {
             Thread.sleep(500);

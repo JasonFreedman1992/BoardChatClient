@@ -82,6 +82,7 @@ public class ClientNetworkProcess
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
+			System.out.println("reading");
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			int read = 0;
@@ -98,7 +99,7 @@ public class ClientNetworkProcess
 			String msg;
 			if(read < 0)
 			{
-				//msg = key.attachment() + " left the chat. \n";
+				System.out.println(key.attachment() + " left the chat. \n");
 				ch.close();
 			}
 			else
@@ -533,6 +534,7 @@ public class ClientNetworkProcess
 			}
 			if(clientData.joinBoardPressed)
 			{
+				System.out.println("start joinboardpress");
 				StringBuilder s = new StringBuilder();
 				s.append(clientData.jBrdCommand);
 				s.append(clientData.boardName);
@@ -541,6 +543,7 @@ public class ClientNetworkProcess
 				socket.write(joinBoardBuffer);
 				joinBoardBuffer.rewind();
 				clientData.joinBoardPressed = false;
+				System.out.println("end joinboardpress");
 			}
 			else
 			{
