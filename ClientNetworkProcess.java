@@ -242,10 +242,8 @@ public class ClientNetworkProcess
 							{
 								clientData.chatLog.remove(0);
 							}
-							System.out.println("chatlog size in network process " + clientData.chatLog.size());
 							clientData.chatLog.add(inputArray);
 							clientData.newInput = true;
-							System.out.println("input from: " + clientData.inputFrom);
 						}
 					}
 					//
@@ -254,7 +252,7 @@ public class ClientNetworkProcess
 					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
-						System.out.println("in resp");
+						//System.out.println("in resp");
 						if(msg.equals("Password matches the Username."))
 						{
 							clientData.loginSuccess = true;
@@ -404,7 +402,9 @@ public class ClientNetworkProcess
 						}
 						else if(msg.startsWith("$l")) // code for when friend logs on
 						{
-
+							msg = msg.substring(2);
+							clientData.onlineFriends.add(msg);
+							clientData.newFriends = true;
 						}
 						else if(msg.startsWith("$e")) // code for when friend signs off/exits
 						{
@@ -441,13 +441,11 @@ public class ClientNetworkProcess
 						}
 						else if(msg.startsWith("$x")) // code for close board, subs from list
 						{
-							System.out.println("inside $bc");
 							msg = msg.substring(2);
 							for(int i = 0; i < clientData.onlineBoards.size(); i++)
 							{
 								if(clientData.onlineBoards.get(i).equals(msg))
 								{
-									System.out.println("inside $bc loop");
 									clientData.onlineBoards.remove(i);
 									clientData.newBoards = true;
 								}
