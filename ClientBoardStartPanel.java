@@ -122,6 +122,7 @@ public class ClientBoardStartPanel extends javax.swing.JPanel
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            System.out.println("join clicked");
             attemptJoin();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
@@ -150,6 +151,7 @@ public class ClientBoardStartPanel extends javax.swing.JPanel
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
+            System.out.println("create clicked");
             createBoard();
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
