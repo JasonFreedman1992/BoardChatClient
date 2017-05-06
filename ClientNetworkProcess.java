@@ -348,26 +348,54 @@ public class ClientNetworkProcess
 								if(msg.startsWith("=/"))
 								{
 									msg = msg.substring(2);
+
+									//
+									// if message still contains another user to parse
+									//
 									if(msg.contains("=/"))
 									{
-										if(msg.charAt(0)=='c')
+										if(msg.charAt(0)=='0')
 										{
+											msg = msg.substring(1);
+											String user = msg.substring(0, msg.indexOf("=/"));
+											clientData.offlineFriends.add(user);
+											msg = msg.substring(msg.indexOf("=/"));
+
 											System.out.println("found an offie!");
 										}
 										else
 										{
+											msg = msg.substring(1);
+											String user = msg.substring(0, msg.indexOf("=/"));
+											clientData.onlineFriends.add(user);
+											msg = msg.substring(msg.indexOf("=/"));
 											System.out.println("found an onnie!");
 										}
-										//String 
 									}
+									//
+									// last user in end of parsing chain
+									// 
 									else
 									{
-
+										if(msg.charAt(0)=='0')
+										{
+											msg = msg.substring(1);
+											clientData.offlineFriends.add(msg);
+											msg = "";
+											System.out.println("last ones an offie!");
+										}
+										else
+										{
+											msg = msg.substring(1);
+											clientData.onlineFriends.add(msg);
+											msg = "";
+											System.out.println("last ones an onnie!");
+										}
 									}
 								}
 								else
 								{
-									System.out.println("Error in packets for Online Friends");
+									//System.out.println("Error in packets for Online Friends");
 								}
 							}
 						}
