@@ -16,8 +16,8 @@ public class ClientFriendsList
 
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTree jTree1;
-    private javax.swing.JTree jTree2;
+    public javax.swing.JTree jTree1;
+    public javax.swing.JTree jTree2;
 
     private javax.swing.JPopupMenu addPopup;
     private javax.swing.JPopupMenu subPopup;
@@ -76,30 +76,41 @@ public class ClientFriendsList
 
         friendsInfoPanel.setBackground(new java.awt.Color(0, 153, 153));
 
+        //
+        // rename tree clusters for online / offlien friends
+        //
+        //
+        // these 3 treenodes get reused over and over again.
+        //
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Online");
+        //javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Online");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("violet");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("red");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yellow");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Offline");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("basketball");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("soccer");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("football");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hockey");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("violet");
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("red");
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yellow");
+        // treeNode2.add(treeNode3);
+        // treeNode1.add(treeNode2);
+        // treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Offline");
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("basketball");
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("soccer");
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("football");
+        // treeNode2.add(treeNode3);
+        // treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hockey");
+        // treeNode2.add(treeNode3);
+        //treeNode1.add(treeNode2);
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTree1.setRootVisible(false);
         jScrollPane1.setViewportView(jTree1);
+
+        
+        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree2.setRootVisible(false);
+        jScrollPane2.setViewportView(jTree2);
 
         friendsInfoLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 36)); // NOI18N
         friendsInfoLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,29 +134,6 @@ public class ClientFriendsList
         );
 
         boardsInfoPanel.setBackground(new java.awt.Color(0, 153, 153));
-
-        //
-        // rename tree clusters
-        //
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Public");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("violet");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("red");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yellow");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-
-        //treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Private");
-        //treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("room1");
-        //treeNode2.add(treeNode3);
-        //treeNode1.add(treeNode2);
-        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree2.setRootVisible(false);
-        jScrollPane2.setViewportView(jTree2);
 
         boardsInfoLabel.setFont(new java.awt.Font("Segoe UI Symbol", 1, 36)); // NOI18N
         boardsInfoLabel.setForeground(new java.awt.Color(255, 255, 255));

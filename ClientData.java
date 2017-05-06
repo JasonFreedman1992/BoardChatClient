@@ -54,6 +54,7 @@ public class ClientData
 	public static String inputFrom = "";
 	public static String imgFrom = "";
 	public static String loginResult = "";
+	public static boolean newFriends = false;
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean newInput = false;

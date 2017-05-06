@@ -125,7 +125,6 @@ public class ClientBoardWindow extends JFrame
 										{
 											clientData.usernameToPreXY.get(user)[0] = clientData.usernameToXY.get(user)[0];
 											clientData.usernameToPreXY.get(user)[1] = clientData.usernameToXY.get(user)[1];
-
 											clientData.usernameTofirstInc.put(user, false);
 										}
 									}

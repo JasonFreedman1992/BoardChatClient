@@ -383,6 +383,7 @@ public class ClientNetworkProcess
 											clientData.offlineFriends.add(msg);
 											msg = "";
 											System.out.println("last ones an offie!");
+											clientData.newFriends = true;
 										}
 										else
 										{
@@ -390,6 +391,7 @@ public class ClientNetworkProcess
 											clientData.onlineFriends.add(msg);
 											msg = "";
 											System.out.println("last ones an onnie!");
+											clientData.newFriends = true;
 										}
 									}
 								}

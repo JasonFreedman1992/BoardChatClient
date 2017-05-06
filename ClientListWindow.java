@@ -128,6 +128,32 @@ public class ClientListWindow extends JFrame
                 try
                 {
                     Thread.sleep(10);
+                    if(clientData.newFriends)
+                    {
+                        javax.swing.tree.DefaultMutableTreeNode online = new javax.swing.tree.DefaultMutableTreeNode("Online");
+                        javax.swing.tree.DefaultMutableTreeNode offline = new javax.swing.tree.DefaultMutableTreeNode("Offline");
+                        javax.swing.tree.DefaultTreeModel model = (javax.swing.tree.DefaultTreeModel) friendsList.jTree1.getModel();
+                        javax.swing.tree.DefaultMutableTreeNode root = (javax.swing.tree.DefaultMutableTreeNode) model.getRoot();
+                        root.add(online);
+                        root.add(offline);
+                        if(!clientData.onlineFriends.isEmpty())
+                        {
+                            for(int i = 0; i < clientData.onlineFriends.size(); i++)
+                            {
+                                online.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineFriends.get(i)));
+                            }
+                        }
+                        if(!clientData.offlineFriends.isEmpty())
+                        {
+                            for(int i = 0; i < clientData.offlineFriends.size(); i++)
+                            {
+                                offline.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.offlineFriends.get(i)));
+                            }
+                        }
+
+                        model.reload(root);
+                        clientData.newFriends = false;
+                    }
                     //
                     // info feed from server about boards and friends data
                     //
