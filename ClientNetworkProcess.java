@@ -404,11 +404,27 @@ public class ClientNetworkProcess
 						{
 							msg = msg.substring(2);
 							clientData.onlineFriends.add(msg);
+							for(int i = 0; i < clientData.offlineFriends.size(); i++)
+							{
+								if(clientData.offlineFriends.get(i).equals(msg))
+								{
+									clientData.offlineFriends.remove(i);
+								}
+							}
 							clientData.newFriends = true;
 						}
 						else if(msg.startsWith("$e")) // code for when friend signs off/exits
 						{
-
+							msg = msg.substring(2);
+							for(int i = 0; i < clientData.onlineFriends.size(); i++)
+							{
+								if(clientData.onlineFriends.get(i).equals(msg))
+								{
+									clientData.onlineFriends.remove(i);
+								}
+							}
+							clientData.offlineFriends.add(msg);
+							clientData.newFriends = true;
 						}
 						else if(msg.startsWith("$b")) // code for returned list of all boards
 						{
@@ -437,6 +453,7 @@ public class ClientNetworkProcess
 						{
 							msg = msg.substring(2);
 							clientData.onlineBoards.add(msg);
+
 							clientData.newBoards = true;
 						}
 						else if(msg.startsWith("$x")) // code for close board, subs from list

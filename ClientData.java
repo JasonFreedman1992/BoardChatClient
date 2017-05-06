@@ -66,10 +66,6 @@ public class ClientData
 	public static boolean newFriendOpen = false;
 	public static boolean newFriendClose = false;
 
-
-
-
-
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean newInput = false;
