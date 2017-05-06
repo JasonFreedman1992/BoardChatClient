@@ -174,6 +174,7 @@ public class ClientListWindow extends JFrame
                                 Public.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineBoards.get(i)));
                             }
                         }
+                        //root1.removeAllChildren();
                         model1.reload(root1);
                         clientData.newBoards = false;
                     }
