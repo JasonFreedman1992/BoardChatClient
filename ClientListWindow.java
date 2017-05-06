@@ -162,21 +162,21 @@ public class ClientListWindow extends JFrame
 
                     if(clientData.newBoards)
                     {
-                        // javax.swing.tree.DefaultMutableTreeNode Public = new javax.swing.tree.DefaultMutableTreeNode("Public");
-                        // javax.swing.tree.DefaultTreeModel model1 = (javax.swing.tree.DefaultTreeModel) friendsList.jTree2.getModel();
-                        // javax.swing.tree.DefaultMutableTreeNode root1 = (javax.swing.tree.DefaultMutableTreeNode) model1.getRoot();
-                        // root1.removeAllChildren();
-                        // root1.add(Public);
-                        // if(!clientData.onlineBoards.isEmpty())
-                        // {
-                        //     for(int i = 0; i < clientData.onlineBoards.size(); i++)
-                        //     {
-                        //         Public.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineBoards.get(i)));
-                        //     }
-                        // }
-                        // //root1.removeAllChildren();
-                        // model1.reload(root1);
-                        // clientData.newBoards = false;
+                        javax.swing.tree.DefaultMutableTreeNode Public = new javax.swing.tree.DefaultMutableTreeNode("Public");
+                        javax.swing.tree.DefaultTreeModel model1 = (javax.swing.tree.DefaultTreeModel) friendsList.jTree2.getModel();
+                        javax.swing.tree.DefaultMutableTreeNode root1 = (javax.swing.tree.DefaultMutableTreeNode) model1.getRoot();
+                        root1.removeAllChildren();
+                        root1.add(Public);
+                        if(!clientData.onlineBoards.isEmpty())
+                        {
+                            for(int i = 0; i < clientData.onlineBoards.size(); i++)
+                            {
+                                Public.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineBoards.get(i)));
+                            }
+                        }
+                        //root1.removeAllChildren();
+                        model1.reload(root1);
+                        clientData.newBoards = false;
                     }
 
                 }

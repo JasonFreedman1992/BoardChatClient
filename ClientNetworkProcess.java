@@ -254,7 +254,7 @@ public class ClientNetworkProcess
 					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
-						//System.out.println(msg);
+						System.out.println("in resp");
 						if(msg.equals("Password matches the Username."))
 						{
 							clientData.loginSuccess = true;
@@ -437,10 +437,10 @@ public class ClientNetworkProcess
 						{
 
 						}
-						else if(msg.startsWith("$bc"))
+						else if(msg.startsWith("$x"))
 						{
 							System.out.println("inside $bc");
-							msg = msg.substring(3);
+							msg = msg.substring(2);
 							for(int i = 0; i < clientData.onlineBoards.size(); i++)
 							{
 								if(clientData.onlineBoards.get(i).equals(msg))
