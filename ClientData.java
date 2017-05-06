@@ -15,6 +15,8 @@ public class ClientData
 	public static HashMap<String, Color> usernameToColor = new HashMap<String, Color>();
 
 	public static ArrayList<String[]> chatLog = new ArrayList<String[]>();
+	public static ArrayList<String> onlineFriends = new ArrayList<String>();
+	public static ArrayList<String> offlineFriends = new ArrayList<String>();
 
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";

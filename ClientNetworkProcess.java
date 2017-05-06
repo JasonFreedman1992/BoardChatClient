@@ -108,6 +108,9 @@ public class ClientNetworkProcess
 				{
 					type = sb.toString().substring(4);
 					//System.out.println(type);
+					//
+					// img data from users, passed directly from server, appended with username
+					//
 					if(type.startsWith("img"))
 					{
 						String msgDestination = type.substring(3);
@@ -144,6 +147,9 @@ public class ClientNetworkProcess
 						}
 						clientData.newMouse = true;
 					}
+					//
+					// msg from users, origin from server but just passed along messages
+					//
 					else if(type.startsWith("msg"))
 					{
 						String msgDestination = type.substring(3);
@@ -203,23 +209,22 @@ public class ClientNetworkProcess
 							boardData = boardData.substring(7);
 							switch(boardData)
 							{
-								case "0": // 1 pixel brush size
+								case "0": // 4 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(4));
 									break;
-								case "1": // 1 pixel brush size
+								case "1": // 8 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(8));
 									break;
-								case "2": // 1 pixel brush size
+								case "2": // 12 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(12));
 									break;
-								case "3": // 1 pixel brush size
+								case "3": // 16 pixel brush size
 									clientData.usernameToStroke.put(boardFrom, new java.awt.BasicStroke(16));
 									break;
 							}
 						}
 						else if(boardData.startsWith("$clear$"))
 						{
-							//boardDats = boardData.substring(7);
 							clientData.clearDraw = true;
 						}
 						else
@@ -242,6 +247,9 @@ public class ClientNetworkProcess
 							System.out.println("input from: " + clientData.inputFrom);
 						}
 					}
+					//
+					// resp = response directly from server
+					//
 					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
@@ -316,6 +324,10 @@ public class ClientNetworkProcess
 										msg = "";
 									}
 								}
+								else
+								{
+									System.out.println("Error in packets for People in Board");
+								}
 							}
 							clientData.incUser = true;
 						}
@@ -327,6 +339,51 @@ public class ClientNetworkProcess
 							clientData.joinBoardNameID = split[1];
 							clientData.joinBoardName = split[0];
 						}
+						else if(msg.startsWith("$o"))
+						{
+							msg = msg.substring(2);
+							while(!msg.equals(""))
+							{
+
+								if(msg.startsWith("=/"))
+								{
+									msg = msg.substring(2);
+									if(msg.contains("=/"))
+									{
+										if(msg.charAt(0)=='c')
+										{
+											System.out.println("found an offie!");
+										}
+										else
+										{
+											System.out.println("found an onnie!");
+										}
+										//String 
+									}
+									else
+									{
+
+									}
+								}
+								else
+								{
+									System.out.println("Error in packets for Online Friends");
+								}
+							}
+						}
+						else if(msg.startsWith("$b"))
+						{
+							msg = msg.substring(2);
+						}
+						else if(msg.startsWith("$of"))
+						{
+
+						}
+						else
+						{
+
+						}
+						//else if(msg.startsWith(""))
 					}
 				}
 				else
