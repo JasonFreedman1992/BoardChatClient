@@ -57,6 +57,19 @@ public class ClientData
 	public static String loginResult = "";
 	public static boolean newFriends = false;
 	public static boolean newBoards = false;
+	//
+	//
+	//
+	public static boolean newBoardOpen = false;
+	//public static boolean newBoardClose = false;
+	
+	public static boolean newFriendOpen = false;
+	public static boolean newFriendClose = false;
+
+
+
+
+
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean newInput = false;

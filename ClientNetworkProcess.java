@@ -401,6 +401,14 @@ public class ClientNetworkProcess
 								}
 							}
 						}
+						else if(msg.startsWith("$oo"))
+						{
+
+						}
+						else if(msg.startsWith("$oc"))
+						{
+
+						}
 						else if(msg.startsWith("$b"))
 						{
 							msg = msg.substring(2);
@@ -424,13 +432,21 @@ public class ClientNetworkProcess
 								}
 							}
 						}
-						else if(msg.startsWith("$of"))
+						else if(msg.startsWith("$bo"))
 						{
 
 						}
-						else
+						else if(msg.startsWith("$bc"))
 						{
-
+							msg = msg.substring(3);
+							for(int i = 0; i < clientData.onlineBoards.size(); i++)
+							{
+								if(clientData.onlineBoards.get(i).equals(msg))
+								{
+									clientData.onlineBoards.remove(i);
+									clientData.newBoards = true;
+								}
+							}
 						}
 						//else if(msg.startsWith(""))
 					}
@@ -511,7 +527,7 @@ public class ClientNetworkProcess
 				createBoardBuffer.rewind();
 				clientData.createBoardPressed = false;
 			}
-			else
+			else			
 			{
 
 			}

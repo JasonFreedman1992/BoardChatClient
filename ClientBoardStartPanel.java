@@ -240,7 +240,6 @@ public class ClientBoardStartPanel extends javax.swing.JPanel
         clientData.createBoardPressed = true;
         clientData.boardName = boardname.getText();
         clientData.boardPassword = boardpassword.getText();
-
         try
         {
             Thread.sleep(500);
