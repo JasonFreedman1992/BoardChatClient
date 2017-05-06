@@ -23,7 +23,6 @@ public class ClientFriendsList
     private javax.swing.JPopupMenu subPopup;
     private javax.swing.JPopupMenu setPopup;
 
-    Thread BoardThread;
     // End of variables declaration//GEN-END:variables
 
 	ClientFriendsList(javax.swing.GroupLayout p_layout)
@@ -187,7 +186,7 @@ public class ClientFriendsList
         {
             if(!clientData.boardWindowOpen)
             {
-                BoardThread = new Thread(new BoardThread());
+                Thread BoardThread = new Thread(new BoardThread());
                 BoardThread.start();
                 clientData.boardWindowOpen = true;
             }
