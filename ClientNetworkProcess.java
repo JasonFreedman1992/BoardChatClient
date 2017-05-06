@@ -439,11 +439,13 @@ public class ClientNetworkProcess
 						}
 						else if(msg.startsWith("$bc"))
 						{
+							System.out.println("inside $bc");
 							msg = msg.substring(3);
 							for(int i = 0; i < clientData.onlineBoards.size(); i++)
 							{
 								if(clientData.onlineBoards.get(i).equals(msg))
 								{
+									System.out.println("inside $bc loop");
 									clientData.onlineBoards.remove(i);
 									clientData.newBoards = true;
 								}
