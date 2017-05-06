@@ -139,6 +139,7 @@ public class ClientListWindow extends JFrame
                         javax.swing.tree.DefaultMutableTreeNode offline = new javax.swing.tree.DefaultMutableTreeNode("Offline");
                         javax.swing.tree.DefaultTreeModel model = (javax.swing.tree.DefaultTreeModel) friendsList.jTree1.getModel();
                         javax.swing.tree.DefaultMutableTreeNode root = (javax.swing.tree.DefaultMutableTreeNode) model.getRoot();
+                        root.removeAllChildren();
                         root.add(online);
                         root.add(offline);
                         if(!clientData.onlineFriends.isEmpty())

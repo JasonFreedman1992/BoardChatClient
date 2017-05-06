@@ -289,7 +289,7 @@ public class ClientNetworkProcess
 							clientData.loginResult = "User Online";
 							clientData.loginSuccess = false;
 						}
-						else if(msg.startsWith("$f"))
+						else if(msg.startsWith("$f")) // code for people in board lobby
 						{
 							clientData.usersInBoard.clear();
 							msg = msg.substring(2);
@@ -332,7 +332,7 @@ public class ClientNetworkProcess
 							}
 							clientData.incUser = true;
 						}
-						else if(msg.startsWith("$i"))
+						else if(msg.startsWith("$i")) // code for board info
 						{
 							msg = msg.substring(2);
 							String[] split = new String[2]; 
@@ -340,7 +340,7 @@ public class ClientNetworkProcess
 							clientData.joinBoardNameID = split[1];
 							clientData.joinBoardName = split[0];
 						}
-						else if(msg.startsWith("$o"))
+						else if(msg.startsWith("$o")) // code for returned list of offline and online friends
 						{
 							msg = msg.substring(2);
 							while(!msg.equals(""))
@@ -402,15 +402,15 @@ public class ClientNetworkProcess
 								}
 							}
 						}
-						else if(msg.startsWith("$oo"))
+						else if(msg.startsWith("$l")) // code for when friend logs on
 						{
 
 						}
-						else if(msg.startsWith("$oc"))
+						else if(msg.startsWith("$e")) // code for when friend signs off/exits
 						{
 
 						}
-						else if(msg.startsWith("$b"))
+						else if(msg.startsWith("$b")) // code for returned list of all boards
 						{
 							msg = msg.substring(2);
 							while(!msg.equals(""))
@@ -433,11 +433,13 @@ public class ClientNetworkProcess
 								}
 							}
 						}
-						else if(msg.startsWith("$bo"))
+						else if(msg.startsWith("$n")) // code for new board created
 						{
-
+							msg = msg.substring(2);
+							clientData.onlineBoards.add(msg);
+							clientData.newBoards = true;
 						}
-						else if(msg.startsWith("$x"))
+						else if(msg.startsWith("$x")) // code for close board, subs from list
 						{
 							System.out.println("inside $bc");
 							msg = msg.substring(2);
@@ -451,7 +453,6 @@ public class ClientNetworkProcess
 								}
 							}
 						}
-						//else if(msg.startsWith(""))
 					}
 				}
 				else
