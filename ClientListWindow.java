@@ -128,6 +128,11 @@ public class ClientListWindow extends JFrame
                 try
                 {
                     Thread.sleep(10);
+
+                    //
+                    // info feed from server about boards and friends data
+                    //
+
                     if(clientData.newFriends)
                     {
                         javax.swing.tree.DefaultMutableTreeNode online = new javax.swing.tree.DefaultMutableTreeNode("Online");
@@ -154,9 +159,23 @@ public class ClientListWindow extends JFrame
                         model.reload(root);
                         clientData.newFriends = false;
                     }
-                    //
-                    // info feed from server about boards and friends data
-                    //
+
+                    if(clientData.newBoards)
+                    {
+                        javax.swing.tree.DefaultMutableTreeNode Public = new javax.swing.tree.DefaultMutableTreeNode("Public");
+                        javax.swing.tree.DefaultTreeModel model1 = (javax.swing.tree.DefaultTreeModel) friendsList.jTree2.getModel();
+                        javax.swing.tree.DefaultMutableTreeNode root1 = (javax.swing.tree.DefaultMutableTreeNode) model1.getRoot();
+                        root1.add(Public);
+                        if(!clientData.onlineBoards.isEmpty())
+                        {
+                            for(int i = 0; i < clientData.onlineBoards.size(); i++)
+                            {
+                                Public.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineBoards.get(i)));
+                            }
+                        }
+                        model1.reload(root1);
+                        clientData.newBoards = false;
+                    }
 
                 }
                 catch(InterruptedException e)

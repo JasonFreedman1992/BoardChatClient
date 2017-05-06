@@ -404,6 +404,25 @@ public class ClientNetworkProcess
 						else if(msg.startsWith("$b"))
 						{
 							msg = msg.substring(2);
+							while(!msg.equals(""))
+							{
+								if(msg.startsWith("=/"))
+								{
+									msg = msg.substring(2);
+									if(msg.contains("=/")) // get new board from in between delimiters
+									{
+										String board = msg.substring(0, msg.indexOf("=/"));
+										clientData.onlineBoards.add(board);
+										msg = msg.substring(msg.indexOf("=/"));
+									}
+									else // last board at end of string being parsed
+									{
+										clientData.onlineBoards.add(msg);
+										msg = "";
+										clientData.newBoards = true;
+									}
+								}
+							}
 						}
 						else if(msg.startsWith("$of"))
 						{

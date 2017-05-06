@@ -17,6 +17,7 @@ public class ClientData
 	public static ArrayList<String[]> chatLog = new ArrayList<String[]>();
 	public static ArrayList<String> onlineFriends = new ArrayList<String>();
 	public static ArrayList<String> offlineFriends = new ArrayList<String>();
+	public static ArrayList<String> onlineBoards = new ArrayList<String>();
 
 	public final String loginCommand = "/1z=login";
 	public final String createCommand = "/1z=create";
@@ -55,6 +56,7 @@ public class ClientData
 	public static String imgFrom = "";
 	public static String loginResult = "";
 	public static boolean newFriends = false;
+	public static boolean newBoards = false;
 	public static boolean newClick = false;
 	public static boolean newMouse = false;
 	public static boolean newInput = false;
