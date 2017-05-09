@@ -274,13 +274,10 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
-                    // if(!clientData.boardWindowOpen)
-                    // {
-                        Thread BoardThread;
-                        BoardThread = new Thread(new BoardThread());
-                        BoardThread.start();
-                        clientData.boardWindowOpen = true;
-                    //}
+                    Thread BoardThread;
+                    BoardThread = new Thread(new BoardThread());
+                    BoardThread.start();
+                    clientData.boardWindowOpen = true;
                 }
             });
 
@@ -291,7 +288,12 @@ public class ClientFriendsList
                     //
                     // invite friend response commands
                     //
-                    System.out.println("invite friend");
+                    String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add: ");
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.addtoBoardCommand);
+                    s.append(friend);
+                    clientData.output = s.toString();
+                    clientData.inviteBoardPressed = true;
                 }
             });
 

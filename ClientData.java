@@ -69,6 +69,8 @@ public class ClientData
 	public static boolean newMouse = false;
 	public static boolean newInput = false;
 	public static boolean firstInc = true;
+
+	public static boolean inviteBoardPressed = false;
 	public static boolean boardClosePressed = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
@@ -99,6 +101,9 @@ public class ClientData
 	public static String joinBoardNameID = "";
 	public static String joinBoardName = "";
 	public static String joinBoardPassword = "";//unused
+	public static String joinBoardRequested = "";
+
+	public static boolean joinBoardRequest = false;
 
 	public static int listWindowX = 0;
 	public static int listWindowY = 0;

@@ -467,6 +467,12 @@ public class ClientNetworkProcess
 								}
 							}
 						}
+						else if(msg.startsWith("$j"))
+						{
+							msg = msg.substring(2);
+							clientData.joinBoardRequested = msg;
+							clientData.joinBoardRequest = true;
+						}
 					}
 				}
 				else
@@ -484,6 +490,7 @@ public class ClientNetworkProcess
 		ByteBuffer imgBuffer;
 		ByteBuffer quitBuffer;
 		ByteBuffer addFriendBuffer;
+		ByteBuffer addBoardBuffer;
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
@@ -612,6 +619,17 @@ public class ClientNetworkProcess
 				socket.write(addFriendBuffer);
 				addFriendBuffer.rewind();
 				clientData.addFriendPressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.inviteBoardPressed)
+			{
+				addBoardBuffer = ByteBuffer.wrap(clientData.output.getBytes());
+				socket.write(addBoardBuffer);
+				addBoardBuffer.rewind();
+				clientData.inviteBoardPressed = false;
 			}
 			else
 			{

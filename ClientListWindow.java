@@ -153,6 +153,10 @@ public class ClientListWindow extends JFrame
                         clientData.newBoards = false;
                     }
 
+                    if(clientData.joinBoardRequest)
+                    {
+                        int result = javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null, "Hello World", "alert", JOptionPane.OK_CANCEL_OPTION);
+                    }
                 }
                 catch(InterruptedException e)
                 {
