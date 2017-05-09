@@ -267,8 +267,15 @@ public class ClientNetworkProcess
 						else if(msg.equals("Board Found"))
 						{
 							clientData.input = "";
-							clientData.joinBoardSuccess = true;
+							if(!clientData.boardWindowOpen)
+							{
+                    			Thread BoardThread;
+                    			BoardThread = new Thread(new BoardThread());
+                    			BoardThread.start();
+							}
 							System.out.println("join board success true");
+							try{Thread.sleep(100);}catch(InterruptedException f){}
+							clientData.joinBoardSuccess = true;
 							msg = "";
 						}
 						else if(msg.equals("Board Not Found"))
