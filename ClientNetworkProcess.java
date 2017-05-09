@@ -108,7 +108,6 @@ public class ClientNetworkProcess
 				if(sb.toString().startsWith(commandtag))
 				{
 					type = sb.toString().substring(4);
-					//System.out.println(type);
 					//
 					// img data from users, passed directly from server, appended with username
 					//
@@ -164,8 +163,6 @@ public class ClientNetworkProcess
 						{
 							clientData.usernameTofirstInc.put(boardFrom, true);
 							clientData.usernameTonewMouse.put(boardFrom, false);
-							//clientData.newMouse = false;
-							//clientData.firstInc = true;
 							clientData.input = "";
 						}
 						else if(boardData.startsWith("$color$"))

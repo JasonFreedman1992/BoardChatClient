@@ -23,7 +23,6 @@ public class ClientData
 	public final String createCommand = "/1z=create";
 	public final String cBrdCommand = "/1z=cbrd";
 	public final String jBrdCommand = "/1z=jbrd";
-	public final String blockCommand = "/1z=block";
 	public final String addFriendCommand = "/1z=addf";
 	public final String addtoBoardCommand = "/1z=addb";
 	public final String msgCommand = "/1z=msg";

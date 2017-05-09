@@ -23,9 +23,6 @@ public class ClientFriendsList
     private javax.swing.JPopupMenu subPopup;
     private javax.swing.JPopupMenu setPopup;
 
-    int mouseX = 0;
-    int mouseY = 0;
-
     // End of variables declaration//GEN-END:variables
 
 	ClientFriendsList(javax.swing.GroupLayout p_layout)
@@ -78,11 +75,12 @@ public class ClientFriendsList
 
         friendsInfoPanel.setBackground(new java.awt.Color(0, 153, 153));
 
-        mouseX = 0;
-        mouseY = 0;
-        javax.swing.JPopupMenu menu = new javax.swing.JPopupMenu();
-        javax.swing.JMenuItem item = new javax.swing.JMenuItem("Add");
-        menu.add(item);
+        javax.swing.JPopupMenu friendMenu = new javax.swing.JPopupMenu();
+        javax.swing.JMenuItem inviteItem = new javax.swing.JMenuItem("Invite");
+        javax.swing.JMenuItem removeItem = new javax.swing.JMenuItem("Remove");
+
+        friendMenu.add(inviteItem);
+        friendMenu.add(removeItem);
         
         //
         // jtree1 is for friends, jtree2 is for boards
@@ -90,7 +88,7 @@ public class ClientFriendsList
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTree1.setRootVisible(false);  
-        java.awt.event.MouseListener ml = new java.awt.event.MouseAdapter() 
+        java.awt.event.MouseListener friendTreeListen = new java.awt.event.MouseAdapter() 
         {
             public void mousePressed(java.awt.event.MouseEvent e) 
             {
@@ -100,21 +98,66 @@ public class ClientFriendsList
                     jTree1.setSelectionRow(row);
                     javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
                     Object nodeInfo = node.getUserObject();
-
+                    System.out.println(node.getParent());
                     if(node.isLeaf())
                     {
-                        if(!node.toString().equals("Online"))
+                        if(!node.toString().equals("Online") && !node.toString().equals("Offline"))
                         {
-                            System.out.println(node.toString());
-                            menu.show(e.getComponent(), e.getX(), e.getY());
-
+                            if(node.getParent().toString().equals("Online"))
+                            {
+                                inviteItem.setEnabled(true);
+                                friendMenu.show(e.getComponent(), e.getX(), e.getY());
+                            }
+                            else
+                            {
+                                inviteItem.setEnabled(false);
+                                friendMenu.show(e.getComponent(), e.getX(), e.getY());
+                            }
                         }
                     }
                 }
             }
         };
-        jTree1.addMouseListener(ml);
-        
+        jTree1.addMouseListener(friendTreeListen);
+
+        jScrollPane1.setViewportView(jTree1);
+
+        javax.swing.JPopupMenu boardMenu = new javax.swing.JPopupMenu();
+        javax.swing.JMenuItem joinItem = new javax.swing.JMenuItem("Join");
+        javax.swing.JMenuItem infoItem = new javax.swing.JMenuItem("Information");
+        boardMenu.add(joinItem);
+        boardMenu.add(infoItem);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode2));
+        jTree2.setRootVisible(false);
+
+        java.awt.event.MouseListener boardTreeListen = new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent e)
+            {
+                if(javax.swing.SwingUtilities.isRightMouseButton(e))
+                {
+                    int row = jTree2.getClosestRowForLocation(e.getX(), e.getY());
+                    jTree2.setSelectionRow(row);
+                    javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree2.getLastSelectedPathComponent();
+                    Object nodeInfo = node.getUserObject();
+
+                    if(node.isLeaf())
+                    {
+                        if(!node.toString().equals("Public"))
+                        {
+                            System.out.println(node.toString());
+                            boardMenu.show(e.getComponent(), e.getX(), e.getY());
+                        }
+                    }
+                }
+            }
+        };
+        jTree2.addMouseListener(boardTreeListen);
+
+        jScrollPane2.setViewportView(jTree2);
+
         // jTree1.addMouseMotionListener(new java.awt.event.MouseMotionListener()
         // {
         //     public void mouseMoved(java.awt.event.MouseEvent e)
@@ -160,12 +203,6 @@ public class ClientFriendsList
         //     }
         // });
 
-        jScrollPane1.setViewportView(jTree1);
-
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode2));
-        jTree2.setRootVisible(false);
-        jScrollPane2.setViewportView(jTree2);
         //
         //
         //
@@ -259,16 +296,26 @@ public class ClientFriendsList
         );
 	}
 
+
+
     class addListen implements java.awt.event.MouseListener
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
-            StringBuilder s = new StringBuilder();
-            s.append(clientData.addFriendCommand);
-            s.append(friend);
-            clientData.output = s.toString();
-            clientData.addFriendPressed = true;
+            javax.swing.JPopupMenu addMenu = new javax.swing.JPopupMenu();
+            javax.swing.JMenuItem addFriendItem = new javax.swing.JMenuItem("Add Friend");
+            javax.swing.JMenuItem joinBoardItem = new javax.swing.JMenuItem("Join/Create Board");
+            javax.swing.JMenuItem inviteFriendItem = new javax.swing.JMenuItem("Invite Friend to Board");
+            addMenu.add(addFriendItem);
+            addMenu.add(joinBoardItem);
+            addMenu.add(inviteFriendItem);
+            addMenu.show(e.getComponent(), e.getX(), e.getY());
+            // String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
+            // StringBuilder s = new StringBuilder();
+            // s.append(clientData.addFriendCommand);
+            // s.append(friend);
+            // clientData.output = s.toString();
+            // clientData.addFriendPressed = true;
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -295,7 +342,12 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-
+            javax.swing.JPopupMenu subMenu = new javax.swing.JPopupMenu();
+            javax.swing.JMenuItem subFriendItem = new javax.swing.JMenuItem("Add Friend");
+            javax.swing.JMenuItem exitBoardItem = new javax.swing.JMenuItem("Sub Friend");
+            subMenu.add(subFriendItem);
+            subMenu.add(exitBoardItem);
+            subMenu.show(e.getComponent(), e.getX(), e.getY());
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -322,7 +374,18 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            
+            javax.swing.JPopupMenu setMenu = new javax.swing.JPopupMenu();
+            javax.swing.JMenuItem saveImageItem = new javax.swing.JMenuItem("Save Image");
+            javax.swing.JMenuItem helpItem = new javax.swing.JMenuItem("Help");
+            javax.swing.JMenuItem aboutItem = new javax.swing.JMenuItem("About");
+            javax.swing.JMenuItem logoutItem = new javax.swing.JMenuItem("Log Out");
+            javax.swing.JMenuItem exitItem = new javax.swing.JMenuItem("Exit");
+            setMenu.add(saveImageItem);
+            setMenu.add(helpItem);
+            setMenu.add(aboutItem);
+            setMenu.add(logoutItem);
+            setMenu.add(exitItem);
+            setMenu.show(e.getComponent(), e.getX(), e.getY());
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {

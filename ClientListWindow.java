@@ -132,24 +132,8 @@ public class ClientListWindow extends JFrame
                     //
                     // info feed from server about boards and friends data
                     //
-
                     if(clientData.newFriends)
                     {
-                        // jTree1.addMouseListener(new java.awt.event.MouseAdapter()
-                        // {
-                        //     public void mouseClicked(java.awt.event.MouseEvent e)
-                        //     {
-                        //         menu.show(jTree1, e.getX(), e.getY());
-                        //     }
-                        //     public void mousePressed(java.awt.event.MouseEvent e)
-                        //     {
-
-                        //     }
-                        //     public void mouseReleased(java.awt.event.MouseEvent e)
-                        //     {
-
-                        //     }
-                        // });
                         javax.swing.tree.DefaultMutableTreeNode online = new javax.swing.tree.DefaultMutableTreeNode("Online");
                         javax.swing.tree.DefaultMutableTreeNode offline = new javax.swing.tree.DefaultMutableTreeNode("Offline");
                         javax.swing.tree.DefaultTreeModel model = (javax.swing.tree.DefaultTreeModel) friendsList.jTree1.getModel();
