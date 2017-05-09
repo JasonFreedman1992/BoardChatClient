@@ -155,7 +155,9 @@ public class ClientListWindow extends JFrame
 
                     if(clientData.joinBoardRequest)
                     {
-                        int result = javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null, "Hello World", "alert", JOptionPane.OK_CANCEL_OPTION);
+                        int result = javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null, clientData.joinBoardRequested, "alert", JOptionPane.OK_CANCEL_OPTION);
+                        
+                        clientData.joinBoardRequest = false;
                     }
                 }
                 catch(InterruptedException e)
