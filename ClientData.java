@@ -102,6 +102,7 @@ public class ClientData
 	public static String joinBoardName = "";
 	public static String joinBoardPassword = "";//unused
 	public static String joinBoardRequested = "";
+	public static String joinBoardFrom = "";
 
 	public static boolean joinBoardRequest = false;
 

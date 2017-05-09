@@ -470,7 +470,14 @@ public class ClientNetworkProcess
 						else if(msg.startsWith("$j"))
 						{
 							msg = msg.substring(2);
-							clientData.joinBoardRequested = msg;
+							String[] split = new String[2];
+							split[0] = "";
+							split[1] = "";
+							split = msg.split("=/", -1);
+
+
+							clientData.joinBoardRequested = split[0];
+							clientData.joinBoardFrom = split[1];
 							clientData.joinBoardRequest = true;
 						}
 					}
