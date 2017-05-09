@@ -110,35 +110,11 @@ public class ClientFriendsList
 
                         }
                     }
-                    // if(node.isLeaf())
-                    // {
-                    //     if(node.toString().equals("Online"))
-                    //     {
-
-                    //     }
-                    //     else
-                    //     {
-                    //         System.out.println(node.toString());
-                    //         menu.show(jTree1, e.getX(), e.getY());
-
-                    //     }
-                    // }
-                    // else
-                    // {
-
-                    // }
                 }
             }
         };
         jTree1.addMouseListener(ml);
-
-
-
-
-
-
-
-
+        
         // jTree1.addMouseMotionListener(new java.awt.event.MouseMotionListener()
         // {
         //     public void mouseMoved(java.awt.event.MouseEvent e)
