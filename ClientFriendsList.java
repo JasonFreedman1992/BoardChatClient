@@ -184,29 +184,12 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            java.util.Scanner console = new java.util.Scanner(System.in);
-            String hello = console.nextLine();
+            String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
             StringBuilder s = new StringBuilder();
             s.append(clientData.addFriendCommand);
-            s.append(hello);
+            s.append(friend);
             clientData.output = s.toString();
             clientData.addFriendPressed = true;
-
-
-
-            //
-            // code for opening new board on +
-            //
-            // if(!clientData.boardWindowOpen)
-            // {
-            //     Thread BoardThread = new Thread(new BoardThread());
-            //     BoardThread.start();
-            //     clientData.boardWindowOpen = true;
-            // }
-            // else
-            // {
-                
-            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {

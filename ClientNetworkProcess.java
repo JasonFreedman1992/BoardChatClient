@@ -351,6 +351,8 @@ public class ClientNetworkProcess
 									//
 									// if message still contains another user to parse
 									//
+									clientData.onlineFriends.clear();
+									clientData.offlineFriends.clear();
 									if(msg.contains("=/"))
 									{
 										if(msg.charAt(0)=='0')
