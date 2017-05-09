@@ -157,18 +157,19 @@ public class ClientListWindow extends JFrame
                     {
                         String incMsg = "You have been invited to join " + clientData.joinBoardRequested + " by " + clientData.joinBoardFrom + ", would you like to accept?";
                         int result = javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null, incMsg, "alert", JOptionPane.OK_CANCEL_OPTION);
-                        if(result != 0)
-                        {
-                            // ok
-                            System.out.println("ok");
-                            clientData.boardName = clientData.joinBoardRequested;
-                            clientData.joinBoardPressed = true;
-                        }
-                        else
-                        {
-                            System.out.println("cancel");
-                            // cancel
-                        }
+                        System.out.println(result);
+                        // if(result != 0)
+                        // {
+                        //     // ok
+                        //     System.out.println("ok");
+                        //     clientData.boardName = clientData.joinBoardRequested;
+                        //     clientData.joinBoardPressed = true;
+                        // }
+                        // else
+                        // {
+                        //     System.out.println("cancel");
+                        //     // cancel
+                        // }
                         clientData.joinBoardRequest = false;
                     }
                 }
