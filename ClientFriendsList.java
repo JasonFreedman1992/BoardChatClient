@@ -141,14 +141,17 @@ public class ClientFriendsList
                     int row = jTree2.getClosestRowForLocation(e.getX(), e.getY());
                     jTree2.setSelectionRow(row);
                     javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree2.getLastSelectedPathComponent();
-                    Object nodeInfo = node.getUserObject();
+                    //Object nodeInfo = node.getUserObject();
 
-                    if(node.isLeaf())
+                    if(node != null)
                     {
-                        if(!node.toString().equals("Public"))
+                        if(node.isLeaf())
                         {
-                            System.out.println(node.toString());
-                            boardMenu.show(e.getComponent(), e.getX(), e.getY());
+                            if(!node.toString().equals("Public"))
+                            {
+                                System.out.println(node.toString());
+                                boardMenu.show(e.getComponent(), e.getX(), e.getY());
+                            }
                         }
                     }
                 }
