@@ -35,7 +35,8 @@ public class ClientBoardPanel extends JPanel
         popup = new javax.swing.JPanel();
         popupDraw = new javax.swing.JPanel()
         {
-            public void paintComponent(java.awt.Graphics g) {
+            public void paintComponent(java.awt.Graphics g) 
+            {
                 g.drawImage(popupImage, 0, 0, null);
             }
         };
@@ -115,13 +116,11 @@ public class ClientBoardPanel extends JPanel
                 s.append(clientData.joinBoardNameID);
                 s.append("=/$closing$");
                 clientData.output = s.toString();
-                //clientData.output = "0=/$closing$";
                 clientData.msgPressed = true;
             }
         });
         drawPanel.addMouseMotionListener(new java.awt.event.MouseAdapter()
         {
-            //ClientData clientData = new ClientData();
             public void mouseMoved(java.awt.event.MouseEvent e)
             {
                 clientData.mouseX = e.getX();

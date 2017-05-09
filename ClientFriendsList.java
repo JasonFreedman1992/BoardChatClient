@@ -184,16 +184,29 @@ public class ClientFriendsList
     {
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
-            if(!clientData.boardWindowOpen)
-            {
-                Thread BoardThread = new Thread(new BoardThread());
-                BoardThread.start();
-                clientData.boardWindowOpen = true;
-            }
-            else
-            {
+            java.util.Scanner console = new java.util.Scanner(System.in);
+            String hello = console.nextLine();
+            StringBuilder s = new StringBuilder();
+            s.append(clientData.addFriendCommand);
+            s.append(hello);
+            clientData.output = s.toString();
+            clientData.addFriendPressed = true;
+
+
+
+            //
+            // code for opening new board on +
+            //
+            // if(!clientData.boardWindowOpen)
+            // {
+            //     Thread BoardThread = new Thread(new BoardThread());
+            //     BoardThread.start();
+            //     clientData.boardWindowOpen = true;
+            // }
+            // else
+            // {
                 
-            }
+            // }
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {

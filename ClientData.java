@@ -73,7 +73,7 @@ public class ClientData
 	public static boolean boardClosePressed = false;
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
-
+	public static boolean addFriendPressed = false;
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;

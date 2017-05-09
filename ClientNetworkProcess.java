@@ -484,7 +484,7 @@ public class ClientNetworkProcess
 		ByteBuffer createBoardBuffer;
 		ByteBuffer imgBuffer;
 		ByteBuffer quitBuffer;
-
+		ByteBuffer addFriendBuffer;
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
@@ -602,6 +602,21 @@ public class ClientNetworkProcess
 				socket.write(quitBuffer);
 				quitBuffer.rewind();
 				clientData.boardClosePressed = false;
+			}
+			else
+			{
+
+			}
+			if(clientData.addFriendPressed)
+			{
+				addFriendBuffer = ByteBuffer.wrap(clientData.output.getBytes());
+				socket.write(addFriendBuffer);
+				addFriendBuffer.rewind();
+				clientData.addFriendPressed = false;
+			}
+			else
+			{
+
 			}
 		}
 	}
