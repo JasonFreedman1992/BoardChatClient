@@ -135,6 +135,21 @@ public class ClientListWindow extends JFrame
 
                     if(clientData.newFriends)
                     {
+                        // jTree1.addMouseListener(new java.awt.event.MouseAdapter()
+                        // {
+                        //     public void mouseClicked(java.awt.event.MouseEvent e)
+                        //     {
+                        //         menu.show(jTree1, e.getX(), e.getY());
+                        //     }
+                        //     public void mousePressed(java.awt.event.MouseEvent e)
+                        //     {
+
+                        //     }
+                        //     public void mouseReleased(java.awt.event.MouseEvent e)
+                        //     {
+
+                        //     }
+                        // });
                         javax.swing.tree.DefaultMutableTreeNode online = new javax.swing.tree.DefaultMutableTreeNode("Online");
                         javax.swing.tree.DefaultMutableTreeNode offline = new javax.swing.tree.DefaultMutableTreeNode("Offline");
                         javax.swing.tree.DefaultTreeModel model = (javax.swing.tree.DefaultTreeModel) friendsList.jTree1.getModel();
@@ -146,7 +161,8 @@ public class ClientListWindow extends JFrame
                         {
                             for(int i = 0; i < clientData.onlineFriends.size(); i++)
                             {
-                                online.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineFriends.get(i)));
+                                javax.swing.tree.DefaultMutableTreeNode onlineFriend = new javax.swing.tree.DefaultMutableTreeNode(clientData.onlineFriends.get(i));
+                                online.add(onlineFriend);
                             }
                         }
                         if(!clientData.offlineFriends.isEmpty())

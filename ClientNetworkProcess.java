@@ -341,6 +341,8 @@ public class ClientNetworkProcess
 						else if(msg.startsWith("$o")) // code for returned list of offline and online friends
 						{
 							msg = msg.substring(2);
+							clientData.onlineFriends.clear();
+							clientData.offlineFriends.clear();
 							while(!msg.equals(""))
 							{
 
@@ -351,8 +353,6 @@ public class ClientNetworkProcess
 									//
 									// if message still contains another user to parse
 									//
-									clientData.onlineFriends.clear();
-									clientData.offlineFriends.clear();
 									if(msg.contains("=/"))
 									{
 										if(msg.charAt(0)=='0')

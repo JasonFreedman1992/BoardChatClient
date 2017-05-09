@@ -23,6 +23,9 @@ public class ClientFriendsList
     private javax.swing.JPopupMenu subPopup;
     private javax.swing.JPopupMenu setPopup;
 
+    int mouseX = 0;
+    int mouseY = 0;
+
     // End of variables declaration//GEN-END:variables
 
 	ClientFriendsList(javax.swing.GroupLayout p_layout)
@@ -75,12 +78,112 @@ public class ClientFriendsList
 
         friendsInfoPanel.setBackground(new java.awt.Color(0, 153, 153));
 
+        mouseX = 0;
+        mouseY = 0;
+        javax.swing.JPopupMenu menu = new javax.swing.JPopupMenu();
+        javax.swing.JMenuItem item = new javax.swing.JMenuItem("Add");
+        menu.add(item);
+        
         //
         // jtree1 is for friends, jtree2 is for boards
         //
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree1.setRootVisible(false);
+        jTree1.setRootVisible(false);  
+        java.awt.event.MouseListener ml = new java.awt.event.MouseAdapter() 
+        {
+            public void mousePressed(java.awt.event.MouseEvent e) 
+            {
+                if(javax.swing.SwingUtilities.isRightMouseButton(e))
+                {
+                    int row = jTree1.getClosestRowForLocation(e.getX(), e.getY());
+                    jTree1.setSelectionRow(row);
+                    javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+                    Object nodeInfo = node.getUserObject();
+
+                    if(node.isLeaf())
+                    {
+                        if(!node.toString().equals("Online"))
+                        {
+                            System.out.println(node.toString());
+                            menu.show(e.getComponent(), e.getX(), e.getY());
+
+                        }
+                    }
+                    // if(node.isLeaf())
+                    // {
+                    //     if(node.toString().equals("Online"))
+                    //     {
+
+                    //     }
+                    //     else
+                    //     {
+                    //         System.out.println(node.toString());
+                    //         menu.show(jTree1, e.getX(), e.getY());
+
+                    //     }
+                    // }
+                    // else
+                    // {
+
+                    // }
+                }
+            }
+        };
+        jTree1.addMouseListener(ml);
+
+
+
+
+
+
+
+
+        // jTree1.addMouseMotionListener(new java.awt.event.MouseMotionListener()
+        // {
+        //     public void mouseMoved(java.awt.event.MouseEvent e)
+        //     {
+        //         System.out.println("movement " + e.getX() + " " + e.getY());
+        //         mouseX = e.getX();
+        //         mouseY = e.getY();
+        //     }
+        //     public void mouseDragged(java.awt.event.MouseEvent e)
+        //     {
+
+        //     }
+        // });
+        // jTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
+        // {
+        //     public void valueChanged(javax.swing.event.TreeSelectionEvent e)
+        //     {
+        //         javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+        //         Object nodeInfo = node.getUserObject();
+
+        //         if(node.isLeaf())
+        //         {
+        //             if(node.toString().equals("Online"))
+        //             {
+
+        //             }
+        //             else
+        //             {
+        //                 //java.awt.event.MouseEvent ex = (java.awt.event.MouseEvent) e;
+        //                 if(javax.swing.SwingUtilities.isRightMouseButton(ex))
+        //                 {
+
+        //                 }
+        //                 System.out.println(node.toString());
+        //                 menu.show(jTree1, mouseX, mouseY);
+
+        //             }
+        //         }
+        //         else
+        //         {
+
+        //         }
+        //     }
+        // });
+
         jScrollPane1.setViewportView(jTree1);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("root");
