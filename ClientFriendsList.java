@@ -161,51 +161,6 @@ public class ClientFriendsList
 
         jScrollPane2.setViewportView(jTree2);
 
-        // jTree1.addMouseMotionListener(new java.awt.event.MouseMotionListener()
-        // {
-        //     public void mouseMoved(java.awt.event.MouseEvent e)
-        //     {
-        //         System.out.println("movement " + e.getX() + " " + e.getY());
-        //         mouseX = e.getX();
-        //         mouseY = e.getY();
-        //     }
-        //     public void mouseDragged(java.awt.event.MouseEvent e)
-        //     {
-
-        //     }
-        // });
-        // jTree1.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
-        // {
-        //     public void valueChanged(javax.swing.event.TreeSelectionEvent e)
-        //     {
-        //         javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
-        //         Object nodeInfo = node.getUserObject();
-
-        //         if(node.isLeaf())
-        //         {
-        //             if(node.toString().equals("Online"))
-        //             {
-
-        //             }
-        //             else
-        //             {
-        //                 //java.awt.event.MouseEvent ex = (java.awt.event.MouseEvent) e;
-        //                 if(javax.swing.SwingUtilities.isRightMouseButton(ex))
-        //                 {
-
-        //                 }
-        //                 System.out.println(node.toString());
-        //                 menu.show(jTree1, mouseX, mouseY);
-
-        //             }
-        //         }
-        //         else
-        //         {
-
-        //         }
-        //     }
-        // });
-
         //
         //
         //
@@ -267,36 +222,14 @@ public class ClientFriendsList
                     .addComponent(boardsInfoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(friendsInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(boardsInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        infoPanelLayout.setVerticalGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(infoPanelLayout.createSequentialGroup().addContainerGap().addComponent(friendsInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(boardsInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap()));
 
         //
         //
         //
         javax.swing.GroupLayout layout = p_layout;
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(borderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(borderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(layout.createSequentialGroup().addContainerGap(18, Short.MAX_VALUE).addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(19, Short.MAX_VALUE)));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addComponent(borderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(50, Short.MAX_VALUE)));
 	}
 
 
@@ -312,13 +245,57 @@ public class ClientFriendsList
             addMenu.add(addFriendItem);
             addMenu.add(joinBoardItem);
             addMenu.add(inviteFriendItem);
+            if(!clientData.boardCurrentlyOpen)
+            {
+                inviteFriendItem.setEnabled(false);
+                System.out.println("invite friend to board");
+
+            }
+            if(clientData.boardWindowOpen)
+            {
+                joinBoardItem.setEnabled(false);
+            }
+            
+
+            addFriendItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.addFriendCommand);
+                    s.append(friend);
+                    clientData.output = s.toString();
+                    clientData.addFriendPressed = true;
+                }
+            });
+
+            joinBoardItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    // if(!clientData.boardWindowOpen)
+                    // {
+                        Thread BoardThread;
+                        BoardThread = new Thread(new BoardThread());
+                        BoardThread.start();
+                        clientData.boardWindowOpen = true;
+                    //}
+                }
+            });
+
+            inviteFriendItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    //
+                    // invite friend response commands
+                    //
+                    System.out.println("invite friend");
+                }
+            });
+
             addMenu.show(e.getComponent(), e.getX(), e.getY());
-            // String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
-            // StringBuilder s = new StringBuilder();
-            // s.append(clientData.addFriendCommand);
-            // s.append(friend);
-            // clientData.output = s.toString();
-            // clientData.addFriendPressed = true;
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -346,11 +323,38 @@ public class ClientFriendsList
         public void mouseClicked(java.awt.event.MouseEvent e) 
         {
             javax.swing.JPopupMenu subMenu = new javax.swing.JPopupMenu();
-            javax.swing.JMenuItem subFriendItem = new javax.swing.JMenuItem("Add Friend");
-            javax.swing.JMenuItem exitBoardItem = new javax.swing.JMenuItem("Sub Friend");
+            javax.swing.JMenuItem subFriendItem = new javax.swing.JMenuItem("Remove Friend");
+            javax.swing.JMenuItem exitBoardItem = new javax.swing.JMenuItem("Exit Board");
             subMenu.add(subFriendItem);
             subMenu.add(exitBoardItem);
+            if(!clientData.boardCurrentlyOpen)
+            {
+                exitBoardItem.setEnabled(false);
+            }
             subMenu.show(e.getComponent(), e.getX(), e.getY());
+
+            subFriendItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    //
+                    // remove friend
+                    //
+                    System.out.println("sub friend");
+                }
+            });
+
+            exitBoardItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    System.out.println("exit Board");
+                    //
+                    //
+                    //
+
+                }
+            });
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
         {
@@ -388,6 +392,53 @@ public class ClientFriendsList
             setMenu.add(aboutItem);
             setMenu.add(logoutItem);
             setMenu.add(exitItem);
+
+            if(!clientData.boardCurrentlyOpen)
+            {
+                saveImageItem.setEnabled(false);
+            }
+
+            saveImageItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    System.out.println("save Image");
+                }
+            });
+
+            helpItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    System.out.println("help");
+                }
+            });
+
+            aboutItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    System.out.println("about");
+                }
+            });
+
+            logoutItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+                    System.out.println("logout");
+                }
+            });
+
+            exitItem.addActionListener(new java.awt.event.ActionListener() 
+            {
+                public void actionPerformed(java.awt.event.ActionEvent ev) 
+                {
+
+                    System.out.println("exit");
+                }
+            });
+
             setMenu.show(e.getComponent(), e.getX(), e.getY());
         }
         public void mouseEntered(java.awt.event.MouseEvent e) 
