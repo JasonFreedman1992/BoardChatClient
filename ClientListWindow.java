@@ -101,7 +101,6 @@ public class ClientListWindow extends JFrame
                 try
                 {
                     Thread.sleep(10);
-
                     //
                     // info feed from server about boards and friends data
                     //
@@ -129,7 +128,6 @@ public class ClientListWindow extends JFrame
                                 offline.add(new javax.swing.tree.DefaultMutableTreeNode(clientData.offlineFriends.get(i)));
                             }
                         }
-
                         model.reload(root);
                         clientData.newFriends = false;
                     }
@@ -165,7 +163,7 @@ public class ClientListWindow extends JFrame
                             clientData.boardName = clientData.joinBoardRequested;
                             clientData.joinBoardPressed = true;
                         }
-                        else
+                        else // 2 is cancel
                         {
                             System.out.println("cancel");
                             // cancel

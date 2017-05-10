@@ -15,7 +15,7 @@ public class ClientData
 	public static HashMap<String, Color> usernameToColor = new HashMap<String, Color>();
 
 	public static ArrayList<String[]> chatLog = new ArrayList<String[]>();
-	public static ArrayList<String> onlineFriends = new ArrayList<String>();
+	public static ArrayList<String> onlineFriends = new ArrayList<String>(); // combine lists for total users
 	public static ArrayList<String> offlineFriends = new ArrayList<String>();
 	public static ArrayList<String> onlineBoards = new ArrayList<String>();
 
@@ -24,6 +24,7 @@ public class ClientData
 	public final String cBrdCommand = "/1z=cbrd";
 	public final String jBrdCommand = "/1z=jbrd";
 	public final String addFriendCommand = "/1z=addf";
+	public final String subFriendCommand = "/1z=subf";
 	public final String addtoBoardCommand = "/1z=addb";
 	public final String msgCommand = "/1z=msg";
 	public final String imgCommand = "/1z=img";
@@ -75,6 +76,7 @@ public class ClientData
 	public static boolean joinBoardPressed = false;
 	public static boolean createBoardPressed = false;
 	public static boolean addFriendPressed = false;
+	public static boolean removeFriendPressed = false;
 	public static boolean loginPressed = false;
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;

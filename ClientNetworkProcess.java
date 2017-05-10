@@ -481,8 +481,6 @@ public class ClientNetworkProcess
 							split[0] = "";
 							split[1] = "";
 							split = msg.split("=/", -1);
-
-
 							clientData.joinBoardRequested = split[0];
 							clientData.joinBoardFrom = split[1];
 							clientData.joinBoardRequest = true;
@@ -505,6 +503,7 @@ public class ClientNetworkProcess
 		ByteBuffer quitBuffer;
 		ByteBuffer addFriendBuffer;
 		ByteBuffer addBoardBuffer;
+		ByteBuffer removeFriendBuffer;
 
 		void handleWrite(SelectionKey key) throws IOException, InterruptedException
 		{
@@ -648,6 +647,13 @@ public class ClientNetworkProcess
 			else
 			{
 
+			}
+			if(clientData.removeFriendPressed)
+			{
+				removeFriendBuffer = ByteBuffer.wrap(clientData.output.getBytes());
+				socket.write(removeFriendBuffer);
+				removeFriendBuffer.rewind();
+				clientData.removeFriendPressed = false;
 			}
 		}
 	}

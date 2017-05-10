@@ -288,7 +288,7 @@ public class ClientFriendsList
                     //
                     // invite friend response commands
                     //
-                    String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add: ");
+                    String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Invite: ");
                     StringBuilder s = new StringBuilder();
                     s.append(clientData.addtoBoardCommand);
                     s.append(friend);
@@ -342,7 +342,22 @@ public class ClientFriendsList
                     //
                     // remove friend
                     //
+                    String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Remove:");
+
+                    //
+                    // add info for checking if friend exists
+                    //
                     System.out.println("sub friend");
+                    StringBuilder s = new StringBuilder();
+                    s.append(clientData.subFriendCommand);
+                    s.append(friend);
+
+
+                    clientData.output = s.toString();
+
+
+
+                    clientData.removeFriendPressed = true;
                 }
             });
 
@@ -351,6 +366,11 @@ public class ClientFriendsList
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
                     System.out.println("exit Board");
+                    clientData.usersInBoard.clear();
+                    
+                    clientData.boardClosePressed = true;
+                    clientData.boardWindowOpen = false;
+                    clientData.boardCurrentlyOpen = false;
                     //
                     //
                     //

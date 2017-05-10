@@ -141,6 +141,7 @@ public class ClientBoardWindow extends JFrame
 
 			}
 		}
+		this.dispose();
 	}
 	private boolean checkClientNewMouse()
 	{
