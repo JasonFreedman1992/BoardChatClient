@@ -81,6 +81,9 @@ public class ClientData
 	public static boolean createPressed = false;
 	public static boolean msgPressed = false;
 	public static boolean imgPressed = false;
+
+	public static boolean saveImgPressed = false;
+
 	public static boolean imgInc = false;
 	public static boolean clearDraw = false;
 	public static boolean mousePressed = false;

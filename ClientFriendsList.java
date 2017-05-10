@@ -351,12 +351,7 @@ public class ClientFriendsList
                     StringBuilder s = new StringBuilder();
                     s.append(clientData.subFriendCommand);
                     s.append(friend);
-
-
                     clientData.output = s.toString();
-
-
-
                     clientData.removeFriendPressed = true;
                 }
             });
@@ -371,9 +366,6 @@ public class ClientFriendsList
                     clientData.boardClosePressed = true;
                     clientData.boardWindowOpen = false;
                     clientData.boardCurrentlyOpen = false;
-                    //
-                    //
-                    //
 
                 }
             });
@@ -405,12 +397,10 @@ public class ClientFriendsList
         {
             javax.swing.JPopupMenu setMenu = new javax.swing.JPopupMenu();
             javax.swing.JMenuItem saveImageItem = new javax.swing.JMenuItem("Save Image");
-            javax.swing.JMenuItem helpItem = new javax.swing.JMenuItem("Help");
             javax.swing.JMenuItem aboutItem = new javax.swing.JMenuItem("About");
             javax.swing.JMenuItem logoutItem = new javax.swing.JMenuItem("Log Out");
             javax.swing.JMenuItem exitItem = new javax.swing.JMenuItem("Exit");
             setMenu.add(saveImageItem);
-            setMenu.add(helpItem);
             setMenu.add(aboutItem);
             setMenu.add(logoutItem);
             setMenu.add(exitItem);
@@ -424,15 +414,11 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
+                    clientData.saveImgPressed = true;
+                    //
+                    // write dialogue where image saving happens.
+                    //
                     System.out.println("save Image");
-                }
-            });
-
-            helpItem.addActionListener(new java.awt.event.ActionListener() 
-            {
-                public void actionPerformed(java.awt.event.ActionEvent ev) 
-                {
-                    System.out.println("help");
                 }
             });
 
@@ -440,6 +426,7 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
+                    javax.swing.JOptionPane.showMessageDialog(null, "Developed in April and May 2017 by Software Engineer Jason Freedman. \nTo find out more, please visit www.jasonfreedmancode.com");
                     System.out.println("about");
                 }
             });
@@ -457,7 +444,7 @@ public class ClientFriendsList
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
 
-                    System.out.println("exit");
+                    System.exit(0);
                 }
             });
 
