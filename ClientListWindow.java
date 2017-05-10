@@ -24,7 +24,6 @@ public class ClientListWindow extends JFrame
 
         public void windowClosing(WindowEvent e)
         {
-            System.out.println("closing reached");
             try
             {
                 if(clientData.boardCurrentlyOpen)
@@ -181,7 +180,17 @@ public class ClientListWindow extends JFrame
             //
             // 
             //
+            this.dispose();
+                    try
+                    {
+                        clientData.networkRunning = true;
+                        ClientListWindow win = new ClientListWindow();
+                        win.init(280,750);
+                    }
+                    catch(java.io.IOException f)
+                    {
 
+                    }
             
         }
         else

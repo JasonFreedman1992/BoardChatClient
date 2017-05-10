@@ -7,6 +7,7 @@ import java.awt.Color;
 
 public class ClientData
 {
+	public static boolean networkRunning = true;
 	public static HashMap<String, int[]> usernameToXY = new HashMap<String, int[]>();
 	public static HashMap<String, int[]> usernameToPreXY = new HashMap<String, int[]>();
 	public static HashMap<String, Boolean> usernameTofirstInc = new HashMap<String, Boolean>();

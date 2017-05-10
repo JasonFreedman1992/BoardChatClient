@@ -35,7 +35,7 @@ public class ClientNetworkProcess
 		//
 		public void run()
 		{
-			while(true)
+			while(clientData.networkRunning)
 			{
 				try
 				{
@@ -77,6 +77,14 @@ public class ClientNetworkProcess
 				{
 
 				}
+			}
+			try
+			{
+				socket.close();
+			}
+			catch(IOException f)
+			{
+				
 			}
 		}
 		
