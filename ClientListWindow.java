@@ -24,6 +24,7 @@ public class ClientListWindow extends JFrame
 
         public void windowClosing(WindowEvent e)
         {
+            System.out.println("closing reached");
             try
             {
                 if(clientData.boardCurrentlyOpen)
