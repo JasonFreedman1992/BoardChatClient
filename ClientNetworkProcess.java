@@ -571,7 +571,6 @@ public class ClientNetworkProcess
 			}
 			if(clientData.joinBoardPressed)
 			{
-				System.out.println("start joinboardpress");
 				StringBuilder s = new StringBuilder();
 				s.append(clientData.jBrdCommand);
 				s.append(clientData.boardName);
@@ -580,7 +579,6 @@ public class ClientNetworkProcess
 				socket.write(joinBoardBuffer);
 				joinBoardBuffer.rewind();
 				clientData.joinBoardPressed = false;
-				System.out.println("end joinboardpress");
 			}
 			else
 			{
