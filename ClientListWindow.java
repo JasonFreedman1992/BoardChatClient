@@ -181,16 +181,18 @@ public class ClientListWindow extends JFrame
             // 
             //
             this.dispose();
-                    try
-                    {
-                        clientData.networkRunning = true;
-                        ClientListWindow win = new ClientListWindow();
-                        win.init(280,750);
-                    }
-                    catch(java.io.IOException f)
-                    {
+            try
+            {
+                Thread.sleep(200);
+                clientData.networkRunning = true;
+                ClientListWindow win = new ClientListWindow();
+                win.init(280,750);
+            }
+            catch(Exception f)
+            {
 
-                    }
+            }
+
             
         }
         else
