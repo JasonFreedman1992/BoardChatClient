@@ -110,7 +110,7 @@ public class DrawPanel extends JPanel
             }
             catch(IOException f)
             {
-                
+
             }
             clientData.saveImgPressed = false;
         }
@@ -120,11 +120,6 @@ public class DrawPanel extends JPanel
 
     public void save() throws IOException
     {
-        ImageIO.write(paintImage, "PNG", new File("hello.png"));
-    }
-
-    public void load() throws IOException
-    {
-        paintImage = ImageIO.read(new File("hello.png"));
+        ImageIO.write(paintImage, "PNG", new File("Board.png"));
     }
 }

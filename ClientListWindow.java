@@ -159,6 +159,7 @@ public class ClientListWindow extends JFrame
                         if(result == 0)
                         {
                             // ok
+                            // remember to add password functions
                             System.out.println("ok");
                             clientData.boardName = clientData.joinBoardRequested;
                             clientData.joinBoardPressed = true;

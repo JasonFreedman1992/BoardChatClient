@@ -82,6 +82,34 @@ public class ClientFriendsList
         friendMenu.add(inviteItem);
         friendMenu.add(removeItem);
         
+        inviteItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent ev)
+            {
+                javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+                String friend = node.toString();
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.addtoBoardCommand);
+                s.append(friend);
+                clientData.output = s.toString();
+                clientData.inviteBoardPressed = true; 
+            }
+        });
+
+        removeItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent ev)
+            {
+                javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+                String friend = node.toString();
+                StringBuilder s = new StringBuilder();
+                s.append(clientData.subFriendCommand);
+                s.append(friend);
+                clientData.output = s.toString();
+                clientData.removeFriendPressed = true;
+            }
+        });
+
         //
         // jtree1 is for friends, jtree2 is for boards
         //
@@ -103,7 +131,7 @@ public class ClientFriendsList
                     {
                         if(!node.toString().equals("Online") && !node.toString().equals("Offline"))
                         {
-                            if(node.getParent().toString().equals("Online"))
+                            if(node.getParent().toString().equals("Online") && clientData.boardCurrentlyOpen)
                             {
                                 inviteItem.setEnabled(true);
                                 friendMenu.show(e.getComponent(), e.getX(), e.getY());
@@ -124,9 +152,17 @@ public class ClientFriendsList
 
         javax.swing.JPopupMenu boardMenu = new javax.swing.JPopupMenu();
         javax.swing.JMenuItem joinItem = new javax.swing.JMenuItem("Join");
-        javax.swing.JMenuItem infoItem = new javax.swing.JMenuItem("Information");
         boardMenu.add(joinItem);
-        boardMenu.add(infoItem);
+
+        joinItem.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent ev)
+            {
+                javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree2.getLastSelectedPathComponent();
+                clientData.boardName = node.toString();
+                clientData.joinBoardPressed = true;
+            }
+        });
 
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("root");
         jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode2));
