@@ -435,11 +435,14 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
-                    clientData.boardClosePressed = true;
+                    if(clientData.boardCurrentlyOpen)
+                    {
+                        clientData.boardCurrentlyOpen = false;
+                        clientData.boardClosePressed = true;
+                    }
                     clientData.onlineBoards.clear();
                     clientData.loginSuccess = false;
                     clientData.boardWindowOpen = false;
-                    clientData.boardCurrentlyOpen = false;
                     
                     clientData.usersInBoard.clear();
                     clientData.onlineFriends.clear();
