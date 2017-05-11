@@ -86,7 +86,6 @@ public class DrawPanel extends JPanel
                     }
                 }
             }
-
         }
         if(clientData.newClick)
         {
@@ -102,6 +101,18 @@ public class DrawPanel extends JPanel
             g.setColor(Color.white);
             g.fillRect(0,0,width,height);
             firstDraw = false;
+        }
+        if(clientData.saveImgPressed)
+        {
+            try
+            {
+                save();
+            }
+            catch(IOException f)
+            {
+                
+            }
+            clientData.saveImgPressed = false;
         }
         repaint();
     }
