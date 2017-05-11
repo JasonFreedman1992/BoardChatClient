@@ -435,16 +435,21 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
+                    clientData.boardClosePressed = true;
                     clientData.onlineBoards.clear();
                     clientData.loginSuccess = false;
                     clientData.boardWindowOpen = false;
                     clientData.boardCurrentlyOpen = false;
-                    clientData.networkRunning = false;
+                    
                     clientData.usersInBoard.clear();
                     clientData.onlineFriends.clear();
                     clientData.offlineFriends.clear();
                     clientData.loginSuccess = false;
+                    while(clientData.boardClosePressed)
+                    {
 
+                    }
+                    clientData.networkRunning = false;
                     System.out.println("logout");
                 }
             });
