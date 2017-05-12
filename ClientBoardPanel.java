@@ -144,15 +144,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(255, 51, 51);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout redLayout = new javax.swing.GroupLayout(red);
@@ -172,15 +163,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(255, 153, 0);
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
             }
         });
 
@@ -203,15 +185,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(255, 255, 51);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout yellowLayout = new javax.swing.GroupLayout(yellow);
@@ -232,15 +205,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(153, 255, 102);
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
             }
         });
 
@@ -264,15 +228,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(0, 204, 255);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout lightBlueLayout = new javax.swing.GroupLayout(lightBlue);
@@ -295,15 +250,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(0, 51, 255);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout blueLayout = new javax.swing.GroupLayout(blue);
@@ -324,15 +270,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(102, 0, 153);
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
             }
         });
 
@@ -355,15 +292,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(255, 102, 204);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout pinkLayout = new javax.swing.GroupLayout(pink);
@@ -385,15 +313,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(0, 0, 0);
             }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
-            }
         });
 
         javax.swing.GroupLayout blackLayout = new javax.swing.GroupLayout(black);
@@ -414,15 +333,6 @@ public class ClientBoardPanel extends JPanel
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
                 clientData.currentColor = new java.awt.Color(255, 255, 255);
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("pressed red");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                //System.out.println("released red");
             }
         });
 
@@ -448,15 +358,6 @@ public class ClientBoardPanel extends JPanel
                 s.append("=/$clear$");
                 clientData.output = s.toString();
                 clientData.msgPressed = true;
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                System.out.println("pressed clear");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                System.out.println("released clear");
             }
         });
 
@@ -487,15 +388,6 @@ public class ClientBoardPanel extends JPanel
                     clientData.msgPressed = true;
                     chatSend.setText("");
                 }
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-               // System.out.println("pressed send");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-               // System.out.println("released send");
             }
         });
 
@@ -552,15 +444,6 @@ public class ClientBoardPanel extends JPanel
                     popupOn = false;
                 }
                 
-            }
-            public void mousePressed(java.awt.event.MouseEvent e)
-            {
-                System.out.println("pressed info");
-            }
-
-            public void mouseReleased(java.awt.event.MouseEvent e)
-            {
-                System.out.println("released info");
             }
         });
 
