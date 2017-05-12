@@ -579,7 +579,6 @@ public class ClientNetworkProcess
 				{
 					s.append("=/");
 					s.append(clientData.boardPassword);
-					clientData.boardPassword = "";
 				}
 				String s0 = s.toString();
 				createBoardBuffer = ByteBuffer.wrap(s0.getBytes());
