@@ -70,7 +70,6 @@ public class ClientBoardWindow extends JFrame
 	//
 	// public void paint(Graphics g)
 	// {	
-	// 	System.out.println("frame paint");
 	// 	super.paint(g);
 	// }
 	public void init(int p_width, int p_height)
@@ -96,7 +95,6 @@ public class ClientBoardWindow extends JFrame
 				Thread.sleep(10);
 				if(clientData.joinBoardSuccess)
 				{
-					System.out.println("clientdata.joinBoardSuccess!!!!");
 					setTitle(clientData.boardName);
 					clientData.joinBoardSuccess = false;
 					remove(startPanel);

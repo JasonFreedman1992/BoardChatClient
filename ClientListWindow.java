@@ -155,18 +155,15 @@ public class ClientListWindow extends JFrame
                     {
                         String incMsg = "You have been invited to join " + clientData.joinBoardRequested + " by " + clientData.joinBoardFrom + ", would you like to accept?";
                         int result = javax.swing.JOptionPane.showConfirmDialog((java.awt.Component) null, incMsg, "alert", JOptionPane.OK_CANCEL_OPTION);
-                        System.out.println(result);
                         if(result == 0)
                         {
                             // ok
                             // remember to add password functions
-                            System.out.println("ok");
                             clientData.boardName = clientData.joinBoardRequested;
                             clientData.joinBoardPressed = true;
                         }
                         else // 2 is cancel
                         {
-                            System.out.println("cancel");
                             // cancel
                         }
                         clientData.joinBoardRequest = false;
@@ -176,7 +173,6 @@ public class ClientListWindow extends JFrame
                 {
 
                 }
-                //System.out.println("logged in loop");
             }
             //
             // 
@@ -199,7 +195,6 @@ public class ClientListWindow extends JFrame
         else
         {
             setVisible(true);
-            System.out.println("Unsuccessful Connection to server!");
             JOptionPane.showMessageDialog(null, "Sorry! Servers are under Maintenance right now.");
         }
     }

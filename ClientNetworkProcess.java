@@ -90,7 +90,6 @@ public class ClientNetworkProcess
 		
 		void handleRead(SelectionKey key) throws IOException
 		{
-			System.out.println("reading");
 			SocketChannel ch = (SocketChannel) key.channel();
 			StringBuilder sb = new StringBuilder();
 			int read = 0;
@@ -99,7 +98,6 @@ public class ClientNetworkProcess
 			{
 				buffer.flip();
 				bytes = new byte[buffer.limit()];
-				//System.out.println(bytes[0]);
 				buffer.get(bytes);
 				buffer.rewind();
 				sb.append(new String(bytes));
@@ -144,10 +142,6 @@ public class ClientNetworkProcess
 							clientData.incMouseY = Integer.parseInt(split1[1]);
 							clientData.usernameToXY.put(boardFrom, new int[]{clientData.incMouseX, clientData.incMouseY});
 							clientData.usernameTonewMouse.put(boardFrom, true);
-							for(int i = 0; i < 2; i++)
-							{
-								System.out.println("usernameToXY #" + i + " " + clientData.usernameToXY.get(boardFrom)[i]);
-							}
 						}
 						catch(NumberFormatException f)
 						{
@@ -257,7 +251,6 @@ public class ClientNetworkProcess
 					else if(type.startsWith("resp"))
 					{
 						msg = type.substring(4);
-						//System.out.println("in resp");
 						if(msg.equals("Password matches the Username."))
 						{
 							clientData.loginSuccess = true;
@@ -289,7 +282,6 @@ public class ClientNetworkProcess
                     			BoardThread = new Thread(new BoardThread());
                     			BoardThread.start();
 							}
-							System.out.println("join board success true");
 							try{Thread.sleep(100);}catch(InterruptedException f){}
 							clientData.joinBoardSuccess = true;
 							msg = "";
@@ -311,13 +303,11 @@ public class ClientNetworkProcess
 						{
 							clientData.usersInBoard.clear();
 							msg = msg.substring(2);
-							System.out.println("1: " + msg);
 							while(!msg.equals(""))
 							{
 								if(msg.startsWith("=/"))
 								{
 									msg = msg.substring(2);
-									System.out.println("2: " + msg);
 									if(msg.contains("=/")) // get new user from in between delimiters
 									{
 										String user = msg.substring(0, msg.indexOf("=/"));
@@ -329,7 +319,6 @@ public class ClientNetworkProcess
 										clientData.usernameToPreXY.put(user, new int[2]);clientData.usernameToPreXY.get(user)[0] = 0;clientData.usernameToPreXY.get(user)[1] = 0;										
 										clientData.usernameTofirstInc.put(user, true);
 										msg = msg.substring(msg.indexOf("=/"));
-										System.out.println("3: " + msg);
 									}
 									else // last person at end of string being parsed
 									{
@@ -345,7 +334,7 @@ public class ClientNetworkProcess
 								}
 								else
 								{
-									System.out.println("Error in packets for People in Board");
+
 								}
 							}
 							clientData.incUser = true;
@@ -382,7 +371,6 @@ public class ClientNetworkProcess
 											clientData.offlineFriends.add(user);
 											msg = msg.substring(msg.indexOf("=/"));
 
-											System.out.println("found an offie!");
 										}
 										else
 										{
@@ -390,7 +378,6 @@ public class ClientNetworkProcess
 											String user = msg.substring(0, msg.indexOf("=/"));
 											clientData.onlineFriends.add(user);
 											msg = msg.substring(msg.indexOf("=/"));
-											System.out.println("found an onnie!");
 										}
 									}
 									//
@@ -403,7 +390,6 @@ public class ClientNetworkProcess
 											msg = msg.substring(1);
 											clientData.offlineFriends.add(msg);
 											msg = "";
-											System.out.println("last ones an offie!");
 											clientData.newFriends = true;
 										}
 										else
@@ -411,14 +397,13 @@ public class ClientNetworkProcess
 											msg = msg.substring(1);
 											clientData.onlineFriends.add(msg);
 											msg = "";
-											System.out.println("last ones an onnie!");
 											clientData.newFriends = true;
 										}
 									}
 								}
 								else
 								{
-									//System.out.println("Error in packets for Online Friends");
+
 								}
 							}
 						}
@@ -626,7 +611,6 @@ public class ClientNetworkProcess
 				s0 = String.valueOf(clientData.mouseY);
 				s.append(s0);
 				String s1 = s.toString();
-				System.out.println("sending " + s1);
 				Thread.sleep(100);
 				imgBuffer = ByteBuffer.wrap(s1.getBytes());
 				socket.write(imgBuffer);

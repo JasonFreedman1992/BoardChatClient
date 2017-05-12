@@ -126,7 +126,6 @@ public class ClientFriendsList
                     jTree1.setSelectionRow(row);
                     javax.swing.tree.DefaultMutableTreeNode node = (javax.swing.tree.DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
                     Object nodeInfo = node.getUserObject();
-                    System.out.println(node.getParent());
                     if(node.isLeaf())
                     {
                         if(!node.toString().equals("Online") && !node.toString().equals("Offline"))
@@ -185,7 +184,6 @@ public class ClientFriendsList
                         {
                             if(!node.toString().equals("Public"))
                             {
-                                System.out.println(node.toString());
                                 boardMenu.show(e.getComponent(), e.getX(), e.getY());
                             }
                         }
@@ -284,7 +282,6 @@ public class ClientFriendsList
             if(!clientData.boardCurrentlyOpen)
             {
                 inviteFriendItem.setEnabled(false);
-                System.out.println("invite friend to board");
 
             }
             if(clientData.boardWindowOpen)
@@ -386,7 +383,6 @@ public class ClientFriendsList
                     //
                     // add info for checking if friend exists
                     //
-                    System.out.println("sub friend");
                     StringBuilder s = new StringBuilder();
                     s.append(clientData.subFriendCommand);
                     s.append(friend);
@@ -399,7 +395,6 @@ public class ClientFriendsList
             {
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
-                    System.out.println("exit Board");
                     clientData.usersInBoard.clear();
                     
                     clientData.boardClosePressed = true;
@@ -457,7 +452,6 @@ public class ClientFriendsList
                     //
                     // write dialogue where image saving happens.
                     //
-                    System.out.println("save Image");
                 }
             });
 
@@ -466,7 +460,6 @@ public class ClientFriendsList
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
                     javax.swing.JOptionPane.showMessageDialog(null, "Developed in April and May 2017 by Software Engineer Jason Freedman. \nTo find out more, please visit www.jasonfreedmancode.com");
-                    System.out.println("about");
                 }
             });
 
@@ -492,7 +485,6 @@ public class ClientFriendsList
 
                     }
                     clientData.networkRunning = false;
-                    System.out.println("logout");
                 }
             });
 
