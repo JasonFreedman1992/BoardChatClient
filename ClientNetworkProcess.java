@@ -596,6 +596,12 @@ public class ClientNetworkProcess
 				StringBuilder s = new StringBuilder();
 				s.append(clientData.jBrdCommand);
 				s.append(clientData.boardName);
+				if(!clientData.boardPassword.equals(""))
+				{
+					s.append("=/");
+					s.append(clientData.boardPassword);
+					clientData.boardPassword = "";
+				}
 				String s0 = s.toString();
 				joinBoardBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(joinBoardBuffer);
