@@ -262,6 +262,10 @@ public class ClientNetworkProcess
 						{
 							clientData.loginSuccess = true;
 						}
+						else if(msg.equals("Board is Private"))
+						{
+							javax.swing.JOptionPane.showMessageDialog(null, "Board is Private.");
+						}
 						else if(msg.equals("Username not found."))
 						{
 							clientData.loginResult = "No User Found";
@@ -271,6 +275,10 @@ public class ClientNetworkProcess
 						{
 							clientData.loginResult = "Wrong Password";
 							clientData.loginSuccess = false;
+						}
+						else if(msg.equals("Wrong Password"))
+						{
+							javax.swing.JOptionPane.showMessageDialog(null, "Wrong Password.");
 						}
 						else if(msg.equals("Board Found"))
 						{
@@ -567,6 +575,12 @@ public class ClientNetworkProcess
 				StringBuilder s = new StringBuilder();
 				s.append(clientData.cBrdCommand);
 				s.append(clientData.boardName);
+				if(!clientData.boardPassword.equals(""))
+				{
+					s.append("=/");
+					s.append(clientData.boardPassword);
+					clientData.boardPassword = "";
+				}
 				String s0 = s.toString();
 				createBoardBuffer = ByteBuffer.wrap(s0.getBytes());
 				socket.write(createBoardBuffer);

@@ -298,11 +298,14 @@ public class ClientFriendsList
                 public void actionPerformed(java.awt.event.ActionEvent ev) 
                 {
                     String friend = javax.swing.JOptionPane.showInputDialog("Enter the Friend you would like to Add:");
-                    StringBuilder s = new StringBuilder();
-                    s.append(clientData.addFriendCommand);
-                    s.append(friend);
-                    clientData.output = s.toString();
-                    clientData.addFriendPressed = true;
+                    if(!clientData.onlineFriends.contains(friend) && !clientData.offlineFriends.contains(friend))
+                    {
+                        StringBuilder s = new StringBuilder();
+                        s.append(clientData.addFriendCommand);
+                        s.append(friend);
+                        clientData.output = s.toString();
+                        clientData.addFriendPressed = true;
+                    }
                 }
             });
 
