@@ -7,7 +7,7 @@ public class initConnection
 {
 	public SocketChannel socket;
 	public boolean success = false;
-	InetSocketAddress serverAddress = new InetSocketAddress("54.70.172.148", 49152);
+	InetSocketAddress serverAddress = new InetSocketAddress("35.203.148.186", 49152);
 	public initConnection() throws IOException
 	{
     	try
